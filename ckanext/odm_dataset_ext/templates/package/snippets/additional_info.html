@@ -1,0 +1,196 @@
+{% ckan_extends %}
+
+{% block extras %}
+  {% if pkg_dict.CI_citation_title %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Title") }}</th>
+      <td class="dataset-details">{{ pkg_dict.CI_citation_title }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.MD_dataidentification_abstract %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Abstract") }}</th>
+      <td class="dataset-details">{{ pkg_dict.MD_dataidentification_abstract }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.MD_dataidentification_topicCategory %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Dataset topic category") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_dataidentification_topicCategory }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_dataidentification_keywords %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("GEMET controlled keywords") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_dataidentification_keywords }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.CI_citation_identAuth %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Identifier code") }}</th>
+    <td class="dataset-details">{{ pkg_dict.CI_citation_identAuth }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_dataidentification_language %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Language") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_dataidentification_language }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_constraints %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Use limitations") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_dataidentification_topicCategory }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_legalConstraints %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Limitations on public access") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_dataidentification_keywords }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.CI_ResponsibleParty %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Organisation Name") }}</th>
+    <td class="dataset-details">{{ pkg_dict.CI_ResponsibleParty }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_format_version %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Format Version") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_format_version }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.CI_Citation_date %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Dataset reference date") }}</th>
+    <td class="dataset-details">{{ pkg_dict.CI_Citation_date }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_metadata_dateStamp %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Date Created") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_metadata_dateStamp }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.CI_citation_lastRevision %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Date of last revision") }}</th>
+    <td class="dataset-details">{{ pkg_dict.CI_citation_lastRevision }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.CI_citation_updatefreq %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Update frequency") }}</th>
+    <td class="dataset-details">{{ pkg_dict.CI_citation_updatefreq }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.Ex_TemporalExtent_startdate %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Temporal extent start date") }}</th>
+    <td class="dataset-details">{{ pkg_dict.Ex_TemporalExtent_startdate }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.Ex_TemporalExtent_enddate %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Temporal extent end date") }}</th>
+    <td class="dataset-details">{{ pkg_dict.Ex_TemporalExtent_enddate }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.Ex_geoname %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Geonames") }}</th>
+    <td class="dataset-details">{{ pkg_dict.Ex_geoname }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.EX_GeographicBoundingBox_west %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("West bounding coordinates") }}</th>
+    <td class="dataset-details">{{ pkg_dict.EX_GeographicBoundingBox_west }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.EX_GeographicBoundingBox_east %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("East bounding coordinates") }}</th>
+    <td class="dataset-details">{{ pkg_dict.EX_GeographicBoundingBox_east }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.EX_GeographicBoundingBox_south %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("South bounding coordinates") }}</th>
+    <td class="dataset-details">{{ pkg_dict.EX_GeographicBoundingBox_south }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.EX_GeographicBoundingBox_north %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("North bounding coordinates") }}</th>
+    <td class="dataset-details">{{ pkg_dict.EX_GeographicBoundingBox_north }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_DataIdentification_spatialResolution %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Spatial Resolution") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_DataIdentification_spatialResolution }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.MD_dataidentification_spatialreferencesystem %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Spatial Reference System") }}</th>
+    <td class="dataset-details">{{ pkg_dict.MD_dataidentification_spatialreferencesystem }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.DQ_PositionalAccuracy %}
+  <tr>
+    <th scope="row" class="dataset-label">{{ _("Positional Accuracy") }}</th>
+    <td class="dataset-details">{{ pkg_dict.DQ_PositionalAccuracy }}</td>
+  </tr>
+  {% endif %}
+  {% if pkg_dict.DQ_QuantitativeAttribute %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Attribute Accuracy") }}</th>
+      <td class="dataset-details">{{ pkg_dict.DQ_QuantitativeAttribute }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.DQ_logicalConsistency %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Logical Consistency") }}</th>
+      <td class="dataset-details">{{ pkg_dict.DQ_logicalConsistency }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.DQ_completeness %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Completeness") }}</th>
+      <td class="dataset-details">{{ pkg_dict.DQ_completeness }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.LI_ProcessStep %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Process Step") }}</th>
+      <td class="dataset-details">{{ pkg_dict.LI_ProcessStep }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.LI_Lineage %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Lineage") }}</th>
+      <td class="dataset-details">{{ pkg_dict.LI_Lineage }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.CI_ResponsibleParty_contact %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Responsible Party Contact") }}</th>
+      <td class="dataset-details">{{ pkg_dict.CI_ResponsibleParty_contact }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.MD_metadata_contact %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Metadata Creator Information") }}</th>
+      <td class="dataset-details">{{ pkg_dict.MD_metadata_contact }}</td>
+    </tr>
+  {% endif %}
+  {% if pkg_dict.MD_scopeDescription_attributes %}
+    <tr>
+      <th scope="row" class="dataset-label">{{ _("Attributes") }}</th>
+      <td class="dataset-details">{{ pkg_dict.MD_scopeDescription_attributes }}</td>
+    </tr>
+  {% endif %}
+{% endblock %}

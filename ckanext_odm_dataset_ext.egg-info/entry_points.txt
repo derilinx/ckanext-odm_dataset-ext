@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        odm_dataset_ext=ckanext.odm_dataset_ext.plugin:Odm_Dataset_ExtPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    
