@@ -1,0 +1,15 @@
+.disclaimer{
+	padding: 20px;
+	font-size: 14px;
+	color: #FF0000;
+	border-bottom: 1px solid #CCC;
+}
+
+.select2-disabled{
+	text-decoration: line-through;
+	color: #CCCCCC;
+}
+
+.hidden{
+	visibility: hidden;
+}
