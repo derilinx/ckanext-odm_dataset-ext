@@ -39,12 +39,6 @@ def create_default_issue_dataset(pkg_info):
 
 		log.error("Action 'issue_create' not found. Please make sure that ckanext-issues plugin is installed.")
 
-def last_dataset():
-	''' Returns the last dataset info stored in session'''
-	if 'last_dataset' in session:
-		return session['last_dataset']
-
-	return None
 
 def clean_taxonomy_tags(value):
 	'''Cleans taxonomy field before storing it'''

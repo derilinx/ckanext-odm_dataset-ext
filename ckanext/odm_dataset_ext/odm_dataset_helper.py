@@ -322,5 +322,3 @@ def detail_page_url(pkg):
 	if not detail_page_url:
 		return None
 	return detail_page_url + "?id=" + pkg["name"]
-
-session = {}

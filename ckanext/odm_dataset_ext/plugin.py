@@ -55,7 +55,6 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         return {
             'odm_dataset_get_current_time': odm_dataset_helper.get_current_time,
             'odm_dataset_get_localized_tag': odm_dataset_helper.get_localized_tag,
-            'odm_dataset_last_dataset': odm_dataset_helper.last_dataset,
             'odm_dataset_get_current_language': odm_dataset_helper.get_current_language,
             'odm_dataset_retrieve_taxonomy_from_tags': odm_dataset_helper.retrieve_taxonomy_from_tags,
             'odm_dataset_convert_to_multilingual': odm_dataset_helper.convert_to_multilingual,
@@ -72,13 +71,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
     def before_create(self, context, resource):
 
         dataset_type = context['package'].type if 'package' in context else ''
-    	if dataset_type == 'dataset':
-      	    log.info('before_create')
-
-            try:
-                odm_dataset_helper.session['last_dataset'] = None
-                odm_dataset_helper.session.save()
-            except TypeError: pass
+        if dataset_type == 'dataset':
+            log.info('before_create')
 
     def after_create(self, context, pkg_dict):
 
@@ -86,23 +80,12 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         if dataset_type == 'dataset':
             log.info('after_create: %s', pkg_dict['name'])
 
-            try:
-                odm_dataset_helper.session['last_dataset'] = pkg_dict
-                odm_dataset_helper.session.save()
-            except TypeError: pass
 
     def after_update(self, context, pkg_dict):
 
         dataset_type = context['package'].type if 'package' in context else pkg_dict['type']
         if dataset_type == 'dataset':
             log.info('after_update: %s', pkg_dict['name'])
-
-            try:
-                odm_dataset_helper.session['last_dataset'] = pkg_dict
-                odm_dataset_helper.session.save()
-            except TypeError: pass
-
-
 
 
 
