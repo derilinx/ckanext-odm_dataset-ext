@@ -29,12 +29,10 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
 
-
     #  IValidators
     def get_validators(self):
 
         log.error("get_validators")
-
         return {
             'odm_dataset_if_empty_new_id': odm_dataset_helper.if_empty_new_id,
             'odm_dataset_urlencode': odm_dataset_helper.urlencode,
@@ -229,6 +227,3 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         # This plugin doesn't handle any special package types, it just
         # registers itself as the default (above).
         return []
-
-
-
