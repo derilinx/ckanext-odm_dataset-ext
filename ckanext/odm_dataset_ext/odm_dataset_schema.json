@@ -1,516 +1,515 @@
 {
-	"scheming_version": 1,
-	"dataset_type": "dataset",
-	"about": "ODM dataset schema",
-	"about_url": "http://github.com/open-data/ckanext-scheming",
-	"dataset_fields": [
+    "scheming_version": 1,
+    "dataset_type": "dataset",
+    "about": "ODM dataset schema",
+    "about_url": "http://github.com/open-data/ckanext-scheming",
+    "dataset_fields": [
     {
-		"field_name": "CI_citation_title_translated",
-		"validate": "true",
-		"multilingual": "true",
-		"preset": "fluent_core_title_translated_single",
-        "label": 
+        "field_name": "CI_citation_title_translated",
+        "validate": "true",
+        "multilingual": "true",
+        "preset": "fluent_core_title_translated_single",
+        "label":
         {
-			"en": "Title",
-			"th": "หัวข้อ",
-			"km": "ចំណងជើង",
-			"vi": "Tiêu đề ",
-			"my": "ခေါင်းစဥ်"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
+            "en": "Title",
+            "th": "หัวข้อ",
+            "km": "ចំណងជើង",
+            "vi": "Tiêu đề ",
+            "my": "ခေါင်းစဥ်"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
         "form_placeholder": "Name given to the dataset.",
-        "form_attrs": 
+        "form_attrs":
         {
             "data-module": "slug-preview-target"
         }
-    }, 
-    {
-		"field_name": "CI_citation_title",
-		"required": "true",
-		"label": "title",
-		"preset": "text_hidden",
-        "form_attrs": 
-        {
-            "data-module": "slug-preview-target"
-        },
-		"validators": "if_empty_same_as(name)"
     },
     {
-		"field_name": "MD_dataidentification_abstract",
-		"required": "true",
-		"label": "Abstract",
-		"preset": "text_hidden",
-        "form_attrs": 
-        {
-            "data-module": "slug-preview-target"
-        },
-		"validators": "if_empty_same_as(name)"
-    },
-    {
-		"field_name": "MD_dataidentification_abstract_translated",
-		"preset": "fluent_core_notes_translated_markdown_single",
-		"label": {
-			"en": "Abstract",
-			"th": "รายละเอียด",
-			"km": "ការពិពណ៌នា",
-			"vi": "Mô tả",
-			"my": "ဖော်ပြချက်"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-        "form_placeholder": "Short description explaining the content and its origins."
-    }, 
-    {
-		"field_name": "MD_dataidentification_topicCategory",
-		"label": "Dataset topic category",
-		"preset": "odm_taxonomy",
-		"validate": "true",
+        "field_name": "CI_citation_title",
         "required": "true",
-		"form_placeholder": "e.g. economy, mental health, government"
-    }, 
-    {
-		"field_name": "MD_dataidentification_language",
-		"label": "Language",
-		"validate": "true",
-		"required": "true",
-		"form_placeholder": "Language(s) of the dataset, including resources within dataset.",
-		"preset": "odm_language"
-    }, 
-    {
-		"field_name": "MD_constraints",
-		"preset": "fluent_markdown_single",
-		"label": {
-			"en": "Use limitations",
-			"th": "การเข้าถึงและข้อจำกัด",
-			"km": "កំហិតនៃការចូល និងប្រើប្រាស់",
-			"vi": "Hạn chế truy cập và sử dụng",
-			"my": "ရယူခြင်းနှင့် အကန့်အသတ်များအသုံးပြုခြင်း"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "A few sentences describing legal considerations for people who access the website and/or use its contents."
-    }, 
-    {
-		"field_name": "CI_ResponsibleParty",
-		"label": "Organisation name",
-		"required": "true",
-		"validate": "true",
-		"preset": "odm_organization"
-    }, 
-    {
-		"field_name": "CI_Citation_date",
-		"label": "Dataset reference date",
-		"form_placeholder": "Date the dataset was first Published by its creator.",
-		"validate": "true",
-		"required": "true",
-		"preset": "odm_date"
-    }, 
-    {
-		"field_name": "MD_metadata_dateStamp",
-		"label": "Date uploaded",
-		"form_placeholder": "Date a new version or update of the dataset was uploaded.",
-		"preset": "odm_date_uploaded"
-    }, 
-    {
-		"field_name": "CI_citation_lastRevision",
-		"label": "Date of last revision",
-		"form_placeholder": "Date a new version or update of the dataset was uploaded.",
-		"preset": "odm_date_modified"
-	}, 
-    {
-		"field_name": "Ex_TemporalExtent_startdate",
-		"label": "Temporal extent's start date",
-		"form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
-		"preset": "odm_date"
-    }, 
-    {
-		"field_name": "Ex_TemporalExtent_enddate",
-		"label": "Temporal extent's end date",
-		"form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
-		"preset": "odm_date"
-	}, 
-    {
-		"field_name": "Ex_geoname",
-		"label": "GeoNames",
-		"form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
-		"preset": "odm_spatial_range",
-		"validate": "true",
-		"required": "true"
-    },  
-
-
-
-
-
-
-
-
-    
-    {
-		"field_name": "EX_GeographicBoundingBox_west",
-		"label": "West bounding coordinates ",
-		"form_placeholder": "The west point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"required": "true"
-	},
-    {
-		"field_name": "EX_GeographicBoundingBox_east",
-		"label": "East bounding coordinates ",
-		"form_placeholder": "The east point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"required": "true"
-	},
-    {
-		"field_name": "EX_GeographicBoundingBox_south",
-		"label": "South bounding coordinates",
-		"form_placeholder": "The south point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"required": "true"
-	},
-    {
-		"field_name": "EX_GeographicBoundingBox_north",
-		"label": "North bounding coordinates ",
-		"form_placeholder": "The north point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"required": "true"
-	},
-    {
-		"field_name": "MD_DataIdentification_spatialResolution",
-		"label": "Spatial Resolution",
-		"form_placeholder": "Spatial Resolution of the dataset",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"required": "true"
+        "label": "title",
+        "preset": "text_hidden",
+        "form_attrs":
+        {
+            "data-module": "slug-preview-target"
+        },
+        "validators": "if_empty_same_as(name)"
     },
     {
-		"field_name": "MD_dataidentification_spatialreferencesystem",
-		"label": "Spatial Reference System",
-		"form_placeholder": "Spatial Reference System of the dataset",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"required": "true"
-	},
+        "field_name": "MD_dataidentification_abstract",
+        "required": "true",
+        "label": "Abstract",
+        "preset": "text_hidden",
+        "form_attrs":
+        {
+            "data-module": "slug-preview-target"
+        },
+        "validators": "if_empty_same_as(name)"
+    },
     {
-		"field_name": "DQ_PositionalAccuracy",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Positional Accuracy",
-			"th": "ความถูกต้อง",
-			"km": "ភាពទៀងទាត់",
-			"vi": "Độ chính xác",
-			"my": "တိကျမှန်ကန်မှု"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Details on the level of accuracy of the dataset and any existing issues."
-    }, 
+        "field_name": "MD_dataidentification_abstract_translated",
+        "preset": "fluent_core_notes_translated_markdown_single",
+        "label": {
+            "en": "Abstract",
+            "th": "รายละเอียด",
+            "km": "ការពិពណ៌នា",
+            "vi": "Mô tả",
+            "my": "ဖော်ပြချက်"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Short description explaining the content and its origins."
+    },
     {
-		"field_name": "DQ_QuantitativeAttribute ",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Attribute Accuracy",
-			"th": "ความถูกต้อง",
-			"km": "ភាពទៀងទាត់",
-			"vi": "Độ chính xác",
-			"my": "တိကျမှန်ကန်မှု"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Details on the attribute accuracy of the dataset and any existing issues."
-    }, 
+        "field_name": "MD_dataidentification_topicCategory",
+        "label": "Dataset topic category",
+        "preset": "odm_taxonomy",
+        "validate": "true",
+        "required": "true",
+        "form_placeholder": "e.g. economy, mental health, government"
+    },
     {
-		"field_name": "DQ_logicalConsistency",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Logical Consistency",
-			"th": "ความสอดคล้องเชิงตรรกะ",
-			"km": "ភាពទៀងទាត់តាមហេតុផល",
-			"vi": "Tính nhất quán logic",
-			"my": "ကျိုးကြောင်းဆီလျော်မှုရှိမရှိ"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Issues with logical consistency in the dataset and the steps, if any, being taken to validate its content."
-	}, 
+        "field_name": "MD_dataidentification_language",
+        "label": "Language",
+        "validate": "true",
+        "required": "true",
+        "form_placeholder": "Language(s) of the dataset, including resources within dataset.",
+        "preset": "odm_language"
+    },
     {
-		"field_name": "DQ_completeness",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Completeness",
-			"th": "ความสมบูรณ์",
-			"km": "ការចប់សព្វគ្រប់",
-			"vi": "Đầy đủ",
-			"my": "ပြည့်စုံမှု"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Brief description of the level of completeness of the dataset's contents and the steps, if any, being taken to make the dataset more complete."
-	}, 
+        "field_name": "MD_constraints",
+        "preset": "fluent_markdown_single",
+        "label": {
+            "en": "Use limitations",
+            "th": "การเข้าถึงและข้อจำกัด",
+            "km": "កំហិតនៃការចូល និងប្រើប្រាស់",
+            "vi": "Hạn chế truy cập và sử dụng",
+            "my": "ရယူခြင်းနှင့် အကန့်အသတ်များအသုံးပြုခြင်း"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "A few sentences describing legal considerations for people who access the website and/or use its contents."
+    },
     {
-		"field_name": "LI_ProcessStep",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"multilingual": "true",
-		"label": {
-			"en": "Process Step",
-			"th": "Process Step",
-			"km": "ដំណើរ​ការ",
-			"vi": "(Các ) quy trình thu thập và xử lý dữ liệu",
-			"my": "ဖြစ်စဉ် (များ)"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "The steps taken to acquire, aggregate, or transform any of the resources in the dataset."
-    }, 
+        "field_name": "CI_ResponsibleParty",
+        "label": "Organisation name",
+        "required": "true",
+        "validate": "true",
+        "preset": "odm_organization"
+    },
     {
-		"field_name": "LI_Lineage",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"multilingual": "true",
-		"label": {
-			"en": "Lineage",
-			"th": "แหล่งที่มา",
-			"km": "ប្រភព",
-			"vi": "(Các) nguồn",
-			"my": "ရင်းမြစ်များ"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Ordered citations for all information sources that went into producing the dataset."
-	},
+        "field_name": "CI_Citation_date",
+        "label": "Dataset reference date",
+        "form_placeholder": "Date the dataset was first Published by its creator.",
+        "validate": "true",
+        "required": "true",
+        "preset": "odm_date"
+    },
     {
-		"field_name": "CI_ResponsibleParty_Contact",
+        "field_name": "MD_metadata_dateStamp",
+        "label": "Date uploaded",
+        "form_placeholder": "Date a new version or update of the dataset was uploaded.",
+        "preset": "odm_date_uploaded"
+    },
+    {
+        "field_name": "CI_citation_lastRevision",
+        "label": "Date of last revision",
+        "form_placeholder": "Date a new version or update of the dataset was uploaded.",
+        "preset": "odm_date_modified"
+    },
+    {
+        "field_name": "Ex_TemporalExtent_startdate",
+        "label": "Temporal extent's start date",
+        "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
+        "preset": "odm_date"
+    },
+    {
+        "field_name": "Ex_TemporalExtent_enddate",
+        "label": "Temporal extent's end date",
+        "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
+        "preset": "odm_date"
+    },
+    {
+        "field_name": "Ex_geoname",
+        "label": "GeoNames",
+        "form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
+        "preset": "odm_spatial_range",
+        "validate": "true",
+        "required": "true"
+    },
+
+
+
+
+
+
+
+
+
+    {
+        "field_name": "EX_GeographicBoundingBox_west",
+        "label": "West bounding coordinates ",
+        "form_placeholder": "The west point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "fluent_text_single",
-		"label": {
-			"en": "Responsible party",
-			"th": "ข้อมูลติดต่อ",
-			"km": "ទំនាក់ទំនង",
-			"vi": "Liên hệ",
-			"my": "ဆက်သွယ်ရန်"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Contact information for the individual or organization that is responsible for or most knowledgeable about the dataset. This could be the author of a report, the contact information for the relevant department of an organization that produced a report, or the data analyst, mapper or researcher that produced a dataset or report."
-    }, 
-    {
-		"field_name": "MD_metadata_contact",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Metadata creator information",
-			"th": "ข้อมูลอ้างอิงข้อมูลเมตา",
-			"km": "ពត័មានជាអំនះអំនាងនៃព័ត៌មាន​អំពីទិន្នន័យ",
-			"vi": "Thông tin tham khảo Metadata.",
-			"my": "Metadata ကိုရည်ညွှန်းသော သတင်းအချက်အလက်"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Information about how up-to-date the metadata is and who is responsible for maintaining it."
-	}, 
-    {
-		"field_name": "MD_scopeDescription_attributes",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Attributes",
-			"th": "คุณสมบัติ",
-			"km": "លក្ខណៈសម្បត្តិ",
-			"vi": "Thuộc tính",
-			"my": "၀ိသေသများ"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Details about the information content of the dataset."
-	}, 
-    {
-		"field_name": "MD_dataidentification_keywords",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "GEMET controlled keywords",
-			"th": "",
-			"km": "",
-			"vi": "",
-			"my": ""
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "A few sentences describing GEMET keywords."
-    }, 
-    {
-		"field_name": "CI_citation_identAuth",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Identifier code",
-			"th": "",
-			"km": "",
-			"vi": "",
-			"my": ""
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "A few sentences describing the Identifier code"
-    }, 
-    {
-		"field_name": "MD_legalConstraints",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Limitations on public access",
-			"th": "",
-			"km": "",
-			"vi": "",
-			"my": ""
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "A few sentences describing the Limitations on public access"
-    }, 
-    {
-		"field_name": "MD_format_version",
-		"preset": "fluent_text_single",
-		"label": {
-			"en": "Format version",
-			"th": "",
-			"km": "",
-			"vi": "",
-			"my": ""
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "A few sentences describing the Format version"
-    }, 
-    {
-		"field_name": "CI_citation_updatefreq",
-		"label": "Update Frequency",
-		"validate": "true",
-		"required": "true",
-		"form_placeholder": "Update Frequency",
-		"preset": "fluent_text_single"
-    }, 
-    {
-		"field_name": "name",
-		"required": "true",
-		"label": "URL",
-		"preset": "dataset_slug",
-		"form_placeholder": "eg. my-dataset",
-        "validators": "if_empty_same_as(title) odm_dataset_if_empty_new_id odm_dataset_urlencode odm_dataset_record_does_not_exist_yet"
-    }, 
-    {
-		"field_name": "license_id",
-		"required": "true",
-		"validate": "true",
-		"label": "License",
-		"preset": "odm_license",
-		"help_text": "License definitions and additional information can be found at http://opendefinition.org/"
-    }, 
-    {
-		"field_name": "odm_copyright",
-		"required": "true",
-		"validate": "true",
-		"label": "Copyright",
-		"preset": "odm_copyright",
-		"help_text": "Select 'Yes', 'No', 'Unclear copyright' or 'To be determined' about the copyright of the dataset. If copyright of any type is present, describe further in Access and User Constraints."
-    }, 
-    {
-		"field_name": "version",
-		"label": "Version",
-		"validators": "scheming_required unicode package_version_validator",
-		"form_placeholder": "Dataset's version (eg. 1.0)",
-		"validate": "true",
-		"required": "true"
-    }, 
-    {
-		"field_name": "odm_province",
-		"label": "Province(s)",
-		"form_placeholder": "The province(s) this dataset relates to",
-		"preset": "odm_province"
+        "validate": "true",
+        "required": "true"
     },
     {
-		"field_name": "odm_reference_document",
-		"label": "Legacy reference document",
-		"form_placeholder": "e.g Tong_Min_Group_Engineering__21.06.2011.pdf"
-    }, 
+        "field_name": "EX_GeographicBoundingBox_east",
+        "label": "East bounding coordinates ",
+        "form_placeholder": "The east point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "required": "true"
+    },
     {
-		"field_name": "maintainer",
-		"required": "true",
-		"validate": "true",
-		"label": "Maintainer",
+        "field_name": "EX_GeographicBoundingBox_south",
+        "label": "South bounding coordinates",
+        "form_placeholder": "The south point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "required": "true"
+    },
+    {
+        "field_name": "EX_GeographicBoundingBox_north",
+        "label": "North bounding coordinates ",
+        "form_placeholder": "The north point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "required": "true"
+    },
+    {
+        "field_name": "MD_DataIdentification_spatialResolution",
+        "label": "Spatial Resolution",
+        "form_placeholder": "Spatial Resolution of the dataset",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "required": "true"
+    },
+    {
+        "field_name": "MD_dataidentification_spatialreferencesystem",
+        "label": "Spatial Reference System",
+        "form_placeholder": "Spatial Reference System of the dataset",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "required": "true"
+    },
+    {
+        "field_name": "DQ_PositionalAccuracy",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Positional Accuracy",
+            "th": "ความถูกต้อง",
+            "km": "ភាពទៀងទាត់",
+            "vi": "Độ chính xác",
+            "my": "တိကျမှန်ကန်မှု"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Details on the level of accuracy of the dataset and any existing issues."
+    },
+    {
+        "field_name": "DQ_QuantitativeAttribute ",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Attribute Accuracy",
+            "th": "ความถูกต้อง",
+            "km": "ភាពទៀងទាត់",
+            "vi": "Độ chính xác",
+            "my": "တိကျမှန်ကန်မှု"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Details on the attribute accuracy of the dataset and any existing issues."
+    },
+    {
+        "field_name": "DQ_logicalConsistency",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Logical Consistency",
+            "th": "ความสอดคล้องเชิงตรรกะ",
+            "km": "ភាពទៀងទាត់តាមហេតុផល",
+            "vi": "Tính nhất quán logic",
+            "my": "ကျိုးကြောင်းဆီလျော်မှုရှိမရှိ"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Issues with logical consistency in the dataset and the steps, if any, being taken to validate its content."
+    },
+    {
+        "field_name": "DQ_completeness",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Completeness",
+            "th": "ความสมบูรณ์",
+            "km": "ការចប់សព្វគ្រប់",
+            "vi": "Đầy đủ",
+            "my": "ပြည့်စုံမှု"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Brief description of the level of completeness of the dataset's contents and the steps, if any, being taken to make the dataset more complete."
+    },
+    {
+        "field_name": "LI_ProcessStep",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "multilingual": "true",
+        "label": {
+            "en": "Process Step",
+            "th": "Process Step",
+            "km": "ដំណើរ​ការ",
+            "vi": "(Các ) quy trình thu thập và xử lý dữ liệu",
+            "my": "ဖြစ်စဉ် (များ)"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "The steps taken to acquire, aggregate, or transform any of the resources in the dataset."
+    },
+    {
+        "field_name": "LI_Lineage",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "multilingual": "true",
+        "label": {
+            "en": "Lineage",
+            "th": "แหล่งที่มา",
+            "km": "ប្រភព",
+            "vi": "(Các) nguồn",
+            "my": "ရင်းမြစ်များ"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Ordered citations for all information sources that went into producing the dataset."
+    },
+    {
+        "field_name": "CI_ResponsibleParty_Contact",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Responsible party",
+            "th": "ข้อมูลติดต่อ",
+            "km": "ទំនាក់ទំនង",
+            "vi": "Liên hệ",
+            "my": "ဆက်သွယ်ရန်"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Contact information for the individual or organization that is responsible for or most knowledgeable about the dataset. This could be the author of a report, the contact information for the relevant department of an organization that produced a report, or the data analyst, mapper or researcher that produced a dataset or report."
+    },
+    {
+        "field_name": "MD_metadata_contact",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Metadata creator information",
+            "th": "ข้อมูลอ้างอิงข้อมูลเมตา",
+            "km": "ពត័មានជាអំនះអំនាងនៃព័ត៌មាន​អំពីទិន្នន័យ",
+            "vi": "Thông tin tham khảo Metadata.",
+            "my": "Metadata ကိုရည်ညွှန်းသော သတင်းအချက်အလက်"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Information about how up-to-date the metadata is and who is responsible for maintaining it."
+    },
+    {
+        "field_name": "MD_scopeDescription_attributes",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Attributes",
+            "th": "คุณสมบัติ",
+            "km": "លក្ខណៈសម្បត្តិ",
+            "vi": "Thuộc tính",
+            "my": "၀ိသေသများ"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Details about the information content of the dataset."
+    },
+    {
+        "field_name": "MD_dataidentification_keywords",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "GEMET controlled keywords",
+            "th": "",
+            "km": "",
+            "vi": "",
+            "my": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "A few sentences describing GEMET keywords."
+    },
+    {
+        "field_name": "CI_citation_identAuth",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Identifier code",
+            "th": "",
+            "km": "",
+            "vi": "",
+            "my": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "A few sentences describing the Identifier code"
+    },
+    {
+        "field_name": "MD_legalConstraints",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Limitations on public access",
+            "th": "",
+            "km": "",
+            "vi": "",
+            "my": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "A few sentences describing the Limitations on public access"
+    },
+    {
+        "field_name": "MD_format_version",
+        "preset": "fluent_text_single",
+        "label": {
+            "en": "Format version",
+            "th": "",
+            "km": "",
+            "vi": "",
+            "my": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "A few sentences describing the Format version"
+    },
+    {
+        "field_name": "CI_citation_updatefreq",
+        "label": "Update Frequency",
+        "validate": "true",
+        "required": "true",
+        "form_placeholder": "Update Frequency",
+        "preset": "fluent_text_single"
+    },
+    {
+        "field_name": "name",
+        "required": "true",
+        "label": "URL",
+        "preset": "dataset_slug",
+        "form_placeholder": "eg. my-dataset",
+        "validators": "if_empty_same_as(title) odm_dataset_if_empty_new_id odm_dataset_urlencode odm_dataset_record_does_not_exist_yet"
+    },
+    {
+        "field_name": "license_id",
+        "required": "true",
+        "validate": "true",
+        "label": "License",
+        "preset": "odm_license",
+        "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+    },
+    {
+        "field_name": "odm_copyright",
+        "required": "true",
+        "validate": "true",
+        "label": "Copyright",
+        "preset": "odm_copyright",
+        "help_text": "Select 'Yes', 'No', 'Unclear copyright' or 'To be determined' about the copyright of the dataset. If copyright of any type is present, describe further in Access and User Constraints."
+    },
+    {
+        "field_name": "version",
+        "label": "Version",
+        "validators": "scheming_required unicode package_version_validator",
+        "form_placeholder": "Dataset's version (eg. 1.0)",
+        "validate": "true",
+        "required": "true"
+    },
+    {
+        "field_name": "odm_province",
+        "label": "Province(s)",
+        "form_placeholder": "The province(s) this dataset relates to",
+        "preset": "odm_province"
+    },
+    {
+        "field_name": "odm_reference_document",
+        "label": "Legacy reference document",
+        "form_placeholder": "e.g Tong_Min_Group_Engineering__21.06.2011.pdf"
+    },
+    {
+        "field_name": "maintainer",
+        "required": "true",
+        "validate": "true",
+        "label": "Maintainer",
         "preset": "auto_maintainer"
-    }, 
+    },
     {
-		"field_name": "maintainer_email",
-		"required": "true",
-		"validate": "true",
-		"label": "Maintainer email",
+        "field_name": "maintainer_email",
+        "required": "true",
+        "validate": "true",
+        "label": "Maintainer email",
         "preset": "auto_maintainer_email"
-    }, 
+    },
     {
-		"field_name": "author",
-		"required": "true",
-		"validate": "true",
-		"label": "Author",
+        "field_name": "author",
+        "required": "true",
+        "validate": "true",
+        "label": "Author",
         "preset": "auto_author"
-	}, {
-		"field_name": "author_email",
-		"required": "true",
-		"validate": "true",
-		"label": "Author email",
+    }, {
+        "field_name": "author_email",
+        "required": "true",
+        "validate": "true",
+        "label": "Author email",
         "preset": "auto_author_email"
-    }, 
+    },
     {
-		"field_name": "odm_db_table",
+        "field_name": "odm_db_table",
         "label": "Database table?",
         "preset": "odm_db_table",
         "help_text": "INTERNAL USE ONLY: Select true if this record contains CSV and/or XLS resources available in the datastore."
-    }, 
+    },
     {
-		"field_name": "odm_keywords",
+        "field_name": "odm_keywords",
         "label": "Keywords",
         "preset": "odm_keywords",
         "help_text": "INTERNAL USE ONLY: Enter keywords for improving the discoverability of this record via search"
     }],
-    
+
     "resource_fields": [
     {
-		"field_name": "url",
-		"label": "URL",
-		"preset": "resource_url_upload"
-    }, 
+        "field_name": "url",
+        "label": "URL",
+        "preset": "resource_url_upload"
+    },
     {
-		"field_name": "name_translated",
-		"preset": "fluent_text_single",
-		"validate": "true",
-		"label": {
-			"en": "Name",
-			"th": "Name",
-			"km": "Name",
-			"vi": "Tên",
-			"my": "အမည်"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "eg. January 2011 Gold Prices"
-    }, 
+        "field_name": "name_translated",
+        "preset": "fluent_text_single",
+        "validate": "true",
+        "label": {
+            "en": "Name",
+            "th": "Name",
+            "km": "Name",
+            "vi": "Tên",
+            "my": "အမည်"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "eg. January 2011 Gold Prices"
+    },
     {
-		"field_name": "name",
-		"label": "Name",
-		"preset": "text_hidden"
-    }, 
+        "field_name": "name",
+        "label": "Name",
+        "preset": "text_hidden"
+    },
     {
-		"field_name": "description_translated",
-		"preset": "fluent_markdown_single",
-		"validate": "true",
-		"label": {
-			"en": "Description",
-			"th": "",
-			"km": "",
-			"vi": "Mô tả",
-			"my": "ဖော်ပြချက်"
-		},
-		"form_languages": ["en", "th", "km", "vi", "my"],
-		"form_placeholder": "Some useful notes about the data"
-    }, 
+        "field_name": "description_translated",
+        "preset": "fluent_markdown_single",
+        "validate": "true",
+        "label": {
+            "en": "Description",
+            "th": "",
+            "km": "",
+            "vi": "Mô tả",
+            "my": "ဖော်ပြချက်"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "Some useful notes about the data"
+    },
     {
-		"field_name": "description",
-		"label": "Description",
-		"preset": "text_hidden"
-    }, 
+        "field_name": "description",
+        "label": "Description",
+        "preset": "text_hidden"
+    },
     {
-		"field_name": "format",
-		"label": "Format",
-		"preset": "resource_format_autocomplete"
-    }, 
+        "field_name": "format",
+        "label": "Format",
+        "preset": "resource_format_autocomplete"
+    },
     {
-		"field_name": "MD_dataidentification_language",
-		"preset": "odm_language",
-		"validate": "true",
+        "field_name": "MD_dataidentification_language",
+        "preset": "odm_language",
+        "validate": "true",
         "label": "Resource's languages",
-		"form_placeholder": "Language(s) of the resource."
-	}]
+        "form_placeholder": "Language(s) of the resource."
+    }]
 }
-
