@@ -26,7 +26,6 @@
     },
     {
         "field_name": "CI_citation_title",
-        "required": "true",
         "label": "title",
         "preset": "text_hidden",
         "form_attrs":
@@ -37,7 +36,6 @@
     },
     {
         "field_name": "MD_dataidentification_abstract",
-        "required": "true",
         "label": "Abstract",
         "preset": "text_hidden",
         "form_attrs":
@@ -64,14 +62,12 @@
         "label": "Dataset topic category",
         "preset": "odm_taxonomy",
         "validate": "true",
-        "required": "true",
         "form_placeholder": "e.g. economy, mental health, government"
     },
     {
         "field_name": "MD_dataidentification_language",
         "label": "Language",
         "validate": "true",
-        "required": "true",
         "form_placeholder": "Language(s) of the dataset, including resources within dataset.",
         "preset": "odm_language"
     },
@@ -89,18 +85,10 @@
         "form_placeholder": "A few sentences describing legal considerations for people who access the website and/or use its contents."
     },
     {
-        "field_name": "CI_ResponsibleParty",
-        "label": "Organisation name",
-        "required": "true",
-        "validate": "true",
-        "preset": "odm_organization"
-    },
-    {
         "field_name": "CI_Citation_date",
         "label": "Dataset reference date",
         "form_placeholder": "Date the dataset was first Published by its creator.",
         "validate": "true",
-        "required": "true",
         "preset": "odm_date"
     },
     {
@@ -132,65 +120,49 @@
         "label": "GeoNames",
         "form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "odm_spatial_range",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
-
-
-
-
-
-
-
-
-
     {
         "field_name": "EX_GeographicBoundingBox_west",
         "label": "West bounding coordinates ",
         "form_placeholder": "The west point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "fluent_text_single",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_east",
         "label": "East bounding coordinates ",
         "form_placeholder": "The east point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "fluent_text_single",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_south",
         "label": "South bounding coordinates",
         "form_placeholder": "The south point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "fluent_text_single",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_north",
         "label": "North bounding coordinates ",
         "form_placeholder": "The north point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "fluent_text_single",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "MD_DataIdentification_spatialResolution",
         "label": "Spatial Resolution",
         "form_placeholder": "Spatial Resolution of the dataset",
         "preset": "fluent_text_single",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "MD_dataidentification_spatialreferencesystem",
         "label": "Spatial Reference System",
         "form_placeholder": "Spatial Reference System of the dataset",
         "preset": "fluent_text_single",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "DQ_PositionalAccuracy",
@@ -369,7 +341,6 @@
         "field_name": "CI_citation_updatefreq",
         "label": "Update Frequency",
         "validate": "true",
-        "required": "true",
         "form_placeholder": "Update Frequency",
         "preset": "fluent_text_single"
     },
@@ -383,7 +354,6 @@
     },
     {
         "field_name": "license_id",
-        "required": "true",
         "validate": "true",
         "label": "License",
         "preset": "odm_license",
@@ -391,7 +361,6 @@
     },
     {
         "field_name": "odm_copyright",
-        "required": "true",
         "validate": "true",
         "label": "Copyright",
         "preset": "odm_copyright",
@@ -400,10 +369,9 @@
     {
         "field_name": "version",
         "label": "Version",
-        "validators": "scheming_required unicode package_version_validator",
+        "validators": "unicode package_version_validator",
         "form_placeholder": "Dataset's version (eg. 1.0)",
-        "validate": "true",
-        "required": "true"
+        "validate": "true"
     },
     {
         "field_name": "odm_province",
@@ -418,27 +386,23 @@
     },
     {
         "field_name": "maintainer",
-        "required": "true",
         "validate": "true",
         "label": "Maintainer",
         "preset": "auto_maintainer"
     },
     {
         "field_name": "maintainer_email",
-        "required": "true",
         "validate": "true",
         "label": "Maintainer email",
         "preset": "auto_maintainer_email"
     },
     {
         "field_name": "author",
-        "required": "true",
         "validate": "true",
         "label": "Author",
         "preset": "auto_author"
     }, {
         "field_name": "author_email",
-        "required": "true",
         "validate": "true",
         "label": "Author email",
         "preset": "auto_author_email"
