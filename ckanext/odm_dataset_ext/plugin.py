@@ -19,21 +19,25 @@ from urlparse import urlparse
 import json
 import collections
 
+log = logging.getLogger(__file__)
+log.setLevel(logging.DEBUG)
+
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IValidators)
 
-    
-    # ITemplateHelpers  
+
+    #  IValidators
     def get_validators(self):
 
-        log.debug("get_validators")
+        log.error("get_validators")
 
         return {
             'odm_dataset_if_empty_new_id': odm_dataset_helper.if_empty_new_id,
-      	    'odm_dataset_urlencode': odm_dataset_helper.urlencode,
+            'odm_dataset_urlencode': odm_dataset_helper.urlencode,
             'odm_dataset_clean_taxonomy_tags': odm_dataset_helper.clean_taxonomy_tags,
             'odm_dataset_sanitize_list': odm_dataset_helper.sanitize_list,
             'odm_dataset_convert_to_multilingual': odm_dataset_helper.convert_to_multilingual,
