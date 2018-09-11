@@ -114,7 +114,7 @@ def convert_to_multilingual(data):
         '''Converts strings to multilingual with the current language set'''
 
         if data:
-                log.debug('convert_to_multilingual: %s', data.encode('utf-8', 'ignore'))
+                log.debug('convert_to_multilingual: %s' % data)
 
         if isinstance(data, basestring):
                 multilingual_data = {}
