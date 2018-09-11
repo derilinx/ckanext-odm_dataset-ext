@@ -113,8 +113,8 @@ def if_empty_same_as_description_if_not_empty(key, data, errors, context):
 def convert_to_multilingual(data):
         '''Converts strings to multilingual with the current language set'''
 
-        if DEBUG:
-                log.info('convert_to_multilingual: %s', str(data))
+        if data:
+                log.debug('convert_to_multilingual: %s', data.encode('utf-8', 'ignore'))
 
         if isinstance(data, basestring):
                 multilingual_data = {}
