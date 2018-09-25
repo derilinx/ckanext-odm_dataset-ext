@@ -58,7 +58,7 @@
         "values": {
             "form_snippet": "select.html",
             "display_snippet": "select.html",
-            "validators": "scheming_required scheming_choices"
+            "validators": "ignore_missing scheming_choices"
         }
     }, {
         "preset_name": "multiple_checkbox",
@@ -80,19 +80,19 @@
         "preset_name": "text",
         "values": {
             "form_snippet": "text.html",
-            "validators": "scheming_required"
+            "validators": "ignore_missing"
         }
     }, {
         "preset_name": "spatial",
         "values": {
             "form_snippet": "markdown.html",
-            "validators": "scheming_required"
+            "validators": "ignore_missing"
         }
     },{
         "preset_name": "text_hidden",
         "values": {
             "form_snippet": "text_hidden.html",
-            "validators": "scheming_required"
+            "validators": "ignore_missing"
         }
     }, {
         "preset_name": "fluent_text_single",
@@ -143,7 +143,7 @@
         "preset_name": "markdown",
         "values": {
             "form_snippet": "markdown.html",
-            "validators": "scheming_required"
+            "validators": "ignore_missing"
         }
     }, {
         "preset_name": "fluent_markdown_single",
@@ -204,20 +204,20 @@
         "values": {
             "form_snippet": "text_number.html",
             "display_snippet": "text.html",
-            "validators": "scheming_required"
+            "validators": "ignore_missing"
         }
     },{
         "preset_name": "date",
         "values": {
             "form_snippet": "date.html",
             "display_snippet": "date.html",
-            "validators": "scheming_required convert_to_json_if_date"
+            "validators": "ignore_missing convert_to_json_if_date"
         }
     }, {
         "preset_name": "odm_date",
         "values": {
             "form_snippet": "odm_date.html",
-            "validators": "scheming_required",
+            "validators": "ignore_missing",
             "form_attrs": {
                 "data-module": "datepicker-module"
             }
@@ -226,7 +226,7 @@
         "preset_name": "odm_date_range",
         "values": {
             "form_snippet": "odm_date_range.html",
-            "validators": "scheming_required",
+            "validators": "ignore_missing",
             "form_attrs": {
                 "data-module": "daterangepicker-module"
             }
@@ -243,7 +243,7 @@
         "values": {
             "form_snippet": "odm_taxonomy.html",
             "display_snippet": "odm_taxonomy.html",
-            "validators": "scheming_required convert_to_tags(taxonomy)",
+            "validators": "ignore_missing convert_to_tags(taxonomy)",
             "output_validators": "scheming_multiple_choice_output"
         }
     }, {
@@ -255,19 +255,19 @@
     }, {
         "preset_name": "odm_license",
         "values": {
-            "validators": "scheming_required",
+            "validators": "ignore_missing",
             "form_snippet": "odm_license.html"
         }
     }, {
         "preset_name": "odm_copyright",
         "values": {
-            "validators": "scheming_required",
+            "validators": "ignore_missing",
             "form_snippet": "odm_copyright.html"
         }
     }, {
         "preset_name": "odm_db_table",
         "values": {
-            "validators": "scheming_required",
+            "validators": "ignore_missing",
             "form_snippet": "odm_db_table.html"
         }
     },{
@@ -324,7 +324,7 @@
         "values": {
             "form_snippet": "odm_language.html",
             "display_snippet": "multiple_list.html",
-            "validators": "scheming_required odm_dataset_sanitize_list",
+            "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
         }
     },{
@@ -332,7 +332,7 @@
         "values": {
             "form_snippet": "odm_spatial_range.html",
             "display_snippet": "multiple_list.html",
-            "validators": "scheming_required odm_dataset_sanitize_list",
+            "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output",
             "form_attrs": {
                 "data-module": "odm_spatial_range-module"
@@ -343,7 +343,7 @@
         "values": {
             "form_snippet": "odm_province.html",
             "display_snippet": "multiple_list.html",
-            "validators": "scheming_required odm_dataset_sanitize_list",
+            "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
         }
     },{
@@ -351,7 +351,7 @@
     "values": {
       "form_snippet": "odm_related_laws_records.html",
             "display_snippet": "multiple_list.html",
-      "validators": "scheming_required odm_dataset_sanitize_list",
+      "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
     }
   },{
@@ -359,7 +359,7 @@
     "values": {
       "form_snippet": "odm_related_laws_records_and_agreements.html",
             "display_snippet": "multiple_list.html",
-      "validators": "scheming_required odm_dataset_sanitize_list",
+      "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
     }
   },{
@@ -367,7 +367,7 @@
     "values": {
       "form_snippet": "odm_related_agreements.html",
             "display_snippet": "multiple_list.html",
-      "validators": "scheming_required odm_dataset_sanitize_list",
+      "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
     }
   },{
@@ -375,7 +375,7 @@
     "values": {
       "form_snippet": "odm_related_library_records.html",
             "display_snippet": "multiple_list.html",
-      "validators": "scheming_required odm_dataset_sanitize_list",
+      "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
     }
   },{
@@ -383,7 +383,7 @@
     "values": {
       "form_snippet": "odm_related_datasets.html",
             "display_snippet": "multiple_list.html",
-      "validators": "scheming_required odm_dataset_sanitize_list",
+      "validators": "ignore_missing odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output"
     }
   },{
@@ -391,14 +391,14 @@
     "values": {
       "form_snippet": "version_hidden.html",
       "display_snippet": "text.html",
-      "validators": "scheming_required"
+      "validators": "ignore_missing"
     }
   },{
     "preset_name": "odm_keywords",
     "values": {
       "form_snippet": "odm_keywords.html",
       "display_snippet": "text.html",
-      "validators": "scheming_required odm_dataset_remove_topics",
+      "validators": "ignore_missing odm_dataset_remove_topics",
 			"form_attrs": {
 				"data-module": "odm_keywords-module"
 			}
