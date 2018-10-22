@@ -394,6 +394,12 @@
       "validators": "ignore_missing"
     }
   },{
+    "preset_name": "hidden",
+    "values": {
+      "form_snippet": "version_hidden.html",
+      "display_snippet": "text.html"
+    }
+  },{
     "preset_name": "odm_keywords",
     "values": {
       "form_snippet": "odm_keywords.html",

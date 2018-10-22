@@ -85,6 +85,19 @@
         "form_placeholder": "A few sentences describing legal considerations for people who access the website and/or use its contents."
     },
     {
+       "field_name": "owner_org",
+       "label": "Organisation name",
+       "required": "true",
+       "validate": "true",
+       "preset": "odm_organization"
+    },
+    {
+       "field_name": "CI_ResponsibleParty",
+       "label": "Organisation name",
+       "preset": "hidden",
+       "validators": "ignore if_empty_same_as(owner_org)"
+    },
+    {
         "field_name": "CI_Citation_date",
         "label": "Dataset reference date",
         "form_placeholder": "Date the dataset was first Published by its creator.",
