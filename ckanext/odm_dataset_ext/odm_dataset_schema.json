@@ -5,7 +5,7 @@
     "about_url": "http://github.com/open-data/ckanext-scheming",
     "dataset_fields": [
     {
-        "field_name": "CI_citation_title_translated",
+        "field_name": "title_translated",
         "validate": "true",
         "multilingual": "true",
         "preset": "fluent_core_title_translated_single",
@@ -18,17 +18,35 @@
             "my": "ခေါင်းစဥ်"
         },
         "form_languages": ["en", "th", "km", "vi", "my"],
-        "form_placeholder": "Name given to the dataset.",
+       "form_placeholder": {
+          "en": "Name given to the dataset.",
+          "th": "[[TH]] Name given to the dataset"
+       },
+       "form_snippet": "slug_target_fluent_text.html",
         "form_attrs":
         {
             "data-module": "slug-preview-target"
         }
     },
     {
-        "field_name": "CI_citation_title",
+        "field_name": "name",
+        "required": "true",
+        "label": "URL",
+        "preset": "dataset_slug",
+        "form_placeholder": "eg. my-dataset",
+        "validators": "odm_dataset_if_empty_new_id odm_dataset_urlencode odm_dataset_record_does_not_exist_yet"
+    },
+    {
+        "field_name": "title",
         "label": "title",
         "preset": "text_hidden",
         "validators": "if_empty_same_as(name)"
+    },
+    {
+       "field_name": "CI_citation_title",
+       "label": "title",
+       "preset": "hidden",
+       "validators": "ignore if_empty_same_as(title)"
     },
     {
         "field_name": "MD_dataidentification_abstract",
@@ -347,14 +365,6 @@
         "validate": "true",
         "form_placeholder": "Update Frequency",
         "preset": "fluent_text_single"
-    },
-    {
-        "field_name": "name",
-        "required": "true",
-        "label": "URL",
-        "preset": "dataset_slug",
-        "form_placeholder": "eg. my-dataset",
-        "validators": "if_empty_same_as(title) odm_dataset_if_empty_new_id odm_dataset_urlencode odm_dataset_record_does_not_exist_yet"
     },
     {
         "field_name": "license_id",
