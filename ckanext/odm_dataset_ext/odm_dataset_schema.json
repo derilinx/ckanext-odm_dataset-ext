@@ -28,21 +28,12 @@
         "field_name": "CI_citation_title",
         "label": "title",
         "preset": "text_hidden",
-        "form_attrs":
-        {
-            "data-module": "slug-preview-target"
-        },
         "validators": "if_empty_same_as(name)"
     },
     {
         "field_name": "MD_dataidentification_abstract",
         "label": "Abstract",
-        "preset": "text_hidden",
-        "form_attrs":
-        {
-            "data-module": "slug-preview-target"
-        },
-        "validators": "if_empty_same_as(name)"
+        "preset": "text_hidden"
     },
     {
         "field_name": "MD_dataidentification_abstract_translated",
