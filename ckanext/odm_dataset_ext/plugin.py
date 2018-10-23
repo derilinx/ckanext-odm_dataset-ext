@@ -86,7 +86,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
     def after_show(self, context, pkg_dict):
         log.debug(pkg_dict)
         pkg_dict['CI_ResponsibleParty'] = pkg_dict['organization']
-        pkg_dict['CI_citation_title'] = pkg_dict['title_translated']
+        pkg_dict['CI_Citation_title'] = pkg_dict.get('title_translated', {'en': pkg_dict['title']})
         return pkg_dict
 
     # IConfigurer

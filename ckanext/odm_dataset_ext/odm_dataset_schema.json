@@ -53,18 +53,18 @@
         "validators": "if_empty_same_as(name)"
     },
     {
-       "field_name": "CI_citation_title",
+       "field_name": "CI_Citation_title",
        "label": "title",
        "preset": "hidden",
        "validators": "ignore if_empty_same_as(title)"
     },
     {
-        "field_name": "MD_dataidentification_abstract",
+        "field_name": "MD_DataIdentification_abstract",
         "label": "Abstract",
         "preset": "text_hidden"
     },
     {
-        "field_name": "MD_dataidentification_abstract_translated",
+        "field_name": "MD_DataIdentification_abstract_translated",
         "grouping": "Description",
         "preset": "odm_notes_translated_markdown",
         "odm_required": "true",
@@ -80,7 +80,7 @@
         "form_placeholder": "Short description explaining the content and its origins."
     },
     {
-        "field_name": "MD_dataidentification_topicCategory",
+        "field_name": "MD_DataIdentification_topicCategory",
         "grouping": "Description",
         "required": "true",
         "label": "Dataset topic category",
@@ -89,7 +89,7 @@
         "form_placeholder": "e.g. economy, mental health, government"
     },
     {
-        "field_name": "MD_dataidentification_language",
+        "field_name": "MD_DataIdentification_language",
         "grouping": "Description",
         "label": "Language",
         "validate": "true",
@@ -98,7 +98,7 @@
         "preset": "odm_language"
     },
     {
-        "field_name": "MD_constraints",
+        "field_name": "MD_Constraints",
         "grouping": "Description",
         "preset": "fluent_markdown_single",
         "label": {
@@ -135,35 +135,35 @@
         "preset": "odm_date"
     },
     {
-        "field_name": "MD_metadata_dateStamp",
+        "field_name": "MD_Metadata_dateStamp",
         "grouping": "Temporal",
         "label": "Date uploaded",
         "form_placeholder": "Date a new version or update of the dataset was uploaded.",
         "preset": "odm_date_uploaded"
     },
     {
-        "field_name": "CI_citation_lastRevision",
+        "field_name": "CI_Citation_lastRevision",
         "grouping": "Temporal",
         "label": "Date of last revision",
         "form_placeholder": "Date a new version or update of the dataset was uploaded.",
         "preset": "odm_date_modified"
     },
     {
-        "field_name": "Ex_TemporalExtent_startdate",
+        "field_name": "EX_TemporalExtent_startDate",
         "grouping": "Temporal",
         "label": "Temporal extent's start date",
         "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
         "preset": "odm_date"
     },
     {
-        "field_name": "Ex_TemporalExtent_enddate",
+        "field_name": "EX_TemporalExtent_endDate",
         "grouping": "Temporal",
         "label": "Temporal extent's end date",
         "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
         "preset": "odm_date"
     },
     {
-        "field_name": "Ex_geoname",
+        "field_name": "EX_Geoname",
         "grouping": "Spatial",
         "label": "GeoNames",
         "required": "true",
@@ -217,7 +217,7 @@
         "validators": "ignore_missing ignore_empty is_positive_integer"
     },
     {
-        "field_name": "MD_dataidentification_spatialreferencesystem",
+        "field_name": "MD_DataIdentification_spatialReferenceSystem",
         "grouping": "Spatial",
         "label": "Spatial Reference System",
         "required": "true",
@@ -276,7 +276,7 @@
         "form_placeholder": "Details on the attribute accuracy of the dataset and any existing issues."
     },
     {
-        "field_name": "DQ_logicalConsistency",
+        "field_name": "DQ_LogicalConsistency",
         "grouping": "Management",
         "preset": "odm_text_translated",
         "label": {
@@ -290,7 +290,7 @@
         "form_placeholder": "Issues with logical consistency in the dataset and the steps, if any, being taken to validate its content."
     },
     {
-        "field_name": "DQ_completeness",
+        "field_name": "DQ_Completeness",
         "grouping": "Management",
         "preset": "odm_text_translated",
         "label": {
@@ -338,7 +338,7 @@
         "form_placeholder": "Ordered citations for all information sources that went into producing the dataset."
     },
     {
-        "field_name": "CI_ResponsibleParty_Contact",
+        "field_name": "CI_ResponsibleParty_contact",
         "grouping": "Management",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
@@ -353,7 +353,7 @@
         "form_placeholder": "Contact information for the individual or organization that is responsible for or most knowledgeable about the dataset. This could be the author of a report, the contact information for the relevant department of an organization that produced a report, or the data analyst, mapper or researcher that produced a dataset or report."
     },
     {
-        "field_name": "MD_metadata_contact",
+        "field_name": "MD_Metadata_contact",
         "grouping": "Management",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
@@ -368,7 +368,7 @@
         "form_placeholder": "Information about how up-to-date the metadata is and who is responsible for maintaining it."
     },
     {
-        "field_name": "MD_scopeDescription_attributes",
+        "field_name": "MD_ScopeDescription_attributes",
         "grouping": "Management",
         "preset": "odm_text_translated",
         "label": {
@@ -382,7 +382,7 @@
         "form_placeholder": "Details about the information content of the dataset."
     },
     {
-        "field_name": "MD_dataidentification_keywords",
+        "field_name": "MD_DataIdentification_keywords",
         "grouping": "Management",
         "preset": "odm_text_translated",
         "label": {
@@ -396,7 +396,7 @@
         "form_placeholder": "A few sentences describing GEMET keywords."
     },
     {
-        "field_name": "CI_citation_identAuth",
+        "field_name": "CI_Citation_identAuth",
         "grouping": "Management",
        "odm_required": "true",
        "preset": "odm_text_translated_required",
@@ -411,7 +411,7 @@
         "form_placeholder": "A few sentences describing the Identifier code"
     },
     {
-        "field_name": "MD_legalConstraints",
+        "field_name": "MD_LegalConstraints",
         "grouping": "Management",
         "preset": "odm_text_translated",
         "label": {
@@ -425,7 +425,7 @@
         "form_placeholder": "A few sentences describing the Limitations on public access"
     },
     {
-        "field_name": "MD_format_version",
+        "field_name": "MD_Format_version",
         "grouping": "Management",
         "preset": "odm_text_translated",
         "label": {
@@ -439,7 +439,7 @@
         "form_placeholder": "A few sentences describing the Format version"
     },
     {
-        "field_name": "CI_citation_updatefreq",
+        "field_name": "CI_Citation_updateFreq",
         "grouping": "Management",
         "label": "Update Frequency",
         "validate": "true",
@@ -625,7 +625,7 @@
         "preset": "resource_format_autocomplete"
     },
     {
-        "field_name": "MD_dataidentification_language",
+        "field_name": "MD_DataIdentification_language",
         "preset": "odm_language",
         "validate": "true",
         "label": "Resource's languages",
