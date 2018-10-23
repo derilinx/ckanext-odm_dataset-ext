@@ -11,7 +11,6 @@ import sys
 import os
 from pylons import config
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
-import odm_dataset_helper
 import odm_dataset_config
 import datetime
 import time
@@ -22,6 +21,8 @@ import collections
 log = logging.getLogger(__file__)
 log.setLevel(logging.DEBUG)
 
+from . import helpers, validators
+
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IConfigurer)
@@ -31,38 +32,37 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
     #  IValidators
     def get_validators(self):
-
-        log.error("get_validators")
         return {
-            'odm_dataset_if_empty_new_id': odm_dataset_helper.if_empty_new_id,
-            'odm_dataset_urlencode': odm_dataset_helper.urlencode,
-            'odm_dataset_clean_taxonomy_tags': odm_dataset_helper.clean_taxonomy_tags,
-            'odm_dataset_sanitize_list': odm_dataset_helper.sanitize_list,
-            'odm_dataset_convert_to_multilingual': odm_dataset_helper.convert_to_multilingual,
-            'odm_dataset_if_empty_same_as_name_if_not_empty': odm_dataset_helper.if_empty_same_as_name_if_not_empty,
-            'odm_dataset_if_empty_same_as_description_if_not_empty': odm_dataset_helper.if_empty_same_as_description_if_not_empty,
-            'odm_dataset_fluent_required': odm_dataset_helper.fluent_required,
-            'odm_dataset_record_does_not_exist_yet': odm_dataset_helper.record_does_not_exist_yet,
-            'odm_dataset_convert_csv_to_array': odm_dataset_helper.convert_csv_to_array,
-            'odm_dataset_remove_topics': odm_dataset_helper.remove_topics
+            'odm_dataset_if_empty_new_id': validators.if_empty_new_id,
+            'odm_dataset_numeric': validators.convert_numeric,
+            'odm_dataset_urlencode': validators.urlencode,
+            'odm_dataset_clean_taxonomy_tags': validators.clean_taxonomy_tags,
+            'odm_dataset_sanitize_list': validators.sanitize_list,
+            'odm_dataset_convert_to_multilingual': helpers.convert_to_multilingual,
+            'odm_dataset_if_empty_same_as_name_if_not_empty': validators.if_empty_same_as_name_if_not_empty,
+            'odm_dataset_if_empty_same_as_description_if_not_empty': validators.if_empty_same_as_description_if_not_empty,
+            'odm_dataset_fluent_required': validators.fluent_required,
+            'odm_dataset_record_does_not_exist_yet': validators.record_does_not_exist_yet,
+            'odm_dataset_convert_csv_to_array': validators.convert_csv_to_array,
+            'odm_dataset_remove_topics': validators.remove_topics,
           }
 
     # ITemplateHelpers
     def get_helpers(self):
-
         return {
-            'odm_dataset_get_current_time': odm_dataset_helper.get_current_time,
-            'odm_dataset_get_localized_tag': odm_dataset_helper.get_localized_tag,
-            'odm_dataset_get_current_language': odm_dataset_helper.get_current_language,
-            'odm_dataset_retrieve_taxonomy_from_tags': odm_dataset_helper.retrieve_taxonomy_from_tags,
-            'odm_dataset_convert_to_multilingual': odm_dataset_helper.convert_to_multilingual,
-            'odm_dataset_clean_taxonomy_tags': odm_dataset_helper.clean_taxonomy_tags,
-            'odm_dataset_get_resource_from_datatable': odm_dataset_helper.get_resource_from_datatable,
-            'odm_dataset_get_dataset_name': odm_dataset_helper.get_dataset_name,
-            'odm_dataset_get_dataset_notes': odm_dataset_helper.get_dataset_notes,
+            'odm_dataset_get_current_time': helpers.get_current_time,
+            'odm_dataset_get_localized_tag': helpers.get_localized_tag,
+            'odm_dataset_get_current_language': helpers.get_current_language,
+            'odm_dataset_retrieve_taxonomy_from_tags': helpers.retrieve_taxonomy_from_tags,
+            'odm_dataset_convert_to_multilingual': helpers.convert_to_multilingual,
+            'odm_dataset_clean_taxonomy_tags': helpers.clean_taxonomy_tags,
+            'odm_dataset_get_resource_from_datatable': helpers.get_resource_from_datatable,
+            'odm_dataset_get_dataset_name': helpers.get_dataset_name,
+            'odm_dataset_get_dataset_notes': helpers.get_dataset_notes,
             'odm_dataset_get_resource_id_for_field' : odm_dataset_config.get_resource_id_for_field,
-            'odm_dataset_validate_fields' : odm_dataset_helper.validate_fields,
-            'odm_dataset_detail_page_url': odm_dataset_helper.detail_page_url
+            'odm_dataset_validate_fields' : helpers.validate_fields,
+            'odm_dataset_detail_page_url': helpers.detail_page_url,
+            'odm_dataset_get_required': helpers.get_required,
           }
 
     # IPackageController

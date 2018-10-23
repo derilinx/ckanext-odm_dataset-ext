@@ -7,6 +7,7 @@
     {
         "field_name": "title_translated",
         "validate": "true",
+        "odm_required": "true",
         "multilingual": "true",
         "preset": "fluent_core_title_translated_single",
         "label":
@@ -18,11 +19,11 @@
             "my": "ခေါင်းစဥ်"
         },
         "form_languages": ["en", "th", "km", "vi", "my"],
-       "form_placeholder": {
+        "form_placeholder": {
           "en": "Name given to the dataset.",
           "th": "[[TH]] Name given to the dataset"
-       },
-       "form_snippet": "slug_target_fluent_text.html",
+        },
+        "form_snippet": "slug_target_fluent_text.html",
         "form_attrs":
         {
             "data-module": "slug-preview-target"
@@ -55,7 +56,9 @@
     },
     {
         "field_name": "MD_dataidentification_abstract_translated",
-        "preset": "fluent_core_notes_translated_markdown_single",
+       "preset": "odm_notes_translated_markdown",
+       "odm_required": "true",
+       "validators": "fluent_text odm_dataset_fluent_required",
         "label": {
             "en": "Abstract",
             "th": "รายละเอียด",
@@ -68,6 +71,7 @@
     },
     {
         "field_name": "MD_dataidentification_topicCategory",
+        "required": "true",
         "label": "Dataset topic category",
         "preset": "odm_taxonomy",
         "validate": "true",
@@ -77,6 +81,7 @@
         "field_name": "MD_dataidentification_language",
         "label": "Language",
         "validate": "true",
+        "required": "true",
         "form_placeholder": "Language(s) of the dataset, including resources within dataset.",
         "preset": "odm_language"
     },
@@ -108,6 +113,7 @@
     },
     {
         "field_name": "CI_Citation_date",
+        "required": "true",
         "label": "Dataset reference date",
         "form_placeholder": "Date the dataset was first Published by its creator.",
         "validate": "true",
@@ -140,6 +146,7 @@
     {
         "field_name": "Ex_geoname",
         "label": "GeoNames",
+        "required": "true",
         "form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "odm_spatial_range",
         "validate": "true"
@@ -147,44 +154,72 @@
     {
         "field_name": "EX_GeographicBoundingBox_west",
         "label": "West bounding coordinates ",
-        "form_placeholder": "The west point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-        "preset": "fluent_text_single",
+        "required": "true",
+        "form_placeholder": "The west point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
         "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_east",
         "label": "East bounding coordinates ",
-        "form_placeholder": "The east point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-        "preset": "fluent_text_single",
+        "required": "true",
+        "form_placeholder": "The east point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
         "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_south",
         "label": "South bounding coordinates",
-        "form_placeholder": "The south point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-        "preset": "fluent_text_single",
+        "required": "true",
+        "form_placeholder": "The south point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
         "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_north",
         "label": "North bounding coordinates ",
-        "form_placeholder": "The north point of the bounding box that the dataset is relevant to (i.e. Cambodia, Laos).",
-        "preset": "fluent_text_single",
+        "required": "true",
+        "form_placeholder": "The north point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
         "validate": "true"
     },
     {
         "field_name": "MD_DataIdentification_spatialResolution",
         "label": "Spatial Resolution",
         "form_placeholder": "Spatial Resolution of the dataset",
-        "preset": "fluent_text_single",
-        "validate": "true"
+        "preset": "number",
+        "validate": "true",
+        "validators": "ignore_missing ignore_empty is_positive_integer"
     },
     {
         "field_name": "MD_dataidentification_spatialreferencesystem",
         "label": "Spatial Reference System",
+        "required": "true",
         "form_placeholder": "Spatial Reference System of the dataset",
-        "preset": "fluent_text_single",
-        "validate": "true"
+        "preset": "select",
+       "validate": "true",
+       "choices": [
+          {
+             "value": "epsg:4326",
+             "label": "WGS 84 (EPSG:4326)"
+          },
+          {
+             "value": "epsg:3857",
+             "label": "WGS 84 (EPSG:3857)"
+          },
+          {
+             "value": "epsg:32629",
+             "label": "WGS 84 / UTM zone 29N (EPSG:32629)"
+          },
+          {
+             "value": "epsg:4258",
+             "label": "ETRS89 (EPSG:4258)"
+          },
+          {
+             "value": "epsg:4936",
+             "label": "ETRS89 (EPSG:4936)"
+          }
+       ]
     },
     {
         "field_name": "DQ_PositionalAccuracy",
@@ -240,8 +275,9 @@
     },
     {
         "field_name": "LI_ProcessStep",
-        "preset": "fluent_text_single",
+        "preset": "odm_text_translated_required",
         "validate": "true",
+        "odm_required": "true",
         "multilingual": "true",
         "label": {
             "en": "Process Step",
@@ -255,8 +291,9 @@
     },
     {
         "field_name": "LI_Lineage",
-        "preset": "fluent_text_single",
+        "preset": "odm_text_translated_required",
         "validate": "true",
+        "odm_required": "true",
         "multilingual": "true",
         "label": {
             "en": "Lineage",
@@ -270,7 +307,8 @@
     },
     {
         "field_name": "CI_ResponsibleParty_Contact",
-        "preset": "fluent_text_single",
+        "preset": "odm_text_translated_required",
+        "odm_required": "true",
         "label": {
             "en": "Responsible party",
             "th": "ข้อมูลติดต่อ",
@@ -283,7 +321,8 @@
     },
     {
         "field_name": "MD_metadata_contact",
-        "preset": "fluent_text_single",
+        "preset": "odm_text_translated_required",
+        "odm_required": "true",
         "label": {
             "en": "Metadata creator information",
             "th": "ข้อมูลอ้างอิงข้อมูลเมตา",
@@ -322,7 +361,8 @@
     },
     {
         "field_name": "CI_citation_identAuth",
-        "preset": "fluent_text_single",
+       "odm_required": "true",
+       "preset": "odm_text_translated_required",
         "label": {
             "en": "Identifier code",
             "th": "",
@@ -364,7 +404,57 @@
         "label": "Update Frequency",
         "validate": "true",
         "form_placeholder": "Update Frequency",
-        "preset": "fluent_text_single"
+       "preset": "select",
+       "choices":[
+          {
+             "value": "continual",
+             "label": "continual"
+          },
+          {
+             "value": "daily",
+             "label": "daily"
+          },
+          {
+             "value": "weekly",
+             "label": "weekly"
+          },
+          {
+             "value": "fornightly",
+             "label": "fornightly"
+          },
+          {
+             "value": "monthly",
+             "label": "monthly"
+          },
+          {
+             "value": "quarterly",
+             "label": "quarterly"
+          },
+          {
+             "value": "biannually",
+             "label": "biannually"
+          },
+          {
+             "value": "annually",
+             "label": "annually"
+          },
+          {
+             "value": "as needed",
+             "label": "as needed"
+          },
+          {
+             "value": "irregular",
+             "label": "irregular"
+          },
+          {
+             "value": "not planned",
+             "label": "not planned"
+          },
+          {
+             "value": "unknown",
+             "label": "unknown"
+          }
+       ]
     },
     {
         "field_name": "license_id",

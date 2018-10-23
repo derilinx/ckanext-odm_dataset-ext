@@ -104,6 +104,24 @@
             "output_validators": "fluent_text_output"
         }
     }, {
+        "preset_name": "odm_text_translated",
+        "values": {
+            "form_snippet": "odm_text_translated.html",
+            "display_snippet": "fluent_text_fallback.html",
+            "error_snippet": "fluent_text_single.html",
+            "validators": "fluent_text",
+            "output_validators": "fluent_text_output"
+        }
+    }, {
+        "preset_name": "odm_text_translated_required",
+        "values": {
+            "form_snippet": "odm_text_translated.html",
+            "display_snippet": "fluent_text_fallback.html",
+            "error_snippet": "fluent_text_single.html",
+            "validators": "fluent_text odm_dataset_fluent_required",
+            "output_validators": "fluent_text_output"
+        }
+    }, {
         "preset_name": "fluent_core_translated",
         "values": {
             "form_snippet": "fluent_text.html",
@@ -169,13 +187,22 @@
             "form_snippet": "fluent_markdown.html",
             "display_snippet": "fluent_markdown.html",
             "error_snippet": "fluent_markdown.html",
-            "validators": "fluent_text",
+            "validators": "fluent_text odm_dataset_fluent_required",
             "output_validators": "fluent_core_translated_output"
         }
     }, {
         "preset_name": "fluent_core_notes_translated_markdown_single",
         "values": {
             "form_snippet": "fluent_markdown_single_notes.html",
+            "display_snippet": "fluent_notes_fallback.html",
+            "error_snippet": "fluent_markdown_single.html",
+            "validators": "fluent_text",
+            "output_validators": "fluent_core_translated_output"
+        }
+    }, {
+        "preset_name": "odm_notes_translated_markdown",
+        "values": {
+            "form_snippet": "odm_markdown_multiple.html",
             "display_snippet": "fluent_notes_fallback.html",
             "error_snippet": "fluent_markdown_single.html",
             "validators": "fluent_text",
@@ -204,7 +231,7 @@
         "values": {
             "form_snippet": "text_number.html",
             "display_snippet": "text.html",
-            "validators": "ignore_missing"
+            "validators": "ignore_missing odm_dataset_numeric"
         }
     },{
         "preset_name": "date",
