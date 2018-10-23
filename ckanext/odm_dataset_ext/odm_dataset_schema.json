@@ -3,9 +3,16 @@
     "dataset_type": "dataset",
     "about": "ODM dataset schema",
     "about_url": "http://github.com/open-data/ckanext-scheming",
+    "dataset_field_group_sort_order": [
+       "Description",
+       "Temporal",
+       "Spatial",
+       "Management"
+    ],
     "dataset_fields": [
     {
         "field_name": "title_translated",
+        "grouping": "Description",
         "validate": "true",
         "odm_required": "true",
         "multilingual": "true",
@@ -31,6 +38,7 @@
     },
     {
         "field_name": "name",
+        "grouping": "Description",
         "required": "true",
         "label": "URL",
         "preset": "dataset_slug",
@@ -39,6 +47,7 @@
     },
     {
         "field_name": "title",
+        "grouping": "Description",
         "label": "title",
         "preset": "text_hidden",
         "validators": "if_empty_same_as(name)"
@@ -56,9 +65,10 @@
     },
     {
         "field_name": "MD_dataidentification_abstract_translated",
-       "preset": "odm_notes_translated_markdown",
-       "odm_required": "true",
-       "validators": "fluent_text odm_dataset_fluent_required",
+        "grouping": "Description",
+        "preset": "odm_notes_translated_markdown",
+        "odm_required": "true",
+        "validators": "fluent_text odm_dataset_fluent_required",
         "label": {
             "en": "Abstract",
             "th": "รายละเอียด",
@@ -71,6 +81,7 @@
     },
     {
         "field_name": "MD_dataidentification_topicCategory",
+        "grouping": "Description",
         "required": "true",
         "label": "Dataset topic category",
         "preset": "odm_taxonomy",
@@ -79,6 +90,7 @@
     },
     {
         "field_name": "MD_dataidentification_language",
+        "grouping": "Description",
         "label": "Language",
         "validate": "true",
         "required": "true",
@@ -87,6 +99,7 @@
     },
     {
         "field_name": "MD_constraints",
+        "grouping": "Description",
         "preset": "fluent_markdown_single",
         "label": {
             "en": "Use limitations",
@@ -100,6 +113,7 @@
     },
     {
        "field_name": "owner_org",
+       "grouping": "Description",
        "label": "Organisation name",
        "required": "true",
        "validate": "true",
@@ -113,6 +127,7 @@
     },
     {
         "field_name": "CI_Citation_date",
+        "grouping": "Temporal",
         "required": "true",
         "label": "Dataset reference date",
         "form_placeholder": "Date the dataset was first Published by its creator.",
@@ -121,30 +136,35 @@
     },
     {
         "field_name": "MD_metadata_dateStamp",
+        "grouping": "Temporal",
         "label": "Date uploaded",
         "form_placeholder": "Date a new version or update of the dataset was uploaded.",
         "preset": "odm_date_uploaded"
     },
     {
         "field_name": "CI_citation_lastRevision",
+        "grouping": "Temporal",
         "label": "Date of last revision",
         "form_placeholder": "Date a new version or update of the dataset was uploaded.",
         "preset": "odm_date_modified"
     },
     {
         "field_name": "Ex_TemporalExtent_startdate",
+        "grouping": "Temporal",
         "label": "Temporal extent's start date",
         "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
         "preset": "odm_date"
     },
     {
         "field_name": "Ex_TemporalExtent_enddate",
+        "grouping": "Temporal",
         "label": "Temporal extent's end date",
         "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
         "preset": "odm_date"
     },
     {
         "field_name": "Ex_geoname",
+        "grouping": "Spatial",
         "label": "GeoNames",
         "required": "true",
         "form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
@@ -153,6 +173,7 @@
     },
     {
         "field_name": "EX_GeographicBoundingBox_west",
+        "grouping": "Spatial",
         "label": "West bounding coordinates ",
         "required": "true",
         "form_placeholder": "The west point of the bounding box that the dataset is relevant to.",
@@ -161,6 +182,7 @@
     },
     {
         "field_name": "EX_GeographicBoundingBox_east",
+        "grouping": "Spatial",
         "label": "East bounding coordinates ",
         "required": "true",
         "form_placeholder": "The east point of the bounding box that the dataset is relevant to.",
@@ -169,6 +191,7 @@
     },
     {
         "field_name": "EX_GeographicBoundingBox_south",
+        "grouping": "Spatial",
         "label": "South bounding coordinates",
         "required": "true",
         "form_placeholder": "The south point of the bounding box that the dataset is relevant to.",
@@ -177,6 +200,7 @@
     },
     {
         "field_name": "EX_GeographicBoundingBox_north",
+        "grouping": "Spatial",
         "label": "North bounding coordinates ",
         "required": "true",
         "form_placeholder": "The north point of the bounding box that the dataset is relevant to.",
@@ -185,6 +209,7 @@
     },
     {
         "field_name": "MD_DataIdentification_spatialResolution",
+        "grouping": "Spatial",
         "label": "Spatial Resolution",
         "form_placeholder": "Spatial Resolution of the dataset",
         "preset": "number",
@@ -193,6 +218,7 @@
     },
     {
         "field_name": "MD_dataidentification_spatialreferencesystem",
+        "grouping": "Spatial",
         "label": "Spatial Reference System",
         "required": "true",
         "form_placeholder": "Spatial Reference System of the dataset",
@@ -223,7 +249,8 @@
     },
     {
         "field_name": "DQ_PositionalAccuracy",
-        "preset": "fluent_text_single",
+        "grouping": "Spatial",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Positional Accuracy",
             "th": "ความถูกต้อง",
@@ -236,7 +263,8 @@
     },
     {
         "field_name": "DQ_QuantitativeAttribute ",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Attribute Accuracy",
             "th": "ความถูกต้อง",
@@ -249,7 +277,8 @@
     },
     {
         "field_name": "DQ_logicalConsistency",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Logical Consistency",
             "th": "ความสอดคล้องเชิงตรรกะ",
@@ -262,7 +291,8 @@
     },
     {
         "field_name": "DQ_completeness",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Completeness",
             "th": "ความสมบูรณ์",
@@ -275,6 +305,7 @@
     },
     {
         "field_name": "LI_ProcessStep",
+        "grouping": "Management",
         "preset": "odm_text_translated_required",
         "validate": "true",
         "odm_required": "true",
@@ -291,6 +322,7 @@
     },
     {
         "field_name": "LI_Lineage",
+        "grouping": "Management",
         "preset": "odm_text_translated_required",
         "validate": "true",
         "odm_required": "true",
@@ -307,6 +339,7 @@
     },
     {
         "field_name": "CI_ResponsibleParty_Contact",
+        "grouping": "Management",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
         "label": {
@@ -321,6 +354,7 @@
     },
     {
         "field_name": "MD_metadata_contact",
+        "grouping": "Management",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
         "label": {
@@ -335,7 +369,8 @@
     },
     {
         "field_name": "MD_scopeDescription_attributes",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Attributes",
             "th": "คุณสมบัติ",
@@ -348,7 +383,8 @@
     },
     {
         "field_name": "MD_dataidentification_keywords",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "GEMET controlled keywords",
             "th": "",
@@ -361,6 +397,7 @@
     },
     {
         "field_name": "CI_citation_identAuth",
+        "grouping": "Management",
        "odm_required": "true",
        "preset": "odm_text_translated_required",
         "label": {
@@ -375,7 +412,8 @@
     },
     {
         "field_name": "MD_legalConstraints",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Limitations on public access",
             "th": "",
@@ -388,7 +426,8 @@
     },
     {
         "field_name": "MD_format_version",
-        "preset": "fluent_text_single",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
         "label": {
             "en": "Format version",
             "th": "",
@@ -401,6 +440,7 @@
     },
     {
         "field_name": "CI_citation_updatefreq",
+        "grouping": "Management",
         "label": "Update Frequency",
         "validate": "true",
         "form_placeholder": "Update Frequency",
@@ -458,6 +498,7 @@
     },
     {
         "field_name": "license_id",
+        "grouping": "Management",
         "validate": "true",
         "label": "License",
         "preset": "odm_license",
@@ -465,6 +506,7 @@
     },
     {
         "field_name": "odm_copyright",
+        "grouping": "Management",
         "validate": "true",
         "label": "Copyright",
         "preset": "odm_copyright",
@@ -472,6 +514,7 @@
     },
     {
         "field_name": "version",
+        "grouping": "Management",
         "label": "Version",
         "validators": "unicode package_version_validator",
         "form_placeholder": "Dataset's version (eg. 1.0)",
@@ -479,46 +522,54 @@
     },
     {
         "field_name": "odm_province",
+        "grouping": "Management",
         "label": "Province(s)",
         "form_placeholder": "The province(s) this dataset relates to",
         "preset": "odm_province"
     },
     {
         "field_name": "odm_reference_document",
+        "grouping": "Management",
         "label": "Legacy reference document",
         "form_placeholder": "e.g Tong_Min_Group_Engineering__21.06.2011.pdf"
     },
     {
         "field_name": "maintainer",
+        "grouping": "Management",
         "validate": "true",
         "label": "Maintainer",
         "preset": "auto_maintainer"
     },
     {
         "field_name": "maintainer_email",
+        "grouping": "Management",
         "validate": "true",
         "label": "Maintainer email",
         "preset": "auto_maintainer_email"
     },
     {
         "field_name": "author",
+        "grouping": "Management",
         "validate": "true",
         "label": "Author",
         "preset": "auto_author"
     }, {
         "field_name": "author_email",
+        "grouping": "Management",
         "validate": "true",
         "label": "Author email",
         "preset": "auto_author_email"
     },
     {
         "field_name": "odm_db_table",
+        "grouping": "Management",
         "label": "Database table?",
         "preset": "odm_db_table",
         "help_text": "INTERNAL USE ONLY: Select true if this record contains CSV and/or XLS resources available in the datastore."
     },
     {
         "field_name": "odm_keywords",
+        "grouping": "Management",
         "label": "Keywords",
         "preset": "odm_keywords",
         "help_text": "INTERNAL USE ONLY: Enter keywords for improving the discoverability of this record via search"
@@ -532,7 +583,7 @@
     },
     {
         "field_name": "name_translated",
-        "preset": "fluent_text_single",
+        "preset": "odm_text_translated",
         "validate": "true",
         "label": {
             "en": "Name",
