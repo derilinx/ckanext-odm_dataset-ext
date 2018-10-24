@@ -68,6 +68,7 @@
         "grouping": "Description",
         "preset": "odm_notes_translated_markdown",
         "odm_required": "true",
+        "validate": "true",
         "validators": "fluent_text odm_dataset_fluent_required",
         "label": {
             "en": "Abstract",
@@ -100,6 +101,7 @@
     {
         "field_name": "MD_Constraints",
         "grouping": "Description",
+        "validate": "true",
         "preset": "fluent_markdown_single",
         "label": {
             "en": "Use limitations",
@@ -137,6 +139,7 @@
     {
         "field_name": "MD_Metadata_dateStamp",
         "grouping": "Temporal",
+        "validate": "true",
         "label": "Date uploaded",
         "form_placeholder": "Date a new version or update of the dataset was uploaded.",
         "preset": "odm_date_uploaded"
@@ -144,6 +147,7 @@
     {
         "field_name": "CI_Citation_lastRevision",
         "grouping": "Temporal",
+        "validate": "true",
         "label": "Date of last revision",
         "form_placeholder": "Date a new version or update of the dataset was uploaded.",
         "preset": "odm_date_modified"
@@ -151,6 +155,7 @@
     {
         "field_name": "EX_TemporalExtent_startDate",
         "grouping": "Temporal",
+        "validate": "true",
         "label": "Temporal extent's start date",
         "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
         "preset": "odm_date"
@@ -251,6 +256,7 @@
         "field_name": "DQ_PositionalAccuracy",
         "grouping": "Spatial",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Positional Accuracy",
             "th": "ความถูกต้อง",
@@ -265,6 +271,7 @@
         "field_name": "DQ_QuantitativeAttribute ",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Attribute Accuracy",
             "th": "ความถูกต้อง",
@@ -279,6 +286,7 @@
         "field_name": "DQ_LogicalConsistency",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Logical Consistency",
             "th": "ความสอดคล้องเชิงตรรกะ",
@@ -293,6 +301,7 @@
         "field_name": "DQ_Completeness",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Completeness",
             "th": "ความสมบูรณ์",
@@ -342,6 +351,7 @@
         "grouping": "Management",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
+        "validate": "true",
         "label": {
             "en": "Responsible party",
             "th": "ข้อมูลติดต่อ",
@@ -357,6 +367,7 @@
         "grouping": "Management",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
+        "validate": "true",
         "label": {
             "en": "Metadata creator information",
             "th": "ข้อมูลอ้างอิงข้อมูลเมตา",
@@ -371,6 +382,7 @@
         "field_name": "MD_ScopeDescription_attributes",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Attributes",
             "th": "คุณสมบัติ",
@@ -385,6 +397,7 @@
         "field_name": "MD_DataIdentification_keywords",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "GEMET controlled keywords",
             "th": "",
@@ -398,8 +411,9 @@
     {
         "field_name": "CI_Citation_identAuth",
         "grouping": "Management",
-       "odm_required": "true",
-       "preset": "odm_text_translated_required",
+        "odm_required": "true",
+        "validate": "true",
+        "preset": "odm_text_translated_required",
         "label": {
             "en": "Identifier code",
             "th": "",
@@ -414,6 +428,7 @@
         "field_name": "MD_LegalConstraints",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Limitations on public access",
             "th": "",
@@ -428,6 +443,7 @@
         "field_name": "MD_Format_version",
         "grouping": "Management",
         "preset": "odm_text_translated",
+        "validate": "true",
         "label": {
             "en": "Format version",
             "th": "",
@@ -602,7 +618,7 @@
     },
     {
         "field_name": "description_translated",
-        "preset": "fluent_markdown_single",
+        "preset": "odm_notes_translated_markdown",
         "validate": "true",
         "label": {
             "en": "Description",
