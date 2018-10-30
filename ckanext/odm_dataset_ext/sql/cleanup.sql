@@ -260,3 +260,144 @@ returning
 ;
 
 commit;
+
+
+--
+-- ASDF
+--
+
+--
+-- The case where the translated description is actually correct, and only non-translated one has asdf
+--
+
+-- select
+
+with res (id, extras, description_translated_en)
+as (select
+  id,
+  extras,
+  trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' as description_translated_en
+from resource
+where description = 'asdf'
+and trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' != ''
+and trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' != 'asdf'
+)
+select id, description, description_translated_en
+from resource inner join res using (id)
+where description = 'asdf';
+
+
+begin;
+
+-- update returning id,name
+with res (id, extras, description_translated_en)
+as (select
+  id,
+  extras,
+  trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' as description_translated_en
+from resource
+where description = 'asdf'
+and trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' != ''
+and trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' != 'asdf'
+)
+update resource set description=description_translated_en
+from res
+where res.id = resource.id
+and description = 'asdf'
+returning resource.id, description;
+
+commit;
+
+
+
+--
+-- Now pull from previous revision
+-- including the name_translated
+
+with rh (id, revision_id, description, extras, description_translated_en)
+as (
+  select distinct on (id)
+    id,
+    revision_id,
+    description,
+    extras,
+    trim(both '"' from extras::json->>'description_translated')::json->>'en'
+  from resource_revision
+  where
+    current='f'
+    and trim(description) != 'asdf'
+  order by id, revision_timestamp desc)
+select
+  package_id,
+  resource.description,
+  case when rh.description != '' then rh.description else rh.description_translated_en end,
+  rh.extras::json->>'description_translated'
+from resource inner join rh using (id)
+   where
+   resource.description = 'asdf'
+   and (rh.description != ''
+        or ( rh.description_translated_en != '' and rh.description_translated_en != 'asdf'))
+;
+
+--
+-- update from the previous versions
+--
+
+begin;
+
+with rh (id, revision_id, description, extras, description_translated_en)
+as (
+  select distinct on (id)
+    id,
+    revision_id,
+    description,
+    extras,
+    trim(both '"' from extras::json->>'description_translated')::json->>'en'
+  from resource_revision
+  where
+    current='f'
+    and trim(description) != 'asdf'
+  order by id, revision_timestamp desc)
+update resource
+  set description = case when rh.description != '' then rh.description else rh.description_translated_en end,
+  extras = jsonb_set(resource.extras::jsonb,
+            '{description_translated}',
+             (rh.extras::json->'description_translated')::jsonb
+             )
+from rh
+   where
+   resource.id = rh.id
+   and resource.description = 'asdf'
+   and (rh.description != ''
+        or ( rh.description_translated_en != '' and rh.description_translated_en != 'asdf'))
+returning
+  resource.id,
+  resource.description,
+  trim(both '"' from resource.extras::json->>'description_translated')::json->>'en' as description_translated_en
+;
+
+commit;
+
+
+--
+-- And the rest of them.
+--
+
+begin;
+
+update resource
+set
+  description='No Description Provided',
+  extras = jsonb_set(resource.extras::jsonb,
+            '{description_translated}',
+             to_jsonb(replace(resource.extras::json->>'description_translated', 'asdf', 'No Description Provided'))
+             )
+where
+  description = 'asdf'
+returning
+  resource.id,
+  description,
+  resource.extras::json->>'description_translated' as description_translated
+;
+
+commit;
