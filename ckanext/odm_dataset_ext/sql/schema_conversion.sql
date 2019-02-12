@@ -28,31 +28,31 @@
 
 
 -- ### sql for reading
+
+-- select package_extra.*, tr.* from package_extra inner join package on(package_extra.package_id=package.id) inner join ( VALUES
+--     ('note_translated', 'MD_DataIdentification_abstract'),
+--     ('taxonomy', 'MD_DataIdentification_topicCategory'),
+--     ('odm_language', 'MD_DataIdentification_language'),
+--     ('odm_access_and_use_constraints', 'MD_Constraints'),
+--     ('odm_accuracy', 'DQ_PositionalAccuracy'),
+--     ('odm_logical_consistency', 'DQ_LogicalConsistency'),
+--     ('odm_completeness', 'DQ_Completeness'),
+--     ('odm_process', 'LI_ProcessStep'),
+--     ('odm_source', 'LI_Lineage'),
+--     ('odm_contact', 'CI_ResponsibleParty_Contact'),
+--     ('odm_metadata_reference_information', 'MD_Metadata.contact'),
+--     ('odm_attributes', 'MD_ScopeDescription.attributes'),
+--     ('odm_date_created', 'CI_Citation.date'),
+--     ('odm_date_uploaded', 'MD_Metadata.dateStamp'),
+--     ('odm_date_modified', 'CI_Citation_lastRevision')
+-- ) as tr (original, translated) on (package_extra.key = tr.original)
+-- where
+-- package.type = 'dataset'
+-- and value is not null
+-- and value != '';
+
+
 begin;
-
-select package_extra.*, tr.* from package_extra inner join package on(package_extra.package_id=package.id) inner join ( VALUES
-    ('note_translated', 'MD_DataIdentification_abstract'),
-    ('taxonomy', 'MD_DataIdentification_topicCategory'),
-    ('odm_language', 'MD_DataIdentification_language'),
-    ('odm_access_and_use_constraints', 'MD_Constraints'),
-    ('odm_accuracy', 'DQ_PositionalAccuracy'),
-    ('odm_logical_consistency', 'DQ_LogicalConsistency'),
-    ('odm_completeness', 'DQ_Completeness'),
-    ('odm_process', 'LI_ProcessStep'),
-    ('odm_source', 'LI_Lineage'),
-    ('odm_contact', 'CI_ResponsibleParty_Contact'),
-    ('odm_metadata_reference_information', 'MD_Metadata.contact'),
-    ('odm_attributes', 'MD_ScopeDescription.attributes'),
-    ('odm_date_created', 'CI_Citation.date'),
-    ('odm_date_uploaded', 'MD_Metadata.dateStamp'),
-    ('odm_date_modified', 'CI_Citation_lastRevision')
-) as tr (original, translated) on (package_extra.key = tr.original)
-where
-package.type = 'dataset'
-and value is not null
-and value != '';
-
-
 -- # sql for updating
 
 update package_extra set key=translated
