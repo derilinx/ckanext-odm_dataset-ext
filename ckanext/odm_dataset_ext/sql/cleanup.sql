@@ -13,9 +13,7 @@ from resource inner join rh using (id)
    where trim(resource.name) = 'EIA'
    or trim(resource.description) = 'EIA'
    or resource.name like '%asdf%'
-   or resource.description like '%asdf%'
-
-
+   or resource.description like '%asdf%';
 
 
 --
