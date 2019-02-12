@@ -7,6 +7,8 @@
        "Description",
        "Temporal",
        "Spatial",
+       "DataQuality",
+       "Contact",
        "Management"
     ],
     "dataset_fields": [
@@ -23,12 +25,17 @@
             "th": "หัวข้อ",
             "km": "ចំណងជើង",
             "vi": "Tiêu đề ",
-            "my": "ခေါင်းစဥ်"
+            "my": "ခေါင်းစဥ်",
+            "lo": "Title in lo"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": {
           "en": "Name given to the dataset.",
-          "th": "[[TH]] Name given to the dataset"
+          "th": "[[TH]] Name given to the dataset",
+          "my": "[[MY]] Name given to this dataset",
+          "km": "[[KM]] Name given to this dataset",
+          "vi": "[[VI]] Name given to this dataset",
+          "lo": "[[LO]] Name given to this dataset"
         },
         "form_snippet": "slug_target_fluent_text.html",
         "form_attrs":
@@ -75,9 +82,10 @@
             "th": "รายละเอียด",
             "km": "ការពិពណ៌នា",
             "vi": "Mô tả",
-            "my": "ဖော်ပြချက်"
+            "my": "ဖော်ပြချက်",
+            "lo": "Description in lo"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Short description explaining the content and its origins."
     },
     {
@@ -108,14 +116,15 @@
             "th": "การเข้าถึงและข้อจำกัด",
             "km": "កំហិតនៃការចូល និងប្រើប្រាស់",
             "vi": "Hạn chế truy cập và sử dụng",
-            "my": "ရယူခြင်းနှင့် အကန့်အသတ်များအသုံးပြုခြင်း"
+            "my": "ရယူခြင်းနှင့် အကန့်အသတ်များအသုံးပြုခြင်း",
+            "lo": "Description in Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing legal considerations for people who access the website and/or use its contents."
     },
     {
        "field_name": "owner_org",
-       "grouping": "Description",
+       "grouping": "Contact",
        "label": "Organisation name",
        "required": "true",
        "validate": "true",
@@ -262,14 +271,15 @@
             "th": "ความถูกต้อง",
             "km": "ភាពទៀងទាត់",
             "vi": "Độ chính xác",
-            "my": "တိကျမှန်ကန်မှု"
+            "my": "တိကျမှန်ကန်မှု",
+            "lo": "Positional Accuracy in Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Details on the level of accuracy of the dataset and any existing issues."
     },
     {
         "field_name": "DQ_QuantitativeAttribute ",
-        "grouping": "Management",
+        "grouping": "DataQuality",
         "preset": "odm_text_translated",
         "validate": "true",
         "label": {
@@ -277,14 +287,15 @@
             "th": "ความถูกต้อง",
             "km": "ភាពទៀងទាត់",
             "vi": "Độ chính xác",
-            "my": "တိကျမှန်ကန်မှု"
+            "my": "တိကျမှန်ကန်မှု",
+            "lo": "Attribute accuracy Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Details on the attribute accuracy of the dataset and any existing issues."
     },
     {
         "field_name": "DQ_LogicalConsistency",
-        "grouping": "Management",
+        "grouping": "DataQuality",
         "preset": "odm_text_translated",
         "validate": "true",
         "label": {
@@ -292,14 +303,15 @@
             "th": "ความสอดคล้องเชิงตรรกะ",
             "km": "ភាពទៀងទាត់តាមហេតុផល",
             "vi": "Tính nhất quán logic",
-            "my": "ကျိုးကြောင်းဆီလျော်မှုရှိမရှိ"
+            "my": "ကျိုးကြောင်းဆီလျော်မှုရှိမရှိ",
+            "lo": "Logistical consistency Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Issues with logical consistency in the dataset and the steps, if any, being taken to validate its content."
     },
     {
         "field_name": "DQ_Completeness",
-        "grouping": "Management",
+        "grouping": "DataQuality",
         "preset": "odm_text_translated",
         "validate": "true",
         "label": {
@@ -307,31 +319,33 @@
             "th": "ความสมบูรณ์",
             "km": "ការចប់សព្វគ្រប់",
             "vi": "Đầy đủ",
-            "my": "ပြည့်စုံမှု"
+            "my": "ပြည့်စုံမှု",
+            "lo": "Completeness Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Brief description of the level of completeness of the dataset's contents and the steps, if any, being taken to make the dataset more complete."
     },
     {
         "field_name": "LI_ProcessStep",
-        "grouping": "Management",
+        "grouping": "DataQuality",
         "preset": "odm_text_translated_required",
         "validate": "true",
         "odm_required": "true",
         "multilingual": "true",
         "label": {
             "en": "Process Step",
-            "th": "Process Step",
+            "th": "Process Step Thai",
             "km": "ដំណើរ​ការ",
             "vi": "(Các ) quy trình thu thập và xử lý dữ liệu",
-            "my": "ဖြစ်စဉ် (များ)"
+            "my": "ဖြစ်စဉ် (များ)",
+            "lo": "Process Step Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "The steps taken to acquire, aggregate, or transform any of the resources in the dataset."
     },
     {
         "field_name": "LI_Lineage",
-        "grouping": "Management",
+        "grouping": "DataQuality",
         "preset": "odm_text_translated_required",
         "validate": "true",
         "odm_required": "true",
@@ -341,14 +355,15 @@
             "th": "แหล่งที่มา",
             "km": "ប្រភព",
             "vi": "(Các) nguồn",
-            "my": "ရင်းမြစ်များ"
+            "my": "ရင်းမြစ်များ",
+            "lo": "Lineage Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Ordered citations for all information sources that went into producing the dataset."
     },
     {
         "field_name": "CI_ResponsibleParty_contact",
-        "grouping": "Management",
+        "grouping": "Contact",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
         "validate": "true",
@@ -357,14 +372,15 @@
             "th": "ข้อมูลติดต่อ",
             "km": "ទំនាក់ទំនង",
             "vi": "Liên hệ",
-            "my": "ဆက်သွယ်ရန်"
+            "my": "ဆက်သွယ်ရန်",
+            "lo": "Responsible Party"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Contact information for the individual or organization that is responsible for or most knowledgeable about the dataset. This could be the author of a report, the contact information for the relevant department of an organization that produced a report, or the data analyst, mapper or researcher that produced a dataset or report."
     },
     {
         "field_name": "MD_Metadata_contact",
-        "grouping": "Management",
+        "grouping": "Contact",
         "preset": "odm_text_translated_required",
         "odm_required": "true",
         "validate": "true",
@@ -373,9 +389,10 @@
             "th": "ข้อมูลอ้างอิงข้อมูลเมตา",
             "km": "ពត័មានជាអំនះអំនាងនៃព័ត៌មាន​អំពីទិន្នន័យ",
             "vi": "Thông tin tham khảo Metadata.",
-            "my": "Metadata ကိုရည်ညွှန်းသော သတင်းအချက်အလက်"
+            "my": "Metadata ကိုရည်ညွှန်းသော သတင်းအချက်အလက်",
+            "lo": "Metadata contact Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Information about how up-to-date the metadata is and who is responsible for maintaining it."
     },
     {
@@ -388,9 +405,10 @@
             "th": "คุณสมบัติ",
             "km": "លក្ខណៈសម្បត្តិ",
             "vi": "Thuộc tính",
-            "my": "၀ိသေသများ"
+            "my": "၀ိသေသများ",
+            "lo": "Attributes Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Details about the information content of the dataset."
     },
     {
@@ -403,9 +421,10 @@
             "th": "",
             "km": "",
             "vi": "",
-            "my": ""
+            "my": "",
+            "lo": ""
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing GEMET keywords."
     },
     {
@@ -416,10 +435,11 @@
         "preset": "odm_text_translated_required",
         "label": {
             "en": "Identifier code",
-            "th": "",
+            "th": "Identifier code TH",
             "km": "",
             "vi": "",
-            "my": ""
+            "my": "",
+            "lo": ""
         },
         "form_languages": ["en", "th", "km", "vi", "my"],
         "form_placeholder": "A few sentences describing the Identifier code"
@@ -431,12 +451,13 @@
         "validate": "true",
         "label": {
             "en": "Limitations on public access",
-            "th": "",
+            "th": "Limitations TH",
             "km": "",
             "vi": "",
-            "my": ""
+            "my": "",
+            "lo": ""
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing the Limitations on public access"
     },
     {
@@ -449,9 +470,10 @@
             "th": "",
             "km": "",
             "vi": "",
-            "my": ""
+            "my": "",
+            "lo": ""
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing the Format version"
     },
     {
@@ -606,9 +628,10 @@
             "th": "Name",
             "km": "Name",
             "vi": "Tên",
-            "my": "အမည်"
+            "my": "အမည်",
+            "lo": "Name"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "eg. January 2011 Gold Prices"
     },
     {
@@ -625,9 +648,10 @@
             "th": "",
             "km": "",
             "vi": "Mô tả",
-            "my": "ဖော်ပြချက်"
+            "my": "ဖော်ပြချက်",
+            "lo": "Desc Laos"
         },
-        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "Some useful notes about the data"
     },
     {
