@@ -1,7 +1,7 @@
 # encoding: utf-8
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-
+from .logic import action
 import ckan
 import pylons
 import logging
@@ -23,12 +23,14 @@ log.setLevel(logging.DEBUG)
 
 from . import helpers, validators
 
+
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
+    plugins.implements(plugins.IActions)
 
     #  IValidators
     def get_validators(self):
@@ -64,6 +66,12 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_detail_page_url': helpers.detail_page_url,
             'odm_dataset_get_required': helpers.get_required,
           }
+
+        ## IActions
+    def get_actions(self):
+
+        return {'package_search': action.package_search}
+
 
     # IPackageController
     def before_create(self, context, resource):
