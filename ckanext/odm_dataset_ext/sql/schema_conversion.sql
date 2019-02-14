@@ -53,8 +53,11 @@
 
 
 begin;
--- # sql for updating
 
+-- there's one package that is preventing indexing
+update package set metadata_created=metadata_modified where state='active' and metadata_created is null;
+
+-- # sql for updating
 update package_extra set key=translated
   from package,  ( VALUES
     ('note_translated', 'MD_DataIdentification_abstract'),
