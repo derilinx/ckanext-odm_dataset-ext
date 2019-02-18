@@ -3,7 +3,6 @@
 
 DEBUG = True
 
-import pylons
 import json
 import ckan
 import logging
@@ -16,8 +15,8 @@ import os
 import ckan.model as model
 import ckan.plugins.toolkit as toolkit
 import ckan.logic as logic
-from ckan.plugins.toolkit import Invalid
-from pylons import config
+from ckan.plugins.toolkit import Invalid, request
+from ckan.common import config
 
 import ckan.lib.navl.dictization_functions as df
 missing = df.missing
@@ -59,7 +58,7 @@ def get_localized_tag(tag):
 	if DEBUG:
 		log.info('odm_dataset_get_localized_tag: %s', str(tag))
 
-	desired_lang_code = pylons.request.environ['CKAN_LANG']
+	desired_lang_code = request.environ['CKAN_LANG']
 
 	translations = ckan.logic.action.get.term_translation_show(
 					{'model': ckan.model},
@@ -76,9 +75,9 @@ def get_current_language():
 	'''Returns the current language code'''
 
 	if DEBUG:
-		log.info('get_current_language %s', str(pylons.request.environ['CKAN_LANG']))
+		log.info('get_current_language %s', str(request.environ['CKAN_LANG']))
 
-	return pylons.request.environ['CKAN_LANG']
+	return request.environ['CKAN_LANG']
 
 def get_localized_tags_string(tags_string):
 	'''Returns a comma separated string with the translation of the tags specified. Calls get_localized_tag'''
@@ -292,7 +291,7 @@ def get_dataset_notes(dataset_id, truncate):
 	dataset_dict = toolkit.get_action('package_show')(data_dict={'id':dataset_id})
 
 	if 'notes_translated' in dataset_dict :
-		lang = pylons.request.environ['CKAN_LANG']
+		lang = request.environ['CKAN_LANG']
 		if lang in dataset_dict['notes_translated']:
 			notes = dataset_dict['notes_translated'][lang]
 			if truncate == True and notes:

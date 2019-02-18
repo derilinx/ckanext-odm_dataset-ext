@@ -3,13 +3,12 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from .logic import action
 import ckan
-import pylons
 import logging
 import ckan.lib.helpers as h
 from beaker.middleware import SessionMiddleware
 import sys
 import os
-from pylons import config
+from ckan.common import config
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 import odm_dataset_config
 import datetime

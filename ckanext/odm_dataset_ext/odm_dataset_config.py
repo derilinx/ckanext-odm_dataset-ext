@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pylons
 import logging
 import json
 import logging
@@ -9,7 +8,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from genshi.template.text import NewTextTemplate
 from ckan.lib.base import render
-from pylons import config
+from ckan.common import config
 
 log = logging.getLogger(__name__)
 
