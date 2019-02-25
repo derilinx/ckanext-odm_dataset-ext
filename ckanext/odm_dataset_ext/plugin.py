@@ -17,7 +17,7 @@ from urlparse import urlparse
 import json
 import collections
 
-log = logging.getLogger(__file__)
+log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 from . import helpers, validators
