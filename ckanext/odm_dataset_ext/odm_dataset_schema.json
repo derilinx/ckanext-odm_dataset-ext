@@ -177,7 +177,7 @@
         "preset": "odm_date"
     },
     {
-        "field_name": "EX_Geoname",
+        "field_name": "odm_spatial_range",
         "grouping": "Spatial",
         "label": "GeoNames",
         "required": "true",
