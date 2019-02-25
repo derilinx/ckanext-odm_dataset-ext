@@ -189,7 +189,6 @@
         "field_name": "EX_GeographicBoundingBox_west",
         "grouping": "Spatial",
         "label": "West bounding coordinates ",
-        "required": "true",
         "form_placeholder": "The west point of the bounding box that the dataset is relevant to.",
         "preset": "number",
         "validate": "true"
@@ -198,7 +197,6 @@
         "field_name": "EX_GeographicBoundingBox_east",
         "grouping": "Spatial",
         "label": "East bounding coordinates ",
-        "required": "true",
         "form_placeholder": "The east point of the bounding box that the dataset is relevant to.",
         "preset": "number",
         "validate": "true"
@@ -207,7 +205,6 @@
         "field_name": "EX_GeographicBoundingBox_south",
         "grouping": "Spatial",
         "label": "South bounding coordinates",
-        "required": "true",
         "form_placeholder": "The south point of the bounding box that the dataset is relevant to.",
         "preset": "number",
         "validate": "true"
@@ -216,7 +213,6 @@
         "field_name": "EX_GeographicBoundingBox_north",
         "grouping": "Spatial",
         "label": "North bounding coordinates ",
-        "required": "true",
         "form_placeholder": "The north point of the bounding box that the dataset is relevant to.",
         "preset": "number",
         "validate": "true"
@@ -234,7 +230,6 @@
         "field_name": "MD_DataIdentification_spatialReferenceSystem",
         "grouping": "Spatial",
         "label": "Spatial Reference System",
-        "required": "true",
         "form_placeholder": "Spatial Reference System of the dataset",
         "preset": "select",
        "validate": "true",
