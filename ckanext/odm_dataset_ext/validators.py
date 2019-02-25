@@ -8,6 +8,7 @@ import uuid
 
 import ckan.model as model
 import ckan.plugins.toolkit as toolkit
+from ckan.common import _
 
 import ckan.lib.navl.dictization_functions as df
 missing = df.missing
@@ -137,6 +138,7 @@ def if_empty_new_id(value):
 
 def convert_numeric(value, context):
 
+    if not value: return ''
     try:
         return float(value)
     except ValueError:
