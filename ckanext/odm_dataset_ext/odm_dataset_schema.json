@@ -665,5 +665,11 @@
         "validate": "true",
         "label": "Resource's languages",
         "form_placeholder": "Language(s) of the resource."
-    }]
+    },
+    {
+        "field_name": "feature_info_template",
+        "form_snippet": "markdown.html",
+        "label": "Feature info template for WMS resource"
+    }
+    ]
 }
