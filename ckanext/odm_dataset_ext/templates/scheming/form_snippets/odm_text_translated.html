@@ -8,7 +8,8 @@
     label=h.fluent_form_label(field, lang),
     placeholder=h.scheming_language_text(field.form_placeholder, lang),
     value=data[field.field_name + '-' + lang]
-        or data.get(field.field_name, {})[lang],
+          or data.get(field.field_name, {})[lang]
+          or (lang=='en' and data.get(field.field_name.replace('_translated',''),'')),
     error=errors[field.field_name + '-' + lang],
     classes=['control-full'],
     attrs=field.form_attrs if 'form_attrs' in field else {},
