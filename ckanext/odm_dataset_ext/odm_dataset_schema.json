@@ -66,12 +66,12 @@
        "validators": "ignore if_empty_same_as(title)"
     },
     {
-        "field_name": "MD_DataIdentification_abstract",
+        "field_name": "notes",
         "label": "Abstract",
         "preset": "text_hidden"
     },
     {
-        "field_name": "MD_DataIdentification_abstract_translated",
+        "field_name": "notes_translated",
         "grouping": "Description",
         "preset": "odm_notes_translated_markdown",
         "odm_required": "true",
