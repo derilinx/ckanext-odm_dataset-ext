@@ -1,7 +1,7 @@
 {% import 'macros/form.html' as form %}
 
 {% resource 'odm_dataset_ext/odm_spatial_range-module.js' %}
-
+{% set field_data=h.odm_dataset_get_list_data(field.field_name, data) %}
 {%- call form.input_block(
     "field-"+field.field_name,
     label=h.scheming_language_text(field.label),
@@ -15,7 +15,7 @@
 	data-module="odm_spatial_range-module autocomplete">
   {% for country in h.odm_dataset_get_resource_from_datatable(h.odm_dataset_get_resource_id_for_field('odm_spatial_range')) %}
     {% if country['supported'] == 'yes' %}
-      <option {{"selected " if country['id'] in data[field.field_name] }} value="{{ country['id'] }}">{{ _(country['name']) }}</option>
+      <option {{"selected " if country['id'] in field_data }} value="{{ country['id'] }}">{{ _(country['name']) }}</option>
     {% endif %}
   {% endfor %}
 </select>
