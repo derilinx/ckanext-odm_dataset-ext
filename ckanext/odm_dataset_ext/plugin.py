@@ -98,27 +98,19 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                 return json.loads(s)
             except:
                 return s
-        extras = dict([(l['key'], _decode(l['value'])) for l in pkg_dict['extras']])
-        pkg_dict.update(extras)
+
         try:
-            pkg_dict['EX_Geoname'] = pkg_dict['odm_spatial_range']
-            
-        except:
+            extras = dict([(l['key'], _decode(l['value'])) for l in pkg_dict['extras']])
+            pkg_dict['EX_Geoname'] = extras.get('odm_spatial_range', [])            
+        except Exception as msg:
             log.debug('Exception: %s' % msg)
             log.debug(extras)
             
         pkg_dict['CI_ResponsibleParty'] = pkg_dict['organization']
         pkg_dict['CI_Citation_title'] = pkg_dict.get('title_translated', {'en': pkg_dict['title']})
-        if pkg_dict.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract_translated', None):
-            pkg_dict['MD_DataIdentification_abstract_translated'] = pkg_dict['notes_translated']
+        if pkg_dict.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
+            pkg_dict['MD_DataIdentification_abstract'] = pkg_dict['notes_translated']
 
-        for f in ('EX_GeographicBoundingBox_north',
-                  'EX_GeographicBoundingBox_east',
-                  'EX_GeographicBoundingBox_south',
-                  'EX_GeographicBoundingBox_west'):
-            if not pkg_dict.get(f,None) or pkg_dict.get(f,'') == "{}":
-                pkg_dict[f] = ''
-             
         return pkg_dict
 
     # IConfigurer
