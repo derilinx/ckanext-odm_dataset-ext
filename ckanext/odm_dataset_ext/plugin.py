@@ -116,7 +116,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                   'EX_GeographicBoundingBox_east',
                   'EX_GeographicBoundingBox_south',
                   'EX_GeographicBoundingBox_west'):
-            if not pkg_dict[f] or pkg_dict[f] == "{}":
+            if not pkg_dict.get(f,None) or pkg_dict.get(f,'') == "{}":
                 pkg_dict[f] = ''
              
         return pkg_dict
