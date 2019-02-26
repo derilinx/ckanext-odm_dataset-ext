@@ -111,6 +111,15 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         if pkg_dict.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
             pkg_dict['MD_DataIdentification_abstract'] = pkg_dict['notes_translated']
 
+        # UNDONE unclear if we really need this, it seems important on staging but not on a clean import.
+        for f in ('EX_GeographicBoundingBox_north',
+                  'EX_GeographicBoundingBox_east',
+                  'EX_GeographicBoundingBox_south',
+                  'EX_GeographicBoundingBox_west',
+                  'MD_DataIdentification_spatialResolution'):
+            if not pkg_dict.get(f,None) or pkg_dict.get(f,'') == "{}":
+                pkg_dict[f] = ''
+                
         return pkg_dict
 
     # IConfigurer
