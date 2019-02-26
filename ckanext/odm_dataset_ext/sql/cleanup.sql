@@ -1,3 +1,10 @@
+begin;
+update resource_revision set current=(revision_id in (select revision_id from resource));
+commit;
+
+--select id, revision_id in (select revision_id from resource) from resource_revision;
+
+
 with rh (id, revision_id, name, description, extras) 
 as (select distinct on (id)  id, revision_id, name, description, extras
 from resource_revision
@@ -398,6 +405,160 @@ returning
   resource.id,
   description,
   resource.extras::json->>'description_translated' as description_translated
+;
+
+commit;
+
+
+-- The translated items don't appear to have been updated.
+
+with rh (id, revision_id, name_translated, description_translated)
+as (
+  select distinct on (id)
+    id,
+    revision_id,
+    trim(both '"' from extras::json->>'name_translated')::json,
+    trim(both '"' from extras::json->>'description_translated')::json
+  from resource_revision
+  where
+    not (extras like '%asdf%' or extras like '%EIA%')
+  order by id, revision_timestamp desc)
+ select
+  id,
+  name,
+  rh.name_translated,
+  rh.description_translated
+  from resource inner join rh using (id)
+  where (extras like '%asdf%' or extras like '%EIA%')
+  and trim(both '"' from extras::json->>'name_translated')::jsonb @> '{"en": "EIA", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and trim(both '"' from extras::json->>'description_translated')::jsonb @> '{"en": "asdf", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and name_translated is not null and description_translated is not null;
+
+
+select
+  id,
+  trim(both '"' from extras::json->>'name_translated')::json,
+  trim(both '"' from extras::json->>'description_translated')::json
+from resource
+  where (extras like '%asdf%' or extras like '%EIA%')
+
+
+begin;
+
+  
+with rh (id, revision_id, name_translated, description_translated)
+as (
+  select distinct on (id)
+    id,
+    revision_id,
+    trim(both '"' from extras::json->>'name_translated')::jsonb,
+    trim(both '"' from extras::json->>'description_translated')::jsonb
+  from resource_revision
+  where
+    not (extras like '%asdf%' or extras like '%EIA%')
+  order by id, revision_timestamp desc)
+ update resource
+ set
+ !!!Undone -- this should be a string of a json object!!!
+   extras = jsonb_set(
+              jsonb_set(resource.extras::jsonb,
+                        '{description_translated}',
+                        rh.description_translated
+                        ),
+              '{name_translated}',
+              rh.name_translated)
+  from rh 
+  where
+  rh.id = resource.id
+  and (extras like '%asdf%' or extras like '%EIA%')
+  and trim(both '"' from extras::json->>'name_translated')::jsonb @> '{"en": "EIA", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and trim(both '"' from extras::json->>'description_translated')::jsonb @> '{"en": "asdf", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and name_translated is not null and description_translated is not null;
+
+commit;
+
+
+
+
+-- Those items where there's a junk name/description_translated, and nothing in the history, but something in the name/description
+ select
+  id,
+  name,
+  description,
+  jsonb_set(
+       jsonb_set(extras::jsonb,
+                 '{description_translated}',
+                 to_jsonb(jsonb_set(trim(both '"' from extras::json->>'description_translated')::jsonb,
+                                '{en}', to_jsonb(description))::text)),
+       '{name_translated}',
+       to_jsonb(jsonb_set(trim(both '"' from extras::json->>'name_translated')::jsonb,
+                '{en}', to_jsonb(name))::text)) as extras
+  from resource
+  where (extras like '%EIA%' or extras like '%asdf%')
+  and trim(both '"' from extras::json->>'name_translated')::jsonb @> '{"en": "EIA", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and trim(both '"' from extras::json->>'description_translated')::jsonb @> '{"en": "asdf", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and description is not null and description != ''
+  and name is not null and name != ''
+;
+
+
+begin;
+
+update resource
+set extras = jsonb_set(
+       jsonb_set(extras::jsonb,
+                 '{description_translated}',
+                 to_jsonb(jsonb_set(trim(both '"' from extras::json->>'description_translated')::jsonb,
+                                '{en}', to_jsonb(description))::text)),
+       '{name_translated}',
+       to_jsonb(jsonb_set(trim(both '"' from extras::json->>'name_translated')::jsonb,
+                '{en}', to_jsonb(name))::text)) 
+  where (extras like '%EIA%' or extras like '%asdf%')
+  and trim(both '"' from extras::json->>'name_translated')::jsonb @> '{"en": "EIA", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and trim(both '"' from extras::json->>'description_translated')::jsonb @> '{"en": "asdf", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and description is not null and description != ''
+  and name is not null and name != ''
+;
+
+commit;
+
+
+-- Those items where there's a junk name_translated, no description and nothing in the history, but something in the name
+ select
+  id,
+  name,
+  description,
+  jsonb_set(
+       jsonb_set(extras::jsonb,
+                 '{description_translated}',
+                 to_jsonb(jsonb_set(trim(both '"' from extras::json->>'description_translated')::jsonb,
+                                '{en}', to_jsonb(description))::text)),
+       '{name_translated}',
+       to_jsonb(jsonb_set(trim(both '"' from extras::json->>'name_translated')::jsonb,
+                '{en}', to_jsonb(name))::text)) as extras
+  from resource
+  where (extras like '%EIA%' or extras like '%asdf%')
+  and trim(both '"' from extras::json->>'name_translated')::jsonb @> '{"en": "EIA", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and trim(both '"' from extras::json->>'description_translated')::jsonb @> '{"en": "asdf", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and name is not null and name != ''
+;
+
+
+begin;
+
+ update resource set
+   extras = jsonb_set(
+       jsonb_set(extras::jsonb,
+                 '{description_translated}',
+                 to_jsonb(jsonb_set(trim(both '"' from extras::json->>'description_translated')::jsonb,
+                                '{en}', to_jsonb(description))::text)),
+       '{name_translated}',
+       to_jsonb(jsonb_set(trim(both '"' from extras::json->>'name_translated')::jsonb,
+                '{en}', to_jsonb(name))::text))
+  where (extras like '%EIA%' or extras like '%asdf%')
+  and trim(both '"' from extras::json->>'name_translated')::jsonb @> '{"en": "EIA", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and trim(both '"' from extras::json->>'description_translated')::jsonb @> '{"en": "asdf", "vi": "", "km": "", "th": "", "lo": "", "my": ""}'::jsonb
+  and name is not null and name != ''
 ;
 
 commit;
