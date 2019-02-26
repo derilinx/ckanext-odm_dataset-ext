@@ -10,11 +10,10 @@ from ckan import model
 
 import ckan
 from ckan.plugins import toolkit
-
 from ckan.common import _
 
-import ckan.lib.navl.dictization_functions as df
-missing = df.missing
+from ckan.lib.navl.dictization_functions import missing, Invalid
+
 
 import logging
 log = logging.getLogger(__name__)
