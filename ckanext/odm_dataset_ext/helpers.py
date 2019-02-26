@@ -4,7 +4,6 @@
 import json
 import ckan
 import urlparse
-import genshi
 import datetime
 import re
 import uuid
@@ -44,6 +43,40 @@ def convert_to_multilingual(data):
         multilingual_data = data
 
     return multilingual_data
+
+def get_multilingual_data(field_name, data):
+    # may be in data[field_name], may be in data['extras'] somewhere
+    if field_name in data:
+        return data[field_name]
+    if 'extras' in data:
+        for elt in data['extras']:
+            if elt['key'] == field_name:
+                try:
+                    return json.loads(elt['value'])
+                except:
+                    return {get_current_language(): elt['value']}
+    return {}
+
+
+def get_list_data(field_name, data):
+    # may be in data[field_name], may be in data['extras'] somewhere
+    if field_name in data:
+        return data[field_name]
+    if 'extras' in data:
+        for elt in data['extras']:
+            if elt['key'] == field_name:
+                try:
+                    return json.loads(elt['value'])
+                except:
+                    return [elt['value']]
+    return []
+
+def get_field_langs(field_data, current_langs):
+    # Complicated. We want to include all the current langs defined by the ckan install,
+    # as well as any of the other languages that are already defined, in a consistent order
+    langs = list(current_langs)
+    langs.extend([l for l,val in field_data.items() if l not in current_langs and val])
+    return langs
 
 def clean_taxonomy_tags(value):
     '''Cleans taxonomy field before storing it'''

@@ -1,23 +1,19 @@
 {% import 'macros/form.html' as form %}
 
-{%- set current_lang = h.odm_dataset_get_current_language() -%}
-{%- set field_data=h.odm_dataset_get_multilingual_data(field.field_name, data) -%}
+{% set is_required=h.odm_dataset_get_required(schema, field) %}
+{% set field_data=h.odm_dataset_get_multilingual_data(field.field_name, data) %}
 {%- set current_langs = h.fluent_form_languages(schema, field) -%}
 {%- for lang in h.odm_dataset_get_field_langs(field_data, current_langs) -%}
-	{%- set field_classes = [] -%}
-	{%- if current_lang != lang -%}
-		{%- set field_classes = ['hidden'] -%}
-	{%- endif -%}
-  {% call form.markdown(
+  {% call form.textarea(
     field.field_name + '-' + lang,
     id='field-' + field.field_name + '-' + lang,
-    label=field.label[lang],
+    label=h.fluent_form_label(field, lang),
     placeholder=h.scheming_language_text(field.form_placeholder, lang),
     value=field_data.get(lang,''),
     error=errors[field.field_name + '-' + lang],
-    classes=field_classes,
-    attrs=field.form_attrs or {},
-    is_required=h.scheming_field_required(field)
+    classes=['control-full'],
+    attrs=field.form_attrs if 'form_attrs' in field else {},
+    is_required=is_required
     ) %}
     {%- snippet 'scheming/form_snippets/fluent_help_text.html',
       field=field,

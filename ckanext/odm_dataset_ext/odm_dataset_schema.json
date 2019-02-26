@@ -60,12 +60,6 @@
         "validators": "if_empty_same_as(name)"
     },
     {
-       "field_name": "CI_Citation_title",
-       "label": "title",
-       "preset": "hidden",
-       "validators": "ignore if_empty_same_as(title)"
-    },
-    {
         "field_name": "notes",
         "label": "Abstract",
         "preset": "text_hidden"
@@ -129,12 +123,6 @@
        "required": "true",
        "validate": "true",
        "preset": "odm_organization"
-    },
-    {
-       "field_name": "CI_ResponsibleParty",
-       "label": "Organisation name",
-       "preset": "hidden",
-       "validators": "ignore if_empty_same_as(owner_org)"
     },
     {
         "field_name": "CI_Citation_date",
@@ -307,7 +295,7 @@
     {
         "field_name": "DQ_Completeness",
         "grouping": "DataQuality",
-        "preset": "odm_text_translated",
+        "preset": "odm_textarea_translated",
         "validate": "true",
         "label": {
             "en": "Completeness",
@@ -323,7 +311,7 @@
     {
         "field_name": "LI_ProcessStep",
         "grouping": "DataQuality",
-        "preset": "odm_text_translated_required",
+        "preset": "odm_textarea_translated_required",
         "validate": "true",
         "odm_required": "true",
         "multilingual": "true",
@@ -359,7 +347,7 @@
     {
         "field_name": "CI_ResponsibleParty_contact",
         "grouping": "Contact",
-        "preset": "odm_text_translated_required",
+        "preset": "odm_textarea_translated_required",
         "odm_required": "true",
         "validate": "true",
         "label": {
@@ -376,7 +364,7 @@
     {
         "field_name": "MD_Metadata_contact",
         "grouping": "Contact",
-        "preset": "odm_text_translated_required",
+        "preset": "odm_textarea_translated_required",
         "odm_required": "true",
         "validate": "true",
         "label": {
@@ -393,7 +381,7 @@
     {
         "field_name": "MD_ScopeDescription_attributes",
         "grouping": "Management",
-        "preset": "odm_text_translated",
+        "preset": "odm_textarea_translated",
         "validate": "true",
         "label": {
             "en": "Attributes",

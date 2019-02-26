@@ -65,6 +65,9 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_validate_fields' : helpers.validate_fields,
             'odm_dataset_detail_page_url': helpers.detail_page_url,
             'odm_dataset_get_required': helpers.get_required,
+            'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
+            'odm_dataset_get_list_data': helpers.get_list_data,
+            'odm_dataset_get_field_langs': helpers.get_field_langs,
           }
 
         ## IActions
@@ -104,12 +107,12 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             pkg_dict['EX_Geoname'] = extras.get('odm_spatial_range', [])            
         except Exception as msg:
             log.debug('Exception: %s' % msg)
-            log.debug(extras)
+            extras = {}
             
         pkg_dict['CI_ResponsibleParty'] = pkg_dict['organization']
         pkg_dict['CI_Citation_title'] = pkg_dict.get('title_translated', {'en': pkg_dict['title']})
-        if pkg_dict.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
-            pkg_dict['MD_DataIdentification_abstract'] = pkg_dict['notes_translated']
+        if extras.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
+            pkg_dict['MD_DataIdentification_abstract'] = extras['notes_translated']
 
         # UNDONE unclear if we really need this, it seems important on staging but not on a clean import.
         for f in ('EX_GeographicBoundingBox_north',
