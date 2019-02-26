@@ -6,8 +6,11 @@ import datetime
 import re
 import uuid
 
-import ckan.model as model
-import ckan.plugins.toolkit as toolkit
+from ckan import model
+
+import ckan
+from ckan.plugins import toolkit
+
 from ckan.common import _
 
 import ckan.lib.navl.dictization_functions as df
@@ -157,3 +160,17 @@ def remove_topics(value):
             clean_tags.append(tag)
 
     return ",".join(clean_tags)
+
+# hack. UNDONE
+# It's trying to validate the extras fields that they're not in the schema, but
+# scheming has added all the extras fields to the base schema.
+# so just get the default ones, and check against them.
+# DEBUG:ckan.logic.action.update:got validattion error: {u'extras': [{}, {'key': [u'There is a schema field with the same name: DQ_PositionalAccuracy']}, {'key': [u'There is a schema field with the same name: LI_Lineage']}, {'key': [u'There is a schema field with the same name: LI_ProcessStep']}]}
+
+_default_fields = set(ckan.logic.schema.default_create_package_schema().keys())
+def extra_key_not_in_root_schema(key, data, errors, context):
+    if data[key] in _default_fields:
+        log.debug(' default fields keys: %s' % _default_fields)
+        raise Invalid(_('There is a schema field with the same name: %s'% data[key]))
+        
+        
