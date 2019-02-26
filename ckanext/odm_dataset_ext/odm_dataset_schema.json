@@ -670,6 +670,22 @@
         "field_name": "feature_info_template",
         "form_snippet": "markdown.html",
         "label": "Feature info template for WMS resource"
-    }
+    },
+	{
+	    "field_name": "parent_resource_id",
+	    "preset": "text_hidden"
+	},
+	{
+	    "field_name": "vectorstorer_resource",
+	    "preset": "text_hidden"
+	},
+	{
+	    "field_name": "wms_server",
+	    "preset": "text_hidden"
+	},
+	{
+	    "field_name": "wms_layer",
+	    "preset": "text_hidden"
+	}
     ]
 }
