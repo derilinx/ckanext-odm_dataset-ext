@@ -44,10 +44,21 @@ def convert_to_multilingual(data):
 
     return multilingual_data
 
+
 def get_multilingual_data(field_name, data):
     # may be in data[field_name], may be in data['extras'] somewhere
+    log.debug("%s: %s" % (field_name, data))
     if field_name in data:
-        return data[field_name]
+        # could be that we have a blank dictionary. If we're checking a translated field
+        # then we want to return the base field info if there's anything there.
+        value = data[field_name]
+        if not value and '_translated' in field_name:
+            base_field_name = field_name.replace('_translated','')
+            log.debug('base_field_name: %s ' % base_field_name) 
+            if base_field_name in data:
+                log.debug('base_field_name: %s ' % {get_current_language(): data[base_field_name]} ) 
+                return {get_current_language(): data[base_field_name]}        
+        return value
     if 'extras' in data:
         for elt in data['extras']:
             if elt['key'] == field_name:
