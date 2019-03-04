@@ -1,26 +1,14 @@
 # encoding: utf-8
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from .logic import action
-import ckan
-import logging
-import ckan.lib.helpers as h
-from beaker.middleware import SessionMiddleware
-import sys
-import os
-from ckan.common import config
-sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
-import odm_dataset_config
-import datetime
-import time
-from urlparse import urlparse
-import json
-import collections
 
+import json
+from .logic import action
+from . import helpers, validators
+
+import logging
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
-
-from . import helpers, validators
 
 
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
