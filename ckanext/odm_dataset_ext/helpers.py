@@ -231,3 +231,9 @@ def detail_page_url(pkg):
     if not detail_page_url:
         return None
     return detail_page_url + "?id=" + pkg["name"]
+
+
+
+def get_resource_id_for_field(field):
+    resource_id = config.get('odm.resource_id.'+field)
+    return resource_id
