@@ -1,0 +1,679 @@
+{
+    "scheming_version": 1,
+    "dataset_type": "dataset",
+    "about": "ODM dataset schema",
+    "about_url": "http://github.com/open-data/ckanext-scheming",
+    "dataset_field_group_sort_order": [
+       "Description",
+       "Temporal",
+       "Spatial",
+       "DataQuality",
+       "Contact",
+       "Management"
+    ],
+    "dataset_fields": [
+    {
+        "field_name": "title_translated",
+        "grouping": "Description",
+        "validate": "true",
+        "odm_required": "true",
+        "multilingual": "true",
+        "preset": "fluent_core_title_translated_single",
+        "label":
+        {
+            "en": "Title",
+            "th": "หัวข้อ",
+            "km": "ចំណងជើង",
+            "vi": "Tiêu đề ",
+            "my": "ခေါင်းစဥ်",
+            "lo": "Title in lo"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": {
+          "en": "Name given to the dataset.",
+          "th": "[[TH]] Name given to the dataset",
+          "my": "[[MY]] Name given to this dataset",
+          "km": "[[KM]] Name given to this dataset",
+          "vi": "[[VI]] Name given to this dataset",
+          "lo": "[[LO]] Name given to this dataset"
+        },
+        "form_snippet": "slug_target_fluent_text.html",
+        "form_attrs":
+        {
+            "data-module": "slug-preview-target"
+        }
+    },
+    {
+        "field_name": "name",
+        "grouping": "Description",
+        "required": "true",
+        "label": "URL",
+        "preset": "dataset_slug",
+        "form_placeholder": "eg. my-dataset",
+        "validators": "odm_dataset_if_empty_new_id odm_dataset_urlencode odm_dataset_record_does_not_exist_yet"
+    },
+    {
+        "field_name": "title",
+        "grouping": "Description",
+        "label": "title",
+        "preset": "text_hidden",
+        "validators": "if_empty_same_as(name)"
+    },
+    {
+        "field_name": "notes",
+        "label": "Abstract",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "notes_translated",
+        "grouping": "Description",
+        "preset": "odm_notes_translated_markdown",
+        "odm_required": "true",
+        "validate": "true",
+        "validators": "fluent_text odm_dataset_fluent_required",
+        "label": {
+            "en": "Abstract",
+            "th": "รายละเอียด",
+            "km": "ការពិពណ៌នា",
+            "vi": "Mô tả",
+            "my": "ဖော်ပြချက်",
+            "lo": "Description in lo"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Short description explaining the content and its origins."
+    },
+    {
+        "field_name": "MD_DataIdentification_topicCategory",
+        "grouping": "Description",
+        "required": "true",
+        "label": "Dataset topic category",
+        "preset": "odm_taxonomy",
+        "validate": "true",
+        "form_placeholder": "e.g. economy, mental health, government"
+    },
+    {
+        "field_name": "MD_DataIdentification_language",
+        "grouping": "Description",
+        "label": "Language",
+        "validate": "true",
+        "required": "true",
+        "form_placeholder": "Language(s) of the dataset, including resources within dataset.",
+        "preset": "odm_language"
+    },
+    {
+        "field_name": "MD_Constraints",
+        "grouping": "Description",
+        "validate": "true",
+        "preset": "fluent_markdown_single",
+        "label": {
+            "en": "Use limitations",
+            "th": "การเข้าถึงและข้อจำกัด",
+            "km": "កំហិតនៃការចូល និងប្រើប្រាស់",
+            "vi": "Hạn chế truy cập và sử dụng",
+            "my": "ရယူခြင်းနှင့် အကန့်အသတ်များအသုံးပြုခြင်း",
+            "lo": "Description in Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "A few sentences describing legal considerations for people who access the website and/or use its contents."
+    },
+    {
+       "field_name": "owner_org",
+       "grouping": "Contact",
+       "label": "Organisation name",
+       "required": "true",
+       "validate": "true",
+       "preset": "odm_organization"
+    },
+    {
+        "field_name": "CI_Citation_date",
+        "grouping": "Temporal",
+        "required": "true",
+        "label": "Dataset reference date",
+        "form_placeholder": "Date the dataset was first Published by its creator.",
+        "validate": "true",
+        "preset": "odm_date"
+    },
+    {
+        "field_name": "MD_Metadata_dateStamp",
+        "grouping": "Temporal",
+        "validate": "true",
+        "label": "Date uploaded",
+        "form_placeholder": "Date a new version or update of the dataset was uploaded.",
+        "preset": "odm_date_uploaded"
+    },
+    {
+        "field_name": "CI_Citation_lastRevision",
+        "grouping": "Temporal",
+        "validate": "true",
+        "label": "Date of last revision",
+        "form_placeholder": "Date a new version or update of the dataset was uploaded.",
+        "preset": "odm_date_modified"
+    },
+    {
+        "field_name": "EX_TemporalExtent_startDate",
+        "grouping": "Temporal",
+        "validate": "true",
+        "label": "Temporal extent's start date",
+        "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
+        "preset": "odm_date"
+    },
+    {
+        "field_name": "EX_TemporalExtent_endDate",
+        "grouping": "Temporal",
+        "label": "Temporal extent's end date",
+        "form_placeholder": "The period of time for which the dataset is relevant (i.e. 2011-01-01:2011-12-31).",
+        "preset": "odm_date"
+    },
+    {
+        "field_name": "odm_spatial_range",
+        "grouping": "Spatial",
+        "label": "GeoNames",
+        "required": "true",
+        "form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
+        "preset": "odm_spatial_range",
+        "validate": "true"
+    },
+    {
+        "field_name": "EX_GeographicBoundingBox_west",
+        "grouping": "Spatial",
+        "label": "West bounding coordinates ",
+        "form_placeholder": "The west point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
+        "validate": "true"
+    },
+    {
+        "field_name": "EX_GeographicBoundingBox_east",
+        "grouping": "Spatial",
+        "label": "East bounding coordinates ",
+        "form_placeholder": "The east point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
+        "validate": "true"
+    },
+    {
+        "field_name": "EX_GeographicBoundingBox_south",
+        "grouping": "Spatial",
+        "label": "South bounding coordinates",
+        "form_placeholder": "The south point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
+        "validate": "true"
+    },
+    {
+        "field_name": "EX_GeographicBoundingBox_north",
+        "grouping": "Spatial",
+        "label": "North bounding coordinates ",
+        "form_placeholder": "The north point of the bounding box that the dataset is relevant to.",
+        "preset": "number",
+        "validate": "true"
+    },
+    {
+        "field_name": "MD_DataIdentification_spatialResolution",
+        "grouping": "Spatial",
+        "label": "Spatial Resolution",
+        "form_placeholder": "Spatial Resolution of the dataset",
+        "preset": "number",
+        "validate": "true",
+        "validators": "ignore_missing ignore_empty is_positive_integer"
+    },
+    {
+        "field_name": "MD_DataIdentification_spatialReferenceSystem",
+        "grouping": "Spatial",
+        "label": "Spatial Reference System",
+        "form_placeholder": "Spatial Reference System of the dataset",
+        "preset": "select",
+       "validate": "true",
+       "choices": [
+          {
+             "value": "epsg:4326",
+             "label": "WGS 84 (EPSG:4326)"
+          },
+          {
+             "value": "epsg:3857",
+             "label": "WGS 84 (EPSG:3857)"
+          },
+          {
+             "value": "epsg:32629",
+             "label": "WGS 84 / UTM zone 29N (EPSG:32629)"
+          },
+          {
+             "value": "epsg:4258",
+             "label": "ETRS89 (EPSG:4258)"
+          },
+          {
+             "value": "epsg:4936",
+             "label": "ETRS89 (EPSG:4936)"
+          }
+       ]
+    },
+    {
+        "field_name": "DQ_PositionalAccuracy",
+        "grouping": "Spatial",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "Positional Accuracy",
+            "th": "ความถูกต้อง",
+            "km": "ភាពទៀងទាត់",
+            "vi": "Độ chính xác",
+            "my": "တိကျမှန်ကန်မှု",
+            "lo": "Positional Accuracy in Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Details on the level of accuracy of the dataset and any existing issues."
+    },
+    {
+        "field_name": "DQ_QuantitativeAttribute ",
+        "grouping": "DataQuality",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "Attribute Accuracy",
+            "th": "ความถูกต้อง",
+            "km": "ភាពទៀងទាត់",
+            "vi": "Độ chính xác",
+            "my": "တိကျမှန်ကန်မှု",
+            "lo": "Attribute accuracy Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Details on the attribute accuracy of the dataset and any existing issues."
+    },
+    {
+        "field_name": "DQ_LogicalConsistency",
+        "grouping": "DataQuality",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "Logical Consistency",
+            "th": "ความสอดคล้องเชิงตรรกะ",
+            "km": "ភាពទៀងទាត់តាមហេតុផល",
+            "vi": "Tính nhất quán logic",
+            "my": "ကျိုးကြောင်းဆီလျော်မှုရှိမရှိ",
+            "lo": "Logistical consistency Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Issues with logical consistency in the dataset and the steps, if any, being taken to validate its content."
+    },
+    {
+        "field_name": "DQ_Completeness",
+        "grouping": "DataQuality",
+        "preset": "odm_textarea_translated",
+        "validate": "true",
+        "label": {
+            "en": "Completeness",
+            "th": "ความสมบูรณ์",
+            "km": "ការចប់សព្វគ្រប់",
+            "vi": "Đầy đủ",
+            "my": "ပြည့်စုံမှု",
+            "lo": "Completeness Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Brief description of the level of completeness of the dataset's contents and the steps, if any, being taken to make the dataset more complete."
+    },
+    {
+        "field_name": "LI_ProcessStep",
+        "grouping": "DataQuality",
+        "preset": "odm_textarea_translated_required",
+        "validate": "true",
+        "odm_required": "true",
+        "multilingual": "true",
+        "label": {
+            "en": "Process Step",
+            "th": "Process Step Thai",
+            "km": "ដំណើរ​ការ",
+            "vi": "(Các ) quy trình thu thập và xử lý dữ liệu",
+            "my": "ဖြစ်စဉ် (များ)",
+            "lo": "Process Step Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "The steps taken to acquire, aggregate, or transform any of the resources in the dataset."
+    },
+    {
+        "field_name": "LI_Lineage",
+        "grouping": "DataQuality",
+        "preset": "odm_text_translated_required",
+        "validate": "true",
+        "odm_required": "true",
+        "multilingual": "true",
+        "label": {
+            "en": "Lineage",
+            "th": "แหล่งที่มา",
+            "km": "ប្រភព",
+            "vi": "(Các) nguồn",
+            "my": "ရင်းမြစ်များ",
+            "lo": "Lineage Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Ordered citations for all information sources that went into producing the dataset."
+    },
+    {
+        "field_name": "CI_ResponsibleParty_contact",
+        "grouping": "Contact",
+        "preset": "odm_textarea_translated_required",
+        "odm_required": "true",
+        "validate": "true",
+        "label": {
+            "en": "Responsible party",
+            "th": "ข้อมูลติดต่อ",
+            "km": "ទំនាក់ទំនង",
+            "vi": "Liên hệ",
+            "my": "ဆက်သွယ်ရန်",
+            "lo": "Responsible Party"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Contact information for the individual or organization that is responsible for or most knowledgeable about the dataset. This could be the author of a report, the contact information for the relevant department of an organization that produced a report, or the data analyst, mapper or researcher that produced a dataset or report."
+    },
+    {
+        "field_name": "MD_Metadata_contact",
+        "grouping": "Contact",
+        "preset": "odm_textarea_translated_required",
+        "odm_required": "true",
+        "validate": "true",
+        "label": {
+            "en": "Metadata creator information",
+            "th": "ข้อมูลอ้างอิงข้อมูลเมตา",
+            "km": "ពត័មានជាអំនះអំនាងនៃព័ត៌មាន​អំពីទិន្នន័យ",
+            "vi": "Thông tin tham khảo Metadata.",
+            "my": "Metadata ကိုရည်ညွှန်းသော သတင်းအချက်အလက်",
+            "lo": "Metadata contact Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Information about how up-to-date the metadata is and who is responsible for maintaining it."
+    },
+    {
+        "field_name": "MD_ScopeDescription_attributes",
+        "grouping": "Management",
+        "preset": "odm_textarea_translated",
+        "validate": "true",
+        "label": {
+            "en": "Attributes",
+            "th": "คุณสมบัติ",
+            "km": "លក្ខណៈសម្បត្តិ",
+            "vi": "Thuộc tính",
+            "my": "၀ိသေသများ",
+            "lo": "Attributes Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Details about the information content of the dataset."
+    },
+    {
+        "field_name": "MD_DataIdentification_keywords",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "GEMET controlled keywords",
+            "th": "",
+            "km": "",
+            "vi": "",
+            "my": "",
+            "lo": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "A few sentences describing GEMET keywords."
+    },
+    {
+        "field_name": "CI_Citation_identAuth",
+        "grouping": "Management",
+        "odm_required": "true",
+        "validate": "true",
+        "preset": "odm_text_translated_required",
+        "label": {
+            "en": "Identifier code",
+            "th": "Identifier code TH",
+            "km": "",
+            "vi": "",
+            "my": "",
+            "lo": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my"],
+        "form_placeholder": "A few sentences describing the Identifier code"
+    },
+    {
+        "field_name": "MD_LegalConstraints",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "Limitations on public access",
+            "th": "Limitations TH",
+            "km": "",
+            "vi": "",
+            "my": "",
+            "lo": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "A few sentences describing the Limitations on public access"
+    },
+    {
+        "field_name": "MD_Format_version",
+        "grouping": "Management",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "Format version",
+            "th": "",
+            "km": "",
+            "vi": "",
+            "my": "",
+            "lo": ""
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "A few sentences describing the Format version"
+    },
+    {
+        "field_name": "CI_Citation_updateFreq",
+        "grouping": "Management",
+        "label": "Update Frequency",
+        "validate": "true",
+        "form_placeholder": "Update Frequency",
+       "preset": "select",
+       "choices":[
+          {
+             "value": "continual",
+             "label": "continual"
+          },
+          {
+             "value": "daily",
+             "label": "daily"
+          },
+          {
+             "value": "weekly",
+             "label": "weekly"
+          },
+          {
+             "value": "fornightly",
+             "label": "fornightly"
+          },
+          {
+             "value": "monthly",
+             "label": "monthly"
+          },
+          {
+             "value": "quarterly",
+             "label": "quarterly"
+          },
+          {
+             "value": "biannually",
+             "label": "biannually"
+          },
+          {
+             "value": "annually",
+             "label": "annually"
+          },
+          {
+             "value": "as needed",
+             "label": "as needed"
+          },
+          {
+             "value": "irregular",
+             "label": "irregular"
+          },
+          {
+             "value": "not planned",
+             "label": "not planned"
+          },
+          {
+             "value": "unknown",
+             "label": "unknown"
+          }
+       ]
+    },
+    {
+        "field_name": "license_id",
+        "grouping": "Management",
+        "validate": "true",
+        "label": "License",
+        "preset": "odm_license",
+        "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+    },
+    {
+        "field_name": "odm_copyright",
+        "grouping": "Management",
+        "validate": "true",
+        "label": "Copyright",
+        "preset": "odm_copyright",
+        "help_text": "Select 'Yes', 'No', 'Unclear copyright' or 'To be determined' about the copyright of the dataset. If copyright of any type is present, describe further in Access and User Constraints."
+    },
+    {
+        "field_name": "version",
+        "grouping": "Management",
+        "label": "Version",
+        "validators": "unicode package_version_validator",
+        "form_placeholder": "Dataset's version (eg. 1.0)",
+        "validate": "true"
+    },
+    {
+        "field_name": "odm_province",
+        "grouping": "Management",
+        "label": "Province(s)",
+        "form_placeholder": "The province(s) this dataset relates to",
+        "preset": "odm_province"
+    },
+    {
+        "field_name": "odm_reference_document",
+        "grouping": "Management",
+        "label": "Legacy reference document",
+        "form_placeholder": "e.g Tong_Min_Group_Engineering__21.06.2011.pdf"
+    },
+    {
+        "field_name": "maintainer",
+        "grouping": "Management",
+        "validate": "true",
+        "label": "Maintainer",
+        "preset": "auto_maintainer"
+    },
+    {
+        "field_name": "maintainer_email",
+        "grouping": "Management",
+        "validate": "true",
+        "label": "Maintainer email",
+        "preset": "auto_maintainer_email"
+    },
+    {
+        "field_name": "author",
+        "grouping": "Management",
+        "validate": "true",
+        "label": "Author",
+        "preset": "auto_author"
+    }, {
+        "field_name": "author_email",
+        "grouping": "Management",
+        "validate": "true",
+        "label": "Author email",
+        "preset": "auto_author_email"
+    },
+    {
+        "field_name": "odm_db_table",
+        "grouping": "Management",
+        "label": "Database table?",
+        "preset": "odm_db_table",
+        "help_text": "INTERNAL USE ONLY: Select true if this record contains CSV and/or XLS resources available in the datastore."
+    },
+    {
+        "field_name": "odm_keywords",
+        "grouping": "Management",
+        "label": "Keywords",
+        "preset": "odm_keywords",
+        "help_text": "INTERNAL USE ONLY: Enter keywords for improving the discoverability of this record via search"
+    }],
+
+    "resource_fields": [
+    {
+        "field_name": "url",
+        "label": "URL",
+        "preset": "resource_url_upload"
+    },
+    {
+        "field_name": "name_translated",
+        "preset": "odm_text_translated",
+        "validate": "true",
+        "label": {
+            "en": "Name",
+            "th": "Name",
+            "km": "Name",
+            "vi": "Tên",
+            "my": "အမည်",
+            "lo": "Name"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "eg. January 2011 Gold Prices"
+    },
+    {
+        "field_name": "name",
+        "label": "Name",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "description_translated",
+        "preset": "odm_notes_translated_markdown",
+        "validate": "true",
+        "label": {
+            "en": "Description",
+            "th": "",
+            "km": "",
+            "vi": "Mô tả",
+            "my": "ဖော်ပြချက်",
+            "lo": "Desc Laos"
+        },
+        "form_languages": ["en", "th", "km", "vi", "my", "lo"],
+        "form_placeholder": "Some useful notes about the data"
+    },
+    {
+        "field_name": "description",
+        "label": "Description",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "format",
+        "label": "Format",
+        "preset": "resource_format_autocomplete"
+    },
+    {
+        "field_name": "MD_DataIdentification_language",
+        "preset": "odm_language",
+        "validate": "true",
+        "label": "Resource's languages",
+        "form_placeholder": "Language(s) of the resource."
+    },
+    {
+        "field_name": "feature_info_template",
+        "form_snippet": "markdown.html",
+        "label": "Feature info template for WMS resource"
+    },
+	{
+	    "field_name": "parent_resource_id",
+	    "preset": "text_hidden"
+	},
+	{
+	    "field_name": "vectorstorer_resource",
+	    "preset": "text_hidden"
+	},
+	{
+	    "field_name": "wms_server",
+	    "preset": "text_hidden"
+	},
+	{
+	    "field_name": "wms_layer",
+	    "preset": "text_hidden"
+	}
+    ]
+}
