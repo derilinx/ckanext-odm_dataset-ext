@@ -83,7 +83,7 @@
         "form_placeholder": "Short description explaining the content and its origins."
     },
     {
-        "field_name": "MD_DataIdentification_topicCategory",
+        "field_name": "taxonomy",
         "grouping": "Description",
         "label": "Dataset topic category",
         "preset": "odm_taxonomy",

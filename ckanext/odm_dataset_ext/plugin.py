@@ -99,6 +99,10 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             
         pkg_dict['CI_ResponsibleParty'] = pkg_dict['organization']
         pkg_dict['CI_Citation_title'] = pkg_dict.get('title_translated', {'en': pkg_dict['title']})
+        # Taxonomy is stored in tags, but obtained in taxonomy in library & such,
+        # return it in MD_DataIdentification_topicCategory on read to match ISO schema
+        pkg_dict["MD_DataIdentification_topicCategory"] = [t['name'] for t in pkg_dict.get('tags', [])]
+        
         if extras.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
             pkg_dict['MD_DataIdentification_abstract'] = extras['notes_translated']
 
@@ -113,6 +117,14 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                 
         return pkg_dict
 
+    def before_index(self, pkg_dict):
+        # Take this out of solr indexing, unless we want to make this a multivalued field.
+        # tag searching should still work.
+        if 'MD_DataIdentification_topicCategory' in pkg_dict:
+            del(pkg_dict['MD_DataIdentification_topicCategory'])
+        return pkg_dict
+    
+    
     # IConfigurer
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
