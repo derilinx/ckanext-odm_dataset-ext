@@ -52,7 +52,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IActions)
-
+    plugins.implements(plugins.IRoutes, inherit=True)
+    
     #  IValidators
     def get_validators(self):
         return {
@@ -94,10 +95,16 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
         ## IActions
     def get_actions(self):
-
         return {'package_search': action.package_search}
 
-
+    #IRoutes
+    def before_map(self, m):
+        log.debug("odm_dataset_ext.before_map")
+        controller = "ckanext.odm_dataset_ext.controllers:OdmDataset"
+        m.connect('odm_dataset_reference', '/dataset/reference/{reference}', controller=controller,
+                  type='dataset', action='read_reference')
+        return m
+    
     # IPackageController
     def before_create(self, context, resource):
 
