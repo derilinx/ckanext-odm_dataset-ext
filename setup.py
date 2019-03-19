@@ -24,8 +24,8 @@ setup(
     url='https://github.com/declan-derilinx/ckanext-odm_dataset_ext',
 
     # Author details
-    author='''Declan Brennan''',
-    author_email='''declan@derilinx.com''',
+    author='''Derilinx''',
+    author_email='''dev@derilinx.com''',
 
     # Choose your license
     license='AGPL',
@@ -81,6 +81,7 @@ setup(
     entry_points='''
         [ckan.plugins]
         odm_dataset_ext=ckanext.odm_dataset_ext.plugin:Odm_Dataset_ExtPlugin
+        odm_dataset_resource=ckanext.odm_dataset_ext.plugin:Odm_Dataset_Resource
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan

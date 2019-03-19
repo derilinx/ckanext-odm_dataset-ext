@@ -11,6 +11,40 @@ log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 
+
+class Odm_Dataset_Resource(plugins.SingletonPlugin):
+    plugins.implements(plugins.IResourceController, inherit=True)
+
+    def after_update(self, context, resource):
+        if not (resource['format'] == 'WMS'): return
+        log.info('resource after_create: %s' % resource['id'])
+        return self._core(context, resource)
+    
+    def after_create(self, context, resource):
+        if not (resource['format'] == 'WMS'): return
+        log.info('resource after_create: %s' % resource['id'])
+        return self._core(context, resource)
+                 
+    def _core(self, context, resource):
+        try:
+            package = toolkit.get_action('package_show')(context, {'id':resource['package_id']})
+            if package.get('EX_GeographicBoundingBox_north', None): return
+            geo_info = toolkit.get_action('vectorstorer_spatial_metadata_for_resource')(context, {'resource_id': resource['id']})
+            update = {'id': resource['package_id'],
+#                      'MD_DataIdentification_spatialReferenceSystem': geo_info['crs'][0],
+                      'EX_GeographicBoundingBox_north': geo_info['EX_GeographicBoundingBox']['northBoundLatitude'],
+                      'EX_GeographicBoundingBox_south': geo_info['EX_GeographicBoundingBox']['southBoundLatitude'],
+                      'EX_GeographicBoundingBox_west': geo_info['EX_GeographicBoundingBox']['westBoundLongitude'],
+                      'EX_GeographicBoundingBox_east': geo_info['EX_GeographicBoundingBox']['eastBoundLongitude'],
+                      }
+            log.debug("Setting Bounding Box: %s" % update)
+            return toolkit.get_action('package_patch')(context, update)
+        except Exception as msg:
+            log.error("Error updating resource after_create: %s" %msg)
+            raise
+
+            
+
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IConfigurer)
