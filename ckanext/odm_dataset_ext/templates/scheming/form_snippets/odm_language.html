@@ -1,7 +1,7 @@
 {% import 'macros/form.html' as form %}
 
 {%- call form.input_block(
-    "field-{{ field.field_name }}",
+    "field-%s" % field.field_name,
     label=h.scheming_language_text(field.label),
     classes=['control-full'],
     error=errors[field.field_name],
