@@ -103,6 +103,10 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         controller = "ckanext.odm_dataset_ext.controllers:OdmDataset"
         m.connect('odm_dataset_reference', '/dataset/reference/{reference}', controller=controller,
                   type='dataset', action='read_reference')
+
+        m.connect('odm_dataset_detail', '/dataset/{id}/resource/{rid}/detail', controller=controller,
+                  type='dataset', action='resource_read_detail')
+
         return m
     
     # IPackageController
