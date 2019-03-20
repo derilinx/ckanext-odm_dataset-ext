@@ -31,7 +31,7 @@ class Odm_Dataset_Resource(plugins.SingletonPlugin):
             if package.get('EX_GeographicBoundingBox_north', None): return
             geo_info = toolkit.get_action('vectorstorer_spatial_metadata_for_resource')(context, {'resource_id': resource['id']})
             update = {'id': resource['package_id'],
-#                      'MD_DataIdentification_spatialReferenceSystem': geo_info['crs'][0],
+                      'MD_DataIdentification_spatialReferenceSystem': geo_info['crs'][0],
                       'EX_GeographicBoundingBox_north': geo_info['EX_GeographicBoundingBox']['northBoundLatitude'],
                       'EX_GeographicBoundingBox_south': geo_info['EX_GeographicBoundingBox']['southBoundLatitude'],
                       'EX_GeographicBoundingBox_west': geo_info['EX_GeographicBoundingBox']['westBoundLongitude'],

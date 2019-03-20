@@ -220,11 +220,11 @@
         "label": "Spatial Reference System",
         "form_placeholder": "Spatial Reference System of the dataset",
         "preset": "select",
-       "validate": "true",
-       "choices": [
-          {
+        "validate": "true",
+	"choices": [
+	  {
              "value": "epsg:4326",
-             "label": "WGS 84 (EPSG:4326)"
+             "label": "WGS 84 (EPSG:4326) (CRS:84)"
           },
           {
              "value": "epsg:3857",
@@ -241,6 +241,26 @@
           {
              "value": "epsg:4936",
              "label": "ETRS89 (EPSG:4936)"
+          },
+          {
+             "value": "epsg:3246",
+             "label": "WGS 84 / SCAR IMW SS16-18 (EPSG:3246)"
+          },
+          {
+             "value": "epsg:32648",
+             "label": "WGS 84 / UTM zone 48N (EPSG:32648)"
+          },
+	  {
+             "value": "epsg:32649",
+             "label": "WGS 84 / UTM zone 49N (EPSG:32649)"
+          },
+	  {
+             "value": "epsg:404000",
+             "label": "Flat-world (EPSG:404000)"	     
+          },
+	  {
+             "value": "epsg:900913",
+             "label": "Google Maps Global Mercator (EPSG:900913)"
           }
        ]
     },
