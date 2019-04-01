@@ -1,0 +1,41 @@
+{% extends 'package/read_base.html' %}
+
+{% block content %}
+<div class='row container primary-content dataset-detail'>
+<div class='col-xs-12'>
+  <h1>{{ package.title }}</h1>
+
+<table class='col-xs-12'>    
+  {% for field in c.fields if not field.id in ('_id', 'reference') %}
+  {% set info = field.info %}
+  {% if info.exclude != "True" %} 
+  <tr>
+    <td class='head'>
+      {{ field.info.label or field.id }}
+    </td>
+    <td class='content'>
+      {{ c.line[field.id] }}
+    </td>
+  </tr>
+  {% endif %}
+  {% endfor %}
+
+{% if c.line.reference %}
+  {% for reference in c.line.reference.split(';') %}
+  <tr>
+    <td class='head'>
+      {% if loop.first %}
+      Reference:
+      {% endif %}
+    </td>
+    <td class='reference'>
+      <a href="{{ h.url_for('odm_dataset_reference', reference=reference) }}">{{reference}}</a>
+    </td>
+  </tr>
+  {% endfor %}
+
+{% endif %}
+</table>
+</div>
+</div>
+{% endblock %}

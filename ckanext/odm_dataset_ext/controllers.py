@@ -35,11 +35,12 @@ class OdmDataset(PackageController):
             abort(404, _('Resource not found in datastore'))
 
         results = toolkit.get_action('datastore_search')({}, {'resource_id': rid,
-                                                           'q': params,
-                                                           'limit': 1})
-
+                                                              'q': params,
+                                                              'limit': 1})
+        
         if results['total']:
             c.line = results['records'][0]
+            c.fields = results['fields']
             c.resource = resource
             c.pkg_dict = toolkit.get_action('package_show')({}, {'id': id})
 
