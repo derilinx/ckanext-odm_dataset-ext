@@ -5,13 +5,20 @@
 <div class='col-xs-12'>
   <h1>{{ package.title }}</h1>
 
+{% if c.wms_resource %}
+  <div style="position:relative;padding-top:1rem;">
+    {% snippet "profile/snippets/package_resource_read.html", pkg=package, resources=c.wms_resource, cql_filter=c.params %}
+  </div>
+{% endif %}
+
+  
 <table class='col-xs-12'>    
   {% for field in c.fields if not field.id in ('_id', 'reference') %}
   {% set info = field.info %}
-  {% if info.exclude != "True" %} 
+  {% if (not info) or info.exclude != "True" %} 
   <tr>
     <td class='head'>
-      {{ field.info.label or field.id }}
+      {{ info and info.label or field.id }}
     </td>
     <td class='content'>
       {{ c.line[field.id] }}
