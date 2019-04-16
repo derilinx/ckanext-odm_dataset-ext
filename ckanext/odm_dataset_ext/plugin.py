@@ -19,17 +19,21 @@ class Odm_Dataset_Resource(plugins.SingletonPlugin):
         if not (resource['format'] == 'WMS'): return
         log.info('resource after_create: %s' % resource['id'])
         return self._core(context, resource)
-    
+
     def after_create(self, context, resource):
         if not (resource['format'] == 'WMS'): return
         log.info('resource after_create: %s' % resource['id'])
         return self._core(context, resource)
-                 
+
     def _core(self, context, resource):
         try:
             package = toolkit.get_action('package_show')(context, {'id':resource['package_id']})
             if package.get('EX_GeographicBoundingBox_north', None): return
-            geo_info = toolkit.get_action('vectorstorer_spatial_metadata_for_resource')(context, {'resource_id': resource['id']})
+            try:
+                geo_info = toolkit.get_action('vectorstorer_spatial_metadata_for_resource')(context, {'resource_id': resource['id']})
+            except Exception as msg:
+                return
+            if not geo_info: return
             crs = geo_info['crs'][0].lower()
             # crs:84 is shorthand for epsg:4326, aka, lat/lon
             if crs == 'crs:84':
@@ -47,7 +51,7 @@ class Odm_Dataset_Resource(plugins.SingletonPlugin):
             log.error("Error updating resource after_create: %s" %msg)
             raise
 
-            
+
 
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm):
     plugins.implements(plugins.IDatasetForm)
@@ -57,7 +61,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IRoutes, inherit=True)
-    
+
     #  IValidators
     def get_validators(self):
         return {
@@ -112,7 +116,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                   type='dataset', action='resource_read_detail')
 
         return m
-    
+
     # IPackageController
     def before_create(self, context, resource):
 
@@ -141,17 +145,17 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
         try:
             extras = dict([(l['key'], _decode(l['value'])) for l in pkg_dict['extras']])
-            pkg_dict['EX_Geoname'] = extras.get('odm_spatial_range', [])            
+            pkg_dict['EX_Geoname'] = extras.get('odm_spatial_range', [])
         except Exception as msg:
             log.debug('Exception: %s' % msg)
             extras = {}
-            
+
         pkg_dict['CI_ResponsibleParty'] = pkg_dict['organization']
         pkg_dict['CI_Citation_title'] = pkg_dict.get('title_translated', {'en': pkg_dict['title']})
         # Taxonomy is stored in tags, but obtained in taxonomy in library & such,
         # return it in MD_DataIdentification_topicCategory on read to match ISO schema
         pkg_dict["MD_DataIdentification_topicCategory"] = [t['name'] for t in pkg_dict.get('tags', [])]
-        
+
         if extras.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
             pkg_dict['MD_DataIdentification_abstract'] = extras['notes_translated']
 
@@ -163,7 +167,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                   'MD_DataIdentification_spatialResolution'):
             if not pkg_dict.get(f,None) or pkg_dict.get(f,'') == "{}":
                 pkg_dict[f] = ''
-                
+
         return pkg_dict
 
     def before_index(self, pkg_dict):
@@ -172,8 +176,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         if 'MD_DataIdentification_topicCategory' in pkg_dict:
             del(pkg_dict['MD_DataIdentification_topicCategory'])
         return pkg_dict
-    
-    
+
+
     # IConfigurer
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
