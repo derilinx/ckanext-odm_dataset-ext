@@ -549,7 +549,7 @@
         "field_name": "version",
         "grouping": "Management",
         "label": "Version",
-        "validators": "unicode package_version_validator",
+        "validators": "ignore_missing ignore_empty unicode package_version_validator",
         "form_placeholder": "Dataset's version (eg. 1.0)",
         "validate": "true"
     },
