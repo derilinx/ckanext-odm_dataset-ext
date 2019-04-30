@@ -101,9 +101,11 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_field_langs': helpers.get_field_langs,
           }
 
-        ## IActions
+    ## IActions
     def get_actions(self):
-        return {'package_search': action.package_search}
+        if False: # to enable splitting the sites by odm_spatial_range
+            return {'package_search': action.package_search}
+        return {}
 
     #IRoutes
     def before_map(self, m):
