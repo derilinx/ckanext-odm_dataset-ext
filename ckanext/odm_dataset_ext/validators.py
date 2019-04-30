@@ -113,8 +113,11 @@ def record_does_not_exist_yet(value, context):
             return value
 
     s = """SELECT * FROM package p
-                    WHERE p.name = '%(name)s'""" % {'name': value}
-    count = model.Session.execute(s).rowcount
+                    WHERE
+                    p.name=:name
+                    and p.state!='draft'
+         """
+    count = model.Session.execute(s, {'name': value}).rowcount
 
     if count > 0:
         raise toolkit.Invalid("There is a record already with that name, please adapt URL.")
