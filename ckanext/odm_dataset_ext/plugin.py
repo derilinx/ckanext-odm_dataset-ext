@@ -157,7 +157,10 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         # Taxonomy is stored in tags, but obtained in taxonomy in library & such,
         # return it in MD_DataIdentification_topicCategory on read to match ISO schema
         pkg_dict["MD_DataIdentification_topicCategory"] = [t['name'] for t in pkg_dict.get('tags', [])]
+        # https://github.com/OpenDevelopmentMekong/IssuesManagement/issues/175
+        pkg_dict["taxonomy"] = [t['name'] for t in pkg_dict.get('tags', [])]
 
+        log.debug('after_show: taxonomy: %s' % pkg_dict.get('taxonomy',''))
         if extras.get('notes_translated', None) and not pkg_dict.get('MD_DataIdentification_abstract', None):
             pkg_dict['MD_DataIdentification_abstract'] = extras['notes_translated']
 
@@ -177,6 +180,12 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         # tag searching should still work.
         if 'MD_DataIdentification_topicCategory' in pkg_dict:
             del(pkg_dict['MD_DataIdentification_topicCategory'])
+
+        # https://github.com/OpenDevelopmentMekong/IssuesManagement/issues/175
+        log.debug('Before Index: %s' % pkg_dict.get('taxonomy',''))
+        if pkg_dict.get('taxonomy', None) and pkg_dict.get('tags', None):
+            pkg_dict["taxonomy"] = [t['name'] for t in pkg_dict.get('tags', [])]
+
         return pkg_dict
 
 
