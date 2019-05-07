@@ -103,9 +103,11 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
     ## IActions
     def get_actions(self):
+        custom_actions = {'package_create': action.package_create}
         if False: # to enable splitting the sites by odm_spatial_range
-            return {'package_search': action.package_search}
-        return {}
+            custom_actions['package_search'] = action.package_search
+            return custom_actions
+        return custom_actions
 
     #IRoutes
     def before_map(self, m):

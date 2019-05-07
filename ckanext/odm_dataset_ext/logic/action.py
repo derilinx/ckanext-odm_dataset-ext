@@ -1,5 +1,6 @@
 
 import ckan.logic.action.get as get_actions
+import ckan.logic.action.create as create_core
 from ckan.common import config
 from ckan.plugins import toolkit
 
@@ -22,5 +23,11 @@ def package_search(context, data_dict):
         log.error('Something wrong with dataset filter - ', e)
         return get_actions.package_search(context, data_dict)
 
-
+def package_create(context, data_dict):
+    try:    
+        toolkit.check_access('sysadmin', context, data_dict)
+        return create_core.package_create(context, data_dict)
+    except toolkit.NotAuthorized:
+        data_dict['private']=True
+        return create_core.package_create(context, data_dict)
 
