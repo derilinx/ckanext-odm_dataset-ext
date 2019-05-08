@@ -39,7 +39,7 @@ class OdmDataset(PackageController):
         except Exception as msg:
             log.error("Error preflighting cql request: %s" % e)
             return False
-        
+
     def resource_read_detail(self, id, rid):
         """ url should be dataset/[id]/resource/[rid]/detail?field=value """
         log.debug('OdmDataset read_detail: %s' % id)
@@ -47,7 +47,7 @@ class OdmDataset(PackageController):
         params = dict(request.params)
 
         log.debug(params)
-        
+
         resource = toolkit.get_action('resource_show')({}, {'id': rid})
         if not resource:
             abort(404, _('Resource not found'))
@@ -58,7 +58,7 @@ class OdmDataset(PackageController):
         results = toolkit.get_action('datastore_search')({}, {'resource_id': rid,
                                                               'q': params,
                                                               'limit': 1})
-        
+
         if results['total']:
             c.line = results['records'][0]
             c.fields = results['fields']
@@ -74,5 +74,3 @@ class OdmDataset(PackageController):
             return toolkit.render('package/resource_detail.html')
         else:
             abort(404, _('Detail item not found in datastore'))
-        
-                             
