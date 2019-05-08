@@ -5,7 +5,7 @@
 {% set value = data.get(field.field_name) or "" %}
 
 {%- call form.input_block(
-    "field-{{ field.field_name }}",
+    "field-" + field.field_name,
     label=h.scheming_language_text(field.label),
     classes=['control-full'],
     error=errors[field.field_name],

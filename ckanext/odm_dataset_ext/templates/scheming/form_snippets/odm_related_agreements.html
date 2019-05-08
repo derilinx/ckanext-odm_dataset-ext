@@ -10,7 +10,7 @@
 				class="odm_spatial_range-specific">
 				{% for dataset in h.odm_nav_get_all_agreements_complete() %}
 					<option
-					 	id="field-{{ field.field_name }}-{{ dataset }}"
+					 	id="field-{{ field.field_name }}-{{ dataset['name'] }}"
 						{{"selected " if dataset in data[field.field_name] }}
 						value="{{ dataset['name'] }}"
 						data-country_codes="{{ dataset['odm_spatial_range'] | join }}">{{ dataset['title'] }}
