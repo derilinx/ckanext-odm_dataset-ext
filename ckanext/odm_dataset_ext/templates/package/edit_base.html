@@ -1,3 +1,4 @@
 {% ckan_extends %}
 
 {% block secondary %}{% endblock %}
+{% block scripts %}{{ super() }}{% resource 'odm_dataset_ext/odm_autocomplete.js' %}{% endblock %}

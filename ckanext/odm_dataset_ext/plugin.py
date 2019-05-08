@@ -99,11 +99,15 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
             'odm_dataset_get_list_data': helpers.get_list_data,
             'odm_dataset_get_field_langs': helpers.get_field_langs,
-          }
+        }
 
     ## IActions
     def get_actions(self):
-        custom_actions = {'package_create': action.package_create}
+        custom_actions = {
+            'package_create': action.package_create,
+            'odm_dataset_autocomplete': action.dataset_autocomplete
+        }
+
         if False: # to enable splitting the sites by odm_spatial_range
             custom_actions['package_search'] = action.package_search
             return custom_actions
@@ -118,6 +122,10 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
         m.connect('odm_dataset_detail', '/dataset/{id}/resource/{rid}/detail', controller=controller,
                   type='dataset', action='resource_read_detail')
+
+        controller = "ckanext.odm_dataset_ext.controllers:OdmAutocomplete"
+        m.connect('odm_dataset_autocomplete', '/dataset/autocomplete', controller=controller,
+                  action='dataset')
 
         return m
 

@@ -2,9 +2,10 @@ from ckan.controllers.package import PackageController
 from ckan.plugins import toolkit
 from ckan.plugins.toolkit import c, _
 from ckan.common import request
-from ckan.lib.base import abort
+from ckan.lib.base import abort, BaseController
 
 import requests
+import json
 
 import logging
 log = logging.getLogger(__name__)
@@ -74,3 +75,12 @@ class OdmDataset(PackageController):
             return toolkit.render('package/resource_detail.html')
         else:
             abort(404, _('Detail item not found in datastore'))
+
+
+class OdmAutocomplete(BaseController):
+
+    def dataset(self):
+        params = dict(request.params)
+
+        toolkit.response.headers['Content-Type'] = 'application/json;charset=utf-8'
+        return json.dumps(toolkit.get_action('odm_dataset_autocomplete')({},params))

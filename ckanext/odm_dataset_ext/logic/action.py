@@ -24,10 +24,27 @@ def package_search(context, data_dict):
         return get_actions.package_search(context, data_dict)
 
 def package_create(context, data_dict):
-    try:    
+    try:
         toolkit.check_access('sysadmin', context, data_dict)
         return create_core.package_create(context, data_dict)
     except toolkit.NotAuthorized:
         data_dict['private']=True
         return create_core.package_create(context, data_dict)
 
+
+@toolkit.side_effect_free
+def dataset_autocomplete(context, data_dict):
+    limit = data_dict.get('limit', 10)
+    q = data_dict.get('q')
+    lang = data_dict.get('lang', 'en')
+    pkg_types = [s.strip() for s in data_dict.get('type','').split(',')]
+    if not (q and pkg_types): return []
+
+    results = toolkit.get_action('package_search')(context, {'q':q,
+                                                             'rows': limit,
+                                                             'fq_list': ["type:%s" %s for s in pkg_types]}
+                                                   )
+
+    return [{'name': pkg['name'],
+             'title': pkg.get('title_translated',{}).get(lang) or pkg['title'],
+             } for pkg in results['results']]
