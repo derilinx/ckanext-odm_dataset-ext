@@ -21,7 +21,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/declan-derilinx/ckanext-odm_dataset_ext',
+    url='https://github.com/derilinx/ckanext-odm_dataset_ext',
 
     # Author details
     author='''Derilinx''',
