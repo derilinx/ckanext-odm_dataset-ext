@@ -1,16 +1,16 @@
 # encoding: utf-8
+from ckan.common import config
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 
 import json
+
 from .logic import action
 from . import helpers, validators
 
 import logging
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
-
-
 
 class Odm_Dataset_Resource(plugins.SingletonPlugin):
     plugins.implements(plugins.IResourceController, inherit=True)
@@ -139,9 +139,20 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
     def after_create(self, context, pkg_dict):
         dataset_type = context['package'].type if 'package' in context else pkg_dict['type']
-        if dataset_type == 'dataset':
+        review_system = toolkit.asbool(config.get("ckanext.issues.review_system", False))
+        if dataset_type == 'dataset' and review_system:
             log.info('after_create: %s', pkg_dict['name'])
-
+            description_link = config.get('ckanext.issues.new.description_link')
+            anchor_tag = config.get('ckanext.issues.anchor_tag.'+str(dataset_type), '')
+            description = "Thank you for uploading this item. Instruction on vetting "\
+                          "system available on: {}".format(description_link+anchor_tag)
+            data_dict = {'title':'User {} Upload Checklist'.format(helpers.get_package_type_label(dataset_type)),
+                        'description': description,
+                        'dataset_id':pkg_dict['id']}
+            try:
+                toolkit.get_action('issue_create')(context, data_dict)
+            except Exception as msg:
+                log.error('Exception: %s' % msg)
 
     def after_update(self, context, pkg_dict):
         dataset_type = context['package'].type if 'package' in context else pkg_dict['type']
