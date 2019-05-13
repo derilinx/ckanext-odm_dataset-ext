@@ -99,6 +99,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
             'odm_dataset_get_list_data': helpers.get_list_data,
             'odm_dataset_get_field_langs': helpers.get_field_langs,
+            'odm_dataset_get_package_type_label': helpers.get_package_type_label
         }
 
     ## IActions

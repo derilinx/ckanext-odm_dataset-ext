@@ -237,3 +237,8 @@ def detail_page_url(pkg):
 def get_resource_id_for_field(field):
     resource_id = config.get('odm.resource_id.'+field)
     return resource_id
+
+def get_package_type_label(dataset_type):
+    package_label_dict = {'dataset': 'Dataset', 'laws_record': 'Laws Record',
+                          'agreement': 'Agreement', 'library_record': 'Library Record'}
+    return package_label_dict.get(dataset_type, '')
