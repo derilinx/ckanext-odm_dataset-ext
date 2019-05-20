@@ -390,7 +390,7 @@
         "values": {
             "form_snippet": "odm_spatial_range.html",
             "display_snippet": "multiple_list.html",
-            "validators": "ignore_missing odm_dataset_sanitize_list",
+            "validators": "not_empty odm_dataset_sanitize_list",
             "output_validators": "scheming_multiple_choice_output",
             "form_attrs": {
                 "data-module": "odm_spatial_range-module"

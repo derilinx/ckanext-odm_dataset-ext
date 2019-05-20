@@ -168,8 +168,7 @@
         "required": "true",
         "form_placeholder": "The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",
         "preset": "odm_spatial_range",
-        "validate": "true",
-        "validators": "not_empty"
+        "validate": "true"
     },
     {
         "field_name": "EX_GeographicBoundingBox_west",
