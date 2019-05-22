@@ -58,7 +58,9 @@ def get_multilingual_data(field_name, data):
             if base_field_name in data:
                 log.debug('base_field_name: %s ' % {get_current_language(): data[base_field_name]} )
                 return {get_current_language(): data[base_field_name]}
-        return value
+        if isinstance(value, dict):
+            return value
+        return {get_current_language(): value}
     if 'extras' in data:
         for elt in data['extras']:
             if elt['key'] == field_name:
