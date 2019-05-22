@@ -48,3 +48,18 @@ def dataset_autocomplete(context, data_dict):
     return [{'name': pkg['name'],
              'title': pkg.get('title_translated',{}).get(lang) or pkg['title'],
              } for pkg in results['results']]
+
+@toolkit.side_effect_free
+def dataset_autocomplete_exact(context, data_dict):
+    q = data_dict.get('q')
+    lang = data_dict.get('lang', 'en')
+    pkg_types = [s.strip() for s in data_dict.get('type','').split(',')]
+    if not (q and pkg_types): return []
+
+    pkg = toolkit.get_action('package_show')(context, {'id':q }
+                                                   )
+    if pkg:
+        return [{'name': pkg['name'],
+                 'title': pkg.get('title_translated',{}).get(lang) or pkg['title'],
+        }]
+    return []

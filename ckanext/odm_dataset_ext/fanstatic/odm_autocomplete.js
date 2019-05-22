@@ -245,9 +245,27 @@ this.ckan.module('odm_autocomplete', function (jQuery) {
      */
     formatInitialValue: function (element, callback) {
       var value = jQuery.trim(element.val() || '');
+      var complex_options = jQuery(element).data('options')
       var formatted;
       var values;
 
+      if (complex_options) {
+        try {
+          formatted = JSON.parse(decodeURIComponent(complex_options)).map(function (e) {
+            return {id: e.name,
+                    text: e.title}
+          })
+          // Select2 v3.0 supports a callback for async calls.
+          if (typeof callback === 'function') {
+            callback(formatted);
+          }
+          return formatted
+        }
+        catch(e) {
+          // ignoring
+          console.log(e)
+        }
+      }
       if (this.options.tags) {
         if (value.indexOf('[') != -1 && value.indexOf(']') != -1) {
           try {

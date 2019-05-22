@@ -99,14 +99,19 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
             'odm_dataset_get_list_data': helpers.get_list_data,
             'odm_dataset_get_field_langs': helpers.get_field_langs,
-            'odm_dataset_get_package_type_label': helpers.get_package_type_label
+            'odm_dataset_get_package_type_label': helpers.get_package_type_label,
+            'odm_dataset_listify': helpers.listify,
+            'odm_dataset_autocomplete_full_options': helpers.autocomplete_multi_dataset_full_options,
+            'odm_dataset_multi_dataset_values': helpers.multi_dataset_values,
+
         }
 
     ## IActions
     def get_actions(self):
         custom_actions = {
             'package_create': action.package_create,
-            'odm_dataset_autocomplete': action.dataset_autocomplete
+            'odm_dataset_autocomplete': action.dataset_autocomplete,
+            'odm_dataset_autocomplete_exact': action.dataset_autocomplete_exact,
         }
 
         if False: # to enable splitting the sites by odm_spatial_range

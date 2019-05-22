@@ -3,7 +3,7 @@
 
 import json
 import ckan
-import urlparse
+import urllib
 import datetime
 import re
 import uuid
@@ -244,3 +244,24 @@ def get_package_type_label(dataset_type):
     package_label_dict = {'dataset': 'Dataset', 'laws_record': 'Laws Record',
                           'agreement': 'Agreement', 'library_record': 'Library Record'}
     return package_label_dict.get(dataset_type, '')
+
+def listify(s):
+    if isinstance(s, (str, unicode)):
+        return
+    if isinstance(s, (list, set)):
+        return ','.join(s)
+    return json.dumps(s)
+
+def autocomplete_multi_dataset_full_options(arr):
+    return urllib.quote(json.dumps(autocomplete_multi_dataset_values(arr)))
+
+def multi_dataset_values(arr):
+    if isinstance(arr, (str, unicode)):
+        arr = list(arr)
+
+    lang = get_current_language()
+    ret = []
+    for name in arr:
+        ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name,
+                                                                             'lang': lang}))
+    return ret

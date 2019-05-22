@@ -81,6 +81,10 @@ class OdmAutocomplete(BaseController):
 
     def dataset(self):
         params = dict(request.params)
-
         toolkit.response.headers['Content-Type'] = 'application/json;charset=utf-8'
+
+        if 'exact:' in params.get('q',''):
+            params['q'] = params['q'].replace('exact:','')
+            return json.dumps(toolkit.get_action('odm_dataset_autocomplete_exact')({},params))
+
         return json.dumps(toolkit.get_action('odm_dataset_autocomplete')({},params))
