@@ -250,10 +250,12 @@ def listify(s):
         return
     if isinstance(s, (list, set)):
         return ','.join(s)
+    if not s:
+        return ''
     return json.dumps(s)
 
 def autocomplete_multi_dataset_full_options(arr):
-    return urllib.quote(json.dumps(autocomplete_multi_dataset_values(arr)))
+    return urllib.quote(json.dumps(multi_dataset_values(arr)))
 
 def multi_dataset_values(arr):
     if isinstance(arr, (str, unicode)):
