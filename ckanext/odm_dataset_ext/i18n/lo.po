@@ -1,0 +1,1193 @@
+# 
+# Translators:
+# Souchitta Chemcheng <c.souchitta@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: ODM ckanext-odm_dataset\n"
+"POT-Creation-Date: 2017-12-01 17:58+0100\n"
+"PO-Revision-Date: 2018-05-18 09:10+0000\n"
+"Last-Translator: Christina Cilento <christina@villagefocus.org>\n"
+"Language-Team: Lao (http://www.transifex.com/open-development-mekong/odm-ckanext-odm_dataset/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ../../../ckanext\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: odm_dataset/i18n/metadata_fields.php:3
+msgid "Title"
+msgstr "ຊື່ຫົວຂໍ້"
+
+#: odm_dataset/i18n/metadata_fields.php:4
+msgid "URL"
+msgstr "ທີ່ຢູ່ທາງເວັບໄຊ"
+
+#: odm_dataset/i18n/metadata_fields.php:5
+msgid "Description"
+msgstr "ລາຍລະອຽດ"
+
+#: odm_dataset/i18n/metadata_fields.php:6
+msgid "Topics"
+msgstr "ຫົວຂໍ້"
+
+#: odm_dataset/i18n/metadata_fields.php:7
+msgid "License"
+msgstr "ໃບອະນຸຍາດ"
+
+#: odm_dataset/i18n/metadata_fields.php:8
+msgid "Copyright"
+msgstr "ລິຂະສິດ"
+
+#: odm_dataset/i18n/metadata_fields.php:9
+msgid "Access and use constraints"
+msgstr "ຂໍ້ຈໍາກັດໃນການເຂົ້າເຖິງ ແລະ ການນໍາໃຊ້"
+
+#: odm_dataset/i18n/metadata_fields.php:10
+msgid "Organization"
+msgstr "ອົງການ"
+
+#: odm_dataset/i18n/metadata_fields.php:11
+msgid "Version"
+msgstr "ສະບັບ"
+
+#: odm_dataset/i18n/metadata_fields.php:12
+msgid "Contact"
+msgstr "ຕິດຕໍ່"
+
+#: odm_dataset/i18n/metadata_fields.php:13
+msgid "Language"
+msgstr "ພາສາ"
+
+#: odm_dataset/i18n/metadata_fields.php:14
+#: odm_dataset/i18n/odm_language.php:10
+msgid "Burmese"
+msgstr "ພາສາມຽນມ້າ"
+
+#: odm_dataset/i18n/metadata_fields.php:15 odm_dataset/i18n/odm_language.php:4
+msgid "English"
+msgstr "ພາສາອັງກິດ"
+
+#: odm_dataset/i18n/metadata_fields.php:16 odm_dataset/i18n/odm_language.php:7
+msgid "Khmer"
+msgstr "ພາສາກໍາປູເຈຍ"
+
+#: odm_dataset/i18n/metadata_fields.php:17 odm_dataset/i18n/odm_language.php:9
+msgid "Lao"
+msgstr "ພາສາລາວ"
+
+#: odm_dataset/i18n/metadata_fields.php:18
+#: odm_dataset/i18n/odm_language.php:11
+msgid "Thai"
+msgstr "ພາສາໄທ"
+
+#: odm_dataset/i18n/metadata_fields.php:19
+#: odm_dataset/i18n/odm_language.php:12
+msgid "Vietnamese"
+msgstr "ພາສາຫວຽດນາມ"
+
+#: odm_dataset/i18n/metadata_fields.php:20
+#: odm_dataset/i18n/odm_language.php:13
+msgid "Chinese"
+msgstr "ພາສາຈີນ"
+
+#: odm_dataset/i18n/metadata_fields.php:21 odm_dataset/i18n/odm_language.php:5
+msgid "French"
+msgstr "ພາສາຝຣັ່ງ"
+
+#: odm_dataset/i18n/metadata_fields.php:22 odm_dataset/i18n/odm_language.php:3
+msgid "German"
+msgstr "ພາສາເຢຍລະມັນ"
+
+#: odm_dataset/i18n/metadata_fields.php:23 odm_dataset/i18n/odm_language.php:6
+msgid "Japanese"
+msgstr "ພາສາຍີ່ປຸ່ນ"
+
+#: odm_dataset/i18n/metadata_fields.php:24 odm_dataset/i18n/odm_language.php:8
+msgid "Korean"
+msgstr "ພາສາເກົາຫຼີ"
+
+#: odm_dataset/i18n/metadata_fields.php:25
+msgid "Other"
+msgstr "ພາສາອື່ນ"
+
+#: odm_dataset/i18n/metadata_fields.php:26
+msgid "Date created"
+msgstr "ວັນທີສ້າງ"
+
+#: odm_dataset/i18n/metadata_fields.php:27
+msgid "Date uploaded"
+msgstr "ວັນທີອັບໂຫລດ"
+
+#: odm_dataset/i18n/metadata_fields.php:28
+msgid "Date modified"
+msgstr "ວັນທີແກ້ໄຂ"
+
+#: odm_dataset/i18n/metadata_fields.php:29
+msgid "Temporal range"
+msgstr "ຊ່ວງເວລາ"
+
+#: odm_dataset/i18n/metadata_fields.php:30
+msgid "Geographic area (spatial range)"
+msgstr "ພື້ນທີ່ທາງດ້ານພູມສາດ (ຂອບເຂດທີ່ຕັ້ງ)"
+
+#: odm_dataset/i18n/metadata_fields.php:31
+msgid "Global"
+msgstr "ທົ່ວໂລກ"
+
+#: odm_dataset/i18n/metadata_fields.php:32
+msgid "ASEAN"
+msgstr "ສະມາຄົມອາຊຽນ"
+
+#: odm_dataset/i18n/metadata_fields.php:33
+msgid "Greater Mekong Subregion (GMS)"
+msgstr "ອານຸພາກພື້ນແມ່ນໍ້າຂອງ"
+
+#: odm_dataset/i18n/metadata_fields.php:34
+msgid "Lower Mekong Basin"
+msgstr "ອ່າງແມ່ນໍ້າຂອງຕອນລຸ່ມ"
+
+#: odm_dataset/i18n/metadata_fields.php:35
+msgid "Lower Mekong countries"
+msgstr "ປະເທດລຸ່ມແມ່ນໍ້າຂອງ"
+
+#: odm_dataset/i18n/metadata_fields.php:36
+#: odm_dataset/i18n/odm_spatial_range.php:4
+msgid "Cambodia"
+msgstr "ປະເທດກໍາປູເຈຍ"
+
+#: odm_dataset/i18n/metadata_fields.php:37
+msgid "Vietnam"
+msgstr "ປະເທດຫວຽດນາມ"
+
+#: odm_dataset/i18n/metadata_fields.php:38
+msgid "Laos"
+msgstr "ປະເທດລາວ"
+
+#: odm_dataset/i18n/metadata_fields.php:39
+#: odm_dataset/i18n/odm_spatial_range.php:12
+msgid "Thailand"
+msgstr "ປະເທດໄທ"
+
+#: odm_dataset/i18n/metadata_fields.php:40
+#: odm_dataset/i18n/odm_spatial_range.php:9
+msgid "Myanmar"
+msgstr "ປະເທດມຽນມ້າ"
+
+#: odm_dataset/i18n/metadata_fields.php:41
+msgid "Accuracy"
+msgstr "ຄວາມຊັດເຈນ"
+
+#: odm_dataset/i18n/metadata_fields.php:42
+msgid "Logical Consistency"
+msgstr "ຄວາມສອດຄ່ອງຕາມເຫດຜົນ"
+
+#: odm_dataset/i18n/metadata_fields.php:43
+msgid "Completeness"
+msgstr "ຄວາມສົມບູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:44
+msgid "Process(es)"
+msgstr "ຂະບວນການ"
+
+#: odm_dataset/i18n/metadata_fields.php:45
+msgid "Source(s)"
+msgstr "ແຫຼ່່ງຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:46
+msgid "Metadata reference information"
+msgstr "ຂໍ້ມູນອ້າງອີງຂອງ metadata"
+
+#: odm_dataset/i18n/metadata_fields.php:47
+msgid "Attributes"
+msgstr "ຄຸນລັກສະນະ"
+
+#: odm_dataset/i18n/metadata_fields.php:48
+msgid "Legacy reference document"
+msgstr "ເອກະສານອ້າງອີງເກົ່າ"
+
+#: odm_dataset/i18n/metadata_fields.php:49
+msgid "Maintainer"
+msgstr "ຜູ້ບໍາລຸງຮັກສາ"
+
+#: odm_dataset/i18n/metadata_fields.php:50
+msgid "Maintainer email"
+msgstr "ອີເມລຂອງຜູ້ບໍາລຸງຮັກສາ"
+
+#: odm_dataset/i18n/metadata_fields.php:51
+msgid "Name"
+msgstr "ຊື່"
+
+#: odm_dataset/i18n/metadata_fields.php:52
+msgid "Format"
+msgstr "ຮູບແບບ"
+
+#: odm_dataset/i18n/metadata_fields.php:53
+msgid "Resource\\s languages"
+msgstr "ພາສາຂອງແຫຼ່ງຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:54
+msgid ""
+"INTERNAL USE ONLY: Select true if this record contains CSV and/or XLS "
+"resources available in the datastore."
+msgstr "ນໍາໃຊ້ພາຍໃນເທົ່ານັ້ນ: ໃຫ້ເລືອກຖືກ ຖ້າຫາກລາຍການນີ້ມີຂໍ້ມູນທີ່ເປັນຟາຍ CSV ແລະ/ຫຼື XLS ໃນສາງຂໍ້ມູນ.​"
+
+#: odm_dataset/i18n/metadata_fields.php:55
+msgid "Database table?"
+msgstr "ຕາຕະລາງຖານຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:56
+msgid "Unclear copyright"
+msgstr "ລິຂະສິດທີ່ບໍ່ຊັດເຈນ"
+
+#: odm_dataset/i18n/metadata_fields.php:57
+msgid "To be determined"
+msgstr "ຍັງບໍ່ທັນໄດ້ກໍານົດເທື່ອ"
+
+#: odm_dataset/i18n/metadata_fields.php:58
+msgid ""
+"License definitions and additional information can be found at "
+"http://opendefinition.org/"
+msgstr "ຫານິຍາມຂອງການຮັບອະນຸຍາດ ແລະ ຂໍ້ມູນເພີ່ມຕື່ມໄດ້ທີ່ http://opendefinition.org/"
+
+#: odm_dataset/i18n/metadata_fields.php:59
+msgid "Province(s)"
+msgstr "ແຂວງ"
+
+#: odm_dataset/i18n/metadata_fields.php:60
+msgid "Yes"
+msgstr "ແມ່ນ"
+
+#: odm_dataset/i18n/metadata_fields.php:61
+msgid "No"
+msgstr "ບໍ່ແມ່ນ"
+
+#: odm_dataset/i18n/metadata_fields.php:62
+msgid "Keywords"
+msgstr "ຄໍາຊັບທີ່ສໍາຄັນ"
+
+#: odm_dataset/i18n/metadata_fields.php:63
+msgid "Name given to the dataset."
+msgstr "ຊື່ທີ່ໃສ່ໃຫ້ຊຸດຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:64
+msgid "eg. my-dataset"
+msgstr "ຕົວຢ່າງ: my-dataset"
+
+#: odm_dataset/i18n/metadata_fields.php:65
+msgid "Short description explaining the content and its origins."
+msgstr "ລາຍລະອຽດໂດຍຫຍໍ້ທີ່ອະທິບາຍກ່ຽວກັບເນື້ອໃນ ແລະ ແຫຼ່ງຂອງເນື້ອໃນ"
+
+#: odm_dataset/i18n/metadata_fields.php:66
+msgid "e.g. economy, mental health, government"
+msgstr "ເຊັ່ນ: ເສດຖະກິດ, ສຸຂະພາບທາງຈິດ, ລັດຖະບານ"
+
+#: odm_dataset/i18n/metadata_fields.php:67
+msgid ""
+"A few sentences describing legal considerations for people who access the "
+"website and/or use its contents."
+msgstr "ອະທິບາຍ 3-4 ປະໂຫຍກ ກ່ຽວກັບປັດໄຈທາງດ້ານກົດໝາຍ ສຳລັບຜູ້ທີ່ເຂົ້າເວັບໄຊ ແລະ/ຫຼື ນໍາໃຊ້ເນື້ອໃນຂອງເວັບໄຊ"
+
+#: odm_dataset/i18n/metadata_fields.php:68
+msgid "Dataset\"s version (eg. 1.0)"
+msgstr "ເວີຊັ້ນຂອງຊຸດຂໍ້ມູນ (ເຊັ່ນ 1.0)"
+
+#: odm_dataset/i18n/metadata_fields.php:69
+msgid "Date the dataset was first Published by its creator."
+msgstr "ວັນທີທີ່ຊຸດຂໍ້ມູນຖືກເຜີຍແຜ່ທໍາອິດໂດຍຜູ້ສ້າງ"
+
+#: odm_dataset/i18n/metadata_fields.php:70
+msgid ""
+"The period of time for which the dataset is relevant (i.e. "
+"2011-01-01:2011-12-31)."
+msgstr "ຊ່ວງເວລາທີ່ຊຸດຂໍ້ມູນນີ້ກ່ຽວຂ້ອງຢູ່ (ເຊັ່ນ 2011-01-01:2011-12-31)"
+
+#: odm_dataset/i18n/metadata_fields.php:71
+msgid "A valid GEOJSON string describing the dataset boundaries"
+msgstr "ສຕຣິງຂອງ GEOJSON ທີ່ຖືກຕ້ອງ ທີ່ອະທິບາຍກ່ຽວກັບຂອບເຂດຂອງຊຸດຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:72
+msgid ""
+"The geographic area that the dataset is relevant to (i.e. Cambodia, Laos)."
+msgstr "ຂອບເຂດພື້ນທີ່ທາງດ້ານພູມສາດທີ່ຊຸດຂໍ້ມູນດັ່ງກ່າວກ່ຽວຂ້ອງຢູ່ (ເຊັ່ນ ກໍາປູເຈຍ, ລາວ)."
+
+#: odm_dataset/i18n/metadata_fields.php:73
+msgid "The province(s) this dataset relates to"
+msgstr "ແຂວງທີ່ຊຸດຂໍ້ມູນນີ້ກ່ຽວຂ້ອງຢູ່"
+
+#: odm_dataset/i18n/metadata_fields.php:74
+msgid ""
+"Issues with logical consistency in the dataset and the steps, if any, being "
+"taken to validate its content."
+msgstr "ບັນຫາກ່ຽວກັບຄວາມສອດຄ່ອງທີ່ມີເຫດຜົນຂອງຊຸດຂໍ້ມູນ ແລະ ຂັ້ນຕອນ, ຖ້າມີ, ທີ່ໃຊ້ໃນການທົດສອບຄວາມຖືກຕ້ອງຂອງຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:75
+msgid ""
+"Brief description of the level of completeness of the dataset\"s contents "
+"and the steps, if any, being taken to make the dataset more complete."
+msgstr "ອະທິບາຍໂດຍຫຍໍ້ກ່ຽວກັບລະດັບຄວາມສົມບູນຂອງເນື້ອໃນຂອງຊຸດຂໍ້ມູນນີ້ ແລະ ຂັ້ນຕອນ, ຖ້າມີ, ທີ່ໃຊ້ເພື່ອເຮັດໃຫ້ຊຸດຂໍ້ມູນມີຄວາມສົມບູນກວ່າເກົ່າ."
+
+#: odm_dataset/i18n/metadata_fields.php:76
+msgid ""
+"The steps taken to acquire, aggregate, or transform any of the resources in "
+"the dataset."
+msgstr "ຂັ້ນຕອນທີ່ໃຊ້ໃນການຮວບຮວມ, ດັດແປງ ແຫຼ່ງທີ່ມາຂອງຊຸດຂໍ້ມູນ."
+
+#: odm_dataset/i18n/metadata_fields.php:77
+msgid ""
+"Ordered citations for all information sources that went into producing the "
+"dataset."
+msgstr "ລຽງລໍາດັບຂໍ້ມູນອ້າງອີງສໍາລັບແຫຼ່ງຂໍ້ມູນທັງໝົດທີ່ໃຊ້ໃນການສ້າງຊຸດຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:78
+msgid ""
+"Information about how up-to-date the metadata is and who is responsible for "
+"maintaining it."
+msgstr "ຂໍ້ມູນກ່ຽວກັບຄວາມໃໝ່ຂອງ metadata ແລະ ຜູ້ຮັບຜິດຊອບໃນການຮັກສາ metadata ນັ້ນ"
+
+#: odm_dataset/i18n/metadata_fields.php:79
+msgid "Details about the information content of the dataset."
+msgstr "ລາຍລະອຽດກ່ຽວກັບເນື້ອໃນຂໍ້ມູນຂອງຊຸດຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:80
+msgid "e.g Tong_Min_Group_Engineering__21.06.2011.pdf"
+msgstr "ເຊັ່ນ Tong_Min_Group_Engineering__21.06.2011.pdf"
+
+#: odm_dataset/i18n/metadata_fields.php:81
+msgid "eg. January 2011 Gold Prices"
+msgstr "ເຊັ່ນ ມັງກອນ 2011 ລາຄາຄໍາ"
+
+#: odm_dataset/i18n/metadata_fields.php:82
+msgid "Some useful notes about the data"
+msgstr "ບັນທຶກທີ່ເປັນປະໂຫຍດກ່ຽວກັບຂໍ້ມູນ"
+
+#: odm_dataset/i18n/metadata_fields.php:83
+msgid "Language(s) of the resource."
+msgstr "ພາສາຂອງແຫຼ່ງຂໍ້ມູນ"
+
+#: odm_dataset/i18n/odm_provinces.php:3
+msgid "Ayeyarwady"
+msgstr "ເອຢະວະດີ"
+
+#: odm_dataset/i18n/odm_provinces.php:4
+msgid "Bago"
+msgstr "ບາໂກ"
+
+#: odm_dataset/i18n/odm_provinces.php:5
+msgid "Chin"
+msgstr "ຊິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:6
+msgid "Kachin"
+msgstr "ກະຊິ່ນ"
+
+#: odm_dataset/i18n/odm_provinces.php:7
+msgid "Kayah"
+msgstr "ກະຢາ"
+
+#: odm_dataset/i18n/odm_provinces.php:8
+msgid "Kayin"
+msgstr "ກະລ່ຽງ"
+
+#: odm_dataset/i18n/odm_provinces.php:9
+msgid "Magway"
+msgstr "ມະເກວ"
+
+#: odm_dataset/i18n/odm_provinces.php:10
+msgid "Mandalay"
+msgstr "ມັນດາເລ"
+
+#: odm_dataset/i18n/odm_provinces.php:11
+msgid "Mon"
+msgstr "ມອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:12
+msgid "Naypyitaw"
+msgstr "ນະຄອນຫຼວງເນປິຕໍ"
+
+#: odm_dataset/i18n/odm_provinces.php:13
+msgid "Rakhine"
+msgstr "ຍະໄຂ່"
+
+#: odm_dataset/i18n/odm_provinces.php:14
+msgid "Sagaing"
+msgstr "ສະກາຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:15
+msgid "Shan"
+msgstr "ຊານ"
+
+#: odm_dataset/i18n/odm_provinces.php:16
+msgid "Tanintharyi"
+msgstr "ຕະເໜ່ງດາຢີ່ ຫຼື ຕະນາວສີ"
+
+#: odm_dataset/i18n/odm_provinces.php:17
+msgid "Yangon"
+msgstr "ຢ້າງກຸ້ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:18
+msgid "Kampong Cham"
+msgstr "ກຳປົງຈາມ"
+
+#: odm_dataset/i18n/odm_provinces.php:19
+msgid "Kampong Chhnang"
+msgstr "ກຳປົງຊະນັງ"
+
+#: odm_dataset/i18n/odm_provinces.php:20
+msgid "Kampong Speu"
+msgstr "ກຳປົງສະປື"
+
+#: odm_dataset/i18n/odm_provinces.php:21
+msgid "Kampong Thom"
+msgstr "ກຳປົງທົມ"
+
+#: odm_dataset/i18n/odm_provinces.php:22
+msgid "Kandal"
+msgstr "ກັນດານ"
+
+#: odm_dataset/i18n/odm_provinces.php:23
+msgid "Koh Kong"
+msgstr "ເກາະກົງ"
+
+#: odm_dataset/i18n/odm_provinces.php:24
+msgid "Kratie"
+msgstr "ກະແຈະ"
+
+#: odm_dataset/i18n/odm_provinces.php:25
+msgid "Mondulkiri"
+msgstr "ມົນທົນຄີຣີ"
+
+#: odm_dataset/i18n/odm_provinces.php:26
+msgid "Pursat"
+msgstr "ໂພທິສັດ"
+
+#: odm_dataset/i18n/odm_provinces.php:27
+msgid "Preah Vihear"
+msgstr "ເປຣຍວິເຮຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:28
+msgid "Prey Veng"
+msgstr "ເປຣຍວຽງ"
+
+#: odm_dataset/i18n/odm_provinces.php:29
+msgid "Stung Treng"
+msgstr "ສະຕຶງແຕຣງ"
+
+#: odm_dataset/i18n/odm_provinces.php:30
+msgid "Svay Rieng"
+msgstr "ສວາຍຣຽງ"
+
+#: odm_dataset/i18n/odm_provinces.php:31
+msgid "Takeo"
+msgstr "ຕາແກ້ວ"
+
+#: odm_dataset/i18n/odm_provinces.php:32
+msgid "Kampot"
+msgstr "ກຳປົດ"
+
+#: odm_dataset/i18n/odm_provinces.php:33
+msgid "Phnom Penh"
+msgstr "ພະນົມເປນ"
+
+#: odm_dataset/i18n/odm_provinces.php:34
+msgid "Ratanakiri"
+msgstr "ຣັດຕະນະຄີຣີ"
+
+#: odm_dataset/i18n/odm_provinces.php:35
+msgid "Siem Reap"
+msgstr "ສຽມລຽບ"
+
+#: odm_dataset/i18n/odm_provinces.php:36
+msgid "Banteay Meanchey"
+msgstr "ບັນເຕມຽນເຈີຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:37
+msgid "Kep"
+msgstr "ແກັບ"
+
+#: odm_dataset/i18n/odm_provinces.php:38
+msgid "Oddar Meanchey"
+msgstr "ອໍດາຣມຽນເຈີຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:39
+msgid "Preah Sihanouk"
+msgstr "ພະສີຫານຸ"
+
+#: odm_dataset/i18n/odm_provinces.php:40
+msgid "Battambang"
+msgstr "ພະຕະບອງ ຫຼື ບັດຕຳບອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:41
+msgid "Pailin"
+msgstr "ໄພລິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:42
+msgid "Tboung Khmum"
+msgstr "ຕະບຸງຂະມຸມ"
+
+#: odm_dataset/i18n/odm_provinces.php:43
+msgid "Attapu"
+msgstr "ອັດຕະປື"
+
+#: odm_dataset/i18n/odm_provinces.php:44
+msgid "Bokèo"
+msgstr "ບໍ່ແກ້ວ"
+
+#: odm_dataset/i18n/odm_provinces.php:45
+msgid "Borikhamxai"
+msgstr "ບໍລິຄຳໄຊ"
+
+#: odm_dataset/i18n/odm_provinces.php:46
+msgid "Champasak"
+msgstr "ຈຳປາສັກ"
+
+#: odm_dataset/i18n/odm_provinces.php:47
+msgid "Houaphan"
+msgstr "ຫົວພັນ"
+
+#: odm_dataset/i18n/odm_provinces.php:48
+msgid "Khammouan"
+msgstr "ຄຳມ່ວນ"
+
+#: odm_dataset/i18n/odm_provinces.php:49
+msgid "Louang Namtha"
+msgstr "ຫຼວງນໍ້າທາ"
+
+#: odm_dataset/i18n/odm_provinces.php:50
+msgid "Louangphabang"
+msgstr "ຫຼວງພະບາງ"
+
+#: odm_dataset/i18n/odm_provinces.php:51
+msgid "Oudômxai"
+msgstr "ອຸດົມໄຊ"
+
+#: odm_dataset/i18n/odm_provinces.php:52
+msgid "Phôngsali"
+msgstr "ຜົ້ງສາລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:53
+msgid "Salavan"
+msgstr "ສາລະວັນ"
+
+#: odm_dataset/i18n/odm_provinces.php:54
+msgid "Savannakhét"
+msgstr "ສະຫວັນນະເຂດ"
+
+#: odm_dataset/i18n/odm_provinces.php:55
+msgid "Vientiane"
+msgstr "ວຽງຈັນ"
+
+#: odm_dataset/i18n/odm_provinces.php:56
+msgid "Vientiane [Prefecture]"
+msgstr "ນະຄອນຫຼວງວຽງຈັນ"
+
+#: odm_dataset/i18n/odm_provinces.php:57
+msgid "Xaignabouli"
+msgstr "ໄຊຍະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:58
+msgid "Xaisômboun"
+msgstr "ໄຊສົມບູນ"
+
+#: odm_dataset/i18n/odm_provinces.php:59
+msgid "Xékong"
+msgstr "ເຊກອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:60
+msgid "Xiangkhouang"
+msgstr "ຊຽງຂວາງ"
+
+#: odm_dataset/i18n/odm_provinces.php:61
+msgid "Amnat Charoen"
+msgstr "ອຳນາດຈະເລີນ"
+
+#: odm_dataset/i18n/odm_provinces.php:62
+msgid "Ang Thong"
+msgstr "ອ່າງທອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:63
+msgid "Krung Thep Maha Nakhon [Bangkok]"
+msgstr "ກຸງເທບມະຫານະຄອນ (ບາງກອກ)"
+
+#: odm_dataset/i18n/odm_provinces.php:64
+msgid "Bueng Kan"
+msgstr "ບຶງການ"
+
+#: odm_dataset/i18n/odm_provinces.php:65
+msgid "Buri Ram"
+msgstr "ບູລີລຳ"
+
+#: odm_dataset/i18n/odm_provinces.php:66
+msgid "Chachoengsao"
+msgstr "ສະເຊີງເຊົາ"
+
+#: odm_dataset/i18n/odm_provinces.php:67
+msgid "Chai Nat"
+msgstr "ຊາຍນາດ"
+
+#: odm_dataset/i18n/odm_provinces.php:68
+msgid "Chanthaburi"
+msgstr "ຈັນທະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:69
+msgid "Chiang Mai"
+msgstr "ຊຽງໃໝ່"
+
+#: odm_dataset/i18n/odm_provinces.php:70
+msgid "Chiang Rai"
+msgstr "ຊຽງຮາຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:71
+msgid "Chon Buri"
+msgstr "ຊົນບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:72
+msgid "Chumphon"
+msgstr "ຊຸມພອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:73
+msgid "Kalasin"
+msgstr "ກາລະສິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:74
+msgid "Kamphaeng Phet"
+msgstr "ກຳແພງເພັດ"
+
+#: odm_dataset/i18n/odm_provinces.php:75
+msgid "Kanchanaburi"
+msgstr "ການຈະນະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:76
+msgid "Khon Kaen"
+msgstr "ຂອນແກ່ນ"
+
+#: odm_dataset/i18n/odm_provinces.php:77
+msgid "Krabi"
+msgstr "ກະບີ່"
+
+#: odm_dataset/i18n/odm_provinces.php:78
+msgid "Lampang"
+msgstr "ລຳປາງ"
+
+#: odm_dataset/i18n/odm_provinces.php:79
+msgid "Lamphun"
+msgstr "ລຳພຸນ"
+
+#: odm_dataset/i18n/odm_provinces.php:80
+msgid "Loei"
+msgstr "ເລີຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:81
+msgid "Lop Buri"
+msgstr "ລົບບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:82
+msgid "Mae Hong Son"
+msgstr "ແມ່ຮ່ອງສອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:83
+msgid "Maha Sarakham"
+msgstr "ມະຫາສາລາຄຳ"
+
+#: odm_dataset/i18n/odm_provinces.php:84
+msgid "Mukdahan"
+msgstr "ມຸກດາຫານ"
+
+#: odm_dataset/i18n/odm_provinces.php:85
+msgid "Nakhon Nayok"
+msgstr "ນະຄອນນາຍົກ"
+
+#: odm_dataset/i18n/odm_provinces.php:86
+msgid "Nakhon Pathom"
+msgstr "ນະຄອນປະຖົມ"
+
+#: odm_dataset/i18n/odm_provinces.php:87
+msgid "Nakhon Phanom"
+msgstr "ນະຄອນພະນົມ"
+
+#: odm_dataset/i18n/odm_provinces.php:88
+msgid "Nakhon Ratchasima"
+msgstr "ນະຄອນລາດຊະສີມາ"
+
+#: odm_dataset/i18n/odm_provinces.php:89
+msgid "Nakhon Sawan"
+msgstr "ນະຄອນສະຫວັນ"
+
+#: odm_dataset/i18n/odm_provinces.php:90
+msgid "Nakhon Si Thammarat"
+msgstr "ນະຄອນສີທຳມະລາດ"
+
+#: odm_dataset/i18n/odm_provinces.php:91
+msgid "Nan"
+msgstr "ນ່ານ"
+
+#: odm_dataset/i18n/odm_provinces.php:92
+msgid "Narathiwat"
+msgstr "ນາລາທິວາດ"
+
+#: odm_dataset/i18n/odm_provinces.php:93
+msgid "Nong Bua Lam Phu"
+msgstr "ໜອງບົວລຳພູ"
+
+#: odm_dataset/i18n/odm_provinces.php:94
+msgid "Nong Khai"
+msgstr "ໜອງຄາຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:95
+msgid "Nonthaburi"
+msgstr "ນົນທະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:96
+msgid "Pathum Thani"
+msgstr "ປະທຸມທານີ"
+
+#: odm_dataset/i18n/odm_provinces.php:97
+msgid "Pattani"
+msgstr "ປັດຕານີ"
+
+#: odm_dataset/i18n/odm_provinces.php:98
+msgid "Phangnga"
+msgstr "ພັງງາ"
+
+#: odm_dataset/i18n/odm_provinces.php:99
+msgid "Phatthalung"
+msgstr "ພັດທະລຸງ"
+
+#: odm_dataset/i18n/odm_provinces.php:100
+msgid "Phatthaya"
+msgstr "ພັດທະຍາ"
+
+#: odm_dataset/i18n/odm_provinces.php:101
+msgid "Phayao"
+msgstr "ພະເຍົາ"
+
+#: odm_dataset/i18n/odm_provinces.php:102
+msgid "Phetchabun"
+msgstr "ເພັດຊະບູນ"
+
+#: odm_dataset/i18n/odm_provinces.php:103
+msgid "Phetchaburi"
+msgstr "ເພັດຊະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:104
+msgid "Phichit"
+msgstr "ພິຈິດ"
+
+#: odm_dataset/i18n/odm_provinces.php:105
+msgid "Phitsanulok"
+msgstr "ພິສະນຸໂລກ"
+
+#: odm_dataset/i18n/odm_provinces.php:106
+msgid "Phra Nakhon Si Ayutthaya"
+msgstr "ພະນະຄອນສີອະຍຸດທະຍາ"
+
+#: odm_dataset/i18n/odm_provinces.php:107
+msgid "Phrae"
+msgstr "ແພ່"
+
+#: odm_dataset/i18n/odm_provinces.php:108
+msgid "Phuket"
+msgstr "ພູເກັດ"
+
+#: odm_dataset/i18n/odm_provinces.php:109
+msgid "Prachin Buri"
+msgstr "ປາຈິນບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:110
+msgid "Prachuap Khiri Khan"
+msgstr "ປະຈວບຄີລີຂັນ"
+
+#: odm_dataset/i18n/odm_provinces.php:111
+msgid "Ranong"
+msgstr "ລະນອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:112
+msgid "Ratchaburi"
+msgstr "ລາດຊະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:113
+msgid "Rayong"
+msgstr "ລະຍອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:114
+msgid "Roi Et"
+msgstr "ຮ້ອຍເອັດ"
+
+#: odm_dataset/i18n/odm_provinces.php:115
+msgid "Sa Kaeo"
+msgstr "ສະແກ້ວ"
+
+#: odm_dataset/i18n/odm_provinces.php:116
+msgid "Sakon Nakhon"
+msgstr "ສາກົນນະຄອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:117
+msgid "Samut Prakan"
+msgstr "ສະໝຸດປາການ"
+
+#: odm_dataset/i18n/odm_provinces.php:118
+msgid "Samut Sakhon"
+msgstr "ສະໝຸດສາຄອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:119
+msgid "Samut Songkhram"
+msgstr "ສະໝຸດສົງຄາມ"
+
+#: odm_dataset/i18n/odm_provinces.php:120
+msgid "Saraburi"
+msgstr "ສະລະບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:121
+msgid "Satun"
+msgstr "ສະຕຸນ"
+
+#: odm_dataset/i18n/odm_provinces.php:122
+msgid "Si Sa Ket"
+msgstr "ສີສະເກດ"
+
+#: odm_dataset/i18n/odm_provinces.php:123
+msgid "Sing Buri"
+msgstr "ສຶງບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:124
+msgid "Songkhla"
+msgstr "ສົງຂາ"
+
+#: odm_dataset/i18n/odm_provinces.php:125
+msgid "Sukhothai"
+msgstr "ສຸໂຂໄທ"
+
+#: odm_dataset/i18n/odm_provinces.php:126
+msgid "Suphan Buri"
+msgstr "ສຸພັນບູລີ"
+
+#: odm_dataset/i18n/odm_provinces.php:127
+msgid "Surat Thani"
+msgstr "ສຸລາດທານີ"
+
+#: odm_dataset/i18n/odm_provinces.php:128
+msgid "Surin"
+msgstr "ສຸລິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:129
+msgid "Tak"
+msgstr "ຕາກ"
+
+#: odm_dataset/i18n/odm_provinces.php:130
+msgid "Trang"
+msgstr "ຕັງ"
+
+#: odm_dataset/i18n/odm_provinces.php:131
+msgid "Trat"
+msgstr "ຕາດ"
+
+#: odm_dataset/i18n/odm_provinces.php:132
+msgid "Ubon Ratchathani"
+msgstr "ອຸບົນລາຊະທານີ"
+
+#: odm_dataset/i18n/odm_provinces.php:133
+msgid "Udon Thani"
+msgstr "ອຸດອນທານີ"
+
+#: odm_dataset/i18n/odm_provinces.php:134
+msgid "Uthai Thani"
+msgstr "ອຸໄທທານີ"
+
+#: odm_dataset/i18n/odm_provinces.php:135
+msgid "Uttaradit"
+msgstr "ອຸຕະຣະດິດ"
+
+#: odm_dataset/i18n/odm_provinces.php:136
+msgid "Yala"
+msgstr "ຍະລາ"
+
+#: odm_dataset/i18n/odm_provinces.php:137
+msgid "Yasothon"
+msgstr "ຍະໂສທອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:138
+msgid "An Giang"
+msgstr "ອານຊ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:139
+msgid "Ba Ria-Vung Tau"
+msgstr "ບ່າເສັຍຫວຸງເຕົ່າ"
+
+#: odm_dataset/i18n/odm_provinces.php:140
+msgid "Bac Giang"
+msgstr "ບັກຊ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:141
+msgid "Bac Kan"
+msgstr "ບັກການ"
+
+#: odm_dataset/i18n/odm_provinces.php:142
+msgid "Bac Lieu"
+msgstr "ບັກລ່ຽວ"
+
+#: odm_dataset/i18n/odm_provinces.php:143
+msgid "Bac Ninh"
+msgstr "ບັກນິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:144
+msgid "Ben Tre"
+msgstr "ເບ່ນແຈ່"
+
+#: odm_dataset/i18n/odm_provinces.php:145
+msgid "Binh Dinh"
+msgstr "ບິ່ງດິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:146
+msgid "Binh Duong"
+msgstr "ບິ່ນເຊື່ອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:147
+msgid "Binh Phuoc"
+msgstr "ບິ່ງຟຸກ"
+
+#: odm_dataset/i18n/odm_provinces.php:148
+msgid "Binh Thuan"
+msgstr "ບິ່ງຖ້ວນ"
+
+#: odm_dataset/i18n/odm_provinces.php:149
+msgid "Ca Mau"
+msgstr "ກາເມົ່າ"
+
+#: odm_dataset/i18n/odm_provinces.php:150
+msgid "Can Tho"
+msgstr "ເກີ່ນເທີ່"
+
+#: odm_dataset/i18n/odm_provinces.php:151
+msgid "Cao Bang"
+msgstr "ກ່າວບັງ"
+
+#: odm_dataset/i18n/odm_provinces.php:152
+msgid "Da Nang"
+msgstr "ດາໜັງ"
+
+#: odm_dataset/i18n/odm_provinces.php:153
+msgid "Dak Lak"
+msgstr "ດັກລັກ"
+
+#: odm_dataset/i18n/odm_provinces.php:154
+msgid "Dak Nong"
+msgstr "ດັກນົງ"
+
+#: odm_dataset/i18n/odm_provinces.php:155
+msgid "Dien Bien"
+msgstr "ດຽນບຽນ"
+
+#: odm_dataset/i18n/odm_provinces.php:156
+msgid "Dong Nai"
+msgstr "ດົງນ່າຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:157
+msgid "Dong Thap"
+msgstr "ດົງທັບ"
+
+#: odm_dataset/i18n/odm_provinces.php:158
+msgid "Gia Lai"
+msgstr "ຊ່າລ່າຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:159
+msgid "Ha Giang"
+msgstr "ຮ່າຊ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:160
+msgid "Ha Nam"
+msgstr "ຮ່ານ່າມ"
+
+#: odm_dataset/i18n/odm_provinces.php:161
+msgid "Ha Noi"
+msgstr "ຮ່າໂນ້ຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:162
+msgid "Ha Tinh"
+msgstr "ຮ່າຕິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:163
+msgid "Hai Duong"
+msgstr "ໄຮຊຶ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:164
+msgid "Hai Phong"
+msgstr "ໄຮຟອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:165
+msgid "Hau Giang"
+msgstr "ໂຮ່ຊ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:166
+msgid "Ho Chi Minh"
+msgstr "ໂຮ່ຈິມິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:167
+msgid "Hoa Binh"
+msgstr "ຮົວບິນ"
+
+#: odm_dataset/i18n/odm_provinces.php:168
+msgid "Hung Yen"
+msgstr "ຮູ່ງອ່ຽນ"
+
+#: odm_dataset/i18n/odm_provinces.php:169
+msgid "Khanh Hoa"
+msgstr "ຄັ່ນຮວ່າ"
+
+#: odm_dataset/i18n/odm_provinces.php:170
+msgid "Kien Giang"
+msgstr "ກຽນຊ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:171
+msgid "Kon Tum"
+msgstr "ກອນຕູມ"
+
+#: odm_dataset/i18n/odm_provinces.php:172
+msgid "Lai Chau"
+msgstr "ລ່າຍໂຈ່ວ"
+
+#: odm_dataset/i18n/odm_provinces.php:173
+msgid "Lam Dong"
+msgstr "ເລີ່ມດົງ"
+
+#: odm_dataset/i18n/odm_provinces.php:174
+msgid "Lang Son"
+msgstr "ລ່າງຊ່ອນ"
+
+#: odm_dataset/i18n/odm_provinces.php:175
+msgid "Lao Cai"
+msgstr "ຫຼາວກ່າຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:176
+msgid "Long An"
+msgstr "ລ້ອງອ່ານ"
+
+#: odm_dataset/i18n/odm_provinces.php:177
+msgid "Nam Dinh"
+msgstr "ນ່າມດິງ"
+
+#: odm_dataset/i18n/odm_provinces.php:178
+msgid "Nghe An"
+msgstr "ເຫງ້ອ່ານ"
+
+#: odm_dataset/i18n/odm_provinces.php:179
+msgid "Ninh Binh"
+msgstr "ນິ່ງບິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:180
+msgid "Ninh Thuan"
+msgstr "ນິ່ງຖ້ວນ"
+
+#: odm_dataset/i18n/odm_provinces.php:181
+msgid "Phu Tho"
+msgstr "ຟູທໍ້"
+
+#: odm_dataset/i18n/odm_provinces.php:182
+msgid "Phu Yen"
+msgstr "ຟູອ່ຽນ"
+
+#: odm_dataset/i18n/odm_provinces.php:183
+msgid "Quang Binh"
+msgstr "ກວາງບິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:184
+msgid "Quang Nam"
+msgstr "ກວາງນ່າມ"
+
+#: odm_dataset/i18n/odm_provinces.php:185
+msgid "Quang Ngai"
+msgstr "ກວາງຫງາຍ"
+
+#: odm_dataset/i18n/odm_provinces.php:186
+msgid "Quang Ninh"
+msgstr "ກວາງນິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:187
+msgid "Quang Tri"
+msgstr "ກວາງຈິ"
+
+#: odm_dataset/i18n/odm_provinces.php:188
+msgid "Soc Trang"
+msgstr "ຊົກຈ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:189
+msgid "Son La"
+msgstr "ເຊິ່ນລ່າ"
+
+#: odm_dataset/i18n/odm_provinces.php:190
+msgid "Tay Ninh"
+msgstr "ເຕ່ນິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:191
+msgid "Thai Binh"
+msgstr "ໄທບິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:192
+msgid "Thai Nguyen"
+msgstr "ໄທຫງວຽນ"
+
+#: odm_dataset/i18n/odm_provinces.php:193
+msgid "Thanh Hoa"
+msgstr "ແທັງຮວ່າ"
+
+#: odm_dataset/i18n/odm_provinces.php:194
+msgid "Thua Thien-Hue"
+msgstr "ເທືອທຽນເຫວ້"
+
+#: odm_dataset/i18n/odm_provinces.php:195
+msgid "Tien Giang"
+msgstr "ຕຽນຊ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:196
+msgid "Tra Vinh"
+msgstr "ຈາວິ່ງ"
+
+#: odm_dataset/i18n/odm_provinces.php:197
+msgid "Tuyen Quang"
+msgstr "ຕື່ນກວ່າງ"
+
+#: odm_dataset/i18n/odm_provinces.php:198
+msgid "Vinh Long"
+msgstr "ຫວິງລ່ອງ"
+
+#: odm_dataset/i18n/odm_provinces.php:199
+msgid "Vinh Phuc"
+msgstr "ຫວິງຟຸກ"
+
+#: odm_dataset/i18n/odm_provinces.php:200
+msgid "Yen Bai"
+msgstr "ອ່ຽນບ໋າຍ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:3
+msgid "Brunei"
+msgstr "ປະເທດບຣູໄນ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:5
+msgid "Christmas Island"
+msgstr "ເກາະຄຣິສມັສ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:6
+msgid "Cocos Islands"
+msgstr "ເກາະໂຄຄົສ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:7
+msgid "East timor"
+msgstr "ຕິມໍຕາເວັນອອກ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:8
+msgid "Lao People\\s Democratic Republic"
+msgstr "ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:10
+msgid "Philippines"
+msgstr "ຟີລິບປິນ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:11
+msgid "Singapore"
+msgstr "ສິງກະໂປ"
+
+#: odm_dataset/i18n/odm_spatial_range.php:13
+msgid "Viet Nam"
+msgstr "ຫວຽດນາມ"
