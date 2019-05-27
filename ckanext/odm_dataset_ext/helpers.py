@@ -46,7 +46,9 @@ def convert_to_multilingual(data):
 
 
 def get_multilingual_data(field_name, data):
-    # may be in data[field_name], may be in data['extras'] somewhere
+    # may be in data[field_name],
+    # may be in data[field_name-lang], especially coming from a new submission
+    # may be in data['extras'] somewhere
     log.debug("%s: %s" % (field_name, data))
     if field_name in data:
         # could be that we have a blank dictionary. If we're checking a translated field
@@ -61,6 +63,13 @@ def get_multilingual_data(field_name, data):
         if isinstance(value, dict):
             return value
         return {get_current_language(): value}
+
+    # check data[field_name-lang]
+    base = '%s-' % field_name
+    items = {key[len(base):]: data[key] for key in data.keys() if key.startswith(base)}
+    if items:
+        return items
+
     if 'extras' in data:
         for elt in data['extras']:
             if elt['key'] == field_name:
