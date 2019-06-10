@@ -94,7 +94,6 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_dataset_notes': helpers.get_dataset_notes,
             'odm_dataset_get_resource_id_for_field' : helpers.get_resource_id_for_field,
             'odm_dataset_validate_fields' : helpers.validate_fields,
-            'odm_dataset_detail_page_url': helpers.detail_page_url,
             'odm_dataset_get_required': helpers.get_required,
             'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
             'odm_dataset_get_list_data': helpers.get_list_data,

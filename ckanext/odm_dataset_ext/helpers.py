@@ -232,19 +232,6 @@ def get_dataset_notes(dataset_id, truncate):
     return notes
 
 
-def detail_page_url(pkg):
-
-    organization = pkg["organization"]
-    config_var_name = 'wp.dataset_detail_page_' + organization["name"]
-    if not config_var_name:
-        config_var_name = 'wp.dataset_detail_page_mekong-organization'
-    detail_page_url = config.get(config_var_name)
-    if not detail_page_url:
-        return None
-    return detail_page_url + "?id=" + pkg["name"]
-
-
-
 def get_resource_id_for_field(field):
     resource_id = config.get('odm.resource_id.'+field)
     return resource_id
