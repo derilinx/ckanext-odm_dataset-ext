@@ -207,13 +207,6 @@ def get_current_time():
     return datetime.datetime.utcnow().isoformat()
 
 
-def get_resource_from_datatable(resource_id):
-    ''' pulls tabular data from datastore '''
-
-    result = toolkit.get_action('datastore_search')(data_dict={'resource_id': resource_id,'limit':1000})
-
-    return result['records']
-
 def get_dataset_name(dataset_id):
 
     dataset_dict = toolkit.get_action('package_show')(data_dict={'id':dataset_id})
@@ -233,10 +226,22 @@ def get_dataset_notes(dataset_id, truncate):
 
     return notes
 
+def get_resource_from_datatable(resource_id):
+    ''' pulls tabular data from datastore '''
+
+    result = toolkit.get_action('datastore_search')(data_dict={'resource_id': resource_id,'limit':1000})
+
+    return result['records']
 
 def get_resource_id_for_field(field):
     resource_id = config.get('odm.resource_id.'+field)
     return resource_id
+
+def get_resource_for_field(field):
+    return get_resource_from_datatable(get_resource_id_for_field(field))
+
+def get_resource_for_field_as_dict(field):
+    return {e['id']:e['name'] for e in get_resource_from_datatable(get_resource_id_for_field(field))}
 
 def get_package_type_label(dataset_type):
     package_label_dict = {'dataset': 'Dataset', 'laws_record': 'Laws Record',
