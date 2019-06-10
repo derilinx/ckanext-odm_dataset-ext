@@ -96,6 +96,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_validate_fields' : helpers.validate_fields,
             'odm_dataset_get_required': helpers.get_required,
             'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
+            'odm_dataset_get_currentlang_data': helpers.get_currentlang_data,
             'odm_dataset_get_list_data': helpers.get_list_data,
             'odm_dataset_get_field_langs': helpers.get_field_langs,
             'odm_dataset_get_package_type_label': helpers.get_package_type_label,

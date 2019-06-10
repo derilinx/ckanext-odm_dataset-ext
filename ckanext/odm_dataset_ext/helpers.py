@@ -79,6 +79,8 @@ def get_multilingual_data(field_name, data):
                     return {get_current_language(): elt['value']}
     return {}
 
+def get_currentlang_data(fieldname, data):
+    return get_multilingual_data(fieldname, data).get(get_current_language(), '')
 
 def get_list_data(field_name, data):
     # may be in data[field_name], may be in data['extras'] somewhere
