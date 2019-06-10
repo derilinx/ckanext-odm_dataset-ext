@@ -575,33 +575,6 @@
         "form_placeholder": "e.g Tong_Min_Group_Engineering__21.06.2011.pdf"
     },
     {
-        "field_name": "maintainer",
-        "grouping": "Management",
-        "validate": "true",
-        "label": "Maintainer",
-        "preset": "auto_maintainer"
-    },
-    {
-        "field_name": "maintainer_email",
-        "grouping": "Management",
-        "validate": "true",
-        "label": "Maintainer email",
-        "preset": "auto_maintainer_email"
-    },
-    {
-        "field_name": "author",
-        "grouping": "Management",
-        "validate": "true",
-        "label": "Author",
-        "preset": "auto_author"
-    }, {
-        "field_name": "author_email",
-        "grouping": "Management",
-        "validate": "true",
-        "label": "Author email",
-        "preset": "auto_author_email"
-    },
-    {
         "field_name": "odm_db_table",
         "grouping": "Management",
         "label": "Database table?",
