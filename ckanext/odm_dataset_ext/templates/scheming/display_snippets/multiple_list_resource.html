@@ -1,0 +1,11 @@
+{%- set values = data[field.field_name] -%}
+{%- set choices = h.odm_dataset_get_resource_for_field_as_dict(field.field_name) %}
+<ul>
+    {%- for value in values -%}
+        {%-  if choices.get(value, None) -%}
+            <li>{{_(choices.get(value))}}</li>
+        {%- else -%}
+            <li>{{ value }}</li>
+        {% endif %}
+  {%- endfor -%}
+</ul>
