@@ -211,25 +211,6 @@ def get_current_time():
     return datetime.datetime.utcnow().isoformat()
 
 
-def get_dataset_name(dataset_id):
-
-    dataset_dict = toolkit.get_action('package_show')(data_dict={'id':dataset_id})
-    return dataset_dict['name']
-
-def get_dataset_notes(dataset_id, truncate):
-
-    notes = None
-    dataset_dict = toolkit.get_action('package_show')(data_dict={'id':dataset_id})
-
-    if 'notes_translated' in dataset_dict :
-        lang = request.environ['CKAN_LANG']
-        if lang in dataset_dict['notes_translated']:
-            notes = dataset_dict['notes_translated'][lang]
-            if truncate == True and notes:
-                notes = notes[0:99]
-
-    return notes
-
 def get_resource_from_datatable(resource_id):
     ''' pulls tabular data from datastore '''
 

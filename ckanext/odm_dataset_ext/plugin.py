@@ -93,8 +93,6 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_resource_from_datatable': helpers.get_resource_from_datatable,
             'odm_dataset_get_resource_for_field': helpers.get_resource_for_field,
             'odm_dataset_get_resource_for_field_as_dict': helpers.get_resource_for_field_as_dict,
-            'odm_dataset_get_dataset_name': helpers.get_dataset_name,
-            'odm_dataset_get_dataset_notes': helpers.get_dataset_notes,
             'odm_dataset_validate_fields' : helpers.validate_fields,
             'odm_dataset_get_required': helpers.get_required,
             'odm_dataset_get_multilingual_data': helpers.get_multilingual_data,
