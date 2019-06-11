@@ -82,6 +82,10 @@ def get_multilingual_data(field_name, data):
 def get_currentlang_data(fieldname, data):
     return get_multilingual_data(fieldname, data).get(get_current_language(), '')
 
+def dataset_display_name(pkg):
+    log.debug('dataset_display_name: %s' % pkg)
+    return get_currentlang_data('title_translated', pkg) or pkg['title'] or pkg['name']
+
 def get_list_data(field_name, data):
     # may be in data[field_name], may be in data['extras'] somewhere
     if field_name in data:

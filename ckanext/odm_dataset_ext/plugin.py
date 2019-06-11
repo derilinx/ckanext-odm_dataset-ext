@@ -105,7 +105,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_listify': helpers.listify,
             'odm_dataset_autocomplete_full_options': helpers.autocomplete_multi_dataset_full_options,
             'odm_dataset_multi_dataset_values': helpers.multi_dataset_values,
-
+            # overrides
+            'dataset_display_name': helpers.dataset_display_name,
         }
 
     ## IActions
