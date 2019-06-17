@@ -105,6 +105,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_multi_dataset_values': helpers.multi_dataset_values,
             # overrides
             'dataset_display_name': helpers.dataset_display_name,
+            'resource_display_name': helpers.resource_display_name,
         }
 
     ## IActions

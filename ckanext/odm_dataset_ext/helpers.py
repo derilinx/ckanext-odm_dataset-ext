@@ -80,11 +80,16 @@ def get_multilingual_data(field_name, data):
     return {}
 
 def get_currentlang_data(fieldname, data):
-    return get_multilingual_data(fieldname, data).get(get_current_language(), '')
+    field = get_multilingual_data(fieldname, data)
+    return field.get(get_current_language(), '') or field.get('en', '')
 
 def dataset_display_name(pkg):
     log.debug('dataset_display_name: %s' % pkg)
     return get_currentlang_data('title_translated', pkg) or pkg['title'] or pkg['name']
+
+def resource_display_name(rsc):
+    log.debug('resource_display_name: %s' % rsc)
+    return get_currentlang_data('name_translated', rsc) or  rsc['name']
 
 def get_list_data(field_name, data):
     # may be in data[field_name], may be in data['extras'] somewhere
