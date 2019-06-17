@@ -413,12 +413,7 @@
         "preset": "odm_text_translated",
         "validate": "true",
         "label": {
-            "en": "GEMET controlled keywords",
-            "th": "",
-            "km": "",
-            "vi": "",
-            "my": "",
-            "lo": ""
+            "en": "GEMET controlled keywords"
         },
         "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing GEMET keywords."
@@ -430,11 +425,7 @@
         "preset": "odm_text_translated",
         "label": {
             "en": "Identifier code",
-            "th": "Identifier code TH",
-            "km": "",
-            "vi": "",
-            "my": "",
-            "lo": ""
+            "th": "Identifier code TH"
         },
         "form_languages": ["en", "th", "km", "vi", "my"],
         "form_placeholder": "A few sentences describing the Identifier code"
@@ -446,11 +437,7 @@
         "validate": "true",
         "label": {
             "en": "Limitations on public access",
-            "th": "Limitations TH",
-            "km": "",
-            "vi": "",
-            "my": "",
-            "lo": ""
+            "th": "Limitations TH"
         },
         "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing the Limitations on public access"
@@ -461,12 +448,7 @@
         "preset": "odm_text_translated",
         "validate": "true",
         "label": {
-            "en": "Format version",
-            "th": "",
-            "km": "",
-            "vi": "",
-            "my": "",
-            "lo": ""
+            "en": "Format version"
         },
         "form_languages": ["en", "th", "km", "vi", "my", "lo"],
         "form_placeholder": "A few sentences describing the Format version"
@@ -613,8 +595,6 @@
         "validate": "true",
         "label": {
             "en": "Description",
-            "th": "",
-            "km": "",
             "vi": "Mô tả",
             "my": "ဖော်ပြချက်",
             "lo": "Desc Laos"
@@ -644,25 +624,25 @@
         "form_snippet": "markdown.html",
         "label": "Feature info template for WMS resource"
     },
-	{
-	    "field_name": "parent_resource_id",
-	    "preset": "text_hidden"
-	},
-	{
-	    "field_name": "vectorstorer_resource",
-	    "preset": "text_hidden"
-	},
-	{
-	    "field_name": "wms_server",
-	    "preset": "text_hidden"
-	},
-	{
-	    "field_name": "wms_layer",
-	    "preset": "text_hidden"
-	},
-	{
-	    "field_name": "layer_url",
-	    "preset": "text_hidden"
-	}
+    {
+        "field_name": "parent_resource_id",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "vectorstorer_resource",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "wms_server",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "wms_layer",
+        "preset": "text_hidden"
+    },
+    {
+        "field_name": "layer_url",
+        "preset": "text_hidden"
+    }
     ]
 }

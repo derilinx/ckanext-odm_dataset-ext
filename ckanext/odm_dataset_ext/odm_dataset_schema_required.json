@@ -650,7 +650,8 @@
     {
         "field_name": "feature_info_template",
         "form_snippet": "markdown.html",
-        "label": "Feature info template for WMS resource"
+        "label": "Feature info template for WMS resource",
+        "display_snippet": "None"
     },
 	{
 	    "field_name": "parent_resource_id",

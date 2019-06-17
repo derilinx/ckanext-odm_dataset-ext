@@ -92,6 +92,7 @@
         "preset_name": "text_hidden",
         "values": {
             "form_snippet": "text_hidden.html",
+            "display_snippet": null,
             "validators": "ignore_missing"
         }
     }, {
