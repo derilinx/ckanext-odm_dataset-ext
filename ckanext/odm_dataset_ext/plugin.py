@@ -2,6 +2,7 @@
 from ckan.common import config
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from .views import user
 
 import json
 
@@ -10,7 +11,7 @@ from . import helpers, validators
 
 import logging
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+#log.setLevel(logging.DEBUG)
 
 class Odm_Dataset_Resource(plugins.SingletonPlugin):
     plugins.implements(plugins.IResourceController, inherit=True)
@@ -114,6 +115,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'package_create': action.package_create,
             'odm_dataset_autocomplete': action.dataset_autocomplete,
             'odm_dataset_autocomplete_exact': action.dataset_autocomplete_exact,
+            'unsafe_user_show': action.unsafe_user_show
         }
 
         if False: # to enable splitting the sites by odm_spatial_range
@@ -123,6 +125,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
     #IRoutes
     def before_map(self, m):
+
         log.debug("odm_dataset_ext.before_map")
         controller = "ckanext.odm_dataset_ext.controllers:OdmDataset"
         m.connect('odm_dataset_reference', '/dataset/reference/{reference}', controller=controller,
