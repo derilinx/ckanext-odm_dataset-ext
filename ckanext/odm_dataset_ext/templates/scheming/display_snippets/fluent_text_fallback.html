@@ -1,4 +1,3 @@
-{#% set localized_value = h.scheming_language_text(data[field.field_name]) %#}
 {% set localized_value = h.odm_dataset_get_currentlang_data(field.field_name, data) %}
 {% if localized_value %}
 	{{ localized_value }}
