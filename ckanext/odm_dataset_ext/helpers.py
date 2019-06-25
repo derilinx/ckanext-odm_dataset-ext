@@ -11,6 +11,7 @@ import os
 from ckan.plugins import toolkit
 from ckan.plugins.toolkit import request
 from ckan.common import config
+from ckan.lib.helpers import helper_functions as h
 
 import logging
 log = logging.getLogger(__name__)
@@ -39,7 +40,7 @@ def convert_to_multilingual(data):
 
     if isinstance(data, basestring):
         multilingual_data = {}
-        multilingual_data[get_current_language()] = data;
+        multilingual_data[h.lang()] = data;
     else:
         multilingual_data = data
 
@@ -59,11 +60,11 @@ def get_multilingual_data(field_name, data):
             base_field_name = field_name.replace('_translated','')
             log.debug('base_field_name: %s ' % base_field_name)
             if base_field_name in data:
-                log.debug('base_field_name: %s ' % {get_current_language(): data[base_field_name]} )
-                return {get_current_language(): data[base_field_name]}
+                log.debug('base_field_name: %s ' % {h.lang(): data[base_field_name]} )
+                return {h.lang(): data[base_field_name]}
         if isinstance(value, dict):
             return value
-        return {get_current_language(): value}
+        return {h.lang(): value}
 
     # check data[field_name-lang]
     base = '%s-' % field_name
@@ -77,15 +78,15 @@ def get_multilingual_data(field_name, data):
                 try:
                     return json.loads(elt['value'])
                 except:
-                    return {get_current_language(): elt['value']}
+                    return {h.lang(): elt['value']}
     return {}
 
 def get_currentlang_data(fieldname, data, fallback=True):
     field = get_multilingual_data(fieldname, data)
     if fallback:
-        return field.get(get_current_language(), '') or field.get('en', '')
+        return field.get(h.lang(), '') or field.get('en', '')
     else:
-        return field.get(get_current_language(), '')
+        return field.get(h.lang(), '')
 
 def dataset_display_name(pkg):
     log.debug('dataset_display_name: %s' % pkg)
@@ -143,10 +144,7 @@ def get_localized_tag(tag):
 
 def get_current_language():
     '''Returns the current language code'''
-
-    log.debug('get_current_language %s', str(request.environ['CKAN_LANG']))
-
-    return request.environ['CKAN_LANG']
+    return h.lang()
 
 def get_localized_tags_string(tags_string):
     '''Returns a comma separated string with the translation of the tags specified. Calls get_localized_tag'''
@@ -258,7 +256,7 @@ def multi_dataset_values(arr):
     if isinstance(arr, (str, unicode)):
         arr = list(arr)
 
-    lang = get_current_language()
+    lang = h.lang()
     ret = []
     for name in arr:
         ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name,

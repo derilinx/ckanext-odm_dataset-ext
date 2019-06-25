@@ -83,10 +83,11 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
 
     # ITemplateHelpers
     def get_helpers(self):
+        import ckan.lib.helpers
         return {
             'odm_dataset_get_current_time': helpers.get_current_time,
             'odm_dataset_get_localized_tag': helpers.get_localized_tag,
-            'odm_dataset_get_current_language': helpers.get_current_language,
+            'odm_dataset_get_current_language': ckan.lib.helpers.lang,
             'odm_dataset_retrieve_taxonomy_from_tags': helpers.retrieve_taxonomy_from_tags,
             'odm_dataset_convert_to_multilingual': helpers.convert_to_multilingual,
             'odm_dataset_clean_taxonomy_tags': helpers.clean_taxonomy_tags,
