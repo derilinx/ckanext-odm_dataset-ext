@@ -21,7 +21,7 @@ def request_reset_post(self):
         user_obj = context[u'user_obj']
     except logic.NotFound:
         # Try searching the user
-        h.flash_error(_(u'No such user - please contact system admin: %s') % id)
+        h.flash_error(_(u'No such user found - please contact system admin: %s') % id)
 
     if user_obj:
         try:

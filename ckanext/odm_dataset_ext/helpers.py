@@ -14,6 +14,7 @@ from ckan.common import config
 
 import logging
 log = logging.getLogger(__name__)
+log.setLevel(logging.DEBUG)
 
 def create_default_issue_dataset(pkg_info):
     ''' Uses CKAN API to add a default Issue as part of the vetting workflow for datasets'''
@@ -79,9 +80,12 @@ def get_multilingual_data(field_name, data):
                     return {get_current_language(): elt['value']}
     return {}
 
-def get_currentlang_data(fieldname, data):
+def get_currentlang_data(fieldname, data, fallback=True):
     field = get_multilingual_data(fieldname, data)
-    return field.get(get_current_language(), '') or field.get('en', '')
+    if fallback:
+        return field.get(get_current_language(), '') or field.get('en', '')
+    else:
+        return field.get(get_current_language(), '')
 
 def dataset_display_name(pkg):
     log.debug('dataset_display_name: %s' % pkg)
