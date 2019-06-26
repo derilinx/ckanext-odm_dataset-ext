@@ -88,6 +88,24 @@ and value != '';
 
 commit;
 
+begin;
+
+update resource
+set
+  extras = jsonb_set(resource.extras::jsonb,
+         '{MD_DataIdentification_language}',
+         resource.extras::jsonb->'odm_language')
+where
+  resource.extras::jsonb->>'MD_DataIdentification_language' is null
+  and resource.extras::jsonb->>'odm_language' != ''
+;
+
+-- select count(*), extras::jsonb->>'MD_DataIdentification_language' from resource group by extras::jsonb->>'MD_DataIdentification_language';
+
+commit;
+
+
+
 -- begin;
 -- -- Only on existing upgraded systems with the old schema
 -- update package_extra set key=translated
