@@ -15,7 +15,7 @@ from ckan.lib.helpers import helper_functions as h
 
 import logging
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.ERROR)
 
 def create_default_issue_dataset(pkg_info):
     ''' Uses CKAN API to add a default Issue as part of the vetting workflow for datasets'''
