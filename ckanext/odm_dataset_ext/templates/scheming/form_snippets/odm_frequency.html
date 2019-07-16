@@ -9,11 +9,11 @@
     <select id="field-{{ field.field_name }}"
       multiple
       name="{{ field.field_name }}"
-			placeholder="{{ field.form_placeholder }}"
+	  placeholder="{{ h.scheming_language_text(field.form_placeholder) }}"
       data-module="autocomplete">
-			{% for frequency in h.odm_dataset_get_resourcefor_field('odm_frequency') %}
-				<option {{"selected " if language['id'] in data[field.field_name] }} value="{{ language['id'] }}">{{ _(language['name']) }}</option>
-			{% endfor %}
+		{% for frequency in h.odm_dataset_get_resourcefor_field('odm_frequency') %}
+			<option {{"selected " if language['id'] in data[field.field_name] }} value="{{ language['id'] }}">{{ _(language['name']) }}</option>
+		{% endfor %}
     </select>
     {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 {%- endcall -%}

@@ -11,7 +11,7 @@
 <select id="field-{{ field.field_name }}"
 	multiple
 	name="{{ field.field_name }}"
-	placeholder="{{ field.form_placeholder }}"
+	placeholder="{{ h.scheming_language_text(field.form_placeholder) }}"
 	data-module="odm_spatial_range-module autocomplete">
   {% for country in h.odm_dataset_get_resource_for_field(field.field_name) %}
     {% if country['supported'] == 'yes' %}
