@@ -262,3 +262,24 @@ def multi_dataset_values(arr):
         ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name,
                                                                              'lang': lang}))
     return ret
+
+
+###
+# Return the translated field name for the target language,
+# rather than the system language.
+###
+from ckanext.scheming.helpers import scheming_language_text
+def fluent_form_label(field, lang):
+    """
+    Return a label for the input field for the given language
+    If the field has a fluent_form_label defined the label will
+    be taken from there.  If a matching label can't be found
+    this helper will return the language code in uppercase and
+    the standard label.
+    """
+    form_label = field.get('fluent_form_label', {})
+
+    if lang in form_label:
+        return scheming_language_text(form_label, lang)
+
+    return scheming_language_text(field['label'], lang)
