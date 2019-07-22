@@ -16,14 +16,6 @@
             "label": "URL"
         }, 
         {
-            "form_languages": [
-                "en", 
-                "th", 
-                "km", 
-                "vi", 
-                "my", 
-                "lo"
-            ], 
             "label": {
                 "en": "Name", 
                 "vi": "T\u00ean", 
@@ -43,14 +35,18 @@
             "label": "Name"
         }, 
         {
-            "form_languages": [
-                "en", 
-                "th", 
-                "km", 
-                "vi", 
-                "my", 
-                "lo"
-            ], 
+            "form_placeholder": "Language(s) of the resource.", 
+            "validate": "true", 
+            "preset": "odm_language", 
+            "field_name": "MD_DataIdentification_language", 
+            "label": "Resource's languages"
+        }, 
+        {
+            "preset": "resource_format_autocomplete", 
+            "field_name": "format", 
+            "label": "Format"
+        }, 
+        {
             "label": {
                 "vi": "M\u00f4 t\u1ea3", 
                 "en": "Description", 
@@ -66,18 +62,6 @@
             "preset": "text_hidden", 
             "field_name": "description", 
             "label": "Description"
-        }, 
-        {
-            "preset": "resource_format_autocomplete", 
-            "field_name": "format", 
-            "label": "Format"
-        }, 
-        {
-            "form_placeholder": "Language(s) of the resource.", 
-            "validate": "true", 
-            "preset": "odm_language", 
-            "field_name": "MD_DataIdentification_language", 
-            "label": "Resource's languages"
         }, 
         {
             "form_snippet": "markdown.html", 
