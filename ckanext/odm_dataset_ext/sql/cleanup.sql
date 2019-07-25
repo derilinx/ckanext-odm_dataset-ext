@@ -562,3 +562,40 @@ begin;
 ;
 
 commit;
+
+
+
+-- format names
+
+-- # sql for updating
+update resource set format=tr.translated
+  from  ( VALUES
+    ('.pdf', 'PDF'),
+    ('website', 'HTML'),
+    ('Website', 'HTML'),
+    ('archived webpage', 'HTML'),
+    ('url', 'URL'),
+    ('.html', 'HTML'),
+    ('geotiff', 'GeoTIFF'),
+    ('pdf', 'PDF'),
+    ('zipped shapefile', 'SHP'),
+    ('.zip', 'ZIP'),
+    ('csv', 'CSV'),
+    ('application/x-msdos-program', 'Unknown'),
+    ('PFD', 'PDF'),
+    ('.htm', 'HTML'),
+    ('GeoTiff', 'GeoTIFF'),
+    ('HTLM', 'HTML'),
+    ('application/msword', 'DOC'),
+    ('psf', 'PDF'),
+    ('JEPG', 'JPEG'),
+    ('tif', 'TIFF'),
+    ('Geotiff', 'GeoTIFF'),
+    ('word', 'DOC'),
+    ('xml', 'XML'),
+    ('ipg', 'JPEG'),
+    ('KMZ', 'KML'),
+    ('xlsm', 'XLSX')
+) as tr (original, translated)
+where
+resource.format = tr.original;
