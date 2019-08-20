@@ -17,6 +17,17 @@ import logging
 log = logging.getLogger(__name__)
 log.setLevel(logging.ERROR)
 
+# memoization decorator from http://code.activestate.com/recipes/578231-probably-the-fastest-memoization-decorator-in-the-/
+# mit license
+def memoize(f):
+    class memoize(dict):
+        def __missing__(self, key):
+            ret = self[key] = f(*key)
+            return ret
+        def __getitem__(self, *args):
+            return dict.__getitem__(self, tuple(args))
+    return memoize().__getitem__
+
 def create_default_issue_dataset(pkg_info):
     ''' Uses CKAN API to add a default Issue as part of the vetting workflow for datasets'''
     try:
@@ -234,6 +245,22 @@ def get_resource_for_field(field):
 
 def get_resource_for_field_as_dict(field):
     return {e['id']:e['name'] for e in get_resource_for_field(field)}
+
+@memoize
+def get_resource_name_for_field_value(field, value):
+    log.debug('resource_name for field: %s %s', field, value)
+    resource_id = get_resource_id_for_field(field)
+    try:
+        results = toolkit.get_action('datastore_search')({},{'resource_id': resource_id,
+                                                   'limit': 1,
+                                                   'q': {'id': value}})
+        return results['records'][0]['name']
+    except (KeyError, IndexError) as msg:
+        log.error("Error getting resource name for id %s %s, %s", field, value, resource_id)
+        return ''
+
+def get_spatial_range_list(pkg):
+    return ", ".join([get_resource_name_for_field_value('odm_spatial_range', v) for v in pkg['odm_spatial_range']])
 
 def get_package_type_label(dataset_type):
     package_label_dict = {'dataset': 'Dataset', 'laws_record': 'Laws Record',
