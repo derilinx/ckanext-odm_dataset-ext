@@ -254,7 +254,7 @@
             "preset": "odm_organization", 
             "validate": "true", 
             "field_name": "owner_org", 
-            "grouping": "Contact"
+            "grouping": "Description"
         }, 
         {
             "required": "true", 
