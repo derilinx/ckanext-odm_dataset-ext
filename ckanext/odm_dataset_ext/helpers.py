@@ -251,11 +251,13 @@ def get_resource_name_for_field_value(field, value):
     log.debug('resource_name for field: %s %s', field, value)
     resource_id = get_resource_id_for_field(field)
     try:
+        if not value:
+            raise ValueError
         results = toolkit.get_action('datastore_search')({},{'resource_id': resource_id,
                                                    'limit': 1,
                                                    'q': {'id': value}})
         return results['records'][0]['name']
-    except (KeyError, IndexError) as msg:
+    except (KeyError, IndexError, ValueError) as msg:
         log.error("Error getting resource name for id %s %s, %s", field, value, resource_id)
         return ''
 
