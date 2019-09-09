@@ -133,12 +133,15 @@ def urlencode(value):
     value = re.sub(pattern, '', value)
     return value.lower()[0:99]
 
-def if_empty_new_id(value):
-
-    log.debug('if_empty_new_id: %s', str(value))
+def validate_title_or_url(value):
+    """
+     If the value is empty do not add a new id - it will create a possible Confusion.
+    """
+    log.debug('validate_title_or_url: %s', str(value))
 
     if not value:
-        value = str(uuid.uuid4());
+        raise toolkit.Invalid(_('Title or value in URL is missing.'))
+        #value = str(uuid.uuid4());
     return value
 
 def convert_numeric(value, context):

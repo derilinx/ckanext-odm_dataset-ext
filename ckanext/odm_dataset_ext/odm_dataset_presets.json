@@ -327,7 +327,8 @@
         "preset_name": "odm_db_table",
         "values": {
             "validators": "ignore_missing",
-            "form_snippet": "odm_db_table.html"
+            "form_snippet": "odm_db_table.html",
+            "display_snippet": null
         }
     },{
         "preset_name": "odm_resource_name",

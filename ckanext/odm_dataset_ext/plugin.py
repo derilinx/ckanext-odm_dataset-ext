@@ -66,7 +66,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
     #  IValidators
     def get_validators(self):
         return {
-            'odm_dataset_if_empty_new_id': validators.if_empty_new_id,
+            'odm_dataset_validate_title_or_url': validators.validate_title_or_url,
             'odm_dataset_numeric': validators.convert_numeric,
             'odm_dataset_urlencode': validators.urlencode,
             'odm_dataset_clean_taxonomy_tags': validators.clean_taxonomy_tags,

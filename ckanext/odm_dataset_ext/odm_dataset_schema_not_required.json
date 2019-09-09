@@ -129,7 +129,7 @@
                 "km": "\u178f\u17c6\u178e\u1797\u17b6\u17d2\u1787\u1794\u17cb URL"
             }, 
             "preset": "dataset_slug", 
-            "validators": "odm_dataset_if_empty_new_id odm_dataset_urlencode odm_dataset_record_does_not_exist_yet", 
+            "validators": "odm_dataset_validate_title_or_url odm_dataset_urlencode odm_dataset_record_does_not_exist_yet", 
             "form_placeholder": "eg. my-dataset", 
             "field_name": "name", 
             "grouping": "Description"
@@ -1004,7 +1004,8 @@
                 "my": "\u1006\u1000\u103a\u1001\u1036\u101b\u101b\u103e\u102d\u1000\u103c\u1031\u102c\u1004\u103a\u1038\u100a\u103d\u103e\u1014\u103a\u1038\u1006\u102d\u102f\u101e\u100a\u103a\u1037\u1005\u102c\u1010\u1019\u103a\u1038", 
                 "km": "\u1788\u17d2\u1798\u17c4\u17c7\u17af\u1780\u179f\u17b6\u179a\u1799\u17c4\u1784\u179a\u1780\u17d2\u179f\u17b6\u1791\u17bb\u1780"
             }, 
-            "field_name": "odm_reference_document", 
+            "field_name": "odm_reference_document",
+            "display_snippet": null,
             "grouping": "Management"
         }, 
         {
