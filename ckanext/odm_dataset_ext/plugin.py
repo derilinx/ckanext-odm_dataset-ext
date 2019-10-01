@@ -2,7 +2,6 @@
 from ckan.common import config
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-from .views import user
 
 import json
 
