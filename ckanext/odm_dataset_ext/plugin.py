@@ -221,6 +221,16 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         if pkg_dict.get('taxonomy', None) and pkg_dict.get('tags', None):
             pkg_dict["taxonomy"] = [t['name'] for t in pkg_dict.get('tags', [])]
 
+        try:
+            pkg_dict['odm_language_list'] = json.loads(pkg_dict.get('odm_language', pkg_dict.get('MD_DataIdentification_language','[]')))
+            pkg_dict['odm_spatial_range_list'] = pkg_dict.get('EX_Geoname',[])
+            if type(pkg_dict['odm_spatial_range_list']) == type(set()) or '{' in pkg_dict['odm_spatial_range_list']:
+                # Messed up data on staging, not on preprod
+                del(pkg_dict['odm_spatial_range_list'])
+
+        except Exception as msg:
+            log.debug(msg)
+
         return pkg_dict
 
 
