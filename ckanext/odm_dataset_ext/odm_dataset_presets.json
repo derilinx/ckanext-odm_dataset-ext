@@ -472,7 +472,7 @@
   },{
     "preset_name": "hidden",
     "values": {
-      "form_snippet": "version_hidden.html",
+      "form_snippet": "text_hidden.html",
       "display_snippet": "text.html"
     }
   },{
