@@ -425,18 +425,34 @@
   },{
     "preset_name": "odm_related_laws_records_and_agreements",
     "values": {
-      "form_snippet": "odm_related_laws_records_and_agreements.html",
-            "display_snippet": "multiple_list.html",
-      "validators": "ignore_missing odm_dataset_sanitize_list",
-            "output_validators": "scheming_multiple_choice_output"
+            "form_snippet": "autocomplete_multiple.html",
+            "display_snippet": "multiple_dataset.html",
+            "validators": "ignore_missing odm_dataset_sanitize_list",
+            "output_validators": "scheming_multiple_choice_output",
+            "classes": ["control-full"],
+            "form_attrs": {
+                "data-module": "odm_autocomplete",
+                "data-module-source": "/dataset/autocomplete?lang=en&type=agreement,library_record,laws_record&limit=100&q=?",
+                "data-module-key": "name",
+                "data-module-label": "title",
+                "data-module-tags": ""
+            }
     }
   },{
     "preset_name": "odm_related_agreements",
     "values": {
-      "form_snippet": "odm_related_agreements.html",
-            "display_snippet": "multiple_list.html",
-      "validators": "ignore_missing odm_dataset_sanitize_list",
-            "output_validators": "scheming_multiple_choice_output"
+            "form_snippet": "autocomplete_multiple.html",
+            "display_snippet": "multiple_dataset.html",
+            "validators": "ignore_missing odm_dataset_sanitize_list",
+            "output_validators": "scheming_multiple_choice_output",
+            "classes": ["control-full"],
+            "form_attrs": {
+                "data-module": "odm_autocomplete",
+                "data-module-source": "/dataset/autocomplete?lang=en&type=agreement&limit=100&q=?",
+                "data-module-key": "name",
+                "data-module-label": "title",
+                "data-module-tags": ""
+            }
     }
   },{
       "preset_name": "odm_related_library_records",

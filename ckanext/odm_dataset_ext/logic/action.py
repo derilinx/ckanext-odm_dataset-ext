@@ -48,7 +48,7 @@ def dataset_autocomplete(context, data_dict):
 
     results = toolkit.get_action('package_search')(context, {'q':q,
                                                              'rows': limit,
-                                                             'fq_list': ["type:%s" %s for s in pkg_types]}
+                                                             'fq_list': ["type:(%s)" %" OR ".join(s for s in pkg_types)]}
                                                    )
 
     return [{'name': pkg['name'],
