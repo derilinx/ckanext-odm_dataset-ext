@@ -235,14 +235,16 @@ def get_resource_from_datatable(resource_id):
     return result['records']
 
 def get_resource_id_for_field(field):
-    resource_id = config.get('odm.resource_id.'+field)
-    return resource_id
+    field_map = { 'MD_DataIdentification_language': 'odm_language',
+                  'odm_agreement_government_entity': 'odm_laws_implementing_agencies',
+                  'odm_spatial_range_list': 'odm_spatial_range',
+                  'odm_language_list': 'odm_language'
+    }
+    return config.get('odm.resource_id.%s' % field_map.get(field,field))
 
 def get_resource_for_field(field):
     log.debug('getting resource for field: %s' % field)
-    field_map = { 'MD_DataIdentification_language': 'odm_language',
-                  'odm_agreement_government_entity': 'odm_laws_implementing_agencies'}
-    return get_resource_from_datatable(get_resource_id_for_field(field_map.get(field,field)))
+    return get_resource_from_datatable(get_resource_id_for_field(field))
 
 def get_resource_for_field_as_dict(field):
     return {e['id']:e['name'] for e in get_resource_for_field(field)}
@@ -259,6 +261,7 @@ def get_resource_name_for_field_value(field, value):
                                                    'q': {'id': value}})
         return results['records'][0]['name']
     except (KeyError, IndexError, ValueError) as msg:
+        log.error(msg)
         log.error("Error getting resource name for id %s %s, %s", field, value, resource_id)
         return ''
 
