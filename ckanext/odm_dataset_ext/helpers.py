@@ -240,7 +240,8 @@ def get_resource_id_for_field(field):
 
 def get_resource_for_field(field):
     log.debug('getting resource for field: %s' % field)
-    field_map = { 'MD_DataIdentification_language': 'odm_language' }
+    field_map = { 'MD_DataIdentification_language': 'odm_language',
+                  'odm_agreement_government_entity': 'odm_laws_implementing_agencies'}
     return get_resource_from_datatable(get_resource_id_for_field(field_map.get(field,field)))
 
 def get_resource_for_field_as_dict(field):
