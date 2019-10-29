@@ -1,0 +1,10 @@
+field_name,label,en,Context,th,km,vi,my,lo
+url,label,URL,url.label,,,,,
+name_translated,label,Name,name_translated.label,Name,Name,Tên,အမည်,Name
+name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,,,,
+MD_DataIdentification_language,label,Resource's languages,MD_DataIdentification_language.label,,,,,
+MD_DataIdentification_language,form_placeholder,Language(s) of the resource.,MD_DataIdentification_language.form_placeholder,,,,,
+format,label,Format,format.label,,,,,
+description_translated,label,Description,description_translated.label,,,Mô tả,ဖော်ပြချက်,Desc Laos
+description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,,,,
+feature_info_template,label,Feature info template for WMS resource,feature_info_template.label,,,,,

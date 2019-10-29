@@ -1,0 +1,9 @@
+field_name,label,en,Context,th,km,vi,my,lo
+url,label,URL,url.label,,,,,
+name_translated,label,Name,name_translated.label,Name,Name,Tên,အမည်,ຊື່
+name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,,,,
+description_translated,label,Description,description_translated.label,Description,Description,Mô tả,ဖော်ပြချက်,ສະຫຼຸບຫຍໍ້ (ເນື້ອໃນ)
+description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,,,,
+format,label,Format,format.label,,,,,
+odm_language,label,Resource's languages,odm_language.label,,,,,
+odm_language,form_placeholder,Language(s) of the resource.,odm_language.form_placeholder,,,,,
