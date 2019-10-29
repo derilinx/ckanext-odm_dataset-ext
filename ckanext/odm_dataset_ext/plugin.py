@@ -94,6 +94,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_get_resource_from_datatable': helpers.get_resource_from_datatable,
             'odm_dataset_get_resource_for_field': helpers.get_resource_for_field,
             'odm_dataset_get_resource_for_field_as_dict': helpers.get_resource_for_field_as_dict,
+            'odm_dataset_get_resource_for_field_for_form': helpers.get_resource_for_field_for_form,
             'odm_dataset_get_resource_name_for_field_value': helpers.get_resource_name_for_field_value,
             'odm_dataset_spatial_range_list': helpers.get_spatial_range_list,
             'odm_dataset_validate_fields' : helpers.validate_fields,

@@ -247,19 +247,37 @@ def get_resource_for_field(field):
     return get_resource_from_datatable(get_resource_id_for_field(field))
 
 def get_resource_for_field_as_dict(field):
-    return {e['id']:e['name'] for e in get_resource_for_field(field)}
+    lang = h.lang()
+    if lang == 'en':
+        # english is named "name" because i18n was added later.
+        lang = 'name'
+    return {e['id']:(e.get(lang,'').strip() or e['name']) for e in get_resource_for_field(field)}
+
+def get_resource_for_field_for_form(field):
+    lang = h.lang()
+    if lang == 'en':
+        # english is named "name" because i18n was added later.
+        lang = 'name'
+    return [{'name':(e.get(lang,'').strip() or e['name']),
+             'id': e['id'],
+             'country_codes': e.get('country_codes','')}
+            for e in get_resource_for_field(field) if e['id'] and e['name']]
 
 @memoize
 def get_resource_name_for_field_value(field, value):
     log.debug('resource_name for field: %s %s', field, value)
     resource_id = get_resource_id_for_field(field)
+    lang = h.lang()
+    if lang == 'en':
+        # english is named "name" because i18n was added later.
+        lang = 'name'
     try:
         if not value:
             raise ValueError
         results = toolkit.get_action('datastore_search')({},{'resource_id': resource_id,
                                                    'limit': 1,
                                                    'q': {'id': value}})
-        return results['records'][0]['name']
+        return results['records'][0].get(lang,'').strip() or results['records'][0]['name']
     except (KeyError, IndexError, ValueError) as msg:
         log.error(msg)
         log.error("Error getting resource name for id %s %s, %s", field, value, resource_id)
