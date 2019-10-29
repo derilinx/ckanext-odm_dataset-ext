@@ -1,0 +1,64 @@
+odm_library_schema,,,,,,,,
+field_name,label,en,Context,th,km,vi,my,lo
+document_type,label,Document type,document_type.label,ประเภทเอกสาร,,Loại tài liệu,စာတမ်းအမျိုးအစား,ປະເພດເອກະສານ
+odm_language,label,Language of document,odm_language.label,ภาษาของเอกสาร,,Ngôn ngữ ,စာရွက်စာတမ်း၏ ဘာသာစကား,ພາສາຂອງເອກະສານ
+odm_language,form_placeholder,"Language(s) of the dataset, including resources within dataset.",odm_language.form_placeholder,ภาษาของชุดข้อมูล รวมถึงทรัพยากรในชุดข้อมูล,,,အချက်အလက်အစုရှိ အရင်းအမြစ်များ အပါအဝင် အချက်အလက်အစု၏ ဘာသာစကား(များ),"ພາສາຂອງຊຸດຂໍ້ມູນ, ລວມທັງແຫຼ່ງຂໍ້ມູນພາຍໃນຊຸດຂໍ້ມູນ"
+title_translated,label,Formal full title,title_translated.label,ชื่อเรื่องแบบเต็ม,ចំណងជើងជាផ្លូវការពេញលេញ,Tiêu đề đầy đủ chính thức,ခေါင်းစဉ်အပြည့်အစုံ,ຊື່ເຕັມທາງການ
+title_translated,form_placeholder,Main title,title_translated.form_placeholder,ชื่อเรื่องหลัก,,,အဓိကခေါင်းစဉ်,ຊື່ຫຼັກ
+name,label,URL,name.label,URL,,URL,ယူအာရ်အယ်လ်,URL
+name,form_placeholder,eg. my-dataset,name.form_placeholder,เช่น my-dataset,,,ဥပမာ. ကျွန်ုပ်၏-အချက်အလက်အစု,ຕົວຢ່າງ my-dataset
+marc21_246,label,Short title (alternative/varying form of title),marc21_246.label,ชื่อเรื่องแบบสั้น (ทางเลือก/แตกต่างจากชื่อเรื่อง),ចំណងជើងខ្លី (ចំណងជើងផ្សេងទៀត),Tên rút gọn (tên thay thế/dạng viết khác),ခေါင်းစဉ်အတို (မူရင်းခေါင်းစဉ်နှင့်မတူသောခေါင်းစဉ်),ຊື່ຫຍໍ້ (ຊື່ອື່ນທີ່ແຕກຕ່າງຈາກຊື້ຫຼັກ)
+marc21_246,form_placeholder,Parallel title,marc21_246.form_placeholder,ชื่อคู่ขนาน,,,စင်ပြိုင်ခေါင်းစဉ်,ຊື່ອື່ນ
+taxonomy,label,Topics,taxonomy.label,หัวข้อเรื่อง,,Chủ đề,ခေါင်းစဉ်များ,ຫົວຂໍ້
+taxonomy,form_placeholder,"e.g. economy, mental health, government",taxonomy.form_placeholder,เช่น เศรษฐศาสตร์ สุขภาพจิต รัฐบาล เป็นต้น,,,ဥပမာ စီးပွားရေး၊ စိတ်ကျန်းမာရေး၊ အစိုးရ,"ເຊັ່ນ ເສດຖະກິດ, ສຸຂະພາບຈິດ, ລັດຖະບານ"
+notes_translated,label,Short summary (contents),notes_translated.label,เรื่องโดยย่อ (เนื้อหา),សេចក្ដីសង្ខេបខ្លី (ខ្លឹមសារ),Tóm tắt nội dung,အနှစ်ချုပ် (အကြောင်းအရာ),ສະຫຼຸບຫຍໍ້ (ເນື້ອໃນ)
+notes_translated,form_placeholder,Abstract or summary of book or article,notes_translated.form_placeholder,บทคัดย่อหรือเรื่องย่อของหนังสือหรือบทความ,,,စာအုပ် သို့မဟုတ် ဆောင်းပါး၏ ကောက်နုတ်ချက် သို့မဟုတ် အနှစ်ချုပ်,ບົດຄັດຫຍໍ້ ຫຼື ບົດສະຫຼຸບຫຍໍ້ ປື້ມ ຫຼື ບົດຄວາມ
+odm_spatial_range,label,Geographic area (spatial range),odm_spatial_range.label,พื้นที่ทางภูมิศาสตร์ (ช่วงข้อมูล),,Vùng địa lý (phạm vi không gian),ပထဝီဧရိယာ (spatial range),ພື້ນທີ່ພູມສັນຖານ (ຂອບເຂດພື້ນທີ່)
+odm_spatial_range,form_placeholder,"The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",odm_spatial_range.form_placeholder,พื้นที่ที่ชุดข้อมูลเกี่ยวข้อง (เช่น กัมพูชา ลาว เป็นต้น),,,ဤအချက်အလက်အစုနှင့် သက်ဆိုင်သော ပထဝီဧရိယာ (ဆိုလိုသည်မှာ ကမ္ဘောဒီးယား၊ လာအို),"ພື້ນທີ່ພູມສັນຖານທີ່ກ່ຽວຂ້ອງກັບຊຸດຂໍ້ມູນ (ເຊັ່ນ ກຳປູເຈຍ, ລາວ)"
+odm_province,label,Province(s),odm_province.label,จังหวัด,,,နယ်ပယ်,ແຂວງ
+odm_province,form_placeholder,The province(s) this dataset relates to,odm_province.form_placeholder,จังหวัดที่อยู่ในชุดข้อมูลนี้,,,ဤအချက်အလက်အစုနှင့် သက်ဆိုင်သော နယ်ပယ်,ແຂວງທີ່ກ່ຽວຂ້ອງກັບຊຸດຂໍ້ມູນນີ້
+odm_copyright,label,Copyright,odm_copyright.label,ลิขสิทธิ์,,Bản quyền,မူပိုင်ခွင့်,ລິຂະສິດ
+odm_copyright,help_text,"Select 'Yes', 'No', 'Unclear copyright' or 'To be determined' about the copyright of the dataset. If copyright of any type is present, describe further in Access and User Constraints.",odm_copyright.help_text,เลือก 'ใช่' 'ไม่ใช่' 'ใบอนุญาตไม่ชัดเจน' หรือ 'จะได้รับการพิจารณาภายหลัง' สำหรับลิขสิทธิ์ชุดข้อมูล ถ้าชุดข้อมูลมีกำหนดลิขสิทธิ์ประเภทใดประเภทหนึ่ง ให้อธิบายเพิ่มเติมในหัวข้อ ข้อจำกัดการเข้าถึงและผู้ใช้,,,အချက်အလက်မူပိုင်ခွင့်အတွက် 'ရှိသည်'၊ 'မရှိပါ'၊ 'မရှင်းလင်းသော မူပိုင်ခွင့်' သို့မဟုတ် 'ဆုံးဖြတ်ရန်လိုအပ်သော' တို့ကို ရွေးချယ်ပါ။ အခြားပုံစံ မူပိုင်ခွင့်ရှိပါက အသုံးပြုခွင့်နှင့် အသုံးပြုသူ ကန့်သတ်ချက်များ ခေါင်းစဉ်အောက်တွင် နောက်ထပ် ဖော်ပြပါ။,"ເລືອກ 'ມີ', 'ບໍ່ມີ', 'ລິຂະສິດບໍ່ຈະແຈ້ງ', ຫຼື 'ຍັງບໍ່ກຳນົດ' ກ່ຽວກັບລິຂະສິດຂອງຊຸດຂໍ້ມູນ. ຖ້າມີລິຂະສິດ ໃຫ້ອະທິບາຍເພີ່ມເຕີມໃນຊ່ອງ ຂໍ້ຈຳກັດໃນການເຂົ້າເຖິງ ແລະ ນຳໃຊ້."
+odm_access_and_use_constraints,label,Access and use constraints,odm_access_and_use_constraints.label,ข้อจำกัดการเข้าถึงและการใช้งาน,កំហិតនៃការចូល និងប្រើប្រាស់,Hạn chế truy cập và sử dụng,ရယူခြင်းနှင့် အသုံးပြုခြင်း အကန့်အသတ်များ,ຂໍ້ຈຳກັດໃນການເຂົ້າເຖິງ ແລະ ນຳໃຊ້
+odm_access_and_use_constraints,form_placeholder,A few sentences describing legal considerations for people who access the website and/or use its contents.,odm_access_and_use_constraints.form_placeholder,คำอธิบายเกี่ยวกับข้อควรรู้ด้านกฎหมายสำหรับผู้ใช้งานเว็บไซต์และ/หรือใช้เนื้อหา,,,ဝက်ဘ်ဆိုက်အသုံးပြုခွင့်ရသူများ နှင့်/ သို့မဟုတ် ဝက်ဘ်ဆိုက်၏ အကြောင်းအရာများကို အသုံးပြုသူများအတွက် ဥပဒေရေးရာထည့်သွင်းစဉ်းစားချက်များကို ဖော်ပြသော ဝါကျအချို့,ອະທິບາຍຫຍໍ້ກ່ຽວກັບກົດລະບຽບທາງນິຕິກຳສຳລັບຜູ້ເຂົ້າຊົມ ແລະ ນຳໃຊ້ຂໍ້ມູນຂ່າວສານຈາກເວັບໄຊ.
+version,label,Version / Edition,version.label,เวอร์ชั่น / รุ่น,,Phiên bản/Lần xuất bản,ပြင်ဆင်ချက်,ສະບັບທີ / ຄັ້ງທີ
+version,form_placeholder,Version of publication,version.form_placeholder,เวอร์ชั่นสิ่งพิมพ์,,,ထုတ်ဝေမှုအကြိမ်,ສະບັບຂອງການຈັດພິມ
+owner_org,label,Organization,owner_org.label,องค์กร,,Tổ chức,အဖွဲ့အစည်း,ອົງການຈັດຕັ້ງ
+odm_date_uploaded,label,Date uploaded,odm_date_uploaded.label,วันที่อัพโหลด,,Ngày đăng tải dữ liệu,တင်သည့်ရက်စွဲ,ວັນທີອັບໂຫຼດ
+odm_date_uploaded,form_placeholder,Date a new version or update of the dataset was uploaded.,odm_date_uploaded.form_placeholder,วันที่อัพโหลดชุดข้อมูลเวอร์ชั่นใหม่หรือชุดข้อมูลที่ได้ปรับปรุงแล้ว,,,အချက်အလက်အစု၏ ပြင်ဆင်ချက်အသစ် သို့မဟုတ် နောက်ဆုံးအခြေအနေ ကို တင်သည့်ရက်စွဲ,ວັນທີອັບໂຫຼດຊຸດຂໍ້ມູນທີ່ມີການປ່ຽນແປງ ຫຼື ປັບປຸງໃໝ່
+odm_date_modified,label,Date modified,odm_date_modified.label,วันที่แก้ไข,,,ပြင်ဆင်သည့်ရက်စွဲ,ວັນທີແກ້ໄຂ
+odm_date_modified,form_placeholder,Date a new version or update of the dataset was modified.,odm_date_modified.form_placeholder,วันที่แก้ไขชุดข้อมูลหรือปรับปรุงชุดข้อมูล,,,အချက်အလက်အစု၏ ပြင်ဆင်ချက်အသစ် သို့မဟုတ် နောက်ဆုံးအခြေအနေ ကို ပြင်ဆင်သည့်ရက်စွဲ,ວັນທີແກ້ໄຂຊຸດຂໍ້ມູນທີ່ມີການປ່ຽນແປງ ຫຼື ປັບປຸງໃໝ່
+license_id,label,License,license_id.label,ใบอนุญาต,,Giấy phép,ခွင့်ပြုချက်,ສັນຍາລິຂະສິດ
+license_id,help_text,License definitions and additional information can be found at http://opendefinition.org/,license_id.help_text,สามารถอ่านเพิ่มเติมนิยามใบอนุญาตและข้อมูลได้ที่ http://opendefinition.org/,,,ခွင့်ပြုချက်၏အဓိပ္ပာယ်နှင့် အခြားအချက်အလက်များကို http://opendefinition.org/ တွင် ဝင်ရောက်ကြည့်ရှုနိုင်ပါသည်။,ນິຍາມສັນຍາລິຂະສິດ ແລະ ຂໍ້ມູນເພີ່ມເຕີມສາມາດເບິ່ງໄດ້ທີ່ http://opendefinition.org/
+odm_contact,label,Contact,odm_contact.label,ข้อมูลติดต่อ,ទំនាក់ទំនង,Liên hệ,ဆက်သွယ်ရန်,ຂໍ້ມູນຕິດຕໍ່
+odm_contact,form_placeholder,"Contact information for the individual or organization that is responsible for or most knowledgeable about the dataset. This could be the author of a report, the contact information for the relevant department of an organization that produced a report, or the data analyst, mapper or researcher that produced a dataset or report.",odm_contact.form_placeholder,ข้อมูลติดต่อรายบุคคลหรือองค์กรที่มีหน้าที่รับผิดชอบหรือมีความรู้มากที่สุดเกี่ยวกับชุดข้อมูล สามารถเป็นผู้เขียนรายงาน ข้อมูลติดต่อของหน่วยงานที่จัดทำรายงาน หรือนักวิเคราะห์ข้อมูล นักแผนที่ หรือนักวิจัยที่จัดทำชุดข้อมูลหรือรายงาน,,,အချက်အလက်အစုနှင့်ပတ်သက်၍ နှံ့စပ်သော သို့မဟုတ် တာဝန်ရှိသော ပုဂ္ဂိုလ် သို့မဟုတ် အဖွဲ့အစည်းအတွက် ဆက်သွယ်ရန် အချက်အလက်။ အစီရင်ခံစာရေးသူ၊ အစီရင်ခံစာပြုစုသည့်အဖွဲ့၏ သက်ဆိုင်ရာဌာန၊ သို့မဟုတ် အချက်အလက်အစု သို့မဟုတ် အစီရင်ခံစာ ပြုစုသော အချက်အလက်ဆန်းစစ်သူ၊ ပုံဆွဲသူ သို့မဟုတ် သုတေသီ တို့အတွက် ဆက်သွယ်ရန် အချက်အလက် ဖြစ်နိုင်ပါသည်။,"ຂໍ້ມູນຕິດຕໍ່ສຳລັບບຸກຄົນ ຫຼື ອົງການທີ່ຮັບຜິດຊອບເອກະສານ ຫຼື ມີຄວາມຊ່ຽວຊານກ່ຽວກັບເອກະສານນີ້. ອາດຈະເປັນຜູ້ຂຽນບົດລາຍງານ ຫຼື ຂໍ້ມູນຕິດຕໍ່ຂອງພະແນກ ຫຼື ອົງການຈັດຕັ້ງທີ່ກ່ຽວຂ້ອງກັບການເຮັດບົດລາຍງານ ຫຼື ວິເຄາະຂໍ້ມູນ, ຜູ້ສ້າງແຜນທີ່ ຫຼື ນັກຄົ້ນຄວ້າທີ່ສ້າງຊຸດຂໍ້ມູນ ຫຼື ບົດລາຍງານ."
+marc21_100,label,Author (individual),marc21_100.label,ผู้แต่ง (บุคคล) ,,Tác giả (cá nhân),ရေးသားသူ (တစ်ဦးချင်း) ,ຜູ້ຂຽນ (ບຸກຄົນ)
+marc21_100,form_placeholder,Main Entry-Personal Name (author).,marc21_100.form_placeholder,ชื่อผู้แต่งหลัก (ผู้แต่ง),,,အဓိက အချက်အလက်ထည့်သူ၏ အမည် (ရေးသားသူ),ຊື່ຜູ້ຂຽນ (ບຸກຄົນ)
+marc21_110,label,Author (corporate),marc21_110.label,ผู้แต่ง (หน่วยงาน),,Tác giả (tổ chức),ရေးသားသူ (အဖွဲ့),ຜູ້ຂຽນ (ອົງການຈັດຕັ້ງ)
+marc21_110,form_placeholder,Main Entry-Corporate Name (corporate author) or title of journal.,marc21_110.form_placeholder,ชื่อหน่วยงานที่เป็นผู้แต่งหลัก (หน่วยงานเจ้าของงานเขียน) หรือชื่อผลงานเขียน,,,အဓိက အချက်အလက်ထည့်သော အဖွဲ့အမည် (ပူးတွဲရေးသားသူ) သို့မဟုတ် ဂျာနယ်ခေါင်းစဉ်,ຊື່ຜູ້ຂຽນ (ອົງການຈັດຕັ້ງ) ຂອງສິ່ງພິມ
+marc21_700,label,Co-author (individual),marc21_700.label,ผู้แต่งร่วม (บุคคล),,Đồng tác giả (cá nhân),ပူးတွဲရေးသားသူ (တစ်ဦးချင်းစီ),ຜູ້ຂຽນຮ່ວມ (ບຸກຄົນ)
+marc21_700,form_placeholder,"Personal Name (co-author), more than one author.",marc21_700.form_placeholder,ชื่อบุคคล (ผู้แต่งร่วม) มากกว่าหนึ่ง,,,ရေးသားသူ တစ်ယောက်ထက်ပိုလျှင် ပုဂ္ဂလိက အမည် (ပူးတွဲရေးသားသူ),ຊື່ຜູ້ຂຽນຮ່ວມ ຫຼາຍກວ່າໜຶ່ງທ່ານ
+marc21_710,label,Co-author (coorporate),marc21_710.label,ผู้แต่งร่วม (หน่วยงาน),,Đồng tác giả (tổ chức),ပူးတွဲရေးသားသူ (အဖွဲ့),ຜູ້ຂຽນຮ່ວມ (ອົງການຈັດຕັ້ງ)
+marc21_710,form_placeholder,"Corporate Name, more than one Corporate.",marc21_710.form_placeholder,ชื่อหน่วยงาน มากกว่าหนึ่ง,,,အဖွဲ့တစ်ဖွဲ့ထက်ပိုလျှင် အဖွဲ့၏အမည်,ຊື່ື່ອົງການຈັັດຕັ້ງ ຫຼາຍກວ່າໜຶ່ງອົງການ
+marc21_020,label,ISBN number,marc21_020.label,เลขหนังสือ ISBN,,Số ISBN,ISBN နံပါတ်,ເລກລະຫັດ ISBN 
+marc21_020,form_placeholder,13-digit unique number that uniquely identify a commercial book,marc21_020.form_placeholder,หมายเลขเฉพาะ 13 หลักที่ระบุให้หนังสือเชิงพาณิชย์,,,စီးပွားဖြစ်စာအုပ်ကို သီးခြားသတ်မှတ်ပေးသော ဂဏန်း 13 လုံးပါ သီးခြားနံပါတ်,ຕົວເລກ 13 ຫຼັກທີ່ກຳນົດລະຫັດພິມຈຳໜ່າຍຂອງປື້ມ
+marc21_022,label,ISSN number,marc21_022.label,เลขหนังสือ ISSN,,Số ISSN,ISSN နံပါတ်,ເລກລະຫັດ ISSN 
+marc21_022,form_placeholder,8-digit number that uniquely identify a serial publication,marc21_022.form_placeholder,หมายเลขเฉพาะ 8 หลักที่ระบุชุดสิ่งพิมพ์ต่อเนื่อง,,,အမှတ်စဉ်ထုတ်ဝေခြင်းကို သီးခြားသတ်မှတ်ပေးသော ဂဏန်း 8 လုံးပါ နံပါတ်,ຕົວເລກ 8 ຫຼັກທີ່ກຳນົດລະຫັດເລກລຳດັບຂອງສິ່ງພິມ
+marc21_260a,label,Publication place,marc21_260a.label,Publication place,កន្លែងបោះពុម្ភផ្សាយ,Nơi xuất bản,ထုတ်ဝေသည့်နေရာ,ສະຖານທີ່ຈັດພິມ
+marc21_260a,form_placeholder,Place of publisher,marc21_260a.form_placeholder,สถานที่สำนักพิมพ์,,,ထုတ်ဝေသူ၏ တည်နေရာ,ສະຖານທີ່ຈັດພິມເອກະສານ
+marc21_260b,label,Publisher,marc21_260b.label,สำนักพิมพ์,អ្នកបោះពុម្ពផ្សាយ,Nhà xuất bản,ထုတ်ဝေသူ,ຜູ້ຈັດພິມ
+marc21_260b,form_placeholder,Name of publishing organization,marc21_260b.form_placeholder,ชื่อสำนักพิมพ์,,,ထုတ်ဝေသည့် အဖွဲ့အစည်း၏အမည်,ຊື່ອົງການຈັດຕັ້ງທີ່ຈັດພິມ
+marc21_260c,label,Publication date,marc21_260c.label,วันที่พิมพ์,,Ngày xuất bản,ထုတ်ဝေသည့်ရက်စွဲ,ປີຈັດພິມ
+marc21_260c,form_placeholder,Date published (YYYY),marc21_260c.form_placeholder,ปีที่พิมพ์ (ปปปป),,,ထုတ်ဝေသည့်ရက်စွဲ (ခုနှစ်),ປີທີ່ຈັດພິມ (YYYY)
+marc21_300,label,Pagination,marc21_300.label,จำนวนหน้า,ការបង់លេខ,Đánh số trang,စာမျက်နှာခွဲ,ຈຳນວນໜ້າ
+marc21_300,form_placeholder,Physical description (pagination),marc21_300.form_placeholder,คำอธิบาย (เลขหน้า),,,အသွင်အပြင်ဖော်ပြချက် (စာမျက်နှာခွဲ),ລາຍລະອຽດດ້ານລັກສະນະ (ຈຳນວນໜ້າທັງໝົດ)
+marc21_500,label,General note,marc21_500.label,หมายเหตุทั่วไป,កំណត់សំគាល់ទូទៅង,Chú ý,အထွေထွေ မှတ်ချက်,ໝາຍເຫດ
+marc21_500,form_placeholder,General note.,marc21_500.form_placeholder,หมายเหตุทั่วไป,,Chú ý,အထွေထွေ မှတ်ချက်,ໝາຍເຫດ.
+odm_reference_document,label,Legacy reference document,odm_reference_document.label,เอกสารอ้างอิงแบบเดิม,,Văn bản pháp luật liên quan,ဆက်ခံရရှိကြောင်းညွှန်းဆိုသည့်စာတမ်း,ເອກະສານອ້າງອີງສະເພາະ
+odm_reference_document,form_placeholder,e.g Tong_Min_Group_Engineering__21.06.2011.pdf,odm_reference_document.form_placeholder,เช่น Tong_Min_Group_Engineering__21.06.2011.pdf,,,ဥပမာ Tong_Min_Group_Engineering__21.06.2011.pdf,ຕົວຢ່າງ Tong_Min_Group_Engineering__21.06.2011.pdf
+maintainer,label,Maintainer,maintainer.label,ผู้ดูแล,,Người cập nhật,ထိန်းသိမ်းစောင့်ရှောက်သူ,ຜູ້ຄຸ້ມຄອງ
+maintainer_email,label,Maintainer email,maintainer_email.label,อีเมล์ผู้ดูแล,,Email người cập nhật,ထိန်းသိမ်းစောင့်ရှောက်သူ၏ အီးမေးလ်,ອີເມວຜູ້ຄຸ້ມຄອງ
+author,label,Author,author.label,ผู้เขียน,,Tác giả,ရေးသားသူ,ຜູ້ອັບໂຫຼດ
+author_email,label,Author email,author_email.label,อีเมล์ผู้เขียน,,,ရေးသားသူ၏ အီးမေးလ်,ອີເມວຜູ້ອັບໂຫຼດ
+odm_keywords,label,Keywords,odm_keywords.label,คำสำคัญ,,,အဓိကစကားလုံးများ,ຄຳສັບຫຼັກ
+odm_keywords,help_text,INTERNAL USE ONLY: Enter keywords for improving the discoverability of this record via search,odm_keywords.help_text,สำหรับใช้ภายในเท่านั้น: ป้อนคำสำคัญเพื่อปรับปรุงการค้นหาให้พบรายการนี้,,,အဖွဲ့အတွင်း အသုံးပြုသူများသာ - ရှာဖွေရန် မှတဆင့် ဤမှတ်တမ်းကို ရှာဖွေတွေ့မြင်နိုင်ရန် အဓိကစကားလုံးကို ရိုက်ထည့်ပါ။,ນຳໃຊ້ສະເພາະພາຍໃນເທົ່ານັ້ນ: ກະລຸນາປ້ອນຄຳສັບຫຼັກ ເພື່ອປັບປຸງການຄົ້ນຫາລາຍການນີ້ຜ່ານ 'ປຸ່ມຄົ້ນຫາ'

@@ -1,0 +1,14 @@
+odm_profile,,,,,,,,
+field_name,label,en,Context,th,km,vi,my,lo
+title_translated,label,Title,title_translated.label,หัวข้อ,ចំណងជើង,Tiêu đề,ခေါင်းစဥ်,ຊື່ຫົວຂໍ້
+title_translated,form_placeholder,Profile Title:,title_translated.form_placeholder,หัวข้อหน้าโปรไฟล์,ចំណងជើងព័ត៌មានទិន្នន័យ,Tiêu đề hồ sơ:,အကြောင်းအရာ ခေါင်းစဉ် - ,ຊື່ຫົວຂໍ້ໂປຣຟາຍ:
+name,label,URL,name.label,URL,អាសយដ្ឋាន URL,URL,ယူအာရ်အယ်လ်,URL
+notes_translated,label,Internal Notes,notes_translated.label,บันทึกภายใน,កំណត់ចំនាំខាងក្នុង,Ghi chú nội bộ,အတွင်းပိုင်း မှတ်စုများ,ໝາຍເຫດພາຍໃນ
+notes_translated,form_placeholder,Notes:,notes_translated.form_placeholder,หมายเหตุ:,កំណត់ចំនាំ៖,Ghi chú:,မှတ်စုများ - ,ໝາຍເຫດ
+description_translated,label,Description,description_translated.label,คำอธิบาย,ការពិពណ៌នា,Mô tả,ဖော်ပြချက်,ລາຍລະອຽດ
+description_translated,form_placeholder,Profile Description:,description_translated.form_placeholder,คำอธิบายโปรไฟล์,ការពិពណ៌នាព័ត៌មានទិន្នន័យ៖,Mô tả hồ sơ:,အကြောင်းအရာ ဖော်ပြချက် - ,ລາຍລະອຽດໂປຣຟາຍ:
+mid_page_data_translated,label,Mid-page,mid_page_data_translated.label,หน้ากลาง,ពាក់កណ្តាលទំព័រ,Giữa-trang,စာမျက်နှာ၏ အလယ်,ໄປກາງໜ້າ
+mid_page_data_translated,form_placeholder,More info:,mid_page_data_translated.form_placeholder,รายละเอียดเพิ่มเติม:,ព័ត៌មានបន្ថែម៖,Để biết thêm thông tin:,အချက်အလက် ပိုမိုသိရှိနိုင်ရန် - ,ຂໍ້ມູນເພີ່ມເຕີມ:
+owner_org,label,Organisation name,owner_org.label,ชื่อองค์กร,ឈ្មោះស្ថាប័ន,Tên tổ chức,အဖွဲ့အစည်းအမည်,ຊື່ອົງການຈັດຕັ້ງ
+odm_spatial_range,label,GeoNames,odm_spatial_range.label,ชื่อทางภูมิศาสตร์,ឈ្មោះភូមិសាស្ត្រ,Cơ sở dữ liệu dịa lý,ဘူမိအမည်များ,ຊື່ທາງພູມສາດ
+odm_spatial_range,form_placeholder,"The geographic area that the dataset is relevant to (i.e. Cambodia, Laos).",odm_spatial_range.form_placeholder,พื้นที่ที่ชุดข้อมูลเกี่ยวข้อง (เช่น กัมพูชา ลาว เป็นต้น),តំបន់ភូមិសាស្រ្តដែលពាក់ព័ន្ធនឹងសំណុំទិន្នន័យ (ឧ.,"Khu vực địa lý mà bộ dữ liệu có liên quan đến (ví dụ: Campuchia, Lào).",ဤအချက်အလက်အစုနှင့် သက်ဆိုင်သော ပထဝီဧရိယာ (ဆိုလိုသည်မှာ ကမ္ဘောဒီးယား၊ လာအို),"ພື້ນທີ່ພູມສັນຖານທີ່ກ່ຽວຂ້ອງກັບຊຸດຂໍ້ມູນ (ເຊັ່ນ ກຳປູເຈຍ, ລາວ)"
