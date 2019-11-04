@@ -88,3 +88,8 @@ class OdmAutocomplete(BaseController):
             return json.dumps(toolkit.get_action('odm_dataset_autocomplete_exact')({},params))
 
         return json.dumps(toolkit.get_action('odm_dataset_autocomplete')({},params))
+
+    def keyword(self):
+        params = dict(request.params)
+        toolkit.response.headers['Content-Type'] = 'application/json;charset=utf-8'
+        return json.dumps(toolkit.get_action('odm_keyword_autocomplete')({},params))

@@ -118,6 +118,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         custom_actions = {
             'package_create': action.package_create,
             'odm_dataset_autocomplete': action.dataset_autocomplete,
+            'odm_keyword_autocomplete': action.odm_keyword_autocomplete,
             'odm_dataset_autocomplete_exact': action.dataset_autocomplete_exact,
             'unsafe_user_show': action.unsafe_user_show
         }
@@ -141,6 +142,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         controller = "ckanext.odm_dataset_ext.controllers:OdmAutocomplete"
         m.connect('odm_dataset_autocomplete', '/dataset/autocomplete', controller=controller,
                   action='dataset')
+        m.connect('odm_keyword_autocomplete', '/dataset/keyword_autocomplete', controller=controller,
+                  action='keyword')
 
         return m
 
@@ -229,6 +232,12 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                 # Messed up data on staging, not on preprod
                 del(pkg_dict['odm_spatial_range_list'])
 
+        except Exception as msg:
+            log.debug(msg)
+
+        try:
+            pkg_dict['extras_odm_keywords'] = pkg_dict.get('odm_keywords', '').split(',')
+            pkg_dict['extras_odm_keywords_text'] = pkg_dict.get('odm_keywords', '')
         except Exception as msg:
             log.debug(msg)
 

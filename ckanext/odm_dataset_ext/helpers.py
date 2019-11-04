@@ -309,9 +309,14 @@ def multi_dataset_values(arr):
 
     lang = h.lang()
     ret = []
-    for name in arr:
-        ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name,
-                                                                             'lang': lang}))
+    try:
+        for name in arr:
+            ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name,
+
+                                                                                 'lang': lang}))
+    except ckan.logic.NotFound:
+        pass
+
     return ret
 
 

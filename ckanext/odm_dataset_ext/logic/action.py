@@ -70,6 +70,26 @@ def dataset_autocomplete_exact(context, data_dict):
         }]
     return []
 
+@toolkit.side_effect_free
+def odm_keyword_autocomplete(context, data_dict):
+    q = data_dict.get('q')
+    pkg_types = [s.strip() for s in data_dict.get('type','').split(',')]
+    if not (q and pkg_types): return []
+
+    results = toolkit.get_action('package_search')(context, {
+                                                             'rows': 0,
+                                                             'fq_list': ["extras_odm_keywords_text:%s" % q],
+                                                             'facet': 'true',
+                                                             'facet.field': ['extras_odm_keywords']}
+                                                   )
+
+    q = q.lower()
+    facets = results['search_facets']['extras_odm_keywords']['items']
+    return sorted([{'name': item['name'],
+                    'title': item['display_name'],
+                    'count': item['count']
+    } for item in facets if q in item['name'].lower()], key=lambda x: x['count'], reverse=True)
+
 
 @toolkit.side_effect_free
 def unsafe_user_show(context, data_dict):

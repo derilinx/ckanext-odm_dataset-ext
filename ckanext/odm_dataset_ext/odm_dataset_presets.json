@@ -489,9 +489,13 @@
       "form_snippet": "odm_keywords.html",
       "display_snippet": "text.html",
       "validators": "ignore_missing odm_dataset_remove_topics",
-			"form_attrs": {
-				"data-module": "odm_keywords-module"
-			}
+      "form_attrs": {
+        "data-module": "odm_autocomplete",
+        "data-module-source": "/dataset/keyword_autocomplete?q=?",
+        "data-module-key": "name",
+        "data-module-label": "title",
+        "data-module-tags": ""
+      }
     }
   }]
 }
