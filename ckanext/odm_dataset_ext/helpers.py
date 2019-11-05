@@ -263,11 +263,13 @@ def get_resource_for_field_for_form(field):
              'country_codes': e.get('country_codes','')}
             for e in get_resource_for_field(field) if e['id'] and e['name']]
 
-@memoize
 def get_resource_name_for_field_value(field, value):
-    log.debug('resource_name for field: %s %s', field, value)
+    return _get_resource_name_for_field_value_core(field, value, h.lang())
+
+@memoize
+def _get_resource_name_for_field_value_core(field, value, lang):
+    log.debug('resource_name for field: %s %s %s', field, value, lang)
     resource_id = get_resource_id_for_field(field)
-    lang = h.lang()
     if lang == 'en':
         # english is named "name" because i18n was added later.
         lang = 'name'
@@ -276,7 +278,7 @@ def get_resource_name_for_field_value(field, value):
             raise ValueError
         results = toolkit.get_action('datastore_search')({},{'resource_id': resource_id,
                                                    'limit': 1,
-                                                   'q': {'id': value}})
+                                                   'filters': {'id': value}})
         return results['records'][0].get(lang,'').strip() or results['records'][0]['name']
     except (KeyError, IndexError, ValueError) as msg:
         log.error(msg)
