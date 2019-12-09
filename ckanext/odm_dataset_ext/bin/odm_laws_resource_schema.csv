@@ -1,9 +1,9 @@
 field_name,label,en,Context,th,km,vi,my,lo
-url,label,URL,url.label,,,,,
-name_translated,label,Name,name_translated.label,Name,Name,Tên,အမည်,
-name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,,,,
-description_translated,label,Description,description_translated.label,Description,Description,Mô tả,ဖော်ပြချက်,
-description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,,,,
-format,label,Format,format.label,,,,,
-odm_language,label,Resource's languages,odm_language.label,,,,,
-odm_language,form_placeholder,Language(s) of the resource.,odm_language.form_placeholder,,,,,
+url,label,URL,url.label,,អាសយដ្ឋាន URL,URL,,URL
+name_translated,label,Name,name_translated.label,,ឈ្មោះ,Tên,,ຊື່
+name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,ឧ. តម្លៃមាសក្នុងខែមករា ឆ្នាំ២០១១,Ví dụ. Giá vàng Tháng 01/2011,,ເຊັ່ນ ລາຄາຄໍາເດືອນມັງກອນ 2011 
+description_translated,label,Description,description_translated.label,,ការពិពណ៌នា,Mô tả,,ລາຍລະອຽດ
+description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,កំណត់ចំណាំសំខាន់ៗអំពីទិន្នន័យ,Một số ghi chú hữu ích về dữ liệu,,ໝາຍເຫດກ່ຽວກັບຂໍ້ມູນ
+format,label,Format,format.label,,ទម្រង់,Định dạng,,ຮູບແບບເອກະສານ
+odm_language,label,Resource's languages,odm_language.label,,ភាសារបស់ធនធាន,Các ngôn ngữ của tài nguyên,,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
+odm_language,form_placeholder,Language(s) of the resource.,odm_language.form_placeholder,,ភាសារបស់ធនធាន,(Các) ngôn ngữ của tài nguyên,,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ

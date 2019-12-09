@@ -32,8 +32,8 @@ def extract_one(source, dest, field_type='dataset_fields'):
                     elt[lang] = ''
 
             translations.append(elt)
-
-
+    
+    print(dest)
     with open(dest, 'w') as f:
         writer = csv.DictWriter(f, fields)
         writer.writeheader()
@@ -99,6 +99,17 @@ def import_all_resource():
     import_one('../../../../' + 'ckanext-odm_library/ckanext/odm_library/odm_library_schema.json', 'odm_library_resource_schema.csv', 'resource_fields')
     import_one('../../../../' + 'ckanext-odm_agreement/ckanext/odm_agreement/odm_agreement_schema.json', 'odm_agreement_resource_schema.csv', 'resource_fields')
 
+def import_all_resource():
+    # This is the corrected one because changes in odm_dataset_schema_required.json or odm_dataset_schema_not_required.json
+    # is not reflecting in odm_dataset_schema.json
+    import_one('../odm_dataset_schema_not_required.json', 'odm_dataset_resource_schema.csv', 'resource_fields')
+    import_one('../odm_dataset_schema_required.json', 'odm_dataset_resource_schema.csv', 'resource_fields')
+    import_one('../odm_dataset_schema.json', 'odm_dataset_resource_schema.csv', 'resource_fields')
+    import_one('../../../../' + 'ckanext-odm_laws/ckanext/odm_laws/odm_laws_schema.json', 'odm_laws_resource_schema.csv', 'resource_fields')
+    import_one('../../../../' + 'ckanext-odm_library/ckanext/odm_library/odm_library_schema.json', 'odm_library_resource_schema.csv', 'resource_fields')
+    import_one('../../../../' + 'ckanext-odm_agreement/ckanext/odm_agreement/odm_agreement_schema.json', 'odm_agreement_resource_schema.csv', 'resource_fields')
+
+import_all_resource()
 #extract_all_dataset()
 #extract_all_resource()
-import_all_dataset()
+#import_all_dataset()

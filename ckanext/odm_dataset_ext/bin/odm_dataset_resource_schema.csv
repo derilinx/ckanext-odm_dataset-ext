@@ -1,10 +1,10 @@
 field_name,label,en,Context,th,km,vi,my,lo
-url,label,URL,url.label,,,,,
-name_translated,label,Name,name_translated.label,Name,Name,Tên,အမည်,Name
-name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,,,,
-MD_DataIdentification_language,label,Resource's languages,MD_DataIdentification_language.label,,,,,
-MD_DataIdentification_language,form_placeholder,Language(s) of the resource.,MD_DataIdentification_language.form_placeholder,,,,,
-format,label,Format,format.label,,,,,
-description_translated,label,Description,description_translated.label,,,Mô tả,ဖော်ပြချက်,Desc Laos
-description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,,,,
-feature_info_template,label,Feature info template for WMS resource,feature_info_template.label,,,,,
+url,label,URL,url.label,,អាសយដ្ឋាន URL,,,URL
+name_translated,label,Name,name_translated.label,,ឈ្មោះ,,,ຊື່
+name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,ឧ. តម្លៃមាសក្នុងខែមករា ឆ្នាំ២០១១,,,ເຊັ່ນ ລາຄາຄໍາເດືອນມັງກອນ 2011 
+MD_DataIdentification_language,label,Resource's languages,MD_DataIdentification_language.label,,ភាសារបស់ធនធាន,,,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
+MD_DataIdentification_language,form_placeholder,Language(s) of the resource.,MD_DataIdentification_language.form_placeholder,,ភាសារបស់ធនធាន,,,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
+format,label,Format,format.label,,ទម្រង់,,,ຮູບແບບເອກະສານ
+description_translated,label,Description,description_translated.label,,ការពិពណ៌នា,,,ລາຍລະອຽດ
+description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,កំណត់ចំណាំសំខាន់ៗអំពីទិន្នន័យ,,,ໝາຍເຫດກ່ຽວກັບຂໍ້ມູນ
+feature_info_template,label,Feature info template for WMS resource,feature_info_template.label,,,,,ແບບຂໍ້ມູນລັກສະນະສຳລັບແຫຼ່ງຂໍ້ມູນ WMS

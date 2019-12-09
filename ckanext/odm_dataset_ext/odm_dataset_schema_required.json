@@ -13,19 +13,27 @@
         {
             "preset": "resource_url_upload", 
             "field_name": "url", 
-            "label": "URL"
+            "label": {
+                "lo": "URL", 
+                "en": "URL", 
+                "km": "\u17a2\u17b6\u179f\u1799\u178a\u17d2\u178b\u17b6\u1793 URL"
+            }
         }, 
         {
-            "form_placeholder": "eg. January 2011 Gold Prices", 
+            "form_placeholder": {
+                "lo": "\u0ec0\u0e8a\u0eb1\u0ec8\u0e99 \u0ea5\u0eb2\u0e84\u0eb2\u0e84\u0ecd\u0eb2\u0ec0\u0e94\u0eb7\u0ead\u0e99\u0ea1\u0eb1\u0e87\u0e81\u0ead\u0e99 2011 ", 
+                "en": "eg. January 2011 Gold Prices", 
+                "km": "\u17a7. \u178f\u1798\u17d2\u179b\u17c3\u1798\u17b6\u179f\u1780\u17d2\u1793\u17bb\u1784\u1781\u17c2\u1798\u1780\u179a\u17b6 \u1786\u17d2\u1793\u17b6\u17c6\u17e2\u17e0\u17e1\u17e1"
+            }, 
             "validate": "true", 
             "preset": "odm_text_translated", 
             "field_name": "name_translated", 
             "label": {
                 "en": "Name", 
                 "vi": "T\u00ean", 
-                "km": "Name", 
+                "km": "\u1788\u17d2\u1798\u17c4\u17c7", 
                 "th": "Name", 
-                "lo": "Name", 
+                "lo": "\u0e8a\u0eb7\u0ec8", 
                 "my": "\u1021\u1019\u100a\u103a"
             }
         }, 
@@ -35,28 +43,44 @@
             "label": "Name"
         }, 
         {
-            "form_placeholder": "Language(s) of the resource.", 
+            "form_placeholder": {
+                "lo": "\u0e9e\u0eb2\u0eaa\u0eb2\u0e82\u0ead\u0e87\u0ec1\u0eab\u0ebc\u0ec8\u0e87\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99", 
+                "en": "Language(s) of the resource.", 
+                "km": "\u1797\u17b6\u179f\u17b6\u179a\u1794\u179f\u17cb\u1792\u1793\u1792\u17b6\u1793"
+            }, 
             "validate": "true", 
             "preset": "odm_language", 
             "field_name": "MD_DataIdentification_language", 
-            "label": "Resource's languages"
+            "label": {
+                "lo": "\u0e9e\u0eb2\u0eaa\u0eb2\u0e82\u0ead\u0e87\u0ec1\u0eab\u0ebc\u0ec8\u0e87\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99", 
+                "en": "Resource's languages", 
+                "km": "\u1797\u17b6\u179f\u17b6\u179a\u1794\u179f\u17cb\u1792\u1793\u1792\u17b6\u1793"
+            }
         }, 
         {
             "preset": "resource_format_autocomplete", 
             "field_name": "format", 
-            "label": "Format"
+            "label": {
+                "lo": "\u0eae\u0eb9\u0e9a\u0ec1\u0e9a\u0e9a\u0ec0\u0ead\u0e81\u0eb0\u0eaa\u0eb2\u0e99", 
+                "en": "Format", 
+                "km": "\u1791\u1798\u17d2\u179a\u1784\u17cb"
+            }
         }, 
         {
-            "form_placeholder": "Some useful notes about the data", 
+            "form_placeholder": {
+                "lo": "\u0edd\u0eb2\u0e8d\u0ec0\u0eab\u0e94\u0e81\u0ec8\u0ebd\u0ea7\u0e81\u0eb1\u0e9a\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99", 
+                "en": "Some useful notes about the data", 
+                "km": "\u1780\u17c6\u178e\u178f\u17cb\u1785\u17c6\u178e\u17b6\u17c6\u179f\u17c6\u1781\u17b6\u1793\u17cb\u17d7\u17a2\u17c6\u1796\u17b8\u1791\u17b7\u1793\u17d2\u1793\u1793\u17d0\u1799"
+            }, 
             "validate": "true", 
             "preset": "odm_notes_translated_markdown", 
             "field_name": "description_translated", 
             "label": {
                 "en": "Description", 
                 "vi": "M\u00f4 t\u1ea3", 
-                "km": "", 
+                "km": "\u1780\u17b6\u179a\u1796\u17b7\u1796\u178e\u17cc\u1793\u17b6", 
                 "th": "", 
-                "lo": "Desc Laos", 
+                "lo": "\u0ea5\u0eb2\u0e8d\u0ea5\u0eb0\u0ead\u0ebd\u0e94", 
                 "my": "\u1016\u1031\u102c\u103a\u1015\u103c\u1001\u103b\u1000\u103a"
             }
         }, 
@@ -66,10 +90,13 @@
             "label": "Description"
         }, 
         {
-            "field_name": "feature_info_template", 
-            "label": "Feature info template for WMS resource", 
             "form_snippet": "markdown.html", 
-            "display_snippet": "None"
+            "display_snippet": "None", 
+            "field_name": "feature_info_template", 
+            "label": {
+                "lo": "\u0ec1\u0e9a\u0e9a\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99\u0ea5\u0eb1\u0e81\u0eaa\u0eb0\u0e99\u0eb0\u0eaa\u0eb3\u0ea5\u0eb1\u0e9a\u0ec1\u0eab\u0ebc\u0ec8\u0e87\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99 WMS", 
+                "en": "Feature info template for WMS resource"
+            }
         }, 
         {
             "preset": "text_hidden", 
@@ -138,11 +165,11 @@
             "grouping": "Description"
         }, 
         {
-            "label": "title", 
-            "field_name": "title", 
+            "validators": "if_empty_same_as(name)", 
             "grouping": "Description", 
+            "field_name": "title", 
             "preset": "text_hidden", 
-            "validators": "if_empty_same_as(name)"
+            "label": "title"
         }, 
         {
             "preset": "text_hidden", 
@@ -356,7 +383,6 @@
             }, 
             "preset": "odm_date", 
             "field_name": "EX_TemporalExtent_endDate", 
-            "grouping": "Temporal", 
             "label": {
                 "en": "Temporal extent's end date", 
                 "lo": "\u0ea7\u0eb1\u0e99\u0e97\u0eb5\u0eaa\u0eb4\u0ec9\u0e99\u0eaa\u0eb8\u0e94\u0e81\u0eb2\u0e99\u0ec0\u0e81\u0eb1\u0e9a\u0e81\u0eb3\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99", 
@@ -364,7 +390,8 @@
                 "th": "\u0e27\u0e31\u0e19\u0e2a\u0e38\u0e14\u0e17\u0e49\u0e32\u0e22\u0e02\u0e2d\u0e07\u0e02\u0e2d\u0e1a\u0e40\u0e02\u0e15\u0e0a\u0e31\u0e48\u0e27\u0e04\u0e23\u0e32\u0e27", 
                 "vi": "Ng\u00e0y k\u1ebft th\u00fac c\u1ee7a ph\u1ea1m vi t\u1ea1m th\u1eddi", 
                 "my": "\u101a\u102c\u101a\u102e\u1021\u1010\u102d\u102f\u1004\u103a\u1038\u1021\u1010\u102c\u104f \u1015\u103c\u102e\u1038\u1006\u102f\u1036\u1038\u1014\u1031\u1037\u1005\u103d\u1032"
-            }
+            }, 
+            "grouping": "Temporal"
         }, 
         {
             "required": "true", 
@@ -501,6 +528,24 @@
             "grouping": "Spatial"
         }, 
         {
+            "label": {
+                "en": "Spatial Reference System", 
+                "lo": "\u0ea5\u0eb0\u0e9a\u0ebb\u0e9a\u0ead\u0ec9\u0eb2\u0e87\u0ead\u0eb5\u0e87\u0e97\u0eb5\u0ec8\u0e95\u0eb1\u0ec9\u0e87\u0e88\u0eb8\u0e94\u0e9e\u0eb4\u0e81\u0eb1\u0e94", 
+                "km": "\u1794\u17d2\u179a\u1796\u17d0\u1793\u17d2\u1792\u1799\u17c4\u1784\u1780\u17d2\u1793\u17bb\u1784\u179b\u17c6\u17a0", 
+                "th": "\u0e23\u0e30\u0e1a\u0e1a\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e40\u0e0a\u0e34\u0e07\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48", 
+                "vi": "H\u1ec7 tham chi\u1ebfu kh\u00f4ng gian", 
+                "my": "\u1014\u1031\u101b\u102c\u1006\u102d\u102f\u1004\u103a\u101b\u102c \u101b\u100a\u103a\u100a\u103d\u103e\u1014\u103a\u1038\u1005\u1014\u1005\u103a"
+            }, 
+            "preset": "select", 
+            "form_placeholder": {
+                "en": "Spatial Reference System of the dataset", 
+                "lo": "\u0ea5\u0eb0\u0e9a\u0ebb\u0e9a\u0ead\u0ec9\u0eb2\u0e87\u0ead\u0eb5\u0e87\u0e94\u0ec9\u0eb2\u0e99\u0e97\u0eb5\u0ec8\u0e95\u0eb1\u0ec9\u0e87\u0e88\u0eb8\u0e94\u0e9e\u0eb4\u0e81\u0eb1\u0e94\u0e82\u0ead\u0e87\u0e8a\u0eb8\u0e94\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99", 
+                "km": "\u1794\u17d2\u179a\u1796\u17d0\u1793\u17d2\u1792\u1799\u17c4\u1784\u1780\u17d2\u1793\u17bb\u1784\u179b\u17c6\u17a0\u1793\u17c3\u179f\u17c6\u178e\u17bb\u17c6\u1791\u17b7\u1793\u17d2\u1793\u1793\u17d0\u1799", 
+                "th": "\u0e23\u0e30\u0e1a\u0e1a\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e40\u0e0a\u0e34\u0e07\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e02\u0e2d\u0e07\u0e0a\u0e38\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25", 
+                "vi": "H\u1ec7 tham chi\u1ebfu kh\u00f4ng gian c\u1ee7a b\u1ed9 d\u1eef li\u1ec7u", 
+                "my": "\u1021\u1001\u103b\u1000\u103a\u1021\u101c\u1000\u103a\u1021\u1005\u102f\u104f \u1014\u1031\u101b\u102c\u1006\u102d\u102f\u1004\u103a\u101b\u102c \u101b\u100a\u103a\u100a\u103d\u103e\u1014\u103a\u1038\u1005\u1014\u1005\u103a"
+            }, 
+            "validate": "true", 
             "choices": [
                 {
                     "value": "epsg:4326", 
@@ -543,24 +588,6 @@
                     "label": "Google Maps Global Mercator (EPSG:900913)"
                 }
             ], 
-            "preset": "select", 
-            "form_placeholder": {
-                "en": "Spatial Reference System of the dataset", 
-                "lo": "\u0ea5\u0eb0\u0e9a\u0ebb\u0e9a\u0ead\u0ec9\u0eb2\u0e87\u0ead\u0eb5\u0e87\u0e94\u0ec9\u0eb2\u0e99\u0e97\u0eb5\u0ec8\u0e95\u0eb1\u0ec9\u0e87\u0e88\u0eb8\u0e94\u0e9e\u0eb4\u0e81\u0eb1\u0e94\u0e82\u0ead\u0e87\u0e8a\u0eb8\u0e94\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99", 
-                "km": "\u1794\u17d2\u179a\u1796\u17d0\u1793\u17d2\u1792\u1799\u17c4\u1784\u1780\u17d2\u1793\u17bb\u1784\u179b\u17c6\u17a0\u1793\u17c3\u179f\u17c6\u178e\u17bb\u17c6\u1791\u17b7\u1793\u17d2\u1793\u1793\u17d0\u1799", 
-                "th": "\u0e23\u0e30\u0e1a\u0e1a\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e40\u0e0a\u0e34\u0e07\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e02\u0e2d\u0e07\u0e0a\u0e38\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25", 
-                "vi": "H\u1ec7 tham chi\u1ebfu kh\u00f4ng gian c\u1ee7a b\u1ed9 d\u1eef li\u1ec7u", 
-                "my": "\u1021\u1001\u103b\u1000\u103a\u1021\u101c\u1000\u103a\u1021\u1005\u102f\u104f \u1014\u1031\u101b\u102c\u1006\u102d\u102f\u1004\u103a\u101b\u102c \u101b\u100a\u103a\u100a\u103d\u103e\u1014\u103a\u1038\u1005\u1014\u1005\u103a"
-            }, 
-            "validate": "true", 
-            "label": {
-                "en": "Spatial Reference System", 
-                "lo": "\u0ea5\u0eb0\u0e9a\u0ebb\u0e9a\u0ead\u0ec9\u0eb2\u0e87\u0ead\u0eb5\u0e87\u0e97\u0eb5\u0ec8\u0e95\u0eb1\u0ec9\u0e87\u0e88\u0eb8\u0e94\u0e9e\u0eb4\u0e81\u0eb1\u0e94", 
-                "km": "\u1794\u17d2\u179a\u1796\u17d0\u1793\u17d2\u1792\u1799\u17c4\u1784\u1780\u17d2\u1793\u17bb\u1784\u179b\u17c6\u17a0", 
-                "th": "\u0e23\u0e30\u0e1a\u0e1a\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e40\u0e0a\u0e34\u0e07\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48", 
-                "vi": "H\u1ec7 tham chi\u1ebfu kh\u00f4ng gian", 
-                "my": "\u1014\u1031\u101b\u102c\u1006\u102d\u102f\u1004\u103a\u101b\u102c \u101b\u100a\u103a\u100a\u103d\u103e\u1014\u103a\u1038\u1005\u1014\u1005\u103a"
-            }, 
             "field_name": "MD_DataIdentification_spatialReferenceSystem", 
             "grouping": "Spatial"
         }, 
@@ -858,6 +885,24 @@
             "grouping": "Management"
         }, 
         {
+            "label": {
+                "en": "Update Frequency", 
+                "lo": "\u0e84\u0ea7\u0eb2\u0ea1\u0e96\u0eb5\u0ec8\u0ec3\u0e99\u0e81\u0eb2\u0e99\u0e9b\u0eb1\u0e9a\u0e9b\u0eb8\u0e87", 
+                "km": "\u1794\u17d2\u179a\u17c1\u1780\u1784\u17cb\u1793\u17c3\u1780\u17b6\u179a\u1792\u17d2\u179c\u17be\u1794\u1785\u17d2\u1785\u17bb\u1794\u17d2\u1794\u1793\u17d2\u1793\u1797\u17b6\u1796", 
+                "th": "\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07", 
+                "vi": "C\u1eadp nh\u1eadt t\u1ea7n s\u1ed1", 
+                "my": "\u1015\u103c\u1004\u103a\u1006\u1004\u103a\u1019\u103e\u102f \u1021\u1000\u103c\u102d\u1019\u103a"
+            }, 
+            "preset": "select", 
+            "form_placeholder": {
+                "en": "Update Frequency", 
+                "lo": "\u0e84\u0ea7\u0eb2\u0ea1\u0e96\u0eb5\u0ec8\u0ec3\u0e99\u0e81\u0eb2\u0e99\u0e9b\u0eb1\u0e9a\u0e9b\u0eb8\u0e87", 
+                "km": "\u1794\u17d2\u179a\u17c1\u1780\u1784\u17cb\u1793\u17c3\u1780\u17b6\u179a\u1792\u17d2\u179c\u17be\u1794\u1785\u17d2\u1785\u17bb\u1794\u17d2\u1794\u1793\u17d2\u1793\u1797\u17b6\u1796", 
+                "th": "\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07", 
+                "vi": "C\u1eadp nh\u1eadt t\u1ea7n s\u1ed1", 
+                "my": "\u1015\u103c\u1004\u103a\u1006\u1004\u103a\u1019\u103e\u102f \u1021\u1000\u103c\u102d\u1019\u103a"
+            }, 
+            "validate": "true", 
             "choices": [
                 {
                     "value": "continual", 
@@ -908,24 +953,6 @@
                     "label": "unknown"
                 }
             ], 
-            "preset": "select", 
-            "form_placeholder": {
-                "en": "Update Frequency", 
-                "lo": "\u0e84\u0ea7\u0eb2\u0ea1\u0e96\u0eb5\u0ec8\u0ec3\u0e99\u0e81\u0eb2\u0e99\u0e9b\u0eb1\u0e9a\u0e9b\u0eb8\u0e87", 
-                "km": "\u1794\u17d2\u179a\u17c1\u1780\u1784\u17cb\u1793\u17c3\u1780\u17b6\u179a\u1792\u17d2\u179c\u17be\u1794\u1785\u17d2\u1785\u17bb\u1794\u17d2\u1794\u1793\u17d2\u1793\u1797\u17b6\u1796", 
-                "th": "\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07", 
-                "vi": "C\u1eadp nh\u1eadt t\u1ea7n s\u1ed1", 
-                "my": "\u1015\u103c\u1004\u103a\u1006\u1004\u103a\u1019\u103e\u102f \u1021\u1000\u103c\u102d\u1019\u103a"
-            }, 
-            "validate": "true", 
-            "label": {
-                "en": "Update Frequency", 
-                "lo": "\u0e84\u0ea7\u0eb2\u0ea1\u0e96\u0eb5\u0ec8\u0ec3\u0e99\u0e81\u0eb2\u0e99\u0e9b\u0eb1\u0e9a\u0e9b\u0eb8\u0e87", 
-                "km": "\u1794\u17d2\u179a\u17c1\u1780\u1784\u17cb\u1793\u17c3\u1780\u17b6\u179a\u1792\u17d2\u179c\u17be\u1794\u1785\u17d2\u1785\u17bb\u1794\u17d2\u1794\u1793\u17d2\u1793\u1797\u17b6\u1796", 
-                "th": "\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e43\u0e19\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07", 
-                "vi": "C\u1eadp nh\u1eadt t\u1ea7n s\u1ed1", 
-                "my": "\u1015\u103c\u1004\u103a\u1006\u1004\u103a\u1019\u103e\u102f \u1021\u1000\u103c\u102d\u1019\u103a"
-            }, 
             "field_name": "CI_Citation_updateFreq", 
             "grouping": "Management"
         }, 
@@ -1006,7 +1033,6 @@
             }, 
             "preset": "odm_province", 
             "field_name": "odm_province", 
-            "grouping": "Management", 
             "label": {
                 "en": "Province(s)", 
                 "lo": "\u0ec1\u0e82\u0ea7\u0e87", 
@@ -1014,7 +1040,8 @@
                 "th": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14", 
                 "vi": "(C\u00e1c) T\u1ec9nh", 
                 "my": "\u1014\u101a\u103a\u1015\u101a\u103a"
-            }
+            }, 
+            "grouping": "Management"
         }, 
         {
             "form_placeholder": {
@@ -1025,9 +1052,8 @@
                 "vi": "v\u00ed d\u1ee5: Tong_Min_Group_Engineering__21.06.2011.pdf", 
                 "my": "\u1025\u1015\u1019\u102c Tong_Min_Group_Engineering__21.06.2011.pdf"
             }, 
-            "display_snippet": null, 
-            "field_name": "odm_reference_document", 
             "grouping": "Management", 
+            "field_name": "odm_reference_document", 
             "label": {
                 "en": "Legacy reference document", 
                 "lo": "\u0ec0\u0ead\u0e81\u0eb0\u0eaa\u0eb2\u0e99\u0ead\u0ec9\u0eb2\u0e87\u0ead\u0eb5\u0e87\u0eaa\u0eb0\u0ec0\u0e9e\u0eb2\u0eb0", 
@@ -1035,7 +1061,8 @@
                 "th": "\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e41\u0e1a\u0e1a\u0e40\u0e14\u0e34\u0e21", 
                 "vi": "T\u00e0i li\u1ec7u tham kh\u1ea3o k\u1ebf th\u1eeba", 
                 "my": "\u1006\u1000\u103a\u1001\u1036\u101b\u101b\u103e\u102d\u1000\u103c\u1031\u102c\u1004\u103a\u1038\u100a\u103d\u103e\u1014\u103a\u1038\u1006\u102d\u102f\u101e\u100a\u103a\u1037\u1005\u102c\u1010\u1019\u103a\u1038"
-            }
+            }, 
+            "display_snippet": null
         }, 
         {
             "help_text": {
@@ -1048,7 +1075,6 @@
             }, 
             "preset": "odm_db_table", 
             "field_name": "odm_db_table", 
-            "grouping": "Management", 
             "label": {
                 "en": "Database table?", 
                 "lo": "\u0ec0\u0e9b\u0eb1\u0e99\u0e99\u0e95\u0eb2\u0e95\u0eb0\u0ea5\u0eb2\u0e87\u0e96\u0eb2\u0e99\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99?", 
@@ -1056,7 +1082,8 @@
                 "th": "\u0e40\u0e1b\u0e47\u0e19\u0e15\u0e32\u0e23\u0e32\u0e07\u0e10\u0e32\u0e19\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25?", 
                 "vi": "B\u1ea3ng d\u1eef li\u1ec7u", 
                 "my": "Database \u1007\u101a\u102c\u1038?"
-            }
+            }, 
+            "grouping": "Management"
         }, 
         {
             "help_text": {
@@ -1069,7 +1096,6 @@
             }, 
             "preset": "odm_keywords", 
             "field_name": "odm_keywords", 
-            "grouping": "Management", 
             "label": {
                 "en": "Keywords", 
                 "lo": "\u0e84\u0eb3\u0eaa\u0eb1\u0e9a\u0eab\u0ebc\u0eb1\u0e81", 
@@ -1077,7 +1103,8 @@
                 "th": "\u0e04\u0e33\u0e2a\u0e33\u0e04\u0e31\u0e0d", 
                 "vi": "C\u00e1c t\u1eeb kh\u00f3a", 
                 "my": "\u1021\u1013\u102d\u1000\u1005\u1000\u102c\u1038\u101c\u102f\u1036\u1038\u1019\u103b\u102c\u1038"
-            }
+            }, 
+            "grouping": "Management"
         }
     ], 
     "dataset_type": "dataset", 
