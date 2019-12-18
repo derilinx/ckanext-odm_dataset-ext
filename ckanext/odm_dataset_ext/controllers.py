@@ -20,9 +20,9 @@ h = _helpers()
 class OdmDataset(PackageController):
     def read_reference(self, reference):
         log.debug('OdmDataset.read_reference: Checking for reference: %s' % reference)
-        package = toolkit.get_action('package_search')({}, {'fq': 'odm_reference_document:%s' % reference})
-        if package['results']:
-            return self.read(package['results'][0]['id'])
+        package = h.odm_dataset_package_for_legacy_reference(reference)
+        if package:
+            return self.read(package['id'])
         else:
             abort(404, _('Dataset not found'))
 

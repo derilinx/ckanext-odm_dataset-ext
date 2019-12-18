@@ -321,6 +321,26 @@ def multi_dataset_values(arr):
 
     return ret
 
+def package_for_legacy_reference(reference):
+    """ WARNING Don't call this in a loop. Performance will suck """
+    package = toolkit.get_action('package_search')({}, {'fq': 'odm_reference_document:%s' % reference})
+    if package['results']:
+        return package['results'][0]
+    else:
+        return {}
+
+@memoize
+def _link_for_legacy_reference(reference, lang):
+    """ lang is unused, except as a key for the memoization"""
+    package = package_for_legacy_reference(reference)
+    if not package: return reference
+    return h.dataset_link(package)
+
+def link_for_legacy_reference(reference):
+    """ WARNING Don't call this in a loop with many different datasets.
+        Performance will suck """
+    return _link_for_legacy_reference(reference, h.lang())
+
 
 ###
 # Return the translated field name for the target language,

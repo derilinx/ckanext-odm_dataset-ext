@@ -107,6 +107,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_listify': helpers.listify,
             'odm_dataset_autocomplete_full_options': helpers.autocomplete_multi_dataset_full_options,
             'odm_dataset_multi_dataset_values': helpers.multi_dataset_values,
+            'odm_dataset_package_for_legacy_reference': helpers.package_for_legacy_reference,
+            'odm_dataset_link_for_legacy_reference': helpers.link_for_legacy_reference,
             # overrides
             'dataset_display_name': helpers.dataset_display_name,
             'resource_display_name': helpers.resource_display_name,

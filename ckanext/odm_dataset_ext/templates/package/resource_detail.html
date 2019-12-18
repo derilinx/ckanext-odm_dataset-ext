@@ -36,7 +36,7 @@
       {% endif %}
     </td>
     <td class='reference'>
-      <a href="{{ h.url_for('odm_dataset_reference', reference=reference) }}">{{reference}}</a>
+      {{ h.odm_dataset_link_for_legacy_reference(reference) }}
     </td>
   </tr>
   {% endfor %}
