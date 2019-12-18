@@ -9,7 +9,13 @@ import json
 
 import logging
 log = logging.getLogger(__name__)
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.ERROR)
+
+class _helpers(object):
+    def __getattr__(self, key):
+        return toolkit.h[key]
+h = _helpers()
+
 
 class OdmDataset(PackageController):
     def read_reference(self, reference):
@@ -23,6 +29,7 @@ class OdmDataset(PackageController):
 
     def _preflight_wms(self, params, wms_resource):
         try:
+            log.debug("Preflighting wms for %s %s %s", wms_resource['wms_layer'], wms_resource['id'], params)
             params = {"cql_filter": " AND ".join(["%s='%s'" % s for s in params.items()]),
                       "exceptions":'application/vnd.ogc.se_xml',
                       'feature_count':'101',
@@ -38,7 +45,7 @@ class OdmDataset(PackageController):
             resp = requests.get(wms_resource['wms_server'], params=params)
             return resp.headers['Content-Type'] == 'image/png'
         except Exception as msg:
-            log.error("Error preflighting cql request: %s" % e)
+            log.error("Error preflighting cql request: %s" % msg)
             return False
 
     def resource_read_detail(self, id, rid):
@@ -67,9 +74,10 @@ class OdmDataset(PackageController):
             c.pkg_dict = toolkit.get_action('package_show')({}, {'id': id})
             c.params = params
             try:
-                c.wms_resource = [r for r in c.pkg_dict['resources'] if r['format'] == 'WMS' and
-                                  self._preflight_wms(params, r)]
-            except:
+                c.wms_resource = [r for r in h.odm_profile_wms_for_lang(c.pkg_dict, h.lang())
+                                  if self._preflight_wms(params, r)]
+            except Exception as msg:
+                log.error("Exception preflighting resource: %s", msg)
                 c.wms_resource = None
 
             return toolkit.render('package/resource_detail.html')
