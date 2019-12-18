@@ -7,7 +7,8 @@
 
 {% if c.wms_resource %}
   <div style="position:relative;padding-top:1rem;">
-    {% snippet "profile/snippets/package_resource_read.html", pkg=package, resources=c.wms_resource, cql_filter=c.params %}
+      {% snippet "profile/snippets/package_resource_read.html", pkg=package,
+                 resources=c.wms_resource, cql_filter=c.params, bounding_box=c.bounding_box %}
   </div>
 {% endif %}
 

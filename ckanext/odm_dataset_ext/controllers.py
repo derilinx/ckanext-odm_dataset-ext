@@ -6,6 +6,7 @@ from ckan.lib.base import abort, BaseController
 
 import requests
 import json
+import decimal
 
 import logging
 log = logging.getLogger(__name__)
@@ -48,6 +49,26 @@ class OdmDataset(PackageController):
             log.error("Error preflighting cql request: %s" % msg)
             return False
 
+    def _get_wfs_bounding_box(self, params, wms_resource):
+        try:
+            log.debug("Getting bounding box for %s %s %s", wms_resource['wms_layer'], wms_resource['id'], params)
+            params = {"cql_filter": " AND ".join(["%s='%s'" % s for s in params.items()]),
+                      'maxFeatures':'101',
+                      'service':'WFS',
+                      'version':'1.1.0',
+                      'request':'GetFeature',
+                      'typeName': wms_resource['wms_layer'],
+                      'outputFormat':'application/json',
+                      'srsName':'EPSG:4326',
+            }
+            resp = requests.get(wms_resource['wms_server'], params=params)
+            log.debug(resp.text)
+            return resp.json()['bbox']
+        except Exception as msg:
+            log.error("Error getting bounding box: %s" % msg)
+            return False
+
+
     def resource_read_detail(self, id, rid):
         """ url should be dataset/[id]/resource/[rid]/detail?field=value """
         log.debug('OdmDataset read_detail: %s' % id)
@@ -76,6 +97,18 @@ class OdmDataset(PackageController):
             try:
                 c.wms_resource = [r for r in h.odm_profile_wms_for_lang(c.pkg_dict, h.lang())
                                   if self._preflight_wms(params, r)]
+                # in this case, we've got one feature and possibly multiple layers.
+                # the bounding box for one should be ok.
+                bb = self._get_wfs_bounding_box(params, c.wms_resource[0])
+                log.debug(bb)
+                #[ w, s, e, n ]
+                scale = decimal.Decimal('0.3')
+                precision = decimal.Decimal('0.1')
+                c.bounding_box = [ float((decimal.Decimal(bb[0]) - scale).quantize(precision)),
+                                   float((decimal.Decimal(bb[1]) - scale).quantize(precision)),
+                                   float((decimal.Decimal(bb[2]) + scale).quantize(precision)),
+                                   float((decimal.Decimal(bb[3]) + scale).quantize(precision))]
+                log.debug(c.bounding_box)
             except Exception as msg:
                 log.error("Exception preflighting resource: %s", msg)
                 c.wms_resource = None
