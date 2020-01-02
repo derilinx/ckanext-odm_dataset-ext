@@ -361,3 +361,10 @@ def fluent_form_label(field, lang):
         return scheming_language_text(form_label, lang)
 
     return scheming_language_text(field['label'], lang)
+
+def convert_num_to_year(year):
+    try:
+        year = int(float(year))
+        return year
+    except ValueError:
+        return year

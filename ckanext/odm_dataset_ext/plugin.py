@@ -109,6 +109,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_multi_dataset_values': helpers.multi_dataset_values,
             'odm_dataset_package_for_legacy_reference': helpers.package_for_legacy_reference,
             'odm_dataset_link_for_legacy_reference': helpers.link_for_legacy_reference,
+            'odm_dataset_convert_num_to_year': helpers.convert_num_to_year,
             # overrides
             'dataset_display_name': helpers.dataset_display_name,
             'resource_display_name': helpers.resource_display_name,
