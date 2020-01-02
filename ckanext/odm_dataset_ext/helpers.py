@@ -368,3 +368,6 @@ def convert_num_to_year(year):
         return year
     except ValueError:
         return year
+    except Exception as e:
+        # This is for undefined error while creating new package
+        pass
