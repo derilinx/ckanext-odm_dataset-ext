@@ -12,6 +12,7 @@ from ckan.plugins import toolkit
 from ckan.plugins.toolkit import request
 from ckan.common import config
 from ckan.lib import helpers as h
+from webhelpers.html import tags
 
 import logging
 log = logging.getLogger(__name__)
@@ -100,8 +101,8 @@ def get_currentlang_data(fieldname, data, fallback=True):
         return field.get(h.lang(), '')
 
 def dataset_display_name(pkg):
-    log.debug('dataset_display_name: %s' % pkg)
-    return get_currentlang_data('title_translated', pkg) or pkg['title'] or pkg['name']
+    log.info('dataset_display_name: %s' % pkg)
+    return get_currentlang_data('title_translated', pkg) or pkg['title_translated']['en'] or pkg['title'] or pkg['name']
 
 def resource_display_name(rsc):
     log.debug('resource_display_name: %s' % rsc)
@@ -329,12 +330,23 @@ def package_for_legacy_reference(reference):
     else:
         return {}
 
+def _dataset_link(package_or_package_dict):
+    if isinstance(package_or_package_dict, dict):
+        name = package_or_package_dict['name']
+    else:
+        name = package_or_package_dict.name
+    text = dataset_display_name(package_or_package_dict)
+    return tags.link_to(
+        text,
+        h.url_for(controller='package', action='read', id=name)
+    )
+
 @memoize
 def _link_for_legacy_reference(reference, lang):
     """ lang is unused, except as a key for the memoization"""
     package = package_for_legacy_reference(reference)
     if not package: return reference
-    return h.dataset_link(package)
+    return _dataset_link(package)
 
 def link_for_legacy_reference(reference):
     """ WARNING Don't call this in a loop with many different datasets.
