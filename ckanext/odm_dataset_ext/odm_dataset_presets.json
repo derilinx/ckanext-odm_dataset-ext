@@ -372,7 +372,8 @@
     },{
         "preset_name": "odm_date_uploaded",
         "values": {
-            "form_snippet": "odm_date_uploaded.html"
+            "form_snippet": "odm_date_uploaded.html",
+            "display_snippet": null
         }
     },{
         "preset_name": "odm_date_modified",
