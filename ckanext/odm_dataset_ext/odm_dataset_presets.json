@@ -367,7 +367,8 @@
     },{
         "preset_name": "odm_date_created",
         "values": {
-            "form_snippet": "odm_date_created.html"
+            "form_snippet": "odm_date_created.html",
+            "display_snippet": null
         }
     },{
         "preset_name": "odm_date_uploaded",
@@ -378,7 +379,8 @@
     },{
         "preset_name": "odm_date_modified",
         "values": {
-            "form_snippet": "odm_date_modified.html"
+            "form_snippet": "odm_date_modified.html",
+            "display_snippet": null
         }
     },{
         "preset_name": "odm_language",
