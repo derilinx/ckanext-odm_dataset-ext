@@ -102,7 +102,11 @@ def get_currentlang_data(fieldname, data, fallback=True):
 
 def dataset_display_name(pkg):
     log.info('dataset_display_name: %s' % pkg)
-    return get_currentlang_data('title_translated', pkg) or pkg['title_translated']['en'] or pkg['title'] or pkg['name']
+    try:
+        _title_en = pkg['title_translated']['en']
+    except KeyError as e:
+        _title_en = None
+    return get_currentlang_data('title_translated', pkg) or _title_en or pkg.get('title', '') or pkg.get('name', '')
 
 def resource_display_name(rsc):
     log.debug('resource_display_name: %s' % rsc)
