@@ -100,15 +100,17 @@ class OdmDataset(PackageController):
                 # in this case, we've got one feature and possibly multiple layers.
                 # the bounding box for one should be ok.
                 bb = self._get_wfs_bounding_box(params, c.wms_resource[0])
-                log.debug(bb)
-                #[ w, s, e, n ]
-                scale = decimal.Decimal('0.3')
-                precision = decimal.Decimal('0.1')
-                c.bounding_box = [ float((decimal.Decimal(bb[0]) - scale).quantize(precision)),
-                                   float((decimal.Decimal(bb[1]) - scale).quantize(precision)),
-                                   float((decimal.Decimal(bb[2]) + scale).quantize(precision)),
-                                   float((decimal.Decimal(bb[3]) + scale).quantize(precision))]
-                log.debug(c.bounding_box)
+                # bb is either false or an array, if false, we just go on.
+                if bb:
+                    log.debug(bb)
+                    #[ w, s, e, n ]
+                    scale = decimal.Decimal('0.3')
+                    precision = decimal.Decimal('0.1')
+                    c.bounding_box = [ float((decimal.Decimal(bb[0]) - scale).quantize(precision)),
+                                       float((decimal.Decimal(bb[1]) - scale).quantize(precision)),
+                                       float((decimal.Decimal(bb[2]) + scale).quantize(precision)),
+                                       float((decimal.Decimal(bb[3]) + scale).quantize(precision))]
+                    log.debug(c.bounding_box)
             except Exception as msg:
                 log.error("Exception preflighting resource: %s", msg)
                 c.wms_resource = None
