@@ -3,6 +3,7 @@ from ckan.plugins import toolkit
 from ckan.plugins.toolkit import c, _
 from ckan.common import request
 from ckan.lib.base import abort, BaseController
+import ckan.logic
 
 import requests
 import json
@@ -74,14 +75,15 @@ class OdmDataset(PackageController):
         log.debug('OdmDataset read_detail: %s' % id)
 
         params = dict(request.params)
-
         log.debug(params)
 
-        resource = toolkit.get_action('resource_show')({}, {'id': rid})
-        if not resource:
+        resource = None
+        try:
+            resource = toolkit.get_action('resource_show')({}, {'id': rid})
+        except ckan.logic.NotFound:
             abort(404, _('Resource not found'))
 
-        if not resource.get('datastore_active', None):
+        if not resource or not resource.get('datastore_active', None):
             abort(404, _('Resource not found in datastore'))
 
         results = toolkit.get_action('datastore_search')({}, {'resource_id': rid,
