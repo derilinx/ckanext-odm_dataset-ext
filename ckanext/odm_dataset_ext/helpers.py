@@ -328,6 +328,7 @@ def multi_dataset_values(arr):
 
 def package_for_legacy_reference(reference):
     """ WARNING Don't call this in a loop. Performance will suck """
+    if not reference: return {}
     package = toolkit.get_action('package_search')({}, {'fq': 'odm_reference_document:%s' % reference})
     if package['results']:
         return package['results'][0]
