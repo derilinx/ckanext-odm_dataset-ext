@@ -244,6 +244,18 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
         except Exception as msg:
             log.debug(msg)
 
+        # normalize translated fields
+        fields = [k for k in pkg_dict.keys() if k.endswith('_translated')]
+        for field in fields:
+            try:
+                vals = json.loads(pkg_dict.get(field, '{}'))
+                for k,v in vals.items():
+                    if v:
+                        pkg_dict['%s_%s' %(field, k)] = v
+                del(pkg_dict[field])
+            except Exception as msg:
+                log.error("Error extracting translated fields: %s", msg)
+
         return pkg_dict
 
 
