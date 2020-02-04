@@ -12,6 +12,38 @@ import logging
 log = logging.getLogger(__name__)
 #log.setLevel(logging.DEBUG)
 
+I18N_FIELDS={ 'title_translated', 'notes_translated',
+              'MD_Constraints', 'description_translated',
+              'DQ_PositionalAccuracy', 'DQ_QuantitativeAttribute',
+              'DQ_LogicalConsistency', 'DQ_Completeness',
+              'LI_ProcessStep', 'LI_Lineage',
+              'CI_ResponsibleParty_contact', 'MD_Metadata_contact',
+              'MD_ScopeDescription_attributes',
+              'MD_DataIdentification_keywords',
+              'CI_Citation_identAuth', 'MD_LegalConstraints',
+              'MD_Format_version',
+              'odm_agreement_participating_share',
+              'odm_agreement_concession_name',
+              'odm_access_and_use_constraints',
+              'odm_metadata_reference_information',
+              'odm_agreement_short_notes_of_change', 'odm_contact',
+              'odm_agreement_notes',
+              'odm_agreement_parties_obligations',
+              'odm_agreement_job_creation_summary',
+              'odm_agreement_training_summary',
+              'odm_agreement_environmental_protection',
+              'odm_agreement_sociocultural_protection',
+              'odm_agreement_fiscal_duties_summary',
+              'odm_agreement_environmental_fund_summary',
+              'odm_agreement_suspension_revocation_termination',
+              'odm_agreement_suspension_related_project',
+              'odm_short_title', 'odm_laws_previous_changes_notes',
+              'odm_laws_notes', 'marc21_246', 'marc21_100', 'marc21_110',
+              'marc21_700', 'marc21_710', 'marc21_260a', 'marc21_260b',
+              'marc21_300', 'marc21_500' 'mid_page_data_translated'
+              }
+
+
 class Odm_Dataset_Resource(plugins.SingletonPlugin):
     plugins.implements(plugins.IResourceController, inherit=True)
 
@@ -245,17 +277,40 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             log.debug(msg)
 
         # normalize translated fields
-        fields = [k for k in pkg_dict.keys() if k.endswith('_translated')]
+        fields = [k for k in pkg_dict.keys() if k in I18N_FIELDS
+                  or k.replace("extras_",'') in I18N_FIELDS ]
         for field in fields:
             try:
-                vals = json.loads(pkg_dict.get(field, '{}'))
+                vals = json.loads(pkg_dict.get(field, '{}').strip() or '{}')
                 for k,v in vals.items():
                     if v:
                         pkg_dict['%s_%s' %(field, k)] = v
                 del(pkg_dict[field])
             except Exception as msg:
-                log.error("Error extracting translated fields: %s", msg)
+                if pkg_dict.get('field', None):
+                    log.error("Error extracting translated fields (pkg): %s, '%s', %s, %s",
+                              field, pkg_dict.get('field',''), msg, pkg_dict['name'])
 
+        # same for the resources
+        try:
+            resources = json.loads(pkg_dict.get('validated_data_dict','{}')).get('resources')
+            for resource in resources:
+                fields = [k for k in resource.keys() if k in I18N_FIELDS ]
+                for field in fields:
+                    try:
+                        vals = resource.get(field, '{}')
+                        for k,v in vals.items():
+                            if v:
+                                index_field_name = 'res_extras_%s_%s' %(field, k)
+                                orig_val = pkg_dict.get(index_field_name, [])
+                                orig_val.append(v)
+                                pkg_dict[index_field_name] = orig_val
+                    except Exception as msg:
+                        log.error("Error extracting translated fields: %s", msg)
+        except Exception as msg:
+            log.error("Error extracting resources: %s" %msg)
+
+        #log.debug(pkg_dict)
         return pkg_dict
 
 
