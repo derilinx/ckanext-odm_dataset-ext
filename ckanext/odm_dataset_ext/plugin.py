@@ -11,6 +11,10 @@ from . import helpers, validators
 import logging
 log = logging.getLogger(__name__)
 #log.setLevel(logging.DEBUG)
+# Monkey patch in our preferred solr fields to search
+import ckan.lib.search
+ckan.lib.search.QUERY_FIELDS = "name^4 title^4 title_th^4 title_icu^4 tags^2 groups^2 text text_th text_icu"
+
 
 I18N_FIELDS={ 'title_translated', 'notes_translated',
               'MD_Constraints', 'description_translated',
