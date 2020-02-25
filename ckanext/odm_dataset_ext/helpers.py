@@ -388,3 +388,14 @@ def convert_num_to_year(year):
     except Exception as e:
         # This is for undefined error while creating new package
         pass
+
+def get_license_title(license_id):
+    """
+    Get license title given license id
+    """
+    register = ckan.model.Package.get_license_register()
+    licenses = register.values()
+    for li in licenses:
+        if li.id == license_id:
+            return li.title
+    return license_id

@@ -315,7 +315,8 @@
         "preset_name": "odm_license",
         "values": {
             "validators": "ignore_missing",
-            "form_snippet": "odm_license.html"
+            "form_snippet": "odm_license.html",
+            "display_snippet": "odm_license.html"
         }
     }, {
         "preset_name": "odm_copyright",

@@ -1,0 +1,5 @@
+{% if data[field.field_name] == "notspecified" %}
+ <p class="empty">{{'No license given'}}</p>
+{% else %}
+  {{ h.odm_dataset_get_license_title(data[field.field_name]) }}
+{% endif %}
