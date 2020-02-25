@@ -15,10 +15,8 @@ ckan.module('odm_spatial_range-module', function($) {
 						var intersection = $(countryCodesArray).filter(spatialRangeArray);
 						if (intersection.length===0){
 							$(this).attr('disabled', 'disabled');
-							console.log("hiding", $(this).val());
 						}else{
 							$(this).removeAttr('disabled');
-							console.log("showing", $(this).val());
 						}
 					});
 				});
