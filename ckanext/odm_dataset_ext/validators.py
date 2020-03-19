@@ -105,7 +105,7 @@ def record_does_not_exist_yet(value, context):
 
     found = True
 
-    log.debug('record_does_not_exist_yet: %s %s', str(value), str(context))
+    #log.debug('record_does_not_exist_yet: %s %s', str(value), str(context))
 
     if 'package' in context:
         current_package = context['package']
