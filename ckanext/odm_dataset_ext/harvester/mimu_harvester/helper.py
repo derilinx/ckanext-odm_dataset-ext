@@ -17,6 +17,7 @@ from urlparse import urlparse, urlunparse, parse_qs
 from pylons import config
 from owslib import wms
 from bs4 import BeautifulSoup
+from urlparse import urlparse, parse_qs
 import logging
 
 log = logging.getLogger(__name__)
@@ -68,7 +69,7 @@ machine_readable_formats = {
     'ogc:wfs': "wfs",
     'pdf': 'PDF',
     'php': 'HTML',
-    'png': 'WMS',
+    'png': 'PNG',
     'shapefile': 'shp',
     'sql': 'database',
     'tab': 'TAB',
@@ -296,10 +297,12 @@ def guess_resource_format(resource_locator_protocol, resource_name):
 
     # WMS and WFS resources
     if resource_locator_protocol and "wms" in resource_locator_protocol.lower():
-        return "WMS"
+        # Not really the wms resource
+        return None
 
     if resource_locator_protocol and "wfs" in resource_locator_protocol.lower():
-        return "WMS"
+        # Not really the wms resource
+        return None
 
     # nothing found
     return None
@@ -539,9 +542,85 @@ def clean_resource_title(title):
     return title
 
 
+def generate_wms_resource_from_layer(resources):
+    """
+    Generate WMS resource from url.
+    Check if the url is of type geo server and contains a layer information.
+    :param resources: list
+    :return: list
+    """
+    # Required to validate unique WMS resource
+    _unique_names = []
+    url_format = "{scheme}://{host}{path}?service={service}&request=GetCapabilities&layers={layers}"
+    wms_resources = []
+
+    for resource in resources:
+        _url = resource.get('url')
+
+        try:
+            _url_parts = urlparse(_url)
+            # Change scheme to https. Not sure if this is the right way
+            #_scheme = _url_parts.scheme
+            _scheme = "https"
+            _path = _url_parts.path
+            _host = _url_parts.hostname
+
+            # Parse the query to dict
+            _query_dict = parse_qs(_url_parts.query)
+
+            # url should contain path and layer information
+            # layer parameter can be either LAYER (for png), layers (for KML)
+            if _path == "/geoserver/wms" and ("layers" in _query_dict
+                                             or "layer" in _query_dict
+                                             or "LAYER" in _query_dict):
+
+                original_res_name = resource.get('name', '')
+
+                # Check if WMS resource already exists
+                if original_res_name not in _unique_names:
+                    layers = _query_dict.get("layer", '') or \
+                             _query_dict.get('layers', '') or _query_dict.get('LAYER', '')
+
+                    # Create new resource only if layer information exists
+                    if layers:
+                        _name = "WMS from {resource_name}".format(resource_name=resource.get('name'))
+                        _description = "WMS file generated from {}".format(resource.get('name'))
+                        res_url = url_format.format(
+                            scheme=_scheme,
+                            host=_host,
+                            path=_path,
+                            service="WMS",
+                            layers=layers[0]
+                        )
+
+                        new_resource = dict(
+                            url=normalize_url(res_url),
+                            name=_name,
+                            format="WMS",
+                            name_translated=convert_to_multilingual(_name),
+                            description=_description,
+                            description_translated=convert_to_multilingual(_description),
+                            resource_locator_protocol="wms",
+                            resource_locator_function='',
+                            odm_language=["en"]
+                        )
+
+                        # New unique WMS resource
+                        _unique_names.append(original_res_name)
+                        wms_resources.append(new_resource)
+
+        except Exception as e:
+            log.error(e)
+            pass
+
+    return wms_resources
+
+
 def get_package_resources(iso_values):
+
     resources = []
     resource_locators = iso_values.get('resource-locator', []) + iso_values.get('resource-locator-identification', [])
+    _resource_name_unique = []
 
     if len(resource_locators) > 0:
         for resource_locator in resource_locators:
@@ -553,7 +632,8 @@ def get_package_resources(iso_values):
                 res_format = guess_resource_format(_resource_locator_protocol, _resource_name)
 
                 # Parse resources with name and resource format
-                if res_format:
+                if res_format and (_resource_name not in _resource_name_unique):
+                    _resource_name_unique.append(_resource_name)
                     resource['format'] = res_format
                     if resource['format'] == 'WMS' and config.get('ckanext.spatial.harvest.validate_wms', False):
                         # Check if the service is a view service
@@ -580,7 +660,7 @@ def get_package_resources(iso_values):
                     if (resource['format'].lower() == 'zip') and data_formats:
 
                         data_formats = data_formats[0]  # usually(>) there's only one item in the array
-                        format_names = data_formats.get('name', '')  # this may be a list separated by , or a single element
+                        format_names = data_formats.get('name', '')  # may be a list separated by , or a single element
 
                         if 'esri' in format_names.lower():
                             resource['format'] = 'SHP'
@@ -590,4 +670,6 @@ def get_package_resources(iso_values):
                     else:
                         resources.append(resource)
 
-    return resources
+    # Create WMS resource if the url contains necessary information.
+    wms_resources = generate_wms_resource_from_layer(resources)
+    return resources + wms_resources
