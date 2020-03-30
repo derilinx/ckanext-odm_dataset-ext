@@ -1,5 +1,10 @@
-{%- if data["notes_translated"] is not defined -%}
-	{{	h.render_markdown(data["notes"]) }}
+{%- if data[field.field_name] is not defined -%}
+   {% if field.field_name == "notes_translated" %}
+	{{ h.render_markdown(data["notes"]) }}
+   {% endif %}
+   {% if field.field_name == "description_translated" %}
+        {{ h.render_markdown(data["description"]) }}
+   {% endif %}
 {%- else -%}
 	{{ h.render_markdown(h.scheming_language_text(data[field.field_name]) or data[field.field_name]['en'])  }}
 {%- endif -%}
