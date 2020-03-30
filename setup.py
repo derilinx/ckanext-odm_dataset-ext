@@ -83,6 +83,8 @@ setup(
         odm_dataset_ext=ckanext.odm_dataset_ext.plugin:Odm_Dataset_ExtPlugin
         odm_dataset_resource=ckanext.odm_dataset_ext.plugin:Odm_Dataset_Resource
 
+        odm_mimu_harvester=ckanext.odm_dataset_ext.harvester.mimu_harvester.odm_mimu_harvester:ODMMimuSpatialHarvester
+
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
     ''',
