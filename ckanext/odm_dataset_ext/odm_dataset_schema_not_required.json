@@ -76,11 +76,11 @@
             "preset": "odm_notes_translated_markdown", 
             "field_name": "description_translated", 
             "label": {
-                "en": "Description", 
                 "lo": "\u0ea5\u0eb2\u0e8d\u0ea5\u0eb0\u0ead\u0ebd\u0e94", 
-                "vi": "M\u00f4 t\u1ea3", 
+                "en": "Description", 
                 "my": "\u1016\u1031\u102c\u103a\u1015\u103c\u1001\u103b\u1000\u103a", 
-                "km": "\u1780\u17b6\u179a\u1796\u17b7\u1796\u178e\u17cc\u1793\u17b6"
+                "km": "\u1780\u17b6\u179a\u1796\u17b7\u1796\u178e\u17cc\u1793\u17b6", 
+                "vi": "M\u00f4 t\u1ea3"
             }
         }, 
         {
@@ -1042,8 +1042,6 @@
                 "vi": "v\u00ed d\u1ee5: Tong_Min_Group_Engineering__21.06.2011.pdf", 
                 "my": "\u1025\u1015\u1019\u102c Tong_Min_Group_Engineering__21.06.2011.pdf"
             }, 
-            "grouping": "Management", 
-            "field_name": "odm_reference_document", 
             "label": {
                 "en": "Legacy reference document", 
                 "lo": "\u0ec0\u0ead\u0e81\u0eb0\u0eaa\u0eb2\u0e99\u0ead\u0ec9\u0eb2\u0e87\u0ead\u0eb5\u0e87\u0eaa\u0eb0\u0ec0\u0e9e\u0eb2\u0eb0", 
@@ -1052,7 +1050,9 @@
                 "vi": "T\u00e0i li\u1ec7u tham kh\u1ea3o k\u1ebf th\u1eeba", 
                 "my": "\u1006\u1000\u103a\u1001\u1036\u101b\u101b\u103e\u102d\u1000\u103c\u1031\u102c\u1004\u103a\u1038\u100a\u103d\u103e\u1014\u103a\u1038\u1006\u102d\u102f\u101e\u100a\u103a\u1037\u1005\u102c\u1010\u1019\u103a\u1038"
             }, 
-            "display_snippet": null
+            "field_name": "odm_reference_document", 
+            "display_snippet": null, 
+            "grouping": "Management"
         }, 
         {
             "help_text": {
