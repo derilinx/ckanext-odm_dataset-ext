@@ -4,7 +4,6 @@ from pylons import config
 from ckan import model
 from ckan import plugins as p
 from ckanext.odm_dataset_ext.harvester.mimu_harvester import helper as h
-
 import logging
 
 log = logging.getLogger(__name__)
@@ -32,8 +31,15 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
         }
 
     def get_package_dict(self, iso_values, gemini_guid, package, reactivate_package=False, save_object_error=None):
-
-        package_dict = {}
+        """
+        Mapping of MIMU metadata to ODM metadata is done here
+        :param iso_values:
+        :param gemini_guid:
+        :param package:
+        :param reactivate_package:
+        :param save_object_error:
+        :return:
+        """
 
         package_dict = {
             'id': h.get_package_name(iso_values, package),
@@ -43,7 +49,7 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'license_id': h.get_package_license(iso_values),
             'taxonomy': ["Infrastructure"],  # TODO
             'MD_DataIdentification_language': iso_values.get('dataset-language') or ["en"],
-            'MD_Constraints': h.get_package_rights(iso_values, multilingual=True),
+            'MD_Constraints': h.get_md_constraints(),
             'owner_org': 'mimu',  # All the data set belongs to mimu
             'CI_Citation_date': h.get_package_citation_date(iso_values),
             'MD_Metadata_dateStamp': iso_values.get('metadata-date'),
@@ -60,9 +66,9 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'DQ_PositionalAccuracy': h.convert_to_multilingual(''),
             'DQ_QuantitativeAttribute': h.convert_to_multilingual(''),
             'DQ_LogicalConsistency':  h.convert_to_multilingual(''),
-            'DQ_Completeness':  h.convert_to_multilingual(''),
+            'DQ_Completeness':  h.get_dq_completeness(),
             'LI_ProcessStep':  h.convert_to_multilingual(''),
-            'LI_Lineage': h.convert_to_multilingual(iso_values.get('lineage')),
+            'LI_Lineage': h.get_li_lineage(),
             'CI_ResponsibleParty_contact': '',
             'MD_Metadata_contact': h.get_md_metadata_contact(),
             'MD_ScopeDescription_attributes': h.convert_to_multilingual(''),
@@ -72,8 +78,8 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'MD_LegalConstraints': h.convert_to_multilingual(" ".join(iso_values.get(
                 'limitations-on-public-access', []))),
             'MD_Format_version': h.convert_to_multilingual(" ".join(iso_values.get('data-format', []))),
-            'CI_Citation_updateFreq': h.get_package_frequency(iso_values),
-            'odm_copyright': '',
+            'CI_Citation_updateFreq': h.ci_citation_update_freq(),
+            'odm_copyright': h.odm_copyright(),
             'version': '',
             'odm_province': '',
             'odm_reference_document': '',

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ckan.common import config
 from dateutil.parser import parse
 import urllib
 import time
@@ -86,6 +87,52 @@ machine_readable_formats = {
 }
 
 HOMEPAGES = set()
+
+
+def get_md_constraints():
+    """
+    This is the hardcoded value as mentioned in the google sheets
+    :return: str
+    """
+
+    use_limitations = u"""This product has been prepared for operational purposes only, to support humanitarian and development activities in Myanmar. Copyright ©2020 Myanmar Information Management Unit. MIMU geospatial datasets cannot be used on online platform unless with prior written agreement from MIMU. MIMU products are not for sale and can be used free of charge with attribution. For more information see http://themimu.info/mimu-terms-conditions. """
+
+    return convert_to_multilingual(use_limitations)
+
+
+def get_dq_completeness():
+    """
+    Hardcoded value as per google sheets
+    :return:
+    """
+    dq_completeness = u"""The information contained on this product is provided “as is”, for reference purposes only, based on current available information. The United Nations and the MIMU specifically do not make any warranties or representations as to the accuracy or completeness of such information nor does it imply official endorsement or acceptance by the United Nations. Please share any errors or omissions via maps@themimu.info."""
+    return convert_to_multilingual(dq_completeness)
+
+
+def get_li_lineage():
+    """
+    Hard code mimu lineage as per given
+    :return: str
+    """
+    li_lineage = u"""Copyright ©2020 Myanmar Information Management Unit. For more information see http://themimu.info/mimu-terms-conditions."""
+    return convert_to_multilingual(li_lineage)
+
+
+def ci_citation_update_freq():
+    """
+    ci citation frequency
+    :return: str
+    """
+    return "as needed"
+
+
+def odm_copyright():
+    """
+    ODM copyright as per given
+    :return: str
+    """
+    copyright = u"""©2020 Myanmar Information Management Unit.  For more information see http://themimu.info/mimu-terms-conditions."""
+    return copyright
 
 
 def convert_date_format(value):
@@ -551,7 +598,7 @@ def generate_wms_resource_from_layer(resources):
     """
     # Required to validate unique WMS resource
     _unique_names = []
-    url_format = "{scheme}://{host}{path}?service={service}&request=GetCapabilities&layers={layers}"
+    url_format = "{host}{path}?service={service}&request=GetCapabilities&layers={layers}"
     wms_resources = []
 
     for resource in resources:
@@ -561,7 +608,6 @@ def generate_wms_resource_from_layer(resources):
             _url_parts = urlparse(_url)
             # Change scheme to https. Not sure if this is the right way
             #_scheme = _url_parts.scheme
-            _scheme = "https"
             _path = _url_parts.path
             _host = _url_parts.hostname
 
@@ -586,9 +632,8 @@ def generate_wms_resource_from_layer(resources):
                         _name = "WMS from {resource_name}".format(resource_name=resource.get('name'))
                         _description = "WMS file generated from {}".format(resource.get('name'))
                         res_url = url_format.format(
-                            scheme=_scheme,
-                            host=_host,
-                            path=_path,
+                            host=config.get('ckan.site_url'),
+                            path=_path.replace("geoserver", "mimugeoserver"),
                             service="WMS",
                             layers=layers[0]
                         )
