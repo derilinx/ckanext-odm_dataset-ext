@@ -206,7 +206,6 @@ def test_is_wms(url):
 
 def add_package_contact(package_dict, iso_values):
     contact_data = iso_values.get('metadata-point-of-contact')
-    package_dict['CI_ResponsibleParty_contact'] = convert_to_multilingual("NA")
 
     if contact_data and len(contact_data) > 0:
         _name = contact_data[0].get('individual-name')
@@ -216,6 +215,13 @@ def add_package_contact(package_dict, iso_values):
         package_dict['CI_ResponsibleParty_contact'] = convert_to_multilingual(
             "{} , Email: {}, Tel: {}".format(_name, _email, _phone)
         )
+    else:
+        _contact = [iso_values.get('contact'), iso_values.get('contact-email')]
+        if _contact:
+            package_dict['CI_ResponsibleParty_contact'] = convert_to_multilingual(" Email: ".join(_contact))
+        else:
+            package_dict['CI_ResponsibleParty_contact'] = convert_to_multilingual("NA")
+
     return package_dict
 
 
@@ -598,7 +604,7 @@ def generate_wms_resource_from_layer(resources):
     """
     # Required to validate unique WMS resource
     _unique_names = []
-    url_format = "{host}{path}?service={service}&request=GetCapabilities&layers={layers}"
+    url_format = "https://{host}{path}?service={service}&request=GetCapabilities&layers={layers}"
     wms_resources = []
 
     for resource in resources:
@@ -632,8 +638,8 @@ def generate_wms_resource_from_layer(resources):
                         _name = "WMS from {resource_name}".format(resource_name=resource.get('name'))
                         _description = "WMS file generated from {}".format(resource.get('name'))
                         res_url = url_format.format(
-                            host=config.get('ckan.site_url'),
-                            path=_path.replace("geoserver", "mimugeoserver"),
+                            host=_host.replace("dev.geonode", "geonode"),  # Some of the url are of type dev.geonode
+                            path=_path,
                             service="WMS",
                             layers=layers[0]
                         )
@@ -645,9 +651,12 @@ def generate_wms_resource_from_layer(resources):
                             name_translated=convert_to_multilingual(_name),
                             description=_description,
                             description_translated=convert_to_multilingual(_description),
-                            resource_locator_protocol="wms",
-                            resource_locator_function='',
-                            odm_language=["en"]
+                            feature_info_template="",
+                            MD_DataIdentification_language=['en'],
+                            vectorstorer_resource="",
+                            wms_server="https://geonode.themimu.info/geoserver/wms",
+                            wms_layer=layers[0],
+                            layer_url=normalize_url(res_url)
                         )
 
                         # New unique WMS resource
@@ -698,7 +707,7 @@ def get_package_resources(iso_values):
                         'description_translated': convert_to_multilingual(resource_description),
                         'resource_locator_protocol': resource_locator.get('protocol') or '',
                         'resource_locator_function': resource_locator.get('function') or '',
-                        'odm_language': ["en"]
+                        'MD_DataIdentification_language': ['en']
                     })
 
                     data_formats = iso_values.get('data-format', [])

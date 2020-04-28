@@ -399,3 +399,19 @@ def get_license_title(license_id):
         if li.id == license_id:
             return li.title
     return license_id
+
+def check_list_contains_valid_elements(pkg_dict, field_name):
+    """
+    Check if the field type is list and contains a valid elements should not be ""
+    """
+    if isinstance(pkg_dict.get(field_name, ''), list):
+       try:
+           if all("" == s or s.isspace() for s in pkg_dict.get(field_name)):
+               return False
+           else:
+               return True
+       except Exception as e:
+           return True
+    else:
+        return bool(pkg_dict.get(field_name, ''))
+

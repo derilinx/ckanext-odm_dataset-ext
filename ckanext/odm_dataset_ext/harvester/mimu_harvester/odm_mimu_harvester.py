@@ -46,6 +46,7 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'name': h.get_package_name(iso_values, package),
             'title_translated': h.convert_to_multilingual(iso_values['title']),
             'notes_translated': h.convert_to_multilingual(iso_values['abstract']),
+            'private': True,
             'license_id': h.get_package_license(iso_values),
             'taxonomy': ["Infrastructure"],  # TODO
             'MD_DataIdentification_language': iso_values.get('dataset-language') or ["en"],
