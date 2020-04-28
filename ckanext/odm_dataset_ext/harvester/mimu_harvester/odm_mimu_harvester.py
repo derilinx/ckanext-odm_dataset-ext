@@ -102,7 +102,7 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
         if len(package_dict['resources']) == 0:
             package_dict['state'] = 'deleted'
 
-        package_dict['author'] = "MIMU"
+        package_dict['author'] = "Myanmar Information Management Unit MIMU"
 
         if package_dict['name'] in dataset_blacklist:
             package_dict['state'] = 'deleted'
