@@ -98,7 +98,11 @@ def get_whitelist_wms_layers():
     _url = 'https://geonode.themimu.info/geoserver/wms'
     _version = "1.1.1"
     identifiers = wms.WebMapService(_url, version=_version)
-    wms_layers = list(identifiers.contents)[1:] # first element is group hence ignore
+    wms_layers = list(identifiers.contents) # first element is group hence ignore
+    try:
+        wms_layers.remove('group1')
+    except Exception as e:
+        pass
 
     return tuple(wms_layers)
 
@@ -196,7 +200,7 @@ def get_package_name(iso_values, package):
         pkg_name = normalize_name(package.name)
     if len(pkg_name) > 100:
         pkg_name = pkg_name[0:100]
-    return pkg_name
+    return pkg_name+"-mimu"
 
 
 def test_is_wms(url):
