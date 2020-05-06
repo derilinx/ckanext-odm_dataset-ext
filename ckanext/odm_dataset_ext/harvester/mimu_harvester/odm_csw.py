@@ -100,7 +100,7 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
         used_identifiers = []
         ids = []
         try:
-            for identifier in self.csw.getidentifiers(page=3, timeout=TIMEOUT):
+            for identifier in self.csw.getidentifiers(page=10):
                 try:
                     log.info('Got identifier %s from the CSW', identifier)
                     if identifier in used_identifiers:
@@ -117,6 +117,7 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
                     ids.append(obj.id)
                     used_identifiers.append(identifier)
                 except Exception, e:
+                    log.error(e)
                     self._save_gather_error('Error for the identifier %s [%r]' % (identifier, e), harvest_job)
                     continue
         except XMLSyntaxError as e:
@@ -131,6 +132,9 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
         if len(ids) == 0:
             self._save_gather_error('No records received from the CSW server', harvest_job)
             return None
+
+        log.info("\nGather stage summary: ")
+        log.info("TOTAL IDs: {}".format(str(len(ids))))
         return ids
 
     def _create_package_from_data(self, package_dict, package=None):

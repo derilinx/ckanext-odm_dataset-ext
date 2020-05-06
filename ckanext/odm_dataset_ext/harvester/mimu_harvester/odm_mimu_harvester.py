@@ -18,10 +18,15 @@ department_blacklist = [
 dataset_blacklist = [
 ]
 
+whitelist_layers = h.get_whitelist_wms_layers()
+
 
 class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
     force_import = True or p.toolkit.asbool(
         p.toolkit.config.get('ckanext.dgithree.harvester_ignore_metadata_modified', False))
+    total_rejected = 0
+    black_listed_layers = []
+    added_layers = []
 
     def info(self):
         return {
@@ -29,6 +34,22 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'title': 'ODM MIMU Spatial',
             'description': 'Gemini Harvester customised for omd mimu dataset harvester'
         }
+
+    def is_package_wms_resource_in_whitelist(self, package_dict):
+        """
+        Check if package wms layer in whitelisted layers.
+        :param package_dict:
+        :return:
+        """
+        # get wms resouces
+        for resc in package_dict.get('resources'):
+            if resc.get('format').lower().strip() == "wms":
+                if resc.get('wms_layer') in whitelist_layers:
+                    self.added_layers.append(resc.get('wms_layer'))
+                    return True
+                else:
+                    self.black_listed_layers.append(resc.get('wms_layer'))
+        return False
 
     def get_package_dict(self, iso_values, gemini_guid, package, reactivate_package=False, save_object_error=None):
         """
@@ -88,6 +109,13 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'resources': h.get_package_resources(iso_values)
         }
 
+        # Add package state
+        if not self.is_package_wms_resource_in_whitelist(package_dict):
+            self.total_rejected += 1
+            package_dict['state'] = "deleted"
+        else:
+            package_dict['state'] = "active"
+
         # Add package contact
         h.add_package_contact(package_dict, iso_values)
 
@@ -116,6 +144,10 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
                 bfile.write('\n')
             if save_object_error is not None:
                 save_object_error('Dataset in blacklist', package_dict['name'], 'Import')
+
+            self.total_rejected += 1
+            log.info("Total rejected so far - not in whitelist: ")
+            log.info(self.total_rejected)
             return
         else:
             if package_dict['author'] in department_normalize:
@@ -130,5 +162,6 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
                 bfile.write('\n')
                 bfile.write(package_dict['name'])
                 bfile.write('\n')
-
+            log.info("Total rejected so far - not in whitelist: ")
+            log.info(self.total_rejected)
             return package_dict

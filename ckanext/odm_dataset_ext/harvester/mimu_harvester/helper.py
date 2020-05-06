@@ -89,6 +89,20 @@ machine_readable_formats = {
 HOMEPAGES = set()
 
 
+def get_whitelist_wms_layers():
+    """
+    This is necessary, since the harvester harvested 97 layers where as there are only 61 layers available.
+    Get capabilities gives only 61 layers
+    :return: tuple
+    """
+    _url = 'https://geonode.themimu.info/geoserver/wms'
+    _version = "1.1.1"
+    identifiers = wms.WebMapService(_url, version=_version)
+    wms_layers = list(identifiers.contents)[1:] # first element is group hence ignore
+
+    return tuple(wms_layers)
+
+
 def get_md_constraints():
     """
     This is the hardcoded value as mentioned in the google sheets
