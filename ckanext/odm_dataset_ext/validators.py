@@ -178,4 +178,23 @@ def extra_key_not_in_root_schema(key, data, errors, context):
         log.debug(' default fields keys: %s' % _default_fields)
         raise Invalid(_('There is a schema field with the same name: %s'% data[key]))
         
-        
+
+def validate_odm_date_field(key, data, errors, context):
+    """
+    Validate the odm_date field and the date should be of specific format (yyyy-mm-dd)
+    :param key:
+    :param data:
+    :param errors:
+    :param context:
+    :return:
+    """
+    date_field = data.get(key)
+
+    if date_field:
+        try:
+            datetime.datetime.strptime(date_field, '%Y-%m-%d')
+        except ValueError as e:
+            log.error(e)
+            errors[key] = ['Date field not in acceptable format']
+
+    return errors

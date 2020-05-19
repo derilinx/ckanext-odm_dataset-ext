@@ -113,6 +113,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_record_does_not_exist_yet': validators.record_does_not_exist_yet,
             'odm_dataset_convert_csv_to_array': validators.convert_csv_to_array,
             'odm_dataset_remove_topics': validators.remove_topics,
+            'odm_dataset_validate_odm_date_field': validators.validate_odm_date_field,
             'extra_key_not_in_root_schema': validators.extra_key_not_in_root_schema,
           }
 
