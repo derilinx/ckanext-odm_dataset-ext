@@ -1,0 +1,1 @@
+from ckanext.odm_dataset_ext.harvester.mimu_harvester.odm_mimu_harvester import ODMMimuSpatialHarvester

@@ -161,7 +161,7 @@ def convert_date_format(value):
     """
     try:
         _date = parse(value)
-        date = _date.strftime("%m/%d/%Y")
+        date = _date.strftime("%Y-%m-%d")
         return date
     except Exception as e:
         log.error(e)

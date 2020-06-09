@@ -135,13 +135,11 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
         if package_dict['name'] in dataset_blacklist:
             package_dict['state'] = 'deleted'
             log.info("Dataset %s in blacklist, not adding", package_dict['name'])
-            with open('/var/log/supervisor/blacklist.log', 'a+') as bfile:
-                bfile.write('\ndataset_blacklist\n')
-                bfile.write(
-                    '%s -- %s' % (package_dict['author'], package_dict.get('author_email', 'No email provided')))
-                bfile.write('\n')
-                bfile.write(package_dict['name'])
-                bfile.write('\n')
+            log.info('\ndataset_blacklist\n')
+            log.info("Author: {} Email: {}".format(package_dict['author'],
+                                                   package_dict.get('author_email', 'No email provided')))
+            log.info('\n')
+
             if save_object_error is not None:
                 save_object_error('Dataset in blacklist', package_dict['name'], 'Import')
 
@@ -154,14 +152,10 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
                 package_dict['author'] = department_normalize.get(package_dict['author'])
 
             package_dict['owner_org'] = h.normalize_name(package_dict['author'].encode('utf-8'))
-
-            with open('/var/log/supervisor/blacklist.log', 'a+') as bfile:
-                bfile.write('\nprocessed\n')
-                bfile.write(
-                    '%s -- %s' % (package_dict['author'], package_dict.get('author_email', 'No email provided')))
-                bfile.write('\n')
-                bfile.write(package_dict['name'])
-                bfile.write('\n')
+            log.info('\nprocessed\n')
+            log.info("Author: {} Email: {}".format(package_dict['author'],
+                                                   package_dict.get('author_email', 'No email provided')))
+            log.info('\n')
             log.info("Total rejected so far - not in whitelist: ")
             log.info(self.total_rejected)
             return package_dict
