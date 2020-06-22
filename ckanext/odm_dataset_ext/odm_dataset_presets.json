@@ -483,6 +483,13 @@
       "validators": "ignore_missing"
     }
   },{
+    "preset_name": "odm_geoserver_layer_name",
+    "values": {
+      "form_snippet": "odm_geoserver_layer_name.html",
+      "display_snippet": null,
+      "validators": "ignore_missing vectorstore_check_if_layer_is_valid"
+    }
+  },{
     "preset_name": "hidden",
     "values": {
       "form_snippet": "text_hidden.html",

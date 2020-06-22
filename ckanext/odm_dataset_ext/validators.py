@@ -90,7 +90,7 @@ def fluent_required(value):
     value_json = {}
 
     try:
-        value_json = json.loads(value);
+        value_json = json.loads(value)
     except:
         raise toolkit.Invalid("This multilingual field is mandatory. Please specify a value, at least in English.")
 

@@ -18,7 +18,24 @@
                 "en": "URL", 
                 "km": "\u17a2\u17b6\u179f\u1799\u178a\u17d2\u178b\u17b6\u1793 URL"
             }
-        }, 
+        },
+        {
+            "preset": "odm_geoserver_layer_name",
+            "field_name": "odm_geoserver_layer_name",
+            "label": {
+                "lo": "Layer Name",
+                "en": "Layer Name",
+                "km": "Layer Name"
+            },
+             "help_text": {
+                "en": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver",
+                "lo": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver",
+                "km": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver",
+                "th": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver",
+                "vi": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver",
+                "my": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver"
+            }
+        },
         {
             "form_placeholder": {
                 "lo": "\u0ec0\u0e8a\u0eb1\u0ec8\u0e99 \u0ea5\u0eb2\u0e84\u0eb2\u0e84\u0ecd\u0eb2\u0ec0\u0e94\u0eb7\u0ead\u0e99\u0ea1\u0eb1\u0e87\u0e81\u0ead\u0e99 2011 ", 
