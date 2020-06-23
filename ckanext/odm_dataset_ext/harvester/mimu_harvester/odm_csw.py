@@ -172,11 +172,10 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
                 log.info(package_dict.get('organization', 'NO ORG'))
                 return package_dict
             except ValidationError as e:
-
                 if "There is a record already with that name, please adapt URL." in str(e):
                     log.debug('Package validation error: %s, looking for a package with that name: %s' %
                              (e, package_dict['name']))
-                    package = get_action('package_show')(context, {'name_or_id':package_dict['name']})
+                    package = get_action('package_show')(context, {'id':package_dict['name']})
                     if package:
                         log.debug('updating existing package')
                         del(package_dict['id'])

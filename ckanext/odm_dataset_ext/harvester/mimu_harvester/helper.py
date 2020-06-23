@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from ckan.common import config
+from ckan.logic import get_action, ValidationError
 from dateutil.parser import parse
 import urllib
 import time
@@ -671,10 +672,10 @@ def generate_wms_resource_from_layer(resources):
                             description_translated=convert_to_multilingual(_description),
                             feature_info_template="",
                             MD_DataIdentification_language=['en'],
-                            vectorstorer_resource="",
-                            wms_server="https://geonode.themimu.info/geoserver/wms",
-                            wms_layer=layers[0],
-                            layer_url=normalize_url(res_url)
+                            #vectorstorer_resource="",
+                            #wms_server="https://geonode.themimu.info/geoserver/wms",
+                            wms_layer=layers[0]
+                            #layer_url=normalize_url(res_url)
                         )
 
                         # New unique WMS resource
@@ -688,7 +689,7 @@ def generate_wms_resource_from_layer(resources):
     return wms_resources
 
 
-def get_package_resources(iso_values):
+def get_package_resources(iso_values, package, context):
 
     resources = []
     resource_locators = iso_values.get('resource-locator', []) + iso_values.get('resource-locator-identification', [])
@@ -744,4 +745,34 @@ def get_package_resources(iso_values):
 
     # Create WMS resource if the url contains necessary information.
     wms_resources = generate_wms_resource_from_layer(resources)
-    return resources + wms_resources
+    parsed_resources = resources + wms_resources
+
+    if package:
+        if not isinstance(package, dict):
+            package = package.as_dict()
+        _actual_resources = package.get('resources')
+        _actual_resource_urls = [r.get('url') for r in _actual_resources]
+        _parsed_resource_urls = [r.get('url') for r in parsed_resources]
+        _new_resources_urls = list(set(_parsed_resource_urls).difference(set(_actual_resource_urls)))
+        _delete_resources_urls = set(_actual_resource_urls).difference(set(_parsed_resource_urls))
+
+        for n_resc in parsed_resources:
+            for a_resc in _actual_resources:
+                if n_resc.get('url') == a_resc.get('url'):
+                    log.info("Updating resource..")
+                    a_resc.update(n_resc)
+                    break
+
+            if n_resc.get('url') in _new_resources_urls:
+                try:
+                    n_resc = get_action("resource_create")(context, n_resc)
+                except ValidationError as e:
+                    log.error(e)
+                    _actual_resources.append(n_resc)
+
+            if n_resc.get('url') in _delete_resources_urls:
+                _actual_resources = [x for x in _actual_resources if x.get('url') != n_resc.get('url')]
+
+        return _actual_resources
+    else:
+        return parsed_resources

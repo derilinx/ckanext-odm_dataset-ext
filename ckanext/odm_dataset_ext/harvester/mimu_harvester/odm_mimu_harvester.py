@@ -62,6 +62,12 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
         :return:
         """
 
+        context = {'model': model,
+                   'session': model.Session,
+                   'user': self._get_user_name(),
+                   'extras_as_string': True,
+                   'api_version': '2'}
+
         package_dict = {
             'id': h.get_package_name(iso_values, package),
             'name': h.get_package_name(iso_values, package),
@@ -106,7 +112,7 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             'odm_province': '',
             'odm_reference_document': '',
             'odm_keywords': h.get_dataset_keywords(iso_values),
-            'resources': h.get_package_resources(iso_values)
+            'resources': h.get_package_resources(iso_values, package, context)
         }
 
         # Add package state
