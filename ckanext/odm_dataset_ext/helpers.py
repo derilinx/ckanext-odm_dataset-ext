@@ -389,7 +389,7 @@ def convert_num_to_year(year):
         # This is for undefined error while creating new package
         pass
 
-def get_license_title(license_id):
+def get_license_title(license_id, return_empty=False):
     """
     Get license title given license id
     """
@@ -398,6 +398,8 @@ def get_license_title(license_id):
     for li in licenses:
         if li.id == license_id:
             return li.title
+    if return_empty:
+        return ''
     return license_id
 
 def check_list_contains_valid_elements(pkg_dict, field_name):

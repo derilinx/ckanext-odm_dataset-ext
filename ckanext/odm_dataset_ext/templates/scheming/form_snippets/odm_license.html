@@ -1,6 +1,7 @@
 {% import 'macros/form.html' as form %}
 
 {% block package_basic_fields_license %}
+{% set license_title = h.odm_dataset_get_license_title(data.get('license_id', 'notspecified'), return_empty=True) %}
 <div class="form-group control-medium">
   {% set error = errors.license_id %}
   <label class="control-label" for="field-license">{% if h.scheming_language_text(field.required) %}<span title="{{ _("This field is required") }}" class="control-required">*</span> {% endif %} {{ h.scheming_language_text(field.label) }}</label>
@@ -9,11 +10,14 @@
       {% for license_desc, license_id in licenses|sort if license_desc  %}
         <option value="{{ license_id }}" {% if data.get('license_id', 'notspecified') == license_id %}selected="selected"{% endif %}>{{ license_desc }}</option>
       {% endfor %}
+      {% if not license_title %}
+        <option value="{{ data.get('license_id', 'notspecified') }}" selected="selected">{{ data.get('license_id', 'notspecified') }}</option>
+      {% endif %}
     </select>
     {% if error %}<span class="error-block">{{ error }}</span>{% endif %}
     <span class="info-block">
       <i class="icon-info-sign"></i>
-			{{h.scheming_language_text(field.help_text)}}
+	{{h.scheming_language_text(field.help_text)}}
     </span>
   </div>
 </div>
