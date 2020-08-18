@@ -56,9 +56,6 @@ def if_empty_same_as_description_if_not_empty(key, data, errors, context):
 
 def sanitize_list(value):
     '''Converts strings to list'''
-
-    log.debug('sanitize_list: %s', str(value))
-
     result = []
 
     if isinstance(value, list):
