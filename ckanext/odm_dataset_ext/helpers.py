@@ -322,8 +322,6 @@ def multi_dataset_values(arr):
         except ckan.logic.NotFound:
             ret.append({'name': name, 'title': name})
     
-    print("************************")
-    print(ret) 
     return ret
 
 def package_for_legacy_reference(reference):
