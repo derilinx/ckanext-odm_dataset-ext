@@ -316,14 +316,14 @@ def multi_dataset_values(arr):
 
     lang = h.lang()
     ret = []
-    try:
-        for name in arr:
-            ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name,
-
-                                                                                 'lang': lang}))
-    except ckan.logic.NotFound:
-        pass
-
+    for name in arr:
+        try:
+            ret.extend(toolkit.get_action('odm_dataset_autocomplete_exact')({}, {'q': name, 'lang': lang}))
+        except ckan.logic.NotFound:
+            ret.append({'name': name, 'title': name})
+    
+    print("************************")
+    print(ret) 
     return ret
 
 def package_for_legacy_reference(reference):
