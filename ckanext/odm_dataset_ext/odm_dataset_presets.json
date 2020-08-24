@@ -462,8 +462,8 @@
   },{
       "preset_name": "odm_related_library_records",
       "values": {
-          "form_snippet": "text.html",
-          "display_snippet": "multiple_list.html",
+          "form_snippet": "autocomplete_multiple.html",
+          "display_snippet": "multiple_dataset.html",
           "validators": "ignore_missing odm_dataset_sanitize_list",
           "output_validators": "scheming_multiple_choice_output",
           "classes": ["control-full"],
