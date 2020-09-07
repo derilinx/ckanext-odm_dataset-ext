@@ -152,7 +152,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'dataset_display_name': helpers.dataset_display_name,
             'resource_display_name': helpers.resource_display_name,
             'fluent_form_label': helpers.fluent_form_label,
-            'odm_dataset_get_license_title': helpers.get_license_title
+            'odm_dataset_get_license_title': helpers.get_license_title,
+            'odm_dataset_get_licences': helpers.get_odm_licences
         }
 
     ## IActions
