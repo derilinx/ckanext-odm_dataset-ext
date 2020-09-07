@@ -9,7 +9,7 @@
   <div class="controls">
     <select id="field-license" name="license_id" data-module="autocomplete">
       {% for license_id, license_desc in h.odm_dataset_get_licences(existing_license_id) %}
-        <option value="{{ license_id }}" {% if existing_license_id == license_id %}selected="selected"{% endif %}>{{ _(license_desc) }}</option>
+        <option value="{{ license_id }}" {% if existing_license_id == license_id %}selected="selected"{% endif %}>{{ license_desc }}</option>
       {% endfor %}
     </select>
     {% if error %}<span class="error-block">{{ error }}</span>{% endif %}

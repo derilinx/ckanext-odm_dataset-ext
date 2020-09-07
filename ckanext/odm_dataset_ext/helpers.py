@@ -420,5 +420,7 @@ def get_odm_licences(existing_license_id):
     The core helpers returns list which causes license list to be ovweritten when translated.
     Hence patch the core return tuple instead. 
     """
-    return tuple(h.license_options(existing_license_id))
+    lc = tuple(h.license_options(existing_license_id))
+    print(lc)
+    return lc
 
