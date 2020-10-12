@@ -98,12 +98,16 @@ def get_whitelist_wms_layers():
     """
     _url = 'https://geonode.themimu.info/geoserver/wms'
     _version = "1.1.1"
-    identifiers = wms.WebMapService(_url, version=_version)
-    wms_layers = list(identifiers.contents) # first element is group hence ignore
+    wms_layers = []
     try:
+        identifiers = wms.WebMapService(_url, version=_version)
+        wms_layers = list(identifiers.contents) # first element is group hence ignore
         wms_layers.remove('group1')
-    except Exception as e:
+    except ValueError as e:
         pass
+    except urllib2.HTTPError as e:
+        log.error("MIMU harvester url is unreachable")
+        log.error(e) 
 
     return tuple(wms_layers)
 
