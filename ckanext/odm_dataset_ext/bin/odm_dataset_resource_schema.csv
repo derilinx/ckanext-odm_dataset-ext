@@ -1,10 +1,10 @@
 field_name,label,en,Context,th,km,vi,my,lo
-url,label,URL,url.label,,អាសយដ្ឋាន URL,,,URL
-name_translated,label,Name,name_translated.label,,ឈ្មោះ,,,ຊື່
-name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,,ឧ. តម្លៃមាសក្នុងខែមករា ឆ្នាំ២០១១,,,ເຊັ່ນ ລາຄາຄໍາເດືອນມັງກອນ 2011 
-MD_DataIdentification_language,label,Resource's languages,MD_DataIdentification_language.label,,ភាសារបស់ធនធាន,,,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
-MD_DataIdentification_language,form_placeholder,Language(s) of the resource.,MD_DataIdentification_language.form_placeholder,,ភាសារបស់ធនធាន,,,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
-format,label,Format,format.label,,ទម្រង់,,,ຮູບແບບເອກະສານ
-description_translated,label,Description,description_translated.label,,ការពិពណ៌នា,,,ລາຍລະອຽດ
-description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,,កំណត់ចំណាំសំខាន់ៗអំពីទិន្នន័យ,,,ໝາຍເຫດກ່ຽວກັບຂໍ້ມູນ
-feature_info_template,label,Feature info template for WMS resource,feature_info_template.label,,,,,ແບບຂໍ້ມູນລັກສະນະສຳລັບແຫຼ່ງຂໍ້ມູນ WMS
+url,label,URL,url.label,URL,អាសយដ្ឋាន URL,URL,ဝဘ်ဆိုက်စာမျက်နှာလိပ်စာ,URL
+name_translated,label,Name,name_translated.label,ชื่อ,ឈ្មោះ,Tên,အမည်,ຊື່
+name_translated,form_placeholder,eg. January 2011 Gold Prices,name_translated.form_placeholder,เช่น ราคาทองประจำเดือนมกราคม 2554 ,ឧ. តម្លៃមាសក្នុងខែមករា ឆ្នាំ២០១១,Ví dụ. Giá vàng Tháng 01/2011,ဥပမာ-၂၀၁၁ခုနှစ်ဇန်နဝါရီလ ရွှေဈေးနှုန်းများ,ເຊັ່ນ ລາຄາຄໍາເດືອນມັງກອນ 2011 
+MD_DataIdentification_language,label,Resource's languages,MD_DataIdentification_language.label,ภาษา,ភាសារបស់ធនធាន,Các ngôn ngữ của tài nguyên,အရင်းအမြစ်၏ဘာသာစကား,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
+MD_DataIdentification_language,form_placeholder,Language(s) of the resource.,MD_DataIdentification_language.form_placeholder,ภาษาของทรัพยากรข้อมูล,ភាសារបស់ធនធាន,(Các) ngôn ngữ của tài nguyên,အရင်းအမြစ်၏ဘာသာစကားများ,ພາສາຂອງແຫຼ່ງຂໍ້ມູນ
+format,label,Format,format.label,รูปแบบไฟล์,ទម្រង់,Định dạng,ပုံစံ,ຮູບແບບເອກະສານ
+description_translated,label,Description,description_translated.label,คำอธิบาย,ការពិពណ៌នា,Mô tả,ဖော်ပြချက်,ລາຍລະອຽດ
+description_translated,form_placeholder,Some useful notes about the data,description_translated.form_placeholder,หมายเหตุสำคัญเกี่ยวกับข้อมูล,កំណត់ចំណាំសំខាន់ៗអំពីទិន្នន័យ,Một số ghi chú hữu ích về dữ liệu,အချက်အလက်များအကြောင်း အသုံးဝင်သောမှတ်စုအချို့,ໝາຍເຫດກ່ຽວກັບຂໍ້ມູນ
+feature_info_template,label,Feature info template for WMS resource,feature_info_template.label,คุณลักษณะต้นแบบสำหรับทรัพยากรประเภท WMS,ពុម្ពព័ត៌មាន Feature សម្រាប់ធនធាន WMS,Mẫu thông tin tính năng cho tài nguyên WMS,WMS အရင်းအမြစ်အတွက် သတင်းအချက်အလက်ပုံစံ,ແບບຂໍ້ມູນລັກສະນະສຳລັບແຫຼ່ງຂໍ້ມູນ WMS

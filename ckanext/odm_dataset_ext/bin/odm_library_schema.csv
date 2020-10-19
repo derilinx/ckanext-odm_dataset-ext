@@ -1,4 +1,3 @@
-odm_library_schema,,,,,,,,
 field_name,label,en,Context,th,km,vi,my,lo
 document_type,label,Document type,document_type.label,ประเภทเอกสาร,ប្រភេទឯកសារ,Loại tài liệu,စာတမ်းအမျိုးအစား,ປະເພດເອກະສານ
 odm_language,label,Language of document,odm_language.label,ภาษาของเอกสาร,ភាសារបស់ឯកសារ,Ngôn ngữ ,စာရွက်စာတမ်း၏ ဘာသာစကား,ພາສາຂອງເອກະສານ
