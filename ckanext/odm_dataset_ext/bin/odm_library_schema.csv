@@ -43,7 +43,7 @@ marc21_020,label,ISBN number,marc21_020.label,เลขหนังสือ ISB
 marc21_020,form_placeholder,13-digit unique number that uniquely identify a commercial book,marc21_020.form_placeholder,หมายเลขเฉพาะ 13 หลักที่ระบุให้หนังสือเชิงพาณิชย์,លេខមានតែ 13 ខ្ទង់ដែលកំណត់អត្តសញ្ញាណសៀវភៅសម្រាប់លក់,Số duy nhất gồm 13 chữ số để xác định một quyển sách mang tính chất thương mại ,စီးပွားဖြစ်စာအုပ်ကို သီးခြားသတ်မှတ်ပေးသော ဂဏန်း 13 လုံးပါ သီးခြားနံပါတ်,ຕົວເລກ 13 ຫຼັກທີ່ກຳນົດລະຫັດພິມຈຳໜ່າຍຂອງປື້ມ
 marc21_022,label,ISSN number,marc21_022.label,เลขหนังสือ ISSN,លេខសំគាល់ស្តង់ដាអន្តរជាតិ ISSN ,Số ISSN,ISSN နံပါတ်,ເລກລະຫັດ ISSN 
 marc21_022,form_placeholder,8-digit number that uniquely identify a serial publication,marc21_022.form_placeholder,หมายเลขเฉพาะ 8 หลักที่ระบุชุดสิ่งพิมพ์ต่อเนื่อง,លេខ 8 ខ្ទង់ដែលសម្គាល់តែការបោះពុម្ពផ្សាយតាមអេឡិចត្រូនិច,Số gồm 8 chữ số duy nhất xác định một ấn phẩm nhiều kỳ,အမှတ်စဉ်ထုတ်ဝေခြင်းကို သီးခြားသတ်မှတ်ပေးသော ဂဏန်း 8 လုံးပါ နံပါတ်,ຕົວເລກ 8 ຫຼັກທີ່ກຳນົດລະຫັດເລກລຳດັບຂອງສິ່ງພິມ
-marc21_260a,label,Publication place,marc21_260a.label,Publication place,កន្លែងបោះពុម្ភផ្សាយ,Nơi xuất bản,ထုတ်ဝေသည့်နေရာ,ສະຖານທີ່ຈັດພິມ
+marc21_260a,label,Publication place,marc21_260a.label,สถานที่พิมพ์,កន្លែងបោះពុម្ភផ្សាយ,Nơi xuất bản,ထုတ်ဝေသည့်နေရာ,ສະຖານທີ່ຈັດພິມ
 marc21_260a,form_placeholder,Place of publisher,marc21_260a.form_placeholder,สถานที่สำนักพิมพ์,ទីកន្លែងអ្នកចេញផ្សាយ,Địa điểm của nhà xuất bản,ထုတ်ဝေသူ၏ တည်နေရာ,ສະຖານທີ່ຈັດພິມເອກະສານ
 marc21_260b,label,Publisher,marc21_260b.label,สำนักพิมพ์,អ្នកបោះពុម្ពផ្សាយ,Nhà xuất bản,ထုတ်ဝေသူ,ຜູ້ຈັດພິມ
 marc21_260b,form_placeholder,Name of publishing organization,marc21_260b.form_placeholder,ชื่อสำนักพิมพ์,ឈ្មោះស្ថាប័នបោះពុម្ព,Tên của tổ chức xuất bản,ထုတ်ဝေသည့် အဖွဲ့အစည်း၏အမည်,ຊື່ອົງການຈັດຕັ້ງທີ່ຈັດພິມ
