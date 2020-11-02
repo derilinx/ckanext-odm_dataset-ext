@@ -276,7 +276,7 @@
         "preset_name": "odm_date",
         "values": {
             "form_snippet": "odm_date.html",
-            "display_snippet": "local_date.html",
+            "display_snippet": "odm_date.html",
             "validators": "ignore_missing odm_dataset_validate_odm_date_field",
             "form_attrs": {
                 "data-module": "datepicker-module"

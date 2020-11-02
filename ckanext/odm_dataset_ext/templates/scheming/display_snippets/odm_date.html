@@ -1,0 +1,4 @@
+{% set datetime_obj = h.odm_nav_parse_datetime_string_to_object(data[field.field_name]) %}
+<span class="automatic-local-date" data-datetime="{{ h.render_datetime(datetime_obj, date_format='%d/%m/%Y') }}">
+    {{ h.render_datetime(datetime_obj) }}
+</span>
