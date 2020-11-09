@@ -110,7 +110,7 @@ def dataset_display_name(pkg):
 
 def resource_display_name(rsc):
     log.debug('resource_display_name: %s' % rsc)
-    return get_currentlang_data('name_translated', rsc) or  rsc['name']
+    return get_currentlang_data('name_translated', rsc) or  rsc.get('name', '')
 
 def get_list_data(field_name, data):
     # may be in data[field_name], may be in data['extras'] somewhere
