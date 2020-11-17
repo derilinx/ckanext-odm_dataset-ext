@@ -7,6 +7,7 @@ import json
 
 from .logic import action
 from . import helpers, validators
+from ckanext.odm_dataset_ext.harvester import mail
 
 import logging
 log = logging.getLogger(__name__)
@@ -212,6 +213,11 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
                 toolkit.get_action('issue_create')(context, data_dict)
             except Exception as msg:
                 log.error('Exception: %s' % msg)
+        
+        if pkg_dict.get('owner_org', '') == config.get(
+                "ckanext.odm_dataset.mimu_harvester.owner_org", '') and pkg_dict.get('private'):
+            # This is for mimu harvester
+            mail.notify_users(context, pkg_dict)
 
     def after_update(self, context, pkg_dict):
         dataset_type = context['package'].type if 'package' in context else pkg_dict['type']
