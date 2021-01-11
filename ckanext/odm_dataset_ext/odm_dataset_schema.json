@@ -38,6 +38,23 @@
                 "en": "Layer Name", 
                 "km": "Layer Name"
             }
+        },
+        {
+            "help_text": {
+                "en": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
+                "lo": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
+                "km": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
+                "th": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
+                "vi": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
+                "my": "Fill this only if you want to add external geoserver wms resource otherwise live it empty"
+            },
+            "preset": "odm_geoserver_url",
+            "field_name": "odm_external_geoserver_url",
+            "label": {
+                "lo": "External Geoserver URL (WMS Service)",
+                "en": "External Geoserver URL (WMS Service)",
+                "km": "External Geoserver URL (WMS Service)"
+            }
         }, 
         {
             "form_placeholder": {

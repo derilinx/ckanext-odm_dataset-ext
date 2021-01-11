@@ -487,7 +487,14 @@
     "values": {
       "form_snippet": "odm_geoserver_layer_name.html",
       "display_snippet": null,
-      "validators": "ignore_missing vectorstore_check_if_layer_is_valid"
+      "validators": "ignore_missing"
+    }
+  },{
+    "preset_name": "odm_geoserver_url",
+    "values": {
+      "form_snippet": "odm_geoserver_layer_name.html",
+      "display_snippet": null,
+      "validators": "ignore_missing url_validator"
     }
   },{
     "preset_name": "hidden",
