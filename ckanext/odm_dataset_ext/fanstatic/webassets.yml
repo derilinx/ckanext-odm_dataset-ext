@@ -1,0 +1,30 @@
+odm_dataset_ext_datepicker_js:
+  output: ckanext-odm_dataset_ext/%(version)s_odm_dataset_ext_datepicker_js.js
+  contents:
+    - moment.js
+    - daterangepicker.js
+    - daterangepicker-module.js
+  extra:
+    preload:
+      - base/main
+
+odm_dataset_ext_datepicker_css:
+  output: ckanext-odm_dataset_ext/%(version)s_odm_dataset_ext_datepicker_css.css
+  contents:
+    - daterangepicker-bs3.css
+
+odm_dataset_ext_autocomplete_js:
+  output: ckanext-odm_dataset_ext/%(version)s_odm_dataset_ext_autocomplete_js.js
+  contents:
+    - odm_autocomplete.js
+  extra:
+    preload:
+      - base/main
+
+odm_dataset_ext_spatial_js:
+  output: ckanext-odm_dataset_ext/%(version)s_odm_dataset_ext_spatial_js.js
+  contents:
+    - odm_spatial_range-module.js
+  extra:
+    preload:
+      - base/main
