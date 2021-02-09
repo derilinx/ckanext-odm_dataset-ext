@@ -16,7 +16,7 @@ import cgitb
 from string import Template
 from datetime import datetime
 from urlparse import urlparse, urlunparse, parse_qs
-from pylons import config
+from ckan.plugins.toolkit import config
 from owslib import wms
 from bs4 import BeautifulSoup
 from urlparse import urlparse, parse_qs
