@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from ckanext.odm_dataset_ext.harvester.mimu_harvester.odm_csw import ODMMimuSpatialCSW
-from pylons import config
+from ckan.plugins.toolkit import config
 from ckan import model
 from ckan import plugins as p
 from ckanext.odm_dataset_ext.harvester.mimu_harvester import helper as h

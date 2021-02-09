@@ -426,3 +426,18 @@ def check_list_contains_valid_elements(pkg_dict, field_name):
         return bool(pkg_dict.get(field_name, ''))
 
 
+def convert_flask_multidict_to_dict_for_params(params):
+    """
+    converts list to string. Flask requests parameters are of type list inside dict
+    :param params:
+    :return:
+    """
+    new_params = dict()
+    for param in params:
+        if isinstance(params.get(param, ''), list):
+            new_params[param] = ",".join(params[param])
+        else:
+            new_params[param] = param
+    return new_params
+
+
