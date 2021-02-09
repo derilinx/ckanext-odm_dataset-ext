@@ -1,7 +1,12 @@
-{% resource 'odm_dataset_ext/moment.js' %}
-{% resource 'odm_dataset_ext/daterangepicker.js' %}
-{% resource 'odm_dataset_ext/daterangepicker-bs3.css' %}
-{% resource 'odm_dataset_ext/daterangepicker-module.js' %}
+{% if h.check_ckan_version(min_version='2.9.0') %}
+  {% asset 'odm_dataset_ext/odm_dataset_ext_datepicker_js' %}
+  {% asset 'odm_dataset_ext/odm_dataset_ext_datepicker_css' %}
+{% else %}
+  {% resource 'odm_dataset_ext/moment.js' %}
+  {% resource 'odm_dataset_ext/daterangepicker.js' %}
+  {% resource 'odm_dataset_ext/daterangepicker-bs3.css' %}
+  {% resource 'odm_dataset_ext/daterangepicker-module.js' %}
+{% endif %}
 
 {% import 'macros/form.html' as form %}
 

@@ -1,4 +1,11 @@
 {% ckan_extends %}
 
 {% block secondary %}{% endblock %}
-{% block scripts %}{{ super() }}{% resource 'odm_dataset_ext/odm_autocomplete.js' %}{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  {% if h.check_ckan_version(min_version='2.9.0') %}
+    {% asset 'odm_dataset_ext/odm_dataset_ext_autocomplete_js' %}
+  {% else %}
+    {% resource 'odm_dataset_ext/odm_autocomplete.js' %}
+  {% endif %}
+{% endblock %}
