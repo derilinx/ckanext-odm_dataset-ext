@@ -2,7 +2,6 @@
 from ckan.common import config
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-
 import json
 
 from ckanext.odm_dataset_ext.logic import action
@@ -72,7 +71,8 @@ class Odm_Dataset_Resource(plugins.SingletonPlugin):
     def _core(self, context, resource):
         try:
             package = toolkit.get_action('package_show')(context, {'id': resource['package_id']})
-            if package.get('EX_GeographicBoundingBox_north', None): return
+            if package.get('EX_GeographicBoundingBox_north', ''): return
+
             try:
                 geo_info = toolkit.get_action('vectorstorer_spatial_metadata_for_resource')(context, {
                     'resource_id': resource['id']})
@@ -248,7 +248,6 @@ class Odm_Dataset_ExtPlugin(Odm_Dataset_ExtMixinPlugin):
                   'MD_DataIdentification_spatialResolution'):
             if not pkg_dict.get(f, None) or pkg_dict.get(f, '') == "{}":
                 pkg_dict[f] = ''
-
         return pkg_dict
 
     def before_index(self, pkg_dict):

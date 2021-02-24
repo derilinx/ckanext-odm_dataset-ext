@@ -18,7 +18,6 @@ ValidationError = logic.ValidationError
 
 @toolkit.side_effect_free
 def package_search(context, data_dict):
-
     try:
         query = data_dict.get('fq_list', [])
         if not any('odm_spatial_range' in q for q in query):
@@ -35,7 +34,7 @@ def package_create(context, data_dict):
         toolkit.check_access('sysadmin', context, data_dict)
         return create_core.package_create(context, data_dict)
     except toolkit.NotAuthorized:
-        data_dict['private']=True
+        data_dict['private'] = True
         return create_core.package_create(context, data_dict)
 
 

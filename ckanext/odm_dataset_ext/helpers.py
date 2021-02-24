@@ -13,6 +13,7 @@ from ckan.plugins.toolkit import request
 from ckan.common import config
 from ckan.lib import helpers as h
 from webhelpers.html import tags
+from ckan import logic
 
 import logging
 log = logging.getLogger(__name__)
@@ -295,7 +296,7 @@ def _get_resource_name_for_field_value_core(field, value, lang):
                                                    'limit': 1,
                                                    'filters': {'id': value}})
         return results['records'][0].get(lang,'').strip() or results['records'][0]['name']
-    except (KeyError, IndexError, ValueError) as msg:
+    except (KeyError, IndexError, ValueError, logic.NotFound) as msg:
         log.error(msg)
         log.error("Error getting resource name for id %s %s, %s", field, value, resource_id)
         return ''
