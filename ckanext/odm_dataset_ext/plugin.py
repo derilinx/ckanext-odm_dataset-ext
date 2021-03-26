@@ -163,7 +163,8 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin, toolkit.DefaultDatasetForm)
             'odm_dataset_autocomplete': action.dataset_autocomplete,
             'odm_keyword_autocomplete': action.odm_keyword_autocomplete,
             'odm_dataset_autocomplete_exact': action.dataset_autocomplete_exact,
-            'unsafe_user_show': action.unsafe_user_show
+            'unsafe_user_show': action.unsafe_user_show,
+            'datastore_create': action.datastore_create
         }
 
         if False: # to enable splitting the sites by odm_spatial_range

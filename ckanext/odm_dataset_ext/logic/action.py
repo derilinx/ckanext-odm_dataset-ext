@@ -7,6 +7,7 @@ import ckan.authz as authz
 from paste.deploy.converters import asbool
 import ckan.lib.dictization.model_dictize as model_dictize
 import ckan.logic as logic
+from ckanext.datastore.logic.action import datastore_create as core_datastore_create
 
 import logging
 log = logging.getLogger(__name__)
@@ -191,3 +192,21 @@ def unsafe_user_show(context, data_dict):
             {'id': user_dict['id']})
 
     return user_dict
+
+
+@toolkit.chained_action
+def datastore_create(core_datastore_create, context, data_dict):
+    """
+    Add validation for the csv column name. If the csv contains the column _id, this result in failure of upload
+    hence give the appropriate message.
+    :param core_datastore_create: core datastrore_create
+    :param context: dict
+    :param data_dict: dict
+    :return: dict
+    """
+    fields = data_dict.get('fields', [])
+    for field in fields:
+        if field.get('id', '') == '_id':
+            raise logic.ValidationError("Please remove column _id from the uploaded csv file. "
+                                        "_id is column name is reserved for internal user only.")
+    return core_datastore_create(context, data_dict)
