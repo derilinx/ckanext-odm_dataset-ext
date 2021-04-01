@@ -236,7 +236,10 @@ def get_current_time():
 
 def get_resource_from_datatable(resource_id):
     ''' pulls tabular data from datastore '''
-    result = toolkit.get_action('datastore_search')(data_dict={'resource_id': resource_id,'limit':1000})
+    try:
+        result = toolkit.get_action('datastore_search')(data_dict={'resource_id': resource_id,'limit':1000})
+    except logic.NotFound:
+        result={"records": [}
     return result['records']
 
 def get_resource_id_for_field(field):
