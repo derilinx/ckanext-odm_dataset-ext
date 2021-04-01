@@ -253,7 +253,7 @@ def get_resource_id_for_field(field):
     return config.get('odm.resource_id.%s' % field_map.get(field,field))
 
 def get_resource_for_field(field):
-    log.debug('getting resource for field: %s' % field)
+    log.info('getting resource for field: %s' % field)
     return get_resource_from_datatable(get_resource_id_for_field(field))
 
 def get_resource_for_field_as_dict(field):
@@ -264,6 +264,7 @@ def get_resource_for_field_as_dict(field):
     try:
         return {e['id']:(e.get(lang,'').strip() or e['name']) for e in get_resource_for_field(field)}
     except KeyError as e:
+        log.error(field)
         log.error(e)
         return {}
 
