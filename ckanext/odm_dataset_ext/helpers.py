@@ -259,7 +259,11 @@ def get_resource_for_field_as_dict(field):
     if lang == 'en':
         # english is named "name" because i18n was added later.
         lang = 'name'
-    return {e['id']:(e.get(lang,'').strip() or e['name']) for e in get_resource_for_field(field)}
+    try:
+        return {e['id']:(e.get(lang,'').strip() or e['name']) for e in get_resource_for_field(field)}
+    except KeyError as e:
+        log.error(e)
+        return {}
 
 def get_resource_for_field_for_form(field):
     lang = h.lang()
