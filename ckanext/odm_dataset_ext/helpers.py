@@ -239,6 +239,8 @@ def get_resource_from_datatable(resource_id):
     try:
         result = toolkit.get_action('datastore_search')(data_dict={'resource_id': resource_id,'limit':1000})
     except logic.NotFound:
+        log.error("Datasetore resource not found. Please check.....")
+        log.error(resource_id)
         result={"records": []}
     return result['records']
 
