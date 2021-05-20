@@ -58,6 +58,22 @@ else:
 class Odm_Dataset_Resource(plugins.SingletonPlugin):
     plugins.implements(plugins.IResourceController, inherit=True)
 
+    try:
+        from ckanext.vectorconverter import interfaces as vectorconverter
+        plugins.implements(vectorconverter.IVectorconverter)
+    except ImportError:
+        pass
+
+    def vectorconverter_resource_create(self, resource, fmt, extras):
+        """ copy translated fields from the resource to the new resource
+        """
+        for field in ('MD_DataIdentification_language',
+                      'name_translated',
+                      'description_translated'):
+            if resource.get(field, None):
+                extras[field] = resource.get(field)
+        return extras
+
     def after_update(self, context, resource):
         if not (resource['format'] == 'WMS'): return
         log.info('resource after_create: %s' % resource['id'])
