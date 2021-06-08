@@ -49,8 +49,6 @@ class TestOdmDatasetSchema:
         )
         assert pkg['id']
         resource = factories.Resource(format="CSV", package_id=pkg.get('id', ''))
-
-        assert 'MD_DataIdentification_language' in resource
         assert resource['format'].lower() == "csv"
 
         resource = factories.Resource(
