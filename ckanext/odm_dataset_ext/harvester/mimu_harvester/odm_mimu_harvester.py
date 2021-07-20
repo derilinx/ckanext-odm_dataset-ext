@@ -18,8 +18,8 @@ department_blacklist = [
 dataset_blacklist = [
 ]
 
-whitelist_layers = h.get_whitelist_wms_layers()
-
+#whitelist_layers = h.get_whitelist_wms_layers()
+whitelist_layers = []
 
 class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
     force_import = True or p.toolkit.asbool(
