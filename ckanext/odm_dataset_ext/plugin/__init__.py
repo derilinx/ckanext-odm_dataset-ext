@@ -90,8 +90,8 @@ class Odm_Dataset_Resource(plugins.SingletonPlugin):
             if package.get('EX_GeographicBoundingBox_north', ''): return
 
             try:
-                geo_info = toolkit.get_action('vectorstorer_spatial_metadata_for_resource')(context, {
-                    'resource_id': resource['id']})
+                geo_info = toolkit.get_action('vectorconverter_spatial_metadata_for_resource')(context, {
+                    'resource': resource})
             except Exception as msg:
                 return
             if not geo_info: return
