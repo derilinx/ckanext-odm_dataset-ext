@@ -476,9 +476,9 @@
           }
       }
   },{
-    "preset_name": "version_hidden",
+    "preset_name": "version",
     "values": {
-      "form_snippet": "version_hidden.html",
+      "form_snippet": "version.html",
       "display_snippet": "text.html",
       "validators": "ignore_missing"
     }
