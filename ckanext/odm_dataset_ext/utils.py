@@ -1,5 +1,5 @@
 from ckan.plugins import toolkit
-from ckan.plugins.toolkit import c, _
+from ckan.plugins.toolkit import _
 from ckan.common import request
 from ckan.lib.base import abort
 from ckan.views.dataset import read as dataset_read_view
@@ -85,33 +85,37 @@ def resource_read_detail(id, rid):
                                                           'limit': 1})
     log.debug(results)
     if results['total']:
-        c.line = results['records'][0]
-        c.fields = results['fields']
-        c.resource = resource
-        c.pkg_dict = toolkit.get_action('package_show')({}, {'id': id})
-        c.params = params
+        vars = {
+            'line': results['records'][0],
+            'fields': results['fields'],
+            'resource': resource,
+            'pkg_dict': toolkit.get_action('package_show')({}, {'id': id}),
+            'params': params,
+            'wms_resource': None,
+        }
+        vars['package'] = vars['pkg_dict']
+
         try:
-            c.wms_resource = [r for r in h.odm_profile_wms_for_lang(c.pkg_dict, h.lang())
-                              if _preflight_wms(params, r)]
+            vars['wms_resource'] = [r for r in h.odm_profile_wms_for_lang(c.pkg_dict, h.lang())
+                                    if _preflight_wms(params, r)]
             # in this case, we've got one feature and possibly multiple layers.
             # the bounding box for one should be ok.
-            bb = _get_wfs_bounding_box(params, c.wms_resource[0])
+            bb = _get_wfs_bounding_box(params, vars['wms_resource'][0])
             # bb is either false or an array, if false, we just go on.
             if bb:
                 log.debug(bb)
                 #[ w, s, e, n ]
                 scale = decimal.Decimal('0.3')
                 precision = decimal.Decimal('0.1')
-                c.bounding_box = [ float((decimal.Decimal(bb[0]) - scale).quantize(precision)),
-                                   float((decimal.Decimal(bb[1]) - scale).quantize(precision)),
-                                   float((decimal.Decimal(bb[2]) + scale).quantize(precision)),
-                                   float((decimal.Decimal(bb[3]) + scale).quantize(precision))]
-                log.debug(c.bounding_box)
+                vars['bounding_box'] = [ float((decimal.Decimal(bb[0]) - scale).quantize(precision)),
+                                         float((decimal.Decimal(bb[1]) - scale).quantize(precision)),
+                                         float((decimal.Decimal(bb[2]) + scale).quantize(precision)),
+                                         float((decimal.Decimal(bb[3]) + scale).quantize(precision))]
+                log.debug(vars['bounding_box'])
         except Exception as msg:
             log.error("Exception preflighting resource: %s", msg)
-            c.wms_resource = None
 
-        return toolkit.render('package/resource_detail.html')
+        return toolkit.render('package/resource_detail.html', extra_vars=vars)
     else:
         abort(404, _('Detail item not found in datastore'))
 
