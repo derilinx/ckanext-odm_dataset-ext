@@ -350,10 +350,16 @@ def _dataset_link(package_or_package_dict):
     else:
         name = package_or_package_dict.name
     text = dataset_display_name(package_or_package_dict)
-    return tags.link_to(
-        text,
-        h.url_for(controller='package', action='read', id=name)
-    )
+    if toolkit.check_ckan_version(min_version='2.9.0'):
+        return tags.link_to(
+            text,
+            h.url_for('dataset.read', id=name)
+        )
+    else:
+        return tags.link_to(
+            text,
+            h.url_for(controller='package', action='read', id=name)
+        )
 
 @memoize
 def _link_for_legacy_reference(reference, lang):
