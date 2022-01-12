@@ -24,12 +24,12 @@
         }, 
         {
             "help_text": {
-                "en": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver", 
-                "lo": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver", 
-                "km": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver", 
-                "th": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver", 
-                "vi": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver", 
-                "my": "Select this only if you want to add existing wms layer from geoserver as resource. Given layer name should match the layer name in geoserver"
+                "en": "This field is for adding an existing wms layer in geoserver as a resource. This layer name should match the layer name in geoserver", 
+                "lo": "This field is for adding an existing wms layer in geoserver as a resource. This layer name should match the layer name in geoserver", 
+                "km": "This field is for adding an existing wms layer in geoserver as a resource. This layer name should match the layer name in geoserver", 
+                "th": "This field is for adding an existing wms layer in geoserver as a resource. This layer name should match the layer name in geoserver", 
+                "vi": "This field is for adding an existing wms layer in geoserver as a resource. This layer name should match the layer name in geoserver", 
+                "my": "This field is for adding an existing wms layer in geoserver as a resource. This layer name should match the layer name in geoserver"
             }, 
             "preset": "odm_geoserver_layer_name", 
             "field_name": "odm_geoserver_layer_name", 
@@ -41,12 +41,12 @@
         },
         {
             "help_text": {
-                "en": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
-                "lo": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
-                "km": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
-                "th": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
-                "vi": "Fill this only if you want to add external geoserver wms resource otherwise live it empty",
-                "my": "Fill this only if you want to add external geoserver wms resource otherwise live it empty"
+                "en": "Fill this in only if you want to add an external geoserver wms resource, otherwise leave it empty",
+                "lo": "Fill this in only if you want to add an external geoserver wms resource, otherwise leave it empty",
+                "km": "Fill this in only if you want to add an external geoserver wms resource, otherwise leave it empty",
+                "th": "Fill this in only if you want to add an external geoserver wms resource, otherwise leave it empty",
+                "vi": "Fill this in only if you want to add an external geoserver wms resource, otherwise leave it empty",
+                "my": "Fill this in only if you want to add an external geoserver wms resource, otherwise leave it empty"
             },
             "preset": "odm_geoserver_url",
             "field_name": "odm_external_geoserver_url",
