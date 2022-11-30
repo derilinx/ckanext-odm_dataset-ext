@@ -409,10 +409,8 @@ def get_license_title(license_id, return_empty=False):
     Get license title given license id
     """
     register = ckan.model.Package.get_license_register()
-    licenses = register.values()
-    for li in licenses:
-        if li.id == license_id:
-            return li.title
+    if license_id in register:
+        return register[license_id].title
     if return_empty:
         return ''
     return license_id
