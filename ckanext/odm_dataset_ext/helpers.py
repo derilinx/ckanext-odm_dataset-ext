@@ -263,7 +263,19 @@ def get_resource_for_field_as_dict(field):
         # english is named "name" because i18n was added later.
         lang = 'name'
     try:
-        return {e['id']:(e.get(lang,'').strip() or e['name']) for e in get_resource_for_field(field)}
+        result = {}
+        for e in get_resource_for_field(field):
+            try:
+                _id = e['id']
+                if e.get(lang,''):
+                    _lang = e.get(lang,'').strip()
+                else:
+                    _lang = e['name']
+                result[_id] = _lang
+            except AttributeError as e:
+                log.error(field)
+                log.error(e)
+        return result
     except KeyError as e:
         log.error(field)
         log.error(e)
@@ -274,10 +286,24 @@ def get_resource_for_field_for_form(field):
     if lang == 'en':
         # english is named "name" because i18n was added later.
         lang = 'name'
-    return [{'name':(e.get(lang,'').strip() or e['name']),
-             'id': e['id'],
-             'country_codes': e.get('country_codes','')}
-            for e in get_resource_for_field(field) if e['id'] and e['name']]
+    result = []
+    for e in get_resource_for_field(field):
+        if e['id'] and e['name']:
+            _id = e['id']
+            _country_codes = e.get('country_codes','')
+            _name = e['name']
+            try:
+                if e.get(lang,''):
+                    _name = e.get(lang,'').strip()
+            except AttributeError as e:
+                log.error(field)
+                log.error(e)
+            result.append({
+                'name': _name,
+                'id': _id,
+                'country_codes': _country_codes,
+            })
+    return result
 
 def get_resource_name_for_field_value(field, value):
     return _get_resource_name_for_field_value_core(field, value, h.lang())
