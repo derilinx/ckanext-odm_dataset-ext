@@ -7,6 +7,7 @@ import json
 from ckanext.odm_dataset_ext.logic import action
 from ckanext.odm_dataset_ext import helpers, validators
 from ckanext.odm_dataset_ext.harvester import mail
+from ckanext.odm_dataset_ext.views import odm_dataset_views
 
 import logging
 
@@ -47,13 +48,6 @@ I18N_FIELDS = {'title_translated', 'notes_translated',
                'marc21_700', 'marc21_710', 'marc21_260a', 'marc21_260b',
                'marc21_300', 'marc21_500' 'mid_page_data_translated'
                }
-
-
-if toolkit.check_ckan_version(min_version='2.9.0'):
-    from ckanext.odm_dataset_ext.plugin.flask_plugin import Odm_Dataset_ExtMixinPlugin
-else:
-    from ckanext.odm_dataset_ext.plugin.pylons_plugin import Odm_Dataset_ExtMixinPlugin
-
 
 class Odm_Dataset_Resource(plugins.SingletonPlugin):
     plugins.implements(plugins.IResourceController, inherit=True)
@@ -113,13 +107,18 @@ class Odm_Dataset_Resource(plugins.SingletonPlugin):
             raise
 
 
-class Odm_Dataset_ExtPlugin(Odm_Dataset_ExtMixinPlugin):
+class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IBlueprint)
+
+    # IBlueprint
+    def get_blueprint(self):
+        return [odm_dataset_views]
 
     #  IValidators
     def get_validators(self):

@@ -55,10 +55,10 @@ def import_one(dest_json, src_csv, field_type='dataset_fields'):
     for field in schema[field_type]:
         for item in ('label', 'form_placeholder', 'help_text'):
             try:
-                del(field['form_languages'])
+                del field['form_languages']
             except: pass
             context = '.'.join((field['field_name'], item))
-            print "Context: %s" % context
+            print("Context: %s" % context)
             if context in translations:
                 existing = field.get(item,{})
                 if type(existing) != type({}):

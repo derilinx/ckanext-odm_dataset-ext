@@ -4,7 +4,6 @@ import ckan.logic.action.create as create_core
 from ckan.common import config
 from ckan.plugins import toolkit
 import ckan.authz as authz
-from paste.deploy.converters import asbool
 import ckan.lib.dictization.model_dictize as model_dictize
 import ckan.logic as logic
 from ckanext.datastore.logic.action import datastore_create as core_datastore_create
@@ -122,7 +121,7 @@ def unsafe_user_show(context, data_dict):
     model = context['model']
 
     try:
-        unsafe_show = asbool(context.get('unsafe_user_show', 'False'))
+        unsafe_show = toolkit.asbool(context.get('unsafe_user_show', 'False'))
         if not unsafe_show:
             raise ValidationError('There is no context setup for unsafe_user_show')
     except ValueError:
@@ -155,7 +154,7 @@ def unsafe_user_show(context, data_dict):
     context['count_private_and_draft_datasets'] = \
         include_private_and_draft_datasets
 
-    include_password_hash = sysadmin and asbool(
+    include_password_hash = sysadmin and toolkit.asbool(
         data_dict.get('include_password_hash', False))
 
     user_dict = model_dictize.user_dictize(
@@ -166,7 +165,7 @@ def unsafe_user_show(context, data_dict):
                     'deprecated.')
         return user_dict
 
-    if asbool(data_dict.get('include_datasets', False)):
+    if toolkit.asbool(data_dict.get('include_datasets', False)):
         user_dict['datasets'] = []
 
         fq = "+creator_user_id:{0}".format(user_dict['id'])
@@ -185,7 +184,7 @@ def unsafe_user_show(context, data_dict):
                                                data_dict=search_dict) \
                 .get('results')
 
-    if asbool(data_dict.get('include_num_followers', False)):
+    if toolkit.asbool(data_dict.get('include_num_followers', False)):
         user_dict['num_followers'] = logic.get_action('user_follower_count')(
             {'model': model, 'session': model.Session},
             {'id': user_dict['id']})

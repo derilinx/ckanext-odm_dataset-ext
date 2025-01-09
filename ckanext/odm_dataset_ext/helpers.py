@@ -3,17 +3,16 @@
 
 import json
 import ckan
-import urllib
+import urllib.parse
 import datetime
-import re
-import uuid
 import os
 from ckan.plugins import toolkit
 from ckan.plugins.toolkit import request
 from ckan.common import config
 from ckan.lib import helpers as h
-from webhelpers.html import tags
+from dominate import tags
 from ckan import logic
+from ckanext.scheming.helpers import scheming_language_text
 
 import logging
 log = logging.getLogger(__name__)
@@ -51,9 +50,9 @@ def convert_to_multilingual(data):
     if data:
         log.debug('convert_to_multilingual: %s' % data)
 
-    if isinstance(data, basestring):
+    if isinstance(data, str):
         multilingual_data = {}
-        multilingual_data[h.lang()] = data;
+        multilingual_data[h.lang()] = data
     else:
         multilingual_data = data
 
@@ -105,7 +104,7 @@ def dataset_display_name(pkg):
     log.info('dataset_display_name: %s' % pkg)
     try:
         _title_en = pkg['title_translated']['en']
-    except KeyError as e:
+    except KeyError:
         _title_en = None
     return get_currentlang_data('title_translated', pkg) or _title_en or pkg.get('title', '') or pkg.get('name', '')
 
@@ -136,7 +135,7 @@ def get_field_langs(field_data, current_langs):
 def clean_taxonomy_tags(value):
     '''Cleans taxonomy field before storing it'''
 
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         return json.dumps([value])
 
     return json.dumps(list(value))
@@ -336,8 +335,8 @@ def get_package_type_label(dataset_type):
     return package_label_dict.get(dataset_type, '')
 
 def listify(s):
-    if isinstance(s, (str, unicode)):
-        return
+    if isinstance(s, (str, bytes)):
+        return s
     if isinstance(s, (list, set)):
         return ','.join(s)
     if not s:
@@ -345,10 +344,10 @@ def listify(s):
     return json.dumps(s)
 
 def autocomplete_multi_dataset_full_options(arr):
-    return urllib.quote(json.dumps(multi_dataset_values(arr)))
+    return urllib.parse.quote(json.dumps(multi_dataset_values(arr)))
 
 def multi_dataset_values(arr):
-    if isinstance(arr, (str, unicode)):
+    if isinstance(arr, (str, bytes)):
         arr = list(arr)
 
     lang = h.lang()
@@ -377,14 +376,14 @@ def _dataset_link(package_or_package_dict):
         name = package_or_package_dict.name
     text = dataset_display_name(package_or_package_dict)
     if toolkit.check_ckan_version(min_version='2.9.0'):
-        return tags.link_to(
+        return tags.a(
             text,
-            h.url_for('dataset.read', id=name)
+            href=h.url_for('dataset.read', id=name)
         )
     else:
-        return tags.link_to(
+        return tags.a(
             text,
-            h.url_for(controller='package', action='read', id=name)
+            href=h.url_for(controller='package', action='read', id=name)
         )
 
 @memoize
@@ -404,7 +403,7 @@ def link_for_legacy_reference(reference):
 # Return the translated field name for the target language,
 # rather than the system language.
 ###
-from ckanext.scheming.helpers import scheming_language_text
+
 def fluent_form_label(field, lang):
     """
     Return a label for the input field for the given language
@@ -426,7 +425,7 @@ def convert_num_to_year(year):
         return year
     except ValueError:
         return year
-    except Exception as e:
+    except:
         # This is for undefined error while creating new package
         pass
 
@@ -451,7 +450,7 @@ def check_list_contains_valid_elements(pkg_dict, field_name):
                return False
            else:
                return True
-       except Exception as e:
+       except:
            return True
     else:
         return bool(pkg_dict.get(field_name, ''))

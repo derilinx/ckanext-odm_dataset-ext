@@ -1,31 +1,22 @@
 from ckanext.spatial.harvesters.gemini import GeminiCswHarvester
 from ckanext.spatial.harvesters.base import text_traceback
-from ckanext.spatial.model.harvested_metadata import ISODocument, ISOElement, \
-    ISOResourceLocator, ISOResponsibleParty, ISOReferenceDate, ISOKeyword, ISOUsage, \
-    ISOAggregationInfo, ISOBoundingBox, ISOCoupledResources, ISODataFormat, ISOBrowseGraphic
 
 from ckanext.harvest.model import HarvestObject
-
-from sqlalchemy.sql import update, bindparam
 
 from ckan import model
 from ckan.model import Session
 
-from ckanext.spatial.model import GeminiDocument
 from ckanext.odm_dataset_ext.harvester.mimu_harvester import metadata_mapping
 from ckan import logic
 from ckan.logic import get_action, ValidationError
-from ckan.lib.navl.validators import not_empty
+from ckan.lib.navl.validators import not_empty, unicode_safe
 
 from lxml import etree
 from lxml.etree import XMLSyntaxError
 
 import difflib
 import uuid
-from datetime import datetime
 from dateutil.parser import parse
-import json
-from numbers import Number
 # exception handling
 import socket
 
@@ -77,7 +68,7 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
                 log.error('Errors found for object with GUID %s:' % self.obj.guid)
                 self._save_object_error(out, self.obj, 'Import')
 
-        unicode_gemini_string = etree.tostring(xml, encoding=unicode)
+        unicode_gemini_string = etree.tostring(xml, encoding="unicode")
 
         # may raise Exception for errors
         self.write_package_from_gemini_string(unicode_gemini_string)
@@ -92,7 +83,7 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
 
         try:
             self._setup_csw_client(url)
-        except Exception, e:
+        except Exception as e:
             self._save_gather_error('IError contacting the CSW server: %s' % e, harvest_job)
             return None
 
@@ -116,15 +107,15 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
                     obj.save()
                     ids.append(obj.id)
                     used_identifiers.append(identifier)
-                except Exception, e:
-                    log.error(e)
+                except Exception as e:
+                    log.exception('In gather_stage for odm csw harvester')
                     self._save_gather_error('Error for the identifier %s [%r]' % (identifier, e), harvest_job)
                     continue
         except XMLSyntaxError as e:
             log.error("XML Syntax error gathering the identifiers from the CSW server [%s]", str(e))
         except socket.timeout as e:
             log.error("Timeout error gathering the identifiers from the CSW server [%s]", str(e))
-        except Exception, e:
+        except Exception as e:
             log.error('Exception: %s' % text_traceback())
             self._save_gather_error('Error gathering the identifiers from the CSW server [%s]' % str(e), harvest_job)
             return None
@@ -151,7 +142,7 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
 
         # The default package schema does not like Upper case tags
         tag_schema = logic.schema.default_tags_schema()
-        tag_schema['name'] = [not_empty, unicode]
+        tag_schema['name'] = [not_empty, unicode_safe]
         package_schema['tags'] = tag_schema
 
         context = {'model': model,
@@ -163,8 +154,8 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
         if not package:
             # We need to explicitly provide a package ID, otherwise ckanext-spatial
             # won't be be able to link the extent to the package.
-            package_dict['id'] = unicode(uuid.uuid4())
-            package_schema['id'] = [unicode]
+            package_dict['id'] = str(uuid.uuid4())
+            package_schema['id'] = [unicode_safe]
 
             try:
                 package_dict = get_action('package_create')(context, package_dict)
@@ -226,8 +217,8 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
         try:
             metadata_modified_date = parse(gemini_values['metadata-date']).utcnow()
         except ValueError:
-            print 'Could not extract reference date using dateutil parser ' \
-                  'for GUID %s (%s)' % (gemini_guid, gemini_values['metadata-date'])
+            log.warning('Could not extract reference date using dateutil parser ' \
+                  'for GUID %s (%s)' % (gemini_guid, gemini_values['metadata-date']))
             return
 
         self.obj.metadata_modified_date = metadata_modified_date

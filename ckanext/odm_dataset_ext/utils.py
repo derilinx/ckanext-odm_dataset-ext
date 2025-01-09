@@ -96,7 +96,7 @@ def resource_read_detail(id, rid):
         vars['package'] = vars['pkg_dict']
 
         try:
-            vars['wms_resource'] = [r for r in h.odm_profile_wms_for_lang(c.pkg_dict, h.lang())
+            vars['wms_resource'] = [r for r in h.odm_profile_wms_for_lang(toolkit.g.pkg_dict, h.lang())
                                     if _preflight_wms(params, r)]
             # in this case, we've got one feature and possibly multiple layers.
             # the bounding box for one should be ok.

@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import json
 import logging
-import rdflib
-from rdflib import URIRef, BNode, Literal
-from rdflib.namespace import Namespace, RDF
-import traceback
+from rdflib import Literal
+from rdflib.namespace import Namespace
 
 AGLS = Namespace('http://www.agls.gov.au/agls/terms/')
 BIBO = Namespace('http://bibliontology.com/bibo/bibo.php#')
@@ -48,11 +45,11 @@ def split_multilingual_object_into_triples(triple):
 
   if object_value is None:
     return []
-  elif isinstance(object_value, basestring):
+  elif isinstance(object_value, str):
     return[(subject, predicate, Literal(object_value))]
   else:
     triples_to_return = []
-    for key, value in object_value.iteritems():
+    for key, value in object_value.items():
       if value:
         triples_to_return.append(
             (subject, predicate, Literal(value, lang=key)))
@@ -556,9 +553,6 @@ def map_internal_to_standard_taxonomic_term(term):
       "": {
           "broad_matches": [""]
       },
-      "": {
-          "broad_matches": [""]
-      }
   }
 
   if term not in mapping:

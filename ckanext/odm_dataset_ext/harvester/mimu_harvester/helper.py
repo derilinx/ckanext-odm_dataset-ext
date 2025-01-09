@@ -1,25 +1,20 @@
 # -*- coding: utf-8 -*-
-from ckan.common import config
 from ckan.logic import get_action, ValidationError
 from dateutil.parser import parse
-import urllib
-import time
 import sys
 import warnings
 import os
 import re
-import mimetypes
-import urllib2
 import json
 import itertools
 import cgitb
-from string import Template
 from datetime import datetime
-from urlparse import urlparse, urlunparse, parse_qs
+import urllib.parse
+from urllib.parse import urlparse, parse_qs
+import urllib.request
 from ckan.plugins.toolkit import config
 from owslib import wms
 from bs4 import BeautifulSoup
-from urlparse import urlparse, parse_qs
 import logging
 
 log = logging.getLogger(__name__)
@@ -103,11 +98,10 @@ def get_whitelist_wms_layers():
         identifiers = wms.WebMapService(_url, version=_version)
         wms_layers = list(identifiers.contents) # first element is group hence ignore
         wms_layers.remove('group1')
-    except ValueError as e:
+    except ValueError:
         pass
-    except urllib2.HTTPError as e:
-        log.error("MIMU harvester url is unreachable")
-        log.error(e) 
+    except urllib.error.HTTPError:
+        log.exception("MIMU harvester url is unreachable")
 
     return tuple(wms_layers)
 
@@ -218,13 +212,13 @@ def test_is_wms(url):
 
     try:
         capabilities_url = wms.WMSCapabilitiesReader().capabilities_url(url)
-        res = urllib2.urlopen(capabilities_url, None, 10)
+        res = urllib.request.urlopen(capabilities_url, None, 10)
         xml = res.read()
         s = wms.WebMapService(url, xml=xml)
         return isinstance(s.contents, dict) and s.contents != {}
-    except Exception, e:
-        log.error('WMS check for %s failed with exception: %s' % (url, str(e)))
-    return False
+    except:
+        log.exception('WMS check for %s failed with exception', url)
+        return False
 
 
 def add_package_contact(package_dict, iso_values):
@@ -275,7 +269,7 @@ def find_tag(xml, tag):
 
 
 def normalize_url(urlstring):
-    return urllib.quote(urlstring, safe="%/:=&?~#+!$,;'@()*[]")
+    return urllib.parse.quote(urlstring, safe="%/:=&?~#+!$,;'@()*[]")
 
 
 def normalize_name(string):
@@ -549,11 +543,11 @@ def add_package_spatial(package_dict, iso_values, harvest_object=None, save_obje
             package_dict['EX_GeographicBoundingBox_east'] = str(bbox['east'])
             package_dict['EX_GeographicBoundingBox_south'] = str(bbox['south'])
             package_dict['EX_GeographicBoundingBox_north'] = str(bbox['north'])
-        except ValueError, e:
+        except ValueError as e:
             if save_object_error is not None:
                 save_object_error('Error parsing bounding box value: {0}'.format(str(e)), harvest_object, 'Import')
             else:
-                log.error('Error parsing bounding box value: {0}'.format(str(e)))
+                log.exception('Error parsing bounding box value')
     return package_dict
 
 
@@ -612,8 +606,8 @@ def clean_resource_title(title):
             resource_title = " ".join(title.split("_"))
             resource_title = os.path.splitext(resource_title)[0]
             return resource_title
-    except Exception as e:
-        pass
+    except:
+        log.exception("Failed cleaning resource title")
 
     return title
 

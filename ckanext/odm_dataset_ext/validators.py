@@ -4,7 +4,6 @@
 import json
 import datetime
 import re
-import uuid
 
 from ckan import model
 
@@ -22,7 +21,7 @@ log = logging.getLogger(__name__)
 def clean_taxonomy_tags(value):
     '''Cleans taxonomy field before storing it'''
 
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         return json.dumps([value])
 
     return json.dumps(list(value))
@@ -66,7 +65,7 @@ def sanitize_list(value):
         for item in value:
             result.append(item)
 
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         new_value = value.encode("utf-8")
         new_value = new_value.replace("[u'","")
         new_value = new_value.replace(" u'","")
@@ -99,8 +98,6 @@ def fluent_required(value):
 
 def record_does_not_exist_yet(value, context):
     '''Checks whether the value corresponds to an existing record name, if so raises Invalid'''
-
-    found = True
 
     #log.debug('record_does_not_exist_yet: %s %s', str(value), str(context))
 
