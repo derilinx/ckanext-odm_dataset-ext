@@ -1,4 +1,4 @@
-from ckanext.spatial.model.harvested_metadata import ISODocument, ISOElement, ISOResourceLocator, \
+from ckanext.spatial.harvested_metadata import ISODocument, ISOElement, ISOResourceLocator, \
     ISOResponsibleParty, ISOReferenceDate, ISOKeyword, ISOUsage, \
     ISOAggregationInfo, ISOBoundingBox, ISOCoupledResources, ISODataFormat, ISOBrowseGraphic
 import logging
