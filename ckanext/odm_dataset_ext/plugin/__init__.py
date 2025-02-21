@@ -49,64 +49,6 @@ I18N_FIELDS = {'title_translated', 'notes_translated',
                'marc21_300', 'marc21_500' 'mid_page_data_translated'
                }
 
-class Odm_Dataset_Resource(plugins.SingletonPlugin):
-    plugins.implements(plugins.IResourceController, inherit=True)
-
-    try:
-        from ckanext.vectorconverter import interfaces as vectorconverter
-        plugins.implements(vectorconverter.IVectorconverter)
-    except ImportError:
-        pass
-
-    def vectorconverter_resource_create(self, resource, fmt, extras):
-        """ copy translated fields from the resource to the new resource
-        """
-        for field in ('MD_DataIdentification_language',
-                      'name_translated',
-                      'description_translated'):
-            if resource.get(field, None):
-                extras[field] = resource.get(field)
-        return extras
-
-    def after_update(self, context, resource):
-        if not (resource['format'] == 'WMS'): return
-        log.info('resource after_create: %s' % resource['id'])
-        return self._core(context, resource)
-
-    def after_create(self, context, resource):
-        if not (resource['format'] == 'WMS'): return
-        log.info('resource after_create: %s' % resource['id'])
-        return self._core(context, resource)
-
-    def _core(self, context, resource):
-        try:
-            package = toolkit.get_action('package_show')(context, {'id': resource['package_id']})
-            if package.get('EX_GeographicBoundingBox_north', ''): return
-
-            try:
-                geo_info = toolkit.get_action('vectorconverter_spatial_metadata_for_resource')(context, {
-                    'resource': resource})
-            except Exception as msg:
-                return
-            if not geo_info: return
-            crs = geo_info['crs'][0].lower()
-            # crs:84 is shorthand for epsg:4326, aka, lat/lon
-            if crs == 'crs:84':
-                crs = 'epsg:4326'
-            update = {'id': resource['package_id'],
-                      'MD_DataIdentification_spatialReferenceSystem': crs,
-                      'EX_GeographicBoundingBox_north': geo_info['EX_GeographicBoundingBox']['northBoundLatitude'],
-                      'EX_GeographicBoundingBox_south': geo_info['EX_GeographicBoundingBox']['southBoundLatitude'],
-                      'EX_GeographicBoundingBox_west': geo_info['EX_GeographicBoundingBox']['westBoundLongitude'],
-                      'EX_GeographicBoundingBox_east': geo_info['EX_GeographicBoundingBox']['eastBoundLongitude'],
-                      }
-            log.debug("Setting Bounding Box: %s" % update)
-            return toolkit.get_action('package_patch')(context, update)
-        except Exception as msg:
-            log.error("Error updating resource after_create: %s" % msg)
-            raise
-
-
 class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IConfigurer)
@@ -115,6 +57,13 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IResourceController, inherit=True)
+
+    try:
+        from ckanext.vectorconverter import interfaces as vectorconverter
+        plugins.implements(vectorconverter.IVectorconverter)
+    except ImportError:
+        pass
 
     # IBlueprint
     def get_blueprint(self):
@@ -195,13 +144,13 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
         return custom_actions
 
     # IPackageController
-    def before_create(self, context, resource):
+    def before_dataset_create(self, context, resource):
 
         dataset_type = context['package'].type if 'package' in context else ''
         if dataset_type == 'dataset':
             log.info('before_create')
 
-    def after_create(self, context, pkg_dict):
+    def after_dataset_create(self, context, pkg_dict):
         dataset_type = context['package'].type if 'package' in context else pkg_dict['type']
         review_system = toolkit.asbool(config.get("ckanext.issues.review_system", False))
         if dataset_type == 'dataset' and review_system:
@@ -223,12 +172,12 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
             # This is for mimu harvester
             mail.notify_users(context, pkg_dict)
 
-    def after_update(self, context, pkg_dict):
+    def after_dataset_update(self, context, pkg_dict):
         dataset_type = context['package'].type if 'package' in context else pkg_dict['type']
         if dataset_type == 'dataset':
             log.info('after_update: %s', pkg_dict['name'])
 
-    def after_show(self, context, pkg_dict):
+    def after_dataset_show(self, context, pkg_dict):
         # UNDONE notes/abstract, odm_dataset_spatial
         def _decode(s):
             try:
@@ -265,7 +214,7 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
                 pkg_dict[f] = ''
         return pkg_dict
 
-    def before_index(self, pkg_dict):
+    def before_dataset_index(self, pkg_dict):
         # Take this out of solr indexing, unless we want to make this a multivalued field.
         # tag searching should still work.
         if 'MD_DataIdentification_topicCategory' in pkg_dict:
@@ -347,3 +296,53 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
         # This plugin doesn't handle any special package types, it just
         # registers itself as the default (above).
         return []
+
+    def vectorconverter_resource_create(self, resource, fmt, extras):
+        """ copy translated fields from the resource to the new resource
+        """
+        for field in ('MD_DataIdentification_language',
+                      'name_translated',
+                      'description_translated'):
+            if resource.get(field, None):
+                extras[field] = resource.get(field)
+        return extras
+
+    def after_resource_update(self, context, resource):
+        if not (resource['format'] == 'WMS'): return
+        log.info('resource after_create: %s' % resource['id'])
+        return self._core(context, resource)
+
+    def after_resource_create(self, context, resource):
+        if not (resource['format'] == 'WMS'): return
+        log.info('resource after_create: %s' % resource['id'])
+        return self._core(context, resource)
+
+    def _core(self, context, resource):
+        try:
+            package = toolkit.get_action('package_show')(context, {'id': resource['package_id']})
+            if package.get('EX_GeographicBoundingBox_north', ''): return
+
+            try:
+                geo_info = toolkit.get_action('vectorconverter_spatial_metadata_for_resource')(context, {
+                    'resource': resource})
+            except Exception as msg:
+                return
+            if not geo_info: return
+            crs = geo_info['crs'][0].lower()
+            # crs:84 is shorthand for epsg:4326, aka, lat/lon
+            if crs == 'crs:84':
+                crs = 'epsg:4326'
+            update = {'id': resource['package_id'],
+                      'MD_DataIdentification_spatialReferenceSystem': crs,
+                      'EX_GeographicBoundingBox_north': geo_info['EX_GeographicBoundingBox']['northBoundLatitude'],
+                      'EX_GeographicBoundingBox_south': geo_info['EX_GeographicBoundingBox']['southBoundLatitude'],
+                      'EX_GeographicBoundingBox_west': geo_info['EX_GeographicBoundingBox']['westBoundLongitude'],
+                      'EX_GeographicBoundingBox_east': geo_info['EX_GeographicBoundingBox']['eastBoundLongitude'],
+                      }
+            log.debug("Setting Bounding Box: %s" % update)
+            return toolkit.get_action('package_patch')(context, update)
+        except Exception as msg:
+            log.error("Error updating resource after_create: %s" % msg)
+            raise
+
+    

@@ -81,7 +81,6 @@ setup(
     entry_points='''
         [ckan.plugins]
         odm_dataset_ext=ckanext.odm_dataset_ext.plugin:Odm_Dataset_ExtPlugin
-        odm_dataset_resource=ckanext.odm_dataset_ext.plugin:Odm_Dataset_Resource
 
         odm_mimu_harvester=ckanext.odm_dataset_ext.harvester:ODMMimuSpatialHarvester
 
