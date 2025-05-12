@@ -252,7 +252,9 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
                   or k.replace("extras_", '') in I18N_FIELDS]
         for field in fields:
             try:
-                vals = json.loads(pkg_dict.get(field, '{}').strip() or '{}')
+                vals = pkg_dict.get(field) or {}
+                if isinstance(vals, str):
+                    vals = json.loads(vals.strip() or '{}')
                 for k, v in vals.items():
                     if v:
                         pkg_dict['%s_%s' % (field, k)] = v
