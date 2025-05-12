@@ -258,9 +258,9 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
                         pkg_dict['%s_%s' % (field, k)] = v
                 del (pkg_dict[field])
             except Exception as msg:
-                if pkg_dict.get('field', None):
+                if pkg_dict.get(field, None):
                     log.error("Error extracting translated fields (pkg): %s, '%s', %s, %s",
-                              field, pkg_dict.get('field', ''), msg, pkg_dict['name'])
+                              field, pkg_dict.get(field, ''), msg, pkg_dict['name'])
 
         # same for the resources
         try:
