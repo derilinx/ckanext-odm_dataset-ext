@@ -26,6 +26,8 @@ I18N_FIELDS = {'title_translated', 'notes_translated',
                'CI_ResponsibleParty_contact', 'MD_Metadata_contact',
                'MD_ScopeDescription_attributes',
                'MD_DataIdentification_keywords',
+               'MD_DataIdentification_abstract',
+               'CI_Citation_title',
                'CI_Citation_identAuth', 'MD_LegalConstraints',
                'MD_Format_version',
                'odm_agreement_participating_share',
@@ -241,6 +243,9 @@ class Odm_Dataset_ExtPlugin(plugins.SingletonPlugin):
             pkg_dict['extras_odm_keywords_text'] = pkg_dict.get('odm_keywords', '')
         except Exception as msg:
             log.debug(msg)
+
+        # Avoid SOLR issues with dictionary fields
+        pkg_dict['CI_ResponsibleParty'] = json.dumps(pkg_dict['CI_ResponsibleParty'])
 
         # normalize translated fields
         fields = [k for k in pkg_dict.keys() if k in I18N_FIELDS
