@@ -66,8 +66,7 @@ def sanitize_list(value):
             result.append(item)
 
     if isinstance(value, str):
-        new_value = value.encode("utf-8")
-        new_value = new_value.replace("[u'","")
+        new_value = value.replace("[u'","")
         new_value = new_value.replace(" u'","")
         new_value = new_value.replace("']","")
         new_value = new_value.replace("'","")
