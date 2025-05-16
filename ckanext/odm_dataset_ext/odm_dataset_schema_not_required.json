@@ -1022,7 +1022,7 @@
                 "vi": "Phi\u00ean b\u1ea3n", 
                 "my": "\u1015\u103c\u1004\u103a\u1006\u1004\u103a\u1001\u103b\u1000\u103a"
             }, 
-            "validators": "ignore_missing ignore_empty unicode package_version_validator", 
+            "validators": "ignore_missing ignore_empty unicode_safe package_version_validator",
             "form_placeholder": {
                 "en": "Dataset's version (eg. 1.0)", 
                 "lo": "\u0ec0\u0ea7\u0eb5\u0e8a\u0eb1\u0ec9\u0e99\u0e82\u0ead\u0e87\u0e8a\u0eb8\u0e94\u0e82\u0ecd\u0ec9\u0ea1\u0eb9\u0e99 (\u0ec0\u0e8a\u0eb1\u0ec8\u0e99 1.0)", 
