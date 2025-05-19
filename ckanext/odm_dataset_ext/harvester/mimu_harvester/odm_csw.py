@@ -57,8 +57,7 @@ class ODMMimuSpatialCSW(GeminiCswHarvester):
         utf8_parser = etree.XMLParser(encoding='utf-8')
 
         def parse_from_unicode(unicode_str):
-            s = unicode_str.encode('utf-8')
-            return etree.fromstring(s, parser=utf8_parser)
+            return etree.fromstring(unicode_str, parser=utf8_parser)
 
         xml = parse_from_unicode(gemini_string)
         if VALIDATE:

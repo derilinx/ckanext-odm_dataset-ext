@@ -25,9 +25,9 @@ def extract_one(source, dest, field_type='dataset_fields'):
             }
             if type(field[item]) == type({}):
                 for lang in languages:
-                    elt[lang] = field[item].get(lang, '').encode('utf-8')
+                    elt[lang] = field[item].get(lang, '')
             else:
-                elt['en'] = field[item].encode('utf-8')
+                elt['en'] = field[item]
                 for lang in languages[1:]:
                     elt[lang] = ''
 
@@ -63,7 +63,7 @@ def import_one(dest_json, src_csv, field_type='dataset_fields'):
                 existing = field.get(item,{})
                 if type(existing) != type({}):
                     existing = {'en':existing}
-                existing.update({l:v.decode('utf-8') for l,v in zip(languages, translations[context]) if v})
+                existing.update({l:v for l,v in zip(languages, translations[context]) if v})
                 field[item] = existing
 
     with open (dest_json, 'w') as f:

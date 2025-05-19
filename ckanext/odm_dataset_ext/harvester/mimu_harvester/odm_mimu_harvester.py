@@ -157,7 +157,7 @@ class ODMMimuSpatialHarvester(ODMMimuSpatialCSW):
             if package_dict['author'] in department_normalize:
                 package_dict['author'] = department_normalize.get(package_dict['author'])
 
-            package_dict['owner_org'] = h.normalize_name(package_dict['author'].encode('utf-8'))
+            package_dict['owner_org'] = h.normalize_name(package_dict['author'])
             log.info('\nprocessed\n')
             log.info("Author: {} Email: {}".format(package_dict['author'],
                                                    package_dict.get('author_email', 'No email provided')))

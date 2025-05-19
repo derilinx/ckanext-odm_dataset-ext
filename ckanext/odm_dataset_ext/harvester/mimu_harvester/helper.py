@@ -278,7 +278,6 @@ def normalize_name(string):
     string = re.sub('\s+', ' ', string)  # squeeze whitespace
     string = string.replace(' ', '_')  # space to underscore
     string = string.replace('-', '_')  # dash to underscore
-    string = string.encode('utf-8')
     # Remove fadas from Irish names ('Met Éireann' => 'met-eireann')
     string = string.replace('Á', 'a').replace('á', 'a')
     string = string.replace('É', 'e').replace('é', 'e')
